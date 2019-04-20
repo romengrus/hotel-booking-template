@@ -1,0 +1,13 @@
+//- Responsive Icon component
+//- @param {string} icon file name (without extension)
+mixin icon(params)
+  -
+    params = Object.assign({
+      name: '',
+    }, params)
+
+    var classList = ['icon']
+    if (params.name) classList.push(`icon-${params.name}`)
+
+  svg(class= classList)
+    use(xlink:href= `#${params.name}`)

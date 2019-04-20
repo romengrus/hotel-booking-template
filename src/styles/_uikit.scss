@@ -1,0 +1,41 @@
+.showcase {
+  width: 80%;
+  margin: 0 auto;
+
+  .showcase__title {
+    text-transform: uppercase;
+  }
+}
+
+.ui-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__icon-info {
+    display: flex;
+    flex: 1 1 15rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default;
+    transition: background-color .3s ease;
+  }
+
+  &__icon-info:nth-child(odd) {
+    background: $gray-100;
+
+    &:hover {
+      background: $gray-200;
+    }
+  }
+
+  &__icon-info:nth-child(even) {
+    background: lighten($cyan, 50%);
+
+    &:hover {
+      background: lighten($cyan, 40%);
+    }
+  }
+}

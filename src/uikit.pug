@@ -1,0 +1,14 @@
+extends base.pug
+
+include blocks/library/icon/icon.pug
+
+block content
+  section.showcase
+    h1.showcase__title icons
+    .showcase__content
+      .ui-icons
+        each iconName in icons
+          .ui-icons__icon-info
+            .ui-icons__name= iconName
+            .ui-icons__icon
+              +icon({name: iconName})
