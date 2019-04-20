@@ -1,6 +1,7 @@
 extends base.pug
 
 include blocks/library/icon/icon.pug
+include blocks/library/menu/menu.pug
 
 block content
   section.showcase
@@ -12,3 +13,35 @@ block content
             .ui-icons__name= iconName
             .ui-icons__icon
               +icon({name: iconName})
+
+  section.showcase
+    h1.showcase__title header
+    .showcase__content
+      -
+        var menuItems = [{
+          name: 'Home',
+          href: '#',
+          isActive: true,
+        }, {
+          name: 'About',
+          href: '#',
+          isActive: false,
+        }, {
+          name: 'Services',
+          href: '#',
+          isActive: false,
+          submenu: [{
+            name: 'Design',
+            href: '#',
+            isActive: false
+          }, {
+            name: 'DevOps',
+            href: '#',
+            isActive: false
+          }, {
+            name: 'Programming',
+            href: '#',
+            isActive: false
+          }]
+        }]
+      +menu({items: menuItems})

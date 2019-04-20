@@ -1,0 +1,42 @@
+//- Menu component
+//- @param {string} title Menu title
+//- @param {string} orientation = horizontal | vertical
+//- @param {array} items Array of menu items
+//- menu item params:
+//- @param {string} name Menu item name
+//- @param {string} href Menu item href
+//- @param {boolean} isActive Is this currently selected menu item
+//- @param {array} submenu Array of submenu items 
+mixin menu(params)
+  include /blocks/library/icon/icon.pug
+
+  -
+    params = Object.assign({
+      title: '',
+      orientation: 'horizontal',
+      items: []
+    }, params)
+
+    var classList = ['menu']
+
+    if (params.orientation) classList.push(`menu_${params.orientation}`)
+
+  nav(role= 'navigation')
+    if params.title
+      h3.menu__title= params.title
+    ul(class= classList)
+      each item in params.items
+        li(class= 'menu__item')
+          - var linkClassList = ['menu__link']
+          - if (item.isActive) linkClassList.push('menu__link_active')
+          a(href= item.href, class= linkClassList)= item.name
+          if item.submenu
+            - var submenuClassList = ['menu__submenu']
+            - if (item.isActive) submenuClassList.push('menu__submenu_active')
+            +icon({name: 'semi-arrow-down'})
+            ul(class= submenuClassList)
+              each subItem in item.submenu
+                li(class= 'menu__item')
+                  - var submenuLinkClassList = ['menu__link']
+                  - if (subItem.isActive) submenuLinkClassList.push('menu__link_active')
+                  a(href= subItem.href, class= submenuLinkClassList)= subItem.name
