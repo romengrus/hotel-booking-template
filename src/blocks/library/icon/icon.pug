@@ -9,5 +9,14 @@ mixin icon(params)
     var classList = ['icon']
     if (params.name) classList.push(`icon-${params.name}`)
 
-  svg(class= classList)
+  //- aria-hidden="true"
+  //- Since we’re already including accessible text outside of the SVG element, 
+  //- we can tell screen readers to ignore it. This prevents issues where some readers 
+  //- might try to read something for the icon, 
+  //- or read the link or button’s text twice.
+  //-
+  //- focusable="false"	
+  //- This one is for IE and Edge. In those browsers, the SVG element can get keyboard focus. 
+  //- This can result in the surrounding link or button being focused twice, and being read twice.
+  svg(class= classList, aria-hidden="true" focusable="false")
     use(xlink:href= `#${params.name}`)
