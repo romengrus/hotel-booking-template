@@ -1,0 +1,71 @@
+.button {
+  display: inline-flex;
+  position: relative;
+  height: 2.75rem;
+  padding: 0.9375rem 1.25rem;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  background: $primary-gradient;
+  font-size: $button-font-size;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+
+  &__icon {
+    position: absolute;
+    fill: $white;
+    top: 0.625rem;
+
+    &_right {
+      right: 0.625rem;
+    }
+
+    &_left {
+      left: 0.625rem;
+    }
+  }
+
+  &:hover {
+    opacity: 0.5;
+    color: $white;
+    text-decoration: none;
+  }
+
+  &_is-rounded {
+    border-radius: 1.375rem;
+  }
+
+  &_is-outlined {
+    color: $primary;
+    background: none;
+    border: 3px solid #ccc;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &_is-text {
+    background: none;
+    border: none;
+    color: $primary;
+
+    &:hover {
+      color: rgba(31, 32, 65, 0.5);
+    }
+  }
+
+  &_is-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  &_is-expanded {
+    width: 100%;
+  }
+}

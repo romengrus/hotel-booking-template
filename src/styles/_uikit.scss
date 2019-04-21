@@ -2,8 +2,11 @@
   width: 80%;
   margin: 0 auto;
 
-  .showcase__title {
+  &__title {
     text-transform: uppercase;
+  }
+
+  &__content {
   }
 }
 
@@ -20,7 +23,7 @@
     align-items: center;
     justify-content: space-between;
     cursor: default;
-    transition: background-color .3s ease;
+    transition: background-color 0.3s ease;
   }
 
   &__icon-info:nth-child(odd) {
@@ -36,6 +39,17 @@
 
     &:hover {
       background: lighten($cyan, 40%);
+    }
+  }
+}
+
+.ui-buttons {
+  .button {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

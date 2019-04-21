@@ -1,0 +1,31 @@
+mixin button(params)
+  include /blocks/library/icon/icon.pug
+
+  -
+    params = Object.assign({
+      value: '',
+      href: '#',
+      isRounded: true,
+      isOutlined: false,
+      isText: false,
+      isDisabled: false,
+      isExpanded: false,
+      icon: {
+        name: '',
+        position: 'right'
+      },
+      modifiers: []
+    }, params)
+
+    var classList = ['button'].concat(params.modifiers)
+
+    if (params.isRounded) classList.push('button_is-rounded')
+    if (params.isOutlined) classList.push('button_is-outlined')
+    if (params.isText) classList.push('button_is-text')
+    if (params.isDisabled) classList.push('button_is-disabled')
+    if (params.isExpanded) classList.push('button_is-expanded')
+
+  a(class= classList, href= params.href)= params.value
+    if params.icon.name
+      - var iconModifiers = [`button__icon`, `button__icon_${params.icon.position}`]
+      +icon({name: params.icon.name, modifiers: iconModifiers})

@@ -4,9 +4,10 @@ mixin icon(params)
   -
     params = Object.assign({
       name: '',
+      modifiers: []
     }, params)
 
-    var classList = ['icon']
+    var classList = ['icon'].concat(params.modifiers)
     if (params.name) classList.push(`icon-${params.name}`)
 
   //- aria-hidden="true"

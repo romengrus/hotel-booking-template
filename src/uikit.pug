@@ -1,6 +1,7 @@
 extends base.pug
 
 include blocks/library/icon/icon.pug
+include blocks/library/button/button.pug
 include blocks/library/menu/menu.pug
 
 block content
@@ -19,3 +20,14 @@ block content
     .showcase__content
       - var menuData = getData('mainMenu')
       +menu({items: menuData})
+
+  section.showcase
+    h1.showcase__title buttons
+    .showcase__content
+      .ui-buttons
+        +button({value: 'click me'})
+        +button({value: 'click me', isOutlined: true})
+        +button({value: 'click me', isText: true})
+        +button({value: 'перейти к оплате', isDisabled: true})
+        +button({value: 'перейти к оплате', isExpanded: true})
+        +button({value: 'перейти к оплате', isExpanded: true, icon: {name: 'arrow-right'}})

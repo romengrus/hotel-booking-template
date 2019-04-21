@@ -2,4 +2,42 @@
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
+
+  &-arrow-right {
+    fill: url(#paint0_linear);
+  }
+
+  &-arrow-left {
+    fill: #bc9cff;
+  }
+
+  &-emoticon-happy {
+    fill: url(#paint0_linear);
+  }
+
+  &-hart {
+    fill: #1F2041;
+    fill-opacity: .25;
+  }
+
+  &-hart-active {
+    fill: #BC9CFF;
+  }
+
+  &-location-city {
+    fill: url(#paint0_linear);
+  }
+
+  &-semi-arrow-down, &-semi-arrow-up {
+    fill: #1F2041;
+    fill-opacity: .5;
+  }
+
+  &-star, &-star-active {
+    fill: url(#paint0_linear);
+  }
+
+  &-twitter, &-facebook, &-instagram {
+    fill: url(#paint0_linear);
+  }
 }

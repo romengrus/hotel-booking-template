@@ -23,8 +23,8 @@ $green: #6FCF97 !default;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
 
-$primary: $blue !default;
-$secondary: $indigo !default;
+$primary: $purple !default;
+$secondary: $green !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
@@ -35,6 +35,9 @@ $dark-750: rgba(31, 32, 65, 0.75);
 $dark-500: rgba(31, 32, 65, 0.5);
 $dark-250: rgba(31, 32, 65, 0.25);
 $dark-050: rgba(31, 32, 65, 0.05);
+
+// Gradients
+$primary-gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%) !default;
 
 // Spacing
 
@@ -109,6 +112,9 @@ $font-weight-base: $font-weight-normal !default;
 $line-height-base: 1.5 !default;
 
 // Components
+
+// Button
+$button-font-size: 0.75rem;
 
 // Menu
 $menu-font-size: 0.875rem;
