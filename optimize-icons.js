@@ -10,7 +10,8 @@ imagemin(['src/assets/icons/**/*.svg'], 'dist/icons', {
         { removeStyleElement: true },
         { removeTitle: true },
         { removeViewBox: false },
-        { removeDimensions: true }
+        { removeDimensions: true },
+        { removeAttrs: { attrs: '(fill.*|stroke.*)' } }
       ],
       multipass: true
     })
