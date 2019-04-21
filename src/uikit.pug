@@ -25,9 +25,13 @@ block content
     h1.showcase__title buttons
     .showcase__content
       .ui-buttons
+        +button({value: 'click me', isRounded: false})
+        +button({value: 'click me', isRounded: false, isOutlined: true})
         +button({value: 'click me'})
         +button({value: 'click me', isOutlined: true})
         +button({value: 'click me', isText: true})
         +button({value: 'перейти к оплате', isDisabled: true})
         +button({value: 'перейти к оплате', isExpanded: true})
-        +button({value: 'перейти к оплате', isExpanded: true, icon: {name: 'arrow-right'}})
+        +button({value: 'перейти к оплате', isExpanded: true, isOutlined: true, icon: {name: 'arrow-right', position: 'right'}})
+        +button({value: 'перейти к оплате', icon: {name: 'arrow-right'}})
+        +button({value: 'перейти к оплате', isOutlined: true, icon: {name: 'arrow-left', position: 'left'}})

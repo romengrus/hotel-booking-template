@@ -1,3 +1,16 @@
+//- Button component
+//- @param {string} value Button value
+//- @param {string} href Link url
+//- @param {boolean} isRounded If true - button has rounded corners
+//- @param {boolean} isOutlined If true - button has border, but no background
+//- @param {boolean} isText If true - button has no border and background
+//- @param {boolean} isDisabled If true - button is disabled
+//- @param {boolean} isExpanded If true - button is expanded to the width of container
+//- @param {object} icon 
+//--- Icon properties
+//--- @param {string} name Icon name
+//--- @param {string} position left | right
+//- @param {array} modifiers Modifier classes
 mixin button(params)
   include /blocks/library/icon/icon.pug
 
@@ -24,6 +37,7 @@ mixin button(params)
     if (params.isText) classList.push('button_is-text')
     if (params.isDisabled) classList.push('button_is-disabled')
     if (params.isExpanded) classList.push('button_is-expanded')
+    if (params.icon.name) classList.push('button_has-icon')
 
   a(class= classList, href= params.href)= params.value
     if params.icon.name

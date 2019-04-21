@@ -1,7 +1,7 @@
 .button {
   display: inline-flex;
   position: relative;
-  height: 2.75rem;
+  height: $button-height;
   padding: 0.9375rem 1.25rem;
   align-items: center;
   justify-content: center;
@@ -10,20 +10,6 @@
   font-size: $button-font-size;
   font-weight: $font-weight-bold;
   text-transform: uppercase;
-
-  &__icon {
-    position: absolute;
-    fill: $white;
-    top: 0.625rem;
-
-    &_right {
-      right: 0.625rem;
-    }
-
-    &_left {
-      left: 0.625rem;
-    }
-  }
 
   &:hover {
     opacity: 0.5;
@@ -37,11 +23,36 @@
 
   &_is-outlined {
     color: $primary;
-    background: none;
-    border: 3px solid #ccc;
+    background: $white;
+    height: $button-height;
+    border: $button-border-width solid transparent;
+    background-clip: padding-box;
 
     &:hover {
       color: $primary;
+      opacity: 1;
+    }
+
+    &:hover::before {
+      opacity: .5;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      margin: -$button-border-width;
+      border-radius: inherit;
+      background: $primary-gradient;
+    }
+
+    .button__icon {
+      fill: url(#paint0_linear);
+      top: 0.45rem;
     }
   }
 
@@ -67,5 +78,23 @@
 
   &_is-expanded {
     width: 100%;
+  }
+
+  &_has-icon {
+    padding: 0 3rem;
+  }
+
+  &__icon {
+    position: absolute;
+    fill: $white;
+    top: 0.625rem;
+
+    &_right {
+      right: 0.625rem;
+    }
+
+    &_left {
+      left: 0.625rem;
+    }
   }
 }
