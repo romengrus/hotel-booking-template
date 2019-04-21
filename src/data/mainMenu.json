@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Home",
+    "href": "#",
+    "isActive": true
+  },
+  {
+    "name": "About",
+    "href": "#",
+    "isActive": false
+  },
+  {
+    "name": "Services",
+    "href": "#",
+    "isActive": false,
+    "submenu": [
+      {
+        "name": "Design",
+        "href": "#",
+        "isActive": false
+      },
+      {
+        "name": "DevOps",
+        "href": "#",
+        "isActive": false
+      },
+      {
+        "name": "Programming",
+        "href": "#",
+        "isActive": false
+      }
+    ]
+  }
+]
