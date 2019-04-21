@@ -2,7 +2,7 @@
 //- @param {string} icon file name (without extension)
 mixin icon(params)
   -
-    params = Object.assign({
+    params = deepmerge({
       name: '',
       modifiers: []
     }, params)

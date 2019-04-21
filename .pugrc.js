@@ -1,6 +1,7 @@
 const glob = require('glob')
 const path = require('path')
 const fs = require('fs')
+const deepmerge = require('deepmerge')
 
 // get icon names
 const icons = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'))
@@ -12,5 +13,5 @@ const getData = fileName => {
 }
 
 module.exports = {
-  locals: { icons, getData }
+  locals: { icons, getData, deepmerge }
 }

@@ -11,7 +11,7 @@ mixin menu(params)
   include /blocks/library/icon/icon.pug
 
   -
-    params = Object.assign({
+    params = deepmerge({
       title: '',
       orientation: 'horizontal',
       items: []

@@ -2,7 +2,7 @@ mixin button(params)
   include /blocks/library/icon/icon.pug
 
   -
-    params = Object.assign({
+    params = deepmerge({
       value: '',
       href: '#',
       isRounded: true,
