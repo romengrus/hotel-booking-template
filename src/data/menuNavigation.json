@@ -1,0 +1,23 @@
+[
+  {
+    "name": "About Us",
+    "href": "#",
+    "isActive": false
+  },
+  {
+    "name": "News",
+    "href": "#",
+    "isActive": false
+  },
+  {
+    "name": "Support",
+    "href": "#",
+    "isActive": false
+  },
+  {
+    "name": "Products",
+    "href": "#",
+    "isActive": false
+  }
+]
+

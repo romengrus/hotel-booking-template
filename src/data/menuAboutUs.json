@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Who we are",
+    "href": "#",
+    "isActive": false
+  },
+  {
+    "name": "Our team",
+    "href": "#",
+    "isActive": false
+  },
+  {
+    "name": "Careers",
+    "href": "#",
+    "isActive": false
+  },
+  {
+    "name": "Investors",
+    "href": "#",
+    "isActive": false
+  }
+]
+
+
