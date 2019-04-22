@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 4.375rem;
+
+  &__menu {
+    margin-left: auto;
+  }
+
+  &__button {
+    margin-right: 1.25rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__profile-link {
+    color: $dark-500;
+
+    &:hover {
+      color: $dark-750;
+      text-decoration: none;
+    }
+  }
+
+  &__auth {
+    margin-left: 2rem;
+  }
+
+  &__auth_is-logged-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid $dark-100;
+    min-height: 1.875rem;
+  }
+}
