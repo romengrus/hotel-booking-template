@@ -1,12 +1,13 @@
 //- Menu component
 //- @param {string} title Menu title
 //- @param {string} orientation = horizontal | vertical
+//- @param {array} modifiers Modification classes
 //- @param {array} items Array of menu items
-//- menu item params:
-//- @param {string} name Menu item name
-//- @param {string} href Menu item href
-//- @param {boolean} isActive Is this currently selected menu item
-//- @param {array} submenu Array of submenu items 
+//--- menu item params:
+//--- @param {string} name Menu item name
+//--- @param {string} href Menu item href
+//--- @param {boolean} isActive Is this currently selected menu item
+//--- @param {array} submenu Array of submenu items 
 mixin menu(params)
   include /blocks/library/icon/icon.pug
 
@@ -14,10 +15,11 @@ mixin menu(params)
     params = deepmerge({
       title: '',
       orientation: 'horizontal',
+      modifiers: [],
       items: []
     }, params)
 
-    var classList = ['menu']
+    var classList = ['menu'].concat(params.modifiers)
 
     if (params.orientation) classList.push(`menu_${params.orientation}`)
 
