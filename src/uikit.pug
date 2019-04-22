@@ -2,7 +2,8 @@ extends base.pug
 
 include blocks/library/icon/icon.pug
 include blocks/library/button/button.pug
-include blocks/library/menu/menu.pug
+
+include blocks/project/header/header.pug
 
 block content
   section.showcase
@@ -18,8 +19,8 @@ block content
   section.showcase
     h1.showcase__title header
     .showcase__content
-      - var menuData = getData('mainMenu')
-      +menu({items: menuData})
+      +header({isLoggedIn: false})
+      +header({isLoggedIn: true})
 
   section.showcase
     h1.showcase__title buttons

@@ -6,11 +6,11 @@
 //- @param {boolean} isText If true - button has no border and background
 //- @param {boolean} isDisabled If true - button is disabled
 //- @param {boolean} isExpanded If true - button is expanded to the width of container
+//- @param {array} modifiers Modifier classes
 //- @param {object} icon 
 //--- Icon properties
 //--- @param {string} name Icon name
 //--- @param {string} position left | right
-//- @param {array} modifiers Modifier classes
 mixin button(params)
   include /blocks/library/icon/icon.pug
 
@@ -23,11 +23,11 @@ mixin button(params)
       isText: false,
       isDisabled: false,
       isExpanded: false,
+      modifiers: [],
       icon: {
         name: '',
         position: 'right'
       },
-      modifiers: []
     }, params)
 
     var classList = ['button'].concat(params.modifiers)
