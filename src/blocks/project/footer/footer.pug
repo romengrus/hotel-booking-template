@@ -7,15 +7,15 @@ mixin footer
         include /assets/img/logo.svg
         p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
       .footer__col.footer__col-2
-        h3 navigation
+        h3.footer__col-title navigation
         +menu({orientation: 'vertical', items: getData('menuNavigation')})
       .footer__col.footer__col-3
-        h3 about us
+        h3.footer__col-title about us
         +menu({orientation: 'vertical', items: getData('menuAboutUs')})
       .footer__col.footer__col-4
-        h3 support
+        h3.footer__col-title support
         +menu({orientation: 'vertical', items: getData('menuSupport')})
       .footer__col.footer__col-5
-        h3 subscribe to our newsletter
+        h3.footer__col-title subscribe to our newsletter
         p Receive our latest news and promotions in your inbox! 
         input(type= 'text')

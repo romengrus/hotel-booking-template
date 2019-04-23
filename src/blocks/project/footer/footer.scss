@@ -15,8 +15,19 @@
     flex: 1 1 20%;
     padding: 0 1rem;
 
-    &:first-child, &:last-child {
-      padding: 0;
+    &:first-child {
+      padding: 0 1rem 0 0;
+      flex-basis: 25%;
     }
+
+    &:last-child {
+      padding: 0 0 0 1rem;
+      flex-basis: 25%;
+    }
+  }
+
+  &__col-title {
+    text-transform: uppercase;
+    font-size: $font-size-base * 0.75;
   }
 }
