@@ -1,0 +1,30 @@
+//- Social icons block
+//- @param {object} icons
+//--- icon params
+//--- @param {string} name Icon name
+//--- @param {string} href Link to social account/page 
+mixin social-icons(params = {})
+  include /blocks/library/icon/icon.pug
+
+  - 
+    params = deepmerge({
+      icons: [{
+        name: 'twitter',
+        href: '#'
+      }, {
+        name: 'facebook',
+        href: '#'
+      }, {
+        name: 'instagram',
+        href: '#'
+      }]
+    }, params)
+
+    classList = ['social-icons'] 
+
+  div(class= classList)
+    each icon in params.icons
+      a(class= 'social-icons__link', href= icon.href)
+        +icon({name: icon.name})
+
+  

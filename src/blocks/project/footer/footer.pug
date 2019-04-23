@@ -1,4 +1,5 @@
 include /blocks/library/menu/menu.pug
+include /blocks/project/social-icons/social-icons.pug
 
 //- @param {string} type = '' | 'creative'
 mixin footer(params = {})
@@ -19,7 +20,7 @@ mixin footer(params = {})
         .footer__block.footer__block_creative
           p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
         .footer__block.footer__block_creative
-          | social icons
+          +social-icons
     else
       .footer__content
         .footer__block.footer__block-1
