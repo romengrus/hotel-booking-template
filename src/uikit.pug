@@ -9,7 +9,7 @@ include blocks/project/copyright-bar/copyright-bar.pug
 
 block content
   section.showcase
-    h1.showcase__title icons
+    h2.showcase__title icons
     .showcase__content
       .ui-icons
         each iconName in icons
@@ -19,25 +19,26 @@ block content
               +icon({name: iconName})
 
   section.showcase
-    h1.showcase__title header
+    h2.showcase__title header
     .showcase__content
       +header({isLoggedIn: false})
       +header({isLoggedIn: true})
 
   section.showcase
-    h1.showcase__title footer
+    h2.showcase__title footer
     .showcase__content
       +footer
       +footer({type: 'creative'})
 
   section.showcase
-    h1.showcase__title copyright bar
+    h2.showcase__title copyright bar
     .showcase__content
       +copyright-bar
 
   section.showcase
-    h1.showcase__title buttons
+    h2.showcase__title form elements
     .showcase__content
+      h3.showcase__subtitle buttons
       .ui-buttons
         +button({value: 'click me', isRounded: false})
         +button({value: 'click me', isRounded: false, isOutlined: true})
