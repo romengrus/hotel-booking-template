@@ -5,6 +5,7 @@ include blocks/library/button/button.pug
 
 include blocks/project/header/header.pug
 include blocks/project/footer/footer.pug
+include blocks/project/copyright-bar/copyright-bar.pug
 
 block content
   section.showcase
@@ -28,6 +29,11 @@ block content
     .showcase__content
       +footer
       +footer({type: 'creative'})
+
+  section.showcase
+    h1.showcase__title copyright bar
+    .showcase__content
+      +copyright-bar
 
   section.showcase
     h1.showcase__title buttons
