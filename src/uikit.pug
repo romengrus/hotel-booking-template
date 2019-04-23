@@ -4,6 +4,7 @@ include blocks/library/icon/icon.pug
 include blocks/library/button/button.pug
 
 include blocks/project/header/header.pug
+include blocks/project/footer/footer.pug
 
 block content
   section.showcase
@@ -21,6 +22,11 @@ block content
     .showcase__content
       +header({isLoggedIn: false})
       +header({isLoggedIn: true})
+
+  section.showcase
+    h1.showcase__title footer
+    .showcase__content
+      +footer
 
   section.showcase
     h1.showcase__title buttons
