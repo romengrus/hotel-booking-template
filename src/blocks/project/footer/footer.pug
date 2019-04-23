@@ -1,21 +1,40 @@
 include /blocks/library/menu/menu.pug
 
-mixin footer
-  footer.footer
-    .footer__content
-      .footer__col.footer__col-1
-        include /assets/img/logo.svg
-        p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-      .footer__col.footer__col-2
-        h3.footer__col-title navigation
-        +menu({orientation: 'vertical', items: getData('menuNavigation')})
-      .footer__col.footer__col-3
-        h3.footer__col-title about us
-        +menu({orientation: 'vertical', items: getData('menuAboutUs')})
-      .footer__col.footer__col-4
-        h3.footer__col-title support
-        +menu({orientation: 'vertical', items: getData('menuSupport')})
-      .footer__col.footer__col-5
-        h3.footer__col-title subscribe to our newsletter
-        p Receive our latest news and promotions in your inbox! 
-        input(type= 'text')
+//- @param {string} type = '' | 'creative'
+mixin footer(params = {})
+  - 
+    params = deepmerge({
+      type: ''
+    }, params)
+
+    classList = ['footer']
+
+    if (params.type) classList.push(`footer_${params.type}`)
+
+  footer(class= classList)
+    if params.type === 'creative'
+      .footer__content.footer__content_creative
+        .footer__block.footer__block_creative
+          include /assets/img/logo.svg
+        .footer__block.footer__block_creative
+          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+        .footer__block.footer__block_creative
+          | social icons
+    else
+      .footer__content
+        .footer__block.footer__block-1
+          include /assets/img/logo.svg
+          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+        .footer__block.footer__block-2
+          h3.footer__col-title navigation
+          +menu({orientation: 'vertical', items: getData('menuNavigation')})
+        .footer__block.footer__block-3
+          h3.footer__col-title about us
+          +menu({orientation: 'vertical', items: getData('menuAboutUs')})
+        .footer__block.footer__block-4
+          h3.footer__col-title support
+          +menu({orientation: 'vertical', items: getData('menuSupport')})
+        .footer__block.footer__block-5
+          h3.footer__block-title subscribe to our newsletter
+          p Receive our latest news and promotions in your inbox! 
+          input(type= 'text')
