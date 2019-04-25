@@ -1,0 +1,24 @@
+.input {
+  display: flex;
+  height: $input-height;
+
+  input {
+    height: $input-height;
+    width: 100%;
+    border: $input-border;
+    border-radius: $input-border-radius;
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+    color: $input-font-color;
+    padding: $input-padding;
+
+    &:hover, &:focus {
+      border: $input-border-hover;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $dark-250;
+    }
+  }
+}
