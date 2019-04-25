@@ -61,3 +61,13 @@
     }
   }
 }
+
+.ui-inputs {
+  .input {
+    margin-bottom: 2rem;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

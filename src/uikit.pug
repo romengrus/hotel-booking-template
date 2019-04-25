@@ -2,6 +2,7 @@ extends base.pug
 
 include blocks/library/icon/icon.pug
 include blocks/library/button/button.pug
+include blocks/library/input-text/input-text.pug
 
 include blocks/project/header/header.pug
 include blocks/project/footer/footer.pug
@@ -50,3 +51,9 @@ block content
         +button({value: 'перейти к оплате', isExpanded: true, isOutlined: true, icon: {name: 'arrow-right', position: 'right'}})
         +button({value: 'перейти к оплате', icon: {name: 'arrow-right'}})
         +button({value: 'перейти к оплате', isOutlined: true, icon: {name: 'arrow-left', position: 'left'}})
+
+      h3.showcase__subtitle input text
+      .ui-inputs
+        +input-text({id: 'input1', name: 'input1', placeholder: 'default text input'})
+        +input-text({id: 'input2', name: 'input2', placeholder: 'disabled text input', isDisabled: true})
+        +input-text({id: 'input3', name: 'input3', placeholder: 'required text input', isRequired: true})

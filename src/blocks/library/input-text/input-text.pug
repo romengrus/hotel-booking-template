@@ -1,0 +1,18 @@
+mixin input-text(params)
+  include ../input/input.pug
+
+  -
+    params = deepmerge({
+      id: '',
+      name: '',
+      value: '',
+      placeholder: '',
+      isDisabled: false,
+      isRequired: false,
+      modifiers: [],
+    }, params)
+
+    params.type = 'text'
+    params.modifiers = ['input-text']
+
+  +input(params)
