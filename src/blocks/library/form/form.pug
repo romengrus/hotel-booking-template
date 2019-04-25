@@ -1,0 +1,11 @@
+mixin form(params = {})
+  -
+    params = deepmerge({
+      action: '#',
+      method: 'POST'
+    }, params)
+
+  form(class= 'form', action= params.action, method= params.method)
+    if block
+      block
+
