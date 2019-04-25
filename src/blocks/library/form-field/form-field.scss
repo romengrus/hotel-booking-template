@@ -1,8 +1,10 @@
-.input {
-  display: flex;
-  height: $input-height;
+.form-field {
+  &_invalid {
+    background: lighten($red, 37%);
+  }
 
-  input {
+  &__input {
+    display: flex;
     height: $input-height;
     width: 100%;
     border: $input-border;
@@ -12,7 +14,8 @@
     color: $input-font-color;
     padding: $input-padding;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       border: $input-border-hover;
       outline: none;
     }
@@ -20,5 +23,10 @@
     &::placeholder {
       color: $dark-250;
     }
+  }
+
+  &__warning-msg {
+    color: lighten($red, 10%);
+    font-size: $font-size-sm;
   }
 }

@@ -1,8 +1,10 @@
 extends base.pug
 
 include blocks/library/icon/icon.pug
+include blocks/library/form/form.pug
+include blocks/library/form-field/form-field.pug
+include blocks/library/form-field-text/form-field-text.pug
 include blocks/library/button/button.pug
-include blocks/library/input-text/input-text.pug
 
 include blocks/project/header/header.pug
 include blocks/project/footer/footer.pug
@@ -54,6 +56,8 @@ block content
 
       h3.showcase__subtitle input text
       .ui-inputs
-        +input-text({id: 'input1', name: 'input1', placeholder: 'default text input'})
-        +input-text({id: 'input2', name: 'input2', placeholder: 'disabled text input', isDisabled: true})
-        +input-text({id: 'input3', name: 'input3', placeholder: 'required text input', isRequired: true})
+        +form
+          +form-field-text({id: 'input1', name: 'input1', placeholder: 'default text input'})
+          +form-field-text({id: 'input2', name: 'input2', placeholder: 'disabled text input', isDisabled: true})
+          +form-field-text({id: 'input3', name: 'input3', placeholder: 'required text input', isRequired: true})
+          +form-field({id: 'submit', name: 'submit', type: 'submit', value: 'GO!'})

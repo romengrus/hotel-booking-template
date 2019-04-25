@@ -1,0 +1,26 @@
+//- text input mixin
+//- @param {string} *id Html input id
+//- @param {string} *name Html input name
+//- @param {string} value Input value
+//- @param {string} placeholder Input placeholder text
+//- @param {boolean} isDisabled Is input disabled
+//- @param {boolean} isRequired Is input required
+//- @param {array} modifiers Modifier classes
+mixin form-field-text(params)
+  include ../form-field/form-field.pug
+
+  -
+    params = deepmerge({
+      id: '',
+      name: '',
+      value: '',
+      placeholder: '',
+      isDisabled: false,
+      isRequired: false,
+      modifiers: [],
+    }, params)
+
+    params.type = 'text'
+    params.modifiers = ['form-field-text']
+
+  +form-field(params)
