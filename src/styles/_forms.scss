@@ -1,8 +1,4 @@
 .form-field {
-  &_invalid {
-    background: lighten($red, 37%);
-  }
-
   &__input {
     display: flex;
     height: $input-height;
@@ -22,6 +18,14 @@
 
     &::placeholder {
       color: $dark-250;
+    }
+
+    &_invalid {
+      background: lighten($red, 37%);
+    }
+
+    &_valid {
+      background: lighten($green, 20%);
     }
   }
 

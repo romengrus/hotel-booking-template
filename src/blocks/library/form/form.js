@@ -43,8 +43,8 @@ hyperform.setLanguage('ru')
 hyperform(window, {
   classes: {
     warning: 'form-field__warning-msg',
-    valid: 'form-field_valid',
-    invalid: 'form-field_invalid',
-    validated: 'form-field_validated'
+    valid: 'form-field__input_valid',
+    invalid: 'form-field__input_invalid',
+    validated: 'form-field__input_validated'
   }
 })
