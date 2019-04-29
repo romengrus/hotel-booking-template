@@ -1,0 +1,13 @@
+//- Dropdown datepicker component
+//- @param {string} id Id of input element
+mixin dropdown-date(id)
+  include /blocks/library/datepicker/datepicker.pug
+  include /blocks/library/form-field-date/form-field-date.pug
+  include /blocks/library/icon/icon.pug
+
+  .dropdown-date
+    .dropdown-date__content
+      +form-field-date(id= id, class= 'dropdown-date__input')
+      +icon({name: 'semi-arrow-down', modifiers: ['dropdown-date__icon']})
+    .dropdown-date__footer.dropdown-date__footer_hidden
+      +datepicker(id)(class= 'dropdown-date__datepicker')

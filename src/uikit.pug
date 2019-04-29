@@ -6,6 +6,7 @@ include blocks/library/form-field-text/form-field-text.pug
 include blocks/library/form-field-date/form-field-date.pug
 include blocks/library/button/button.pug
 include blocks/library/datepicker/datepicker.pug
+include blocks/library/dropdown-date/dropdown-date.pug
 
 include blocks/project/header/header.pug
 include blocks/project/footer/footer.pug
@@ -74,3 +75,7 @@ block content
       .ui-inputs
         +form
           +form-field-date
+
+      h3.showcase__subtitle dropdown date
+      .ui-inputs
+        +dropdown-date('id-dropdown-date')
