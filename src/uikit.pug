@@ -5,6 +5,7 @@ include blocks/library/form/form.pug
 include blocks/library/form-field-text/form-field-text.pug
 include blocks/library/form-field-date/form-field-date.pug
 include blocks/library/button/button.pug
+include blocks/library/datepicker/datepicker.pug
 
 include blocks/project/header/header.pug
 include blocks/project/footer/footer.pug
@@ -37,6 +38,12 @@ block content
     h2.showcase__title copyright bar
     .showcase__content
       +copyright-bar
+
+  section.showcase
+    h2.showcase__title datepicker
+      .showcase__row
+        +form-field-date(id= 'id123')
+        +datepicker('id123')
 
   section.showcase
     h2.showcase__title form elements
