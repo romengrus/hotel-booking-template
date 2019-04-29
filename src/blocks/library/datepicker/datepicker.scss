@@ -27,6 +27,7 @@ $pd-font-family: $datepicker-font-family;
   border: 1px solid rgba(31, 32, 65, 0.25);
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 0.25rem;
+  background: $datepicker-picker-bg;
 
   &__actions {
     display: flex;
