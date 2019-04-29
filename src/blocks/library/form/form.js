@@ -40,7 +40,7 @@ hyperform.addTranslation('ru', {
 })
 hyperform.setLanguage('ru')
 
-hyperform(window, {
+hyperform(document.querySelectorAll('.form'), {
   classes: {
     warning: 'form-field__warning-msg',
     valid: 'form-field__input_valid',
