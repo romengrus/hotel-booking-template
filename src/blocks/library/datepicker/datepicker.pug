@@ -1,7 +1,7 @@
 //- Datepicker component
-//- @param {string} inputId Id of input element to which datepicker should be bounded
-mixin datepicker(inputId)
-  .datepicker(data-input-id= inputId)
+//- @param {string} id Id of input element to which datepicker should be bounded
+mixin datepicker(id)
+  .datepicker(data-input-id= id)&attributes(attributes)
     .datepicker__content
     .datepicker__actions
       button.datepicker__btn.datepicker__btn-reset Очистить
