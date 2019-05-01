@@ -1,45 +1,50 @@
 //- Button component
-//- @param {string} value Button value
-//- @param {string} href Link url
-//- @param {boolean} isRounded If true - button has rounded corners
-//- @param {boolean} isOutlined If true - button has border, but no background
-//- @param {boolean} isText If true - button has no border and background
-//- @param {boolean} isDisabled If true - button is disabled
-//- @param {boolean} isExpanded If true - button is expanded to the width of container
-//- @param {array} modifiers Modifier classes
-//- @param {object} icon 
-//--- Icon properties
-//--- @param {string} name Icon name
-//--- @param {string} position left | right
+//- value       {string} Button text value
+//- isRounded   {boolean} If true - button has rounded corners
+//- isOutlined  {boolean} If true - button has border, but no background
+//- isText      {boolean} If true - button has no border and background
+//- isDisabled  {boolean} If true - button is disabled
+//- isExpanded  {boolean} If true - button is expanded to the width of container
+//- hasRipple   {boolean} If true - button has ripple effect on click
+//- mods        {array} Modifier classes
+//- icon        {object} Icon component
+//--- name        {string} Icon name
+//--- position    {'left' | 'right'} Icon position
 mixin button(params)
   include /blocks/library/icon/icon.pug
+  include /blocks/effects/ripple/ripple.pug
 
   -
     params = deepmerge({
       value: '',
-      href: '#',
       isRounded: true,
       isOutlined: false,
       isText: false,
       isDisabled: false,
       isExpanded: false,
-      modifiers: [],
+      hasRipple: true,
+      mods: [],
       icon: {
         name: '',
         position: 'right'
       },
     }, params)
 
-    var classList = ['button'].concat(params.modifiers)
+    var classList = ['button'].concat(params.mods)
 
     if (params.isRounded) classList.push('button_is-rounded')
     if (params.isOutlined) classList.push('button_is-outlined')
     if (params.isText) classList.push('button_is-text')
     if (params.isDisabled) classList.push('button_is-disabled')
     if (params.isExpanded) classList.push('button_is-expanded')
+    if (params.hasRipple && !params.isDisabled) classList.push('button_has-ripple')
     if (params.icon.name) classList.push('button_has-icon')
 
-  a(class= classList, href= params.href)= params.value
-    if params.icon.name
-      - var iconModifiers = [`button__icon`, `button__icon_${params.icon.position}`]
-      +icon({name: params.icon.name, modifiers: iconModifiers})
+  a(class= classList)&attributes(attributes)= params.value
+    if (params.icon.name)
+      +icon({name: params.icon.name, modifiers: [`button__icon`, `button__icon_${params.icon.position}`]})
+
+    if (params.hasRipple)
+      +ripple
+
+    block

@@ -10,6 +10,8 @@
   font-size: $button-font-size;
   font-weight: $font-weight-bold;
   text-transform: uppercase;
+  overflow: hidden;
+  cursor: default;
 
   &:hover {
     opacity: 0.5;
