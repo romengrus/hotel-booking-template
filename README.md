@@ -63,3 +63,14 @@ src/
 5. Each js file must have default exported function. It's purpose is to initialize all components
 6. All component styles are automatically included in app.scss file using glob pattern.
 7. All component js classes are automatically included in app.js file using glob pattern.
+
+# Pug mixin usage
+
+1. Every mixin has **params** & **attributes**[https://pugjs.org/language/mixins.html#mixin-attributes]
+2. Attributes are proxied to underlying dom element. Hence, attributes - are native for underlying dom element 
+3. Params are used to configure component behaviour. Params are documented at mixin module
+4. Mixin call examples:
+  4.1. With params only:          +some-mixin({name: 'some name', param1: 'param1 value'})   
+  4.2. With attributes only:      +some-mixin(attribute1= 'attribute1 value', attribute2= 'attribute2 value')
+  4.3. With params & attributes:  
+    +some-mixin({name: 'some name', param1: 'param1 value'})(attribute1= 'attribute1 value', attribute2= 'attribute2 value') 
