@@ -1,3 +1,17 @@
-mixin form-field-text
-  .form-field.form-field-text
-    input(type='text', class='form-field__input')&attributes(attributes)
+//- Text input component
+//- mods  {array} Modifier classes
+mixin form-field-text(params = {})
+  include /blocks/library/form-field/form-field.pug
+
+  -
+    params = deepmerge({
+      mods: [],
+    }, params)
+
+    attributes = deepmerge({
+      type: 'text', 
+    }, attributes)
+
+    var classList = ['form-field-text'].concat(params.mods)
+
+  +form-field({mods: classList})&attributes(attributes)
