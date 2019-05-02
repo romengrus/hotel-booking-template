@@ -1,8 +1,19 @@
 //- Datepicker component
-//- @param {string} id Id of input element to which datepicker should be bounded
-mixin datepicker(id)
-  .datepicker(data-input-id= id)&attributes(attributes)
+//- inputId   {string} Id of the dom input element to which datepicker should be bounded
+//- mods      {string} Modifier classes
+mixin datepicker(params = {})
+  include /blocks/library/button/button.pug
+
+  -
+    params = deepmerge({
+      inputId: '',
+      mods: [],
+    }, params)
+
+    var classList = ['datepicker'].concat(params.mods)
+
+  div(class= classList, data-input-id= params.inputId)&attributes(attributes)
     .datepicker__content
     .datepicker__actions
-      button.datepicker__btn.datepicker__btn-reset Очистить
-      button.datepicker__btn.datepicker__btn-ok Применить
+      +button({isText: true, mods: ['datepicker__button', 'datepicker__button-reset'], value: 'Очистить'}) 
+      +button({isText: true, mods: ['datepicker__button', 'datepicker__button-ok'], value: 'Применить'}) 

@@ -36,7 +36,7 @@ $pd-font-family: $datepicker-font-family;
     padding: 1.25rem;
   }
 
-  &__btn {
+  &__button {
     border: none;
     background: $datepicker-picker-bg;
     font-weight: bold;
@@ -49,11 +49,11 @@ $pd-font-family: $datepicker-font-family;
     }
   }
 
-  &__btn-reset {
+  &__button-reset {
     color: $dark-500;
   }
 
-  &__btn-ok {
+  &__button-ok {
     color: $primary;
   }
 
