@@ -8,6 +8,10 @@ module.exports = {
     'prettier/prettier': ['error'],
     semi: 'off',
     'import/prefer-default-export': 'off',
-    'import/no-extraneous-dependencies':  ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}]
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: true, optionalDependencies: false, peerDependencies: false }
+    ],
+    'no-underscore-dangle': 'off'
   }
 }
