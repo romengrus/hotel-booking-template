@@ -2,8 +2,8 @@ include /blocks/library/menu/menu.pug
 include /blocks/library/button/button.pug
 
 //- Main header
-//- @param {boolean} isLoggedIn If user is logged in
-//- @param {string} userName User name to show in auth block
+//- isLoggedIn  {boolean} If user is logged in
+//- userName {string} User name to show in auth block
 mixin header(params)
   - 
     params = deepmerge({
@@ -15,11 +15,11 @@ mixin header(params)
 
   header.header
     include /assets/img/logo.svg
-    +menu({items: menuData, modifiers: ['header__menu']})
+    +menu({items: menuData, mods: ['header__menu']})
     if params.isLoggedIn
       .header__auth.header__auth_is-logged-in
         a(class= 'header__profile-link', href= '#')= params.userName
     else 
       .header__auth
-        +button({value: 'login', isOutlined: true, modifiers: ['header__button']})
-        +button({value: 'register', modifiers: ['header__button']})
+        +button({value: 'login', isOutlined: true, mods: ['header__button']})
+        +button({value: 'register', mods: ['header__button']})
