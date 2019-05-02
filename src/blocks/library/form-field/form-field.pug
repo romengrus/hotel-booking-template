@@ -1,0 +1,12 @@
+//- Form field component
+//- mods  {array} Modifier classes
+mixin form-field(params = {})
+  -
+    params = deepmerge({
+      mods: [],
+    }, params)
+
+    var classList = ['form-field'].concat(params.mods)
+
+  div(class= classList)
+    input(class='form-field__input')&attributes(attributes)
