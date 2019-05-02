@@ -1,11 +1,13 @@
+//- Form component
+//- mods  {array} Modification classes
 mixin form(params = {})
   -
     params = deepmerge({
-      action: '#',
-      method: 'POST'
+      mods: []
     }, params)
 
-  form(class= 'form', action= params.action, method= params.method)
-    if block
-      block
+    var classList = ['form'].concat(params.mods)
+
+  form(class= classList)&attributes(attributes)
+    block
 

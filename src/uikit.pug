@@ -65,7 +65,7 @@ block content
 
       h3.showcase__subtitle input text
       .ui-inputs
-        +form
+        +form(action='#', method='POST')
           +form-field-text(placeholder='default text input')
           +form-field-text(placeholder='disabled text input', disabled=true)
           +form-field-text(placeholder='required text input', required=true)
@@ -74,7 +74,7 @@ block content
 
       h3.showcase__subtitle input date field
       .ui-inputs
-        +form
+        +form(action='#', method='POST')
           +form-field-date
 
       h3.showcase__subtitle dropdown date
