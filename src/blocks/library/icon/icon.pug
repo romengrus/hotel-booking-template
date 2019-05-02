@@ -1,13 +1,14 @@
 //- Responsive Icon component
-//- @param {string} icon file name (without extension)
+//- name  {string} Icon file name (without extension)
+//- mods  {array} Modifier classes
 mixin icon(params)
   -
     params = deepmerge({
       name: '',
-      modifiers: []
+      mods: []
     }, params)
 
-    var classList = ['icon'].concat(params.modifiers)
+    var classList = ['icon'].concat(params.mods)
     if (params.name) classList.push(`icon-${params.name}`)
 
   //- aria-hidden="true"

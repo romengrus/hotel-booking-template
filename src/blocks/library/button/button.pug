@@ -41,6 +41,6 @@ mixin button(params)
 
   a(class= classList)&attributes(attributes)= params.value
     if (params.icon.name)
-      +icon({name: params.icon.name, modifiers: [`button__icon`, `button__icon_${params.icon.position}`]})
+      +icon({name: params.icon.name, mods: [`button__icon`, `button__icon_${params.icon.position}`]})
 
     block
