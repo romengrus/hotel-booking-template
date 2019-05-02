@@ -26,7 +26,7 @@ class Form {
     this.configForm()
 
     // add id to dom component for future reference
-    this.$el.setAttribute('data-compoent-id', this.id)
+    this.$el.setAttribute('data-component-id', this.id)
   }
 
   configForm() {
