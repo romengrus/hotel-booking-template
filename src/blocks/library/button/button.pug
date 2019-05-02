@@ -12,7 +12,6 @@
 //--- position    {'left' | 'right'} Icon position
 mixin button(params)
   include /blocks/library/icon/icon.pug
-  include /blocks/effects/ripple/ripple.pug
 
   -
     params = deepmerge({
@@ -43,8 +42,5 @@ mixin button(params)
   a(class= classList)&attributes(attributes)= params.value
     if (params.icon.name)
       +icon({name: params.icon.name, modifiers: [`button__icon`, `button__icon_${params.icon.position}`]})
-
-    if (params.hasRipple)
-      +ripple
 
     block

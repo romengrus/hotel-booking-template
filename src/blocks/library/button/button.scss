@@ -2,54 +2,37 @@
   display: inline-flex;
   position: relative;
   height: $button-height;
-  padding: 0.9375rem 1.25rem;
+  padding: $button-padding;
   align-items: center;
   justify-content: center;
-  color: $white;
+  color: $button-text-color;
   background: $primary-gradient;
   font-size: $button-font-size;
   font-weight: $font-weight-bold;
   text-transform: uppercase;
   overflow: hidden;
-  cursor: default;
+  cursor: pointer;
 
   &:hover {
     opacity: 0.5;
-    color: $white;
+    color: $button-text-color;
     text-decoration: none;
   }
 
   &_is-rounded {
-    border-radius: 1.375rem;
+    border-radius: $button-border-radius;
   }
 
   &_is-outlined {
     color: $primary;
-    background: $white;
-    height: $button-height;
     border: $button-border-width solid transparent;
-    background-clip: padding-box;
+    background-image: linear-gradient($button-text-color, $button-text-color), $primary-gradient;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 
     &:hover {
       color: $primary;
-      opacity: 1;
-    }
-
-    &:hover::before {
-      opacity: .5;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: -1;
-      margin: -$button-border-width;
-      border-radius: inherit;
-      background: $primary-gradient;
+      opacity: 0.5;
     }
 
     .button__icon {
@@ -73,7 +56,7 @@
     opacity: 0.5;
 
     &:hover {
-      color: $white;
+      color: $button-text-color;
       text-decoration: none;
     }
   }
@@ -86,9 +69,19 @@
     padding: 0 3rem;
   }
 
+  &_ripple-effect {
+    position: absolute;
+    z-index: 1;
+    width: 1px;
+    height: 1px;
+    animation: ripple 1s;
+    border-radius: 50%;
+    background: $white;
+  }
+
   &__icon {
     position: absolute;
-    fill: $white;
+    fill: $button-text-color;
     top: 0.625rem;
 
     &_right {
@@ -98,5 +91,17 @@
     &_left {
       left: 0.625rem;
     }
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(50);
+    opacity: 0;
   }
 }
