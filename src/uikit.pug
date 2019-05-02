@@ -2,13 +2,11 @@ extends base.pug
 
 include blocks/library/icon/icon.pug
 include blocks/library/form/form.pug
-include blocks/library/form-field/form-field.pug
 include blocks/library/form-field-text/form-field-text.pug
 include blocks/library/form-field-date/form-field-date.pug
 include blocks/library/button/button.pug
 include blocks/library/datepicker/datepicker.pug
 include blocks/library/dropdown-date/dropdown-date.pug
-include blocks/library/dropdown-date-filter/dropdown-date-filter.pug
 
 include blocks/project/header/header.pug
 include blocks/project/footer/footer.pug
@@ -45,21 +43,21 @@ block content
   section.showcase
     h2.showcase__title datepicker
       .showcase__row
-        +form-field-date(id= 'id123')
-        +datepicker('id123')
+        +form-field-text(id= 'id123')
+        +datepicker({inputId: 'id123'})
 
   section.showcase
     h2.showcase__title form elements
     .showcase__content
       h3.showcase__subtitle buttons
       .ui-buttons
-        +button({value: 'click me', isRounded: false})
+        +button({value: 'click me', isRounded: false, hasRipple: true})
         +button({value: 'click me', isRounded: false, isOutlined: true})
         +button({value: 'click me'})
         +button({value: 'click me', isOutlined: true})
         +button({value: 'click me', isText: true})
         +button({value: 'перейти к оплате', isDisabled: true})
-        +button({value: 'перейти к оплате', isExpanded: true})
+        +button({value: 'перейти к оплате', isExpanded: true, hasRipple: true})
         +button({value: 'перейти к оплате', isExpanded: true, isOutlined: true, icon: {name: 'arrow-right', position: 'right'}})
         +button({value: 'перейти к оплате', icon: {name: 'arrow-right'}})
         +button({value: 'перейти к оплате', isOutlined: true, icon: {name: 'arrow-left', position: 'left'}})
@@ -67,21 +65,19 @@ block content
       h3.showcase__subtitle input text
       .ui-inputs
         +form(action='#', method='POST')
-          +form-field(placeholder='default text input')
-          +form-field(placeholder='disabled text input', disabled=true)
-          +form-field(placeholder='required text input', required=true)
-          +form-field(placeholder='with min lenght = 3', minlength=3, required=true)
-          +form-field(placeholder='with max lenght = 7', maxlength=7, required=true)
+          +form-field-text(placeholder='default text input')
+          +form-field-text(placeholder='disabled text input', disabled=true)
+          +form-field-text(placeholder='required text input', required=true)
+          +form-field-text(placeholder='with min lenght = 3', minlength=3, required=true)
+          +form-field-text(placeholder='with max lenght = 7', maxlength=7, required=true)
 
-      h3.showcase__subtitle input date field
+      h3.showcase__subtitle input date
       .ui-inputs
         +form(action='#', method='POST')
-          +form-field-date
+          +form-field-date(placeholder='default text input')
+          +form-field-date(placeholder='disabled text input', disabled=true)
+          +form-field-date(placeholder='required text input', required=true)
 
       h3.showcase__subtitle dropdown date
       .ui-inputs
-        +dropdown-date('id-dropdown-date')
-
-      h3.showcase__subtitle dropdown date filter
-      .ui-inputs
-        +dropdown-date-filter('id-dropdown-date-filter')
+        +dropdown-date(id='id-dropdown-date')
