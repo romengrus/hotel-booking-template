@@ -16,7 +16,7 @@ class Button {
     this._attachEventHandlers()
 
     // add id to dom component for future reference
-    this.$el.setAttribute('data-compoent-id', this.id)
+    this.$el.setAttribute('data-component-id', this.id)
   }
 
   _attachEventHandlers() {
