@@ -1,8 +1,7 @@
 //- Social icons block
-//- @param {object} icons
-//--- icon params
-//--- @param {string} name Icon name
-//--- @param {string} href Link to social account/page 
+//- icons     {array} Array of icon objects 
+//--- name    {string} Icon name
+//--- href    {string} Link to social account/page 
 mixin social-icons(params = {})
   include /blocks/library/icon/icon.pug
 
@@ -20,7 +19,7 @@ mixin social-icons(params = {})
       }]
     }, params)
 
-    classList = ['social-icons'] 
+    var classList = ['social-icons'] 
 
   div(class= classList)
     each icon in params.icons
