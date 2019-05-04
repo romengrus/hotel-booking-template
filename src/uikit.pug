@@ -1,13 +1,13 @@
 extends base.pug
 
+//- library blocks
 include blocks/library/icon/icon.pug
 include blocks/library/form/form.pug
 include blocks/library/form-field-text/form-field-text.pug
 include blocks/library/form-field-date/form-field-date.pug
 include blocks/library/button/button.pug
-include blocks/library/datepicker/datepicker.pug
-include blocks/library/dropdown-date/dropdown-date.pug
 
+//- project blocks
 include blocks/project/header/header.pug
 include blocks/project/footer/footer.pug
 include blocks/project/copyright-bar/copyright-bar.pug
@@ -41,12 +41,6 @@ block content
       +copyright-bar
 
   section.showcase
-    h2.showcase__title datepicker
-      .showcase__row
-        +form-field-text(id= 'id123')
-        +datepicker({inputId: 'id123'})
-
-  section.showcase
     h2.showcase__title form elements
     .showcase__content
       h3.showcase__subtitle buttons
@@ -74,10 +68,6 @@ block content
       h3.showcase__subtitle input date
       .ui-inputs
         +form(action='#', method='POST')
-          +form-field-date(placeholder='default text input')
-          +form-field-date(placeholder='disabled text input', disabled=true)
-          +form-field-date(placeholder='required text input', required=true)
-
-      h3.showcase__subtitle dropdown date
-      .ui-inputs
-        +dropdown-date(id='id-dropdown-date')
+          +form-field-date({useDatepicker: true})(placeholder='ДД.ММ.ГГГГ')
+          +form-field-date(placeholder='ДД.ММ.ГГГГ', disabled=true)
+          +form-field-date(placeholder='ДД.ММ.ГГГГ', required=true)
