@@ -1,0 +1,33 @@
+//- Date input component
+//- useDatepicker {boolean} If true - datepicker will be used to select date(s)
+//- isRangeMode   {boolean} If true - datepicker will select date range
+//- dateFormat    {string} pattern for IMask 
+//- mods          {array} Modifier classes
+mixin form-field-datetime(params = {})
+  include /blocks/library/form-field/form-field.pug
+  include /blocks/library/icon/icon.pug
+
+  -
+    params = deepmerge({
+      useDatepicker: false,
+      isRangeMode: false,
+      dateFormat: 'd.m.Y',
+      mods: [],
+    }, params)
+
+    attributes = deepmerge({
+      type: 'text', 
+      'data-use-datepicker': params.useDatepicker,
+      'data-is-range-mode': params.isRangeMode,
+      'data-date-format': params.dateFormat,
+      'data-input': true
+    }, attributes)
+
+    var classList = ['form-field-datetime'].concat(params.mods)
+    var inputClassList = ['form-field-datetime__input']
+    var iconClassList = ['form-field-datetime__icon']
+
+  div(class= classList)
+    +form-field({mods: inputClassList})&attributes(attributes)
+    if (params.useDatepicker)
+      +icon({name: 'semi-arrow-down', mods: iconClassList})('data-toggle'= true)

@@ -4,6 +4,7 @@ extends base.pug
 include blocks/library/icon/icon.pug
 include blocks/library/form/form.pug
 include blocks/library/form-field-text/form-field-text.pug
+include blocks/library/form-field-datetime/form-field-datetime.pug
 include blocks/library/button/button.pug
 
 //- project blocks
@@ -63,3 +64,10 @@ block content
           +form-field-text(placeholder='required text input', required=true)
           +form-field-text(placeholder='with min lenght = 3', minlength=3, required=true)
           +form-field-text(placeholder='with max lenght = 7', maxlength=7, required=true)
+
+      h3.showcase__subtitle input datetime
+      .ui-inputs
+        +form(action='#', method='POST')
+          +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГ')
+          +form-field-datetime(placeholder='ДД.ММ.ГГ', disabled=true)
+          +form-field-datetime(placeholder='ДД.ММ.ГГ', required=true)
