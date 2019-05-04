@@ -1,10 +1,10 @@
-include /blocks/library/menu/menu.pug
-include /blocks/library/button/button.pug
-
 //- Main header
 //- isLoggedIn  {boolean} If user is logged in
 //- userName {string} User name to show in auth block
 mixin header(params)
+  include /components/library/menu/menu.pug
+  include /components/library/button/button.pug
+
   - 
     params = deepmerge({
       isLoggedIn: false,

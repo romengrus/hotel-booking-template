@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
-import libraryComponents from './blocks/library/**/*.js'
-import projectComponents from './blocks/project/**/*.js'
-import BaseComponent from './blocks/Component'
+import libraryComponents from './components/library/**/*.js'
+import projectComponents from './components/project/**/*.js'
+import BaseComponent from './components/Component'
 
 const componentRegistry = {}
 
