@@ -1,35 +1,26 @@
 import hyperform from 'hyperform'
-import uuid from 'uuid/v4'
 import formValidationI18n from '../../../i18n/formValidation'
+import Component from '../../Component'
 
 const lang = 'ru'
 
-class Form {
+class Form extends Component {
   constructor($el, app) {
-    this._id = uuid()
-    this.$el = $el
-    this.app = app
+    super($el, app)
     this.formValidationClasses = {
       warning: 'form-field__warning-msg',
-      valid: 'form-field__input_valid',
-      invalid: 'form-field__input_invalid',
-      validated: 'form-field__input_validated'
+      valid: 'form-field_valid',
+      invalid: 'form-field_invalid',
+      validated: 'form-field_validated'
     }
     this.init()
   }
 
-  get id() {
-    return this._id
+  static getDomSelector() {
+    return '.form'
   }
 
   init() {
-    this.configForm()
-
-    // add id to dom component for future reference
-    this.$el.setAttribute('data-component-id', this.id)
-  }
-
-  configForm() {
     hyperform(this.$el, {
       classes: this.formValidationClasses,
       validateNameless: true,
@@ -40,9 +31,4 @@ class Form {
   }
 }
 
-export function factory(app) {
-  const $forms = document.querySelectorAll('.form')
-  $forms.forEach($form => {
-    app.registerComponent(new Form($form, app))
-  })
-}
+export default Form

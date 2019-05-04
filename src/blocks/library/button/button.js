@@ -1,30 +1,27 @@
-import uuid from 'uuid/v4'
+import Component from '../../Component'
 
-class Button {
+class Button extends Component {
   constructor($el, app) {
-    this._id = uuid()
-    this.$el = $el
-    this.app = app
+    super($el, app)
     this.init()
   }
 
-  get id() {
-    return this._id
+  static getDomSelector() {
+    return '.button'
   }
 
   init() {
     this._attachEventHandlers()
-
-    // add id to dom component for future reference
-    this.$el.setAttribute('data-component-id', this.id)
   }
 
   _attachEventHandlers() {
-    this.$el.addEventListener('click', e => {
-      if (this.$el.classList.contains('button_has-ripple')) {
-        this._showRipple(e)
-      }
-    })
+    this.$el.addEventListener('click', e => this._handleButtonClick(e))
+  }
+
+  _handleButtonClick(e) {
+    if (this.$el.classList.contains('button_has-ripple')) {
+      this._showRipple(e)
+    }
   }
 
   _showRipple(e) {
@@ -46,9 +43,4 @@ class Button {
   }
 }
 
-export function factory(app) {
-  const $buttons = document.querySelectorAll('.button')
-  $buttons.forEach($btn => {
-    app.registerComponent(new Button($btn, app))
-  })
-}
+export default Button
