@@ -20,5 +20,5 @@ mixin icon(params = {})
   //- focusable="false"	
   //- This one is for IE and Edge. In those browsers, the SVG element can get keyboard focus. 
   //- This can result in the surrounding link or button being focused twice, and being read twice.
-  svg(class= classList, aria-hidden="true" focusable="false")
+  svg(class= classList, aria-hidden="true" focusable="false")&attributes(attributes)
     use(xlink:href= `#${params.name}`)
