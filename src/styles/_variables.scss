@@ -39,7 +39,7 @@ $dark-050: rgba(31, 32, 65, 0.05);
 
 // Gradients
 $primary-gradient: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%) !default;
-$secondary-gradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%) !default;
+$secondary-gradient: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%) !default;
 
 // Spacing
 
@@ -122,9 +122,9 @@ $grid-breakpoints: (
   font-style: normal;
 }
 
-$font-family-sans-serif: 'Montserrat-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-  Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji' !default;
+$font-family-sans-serif: 'Montserrat-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji' !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
   monospace !default;
 $font-family-base: $font-family-sans-serif !default;
@@ -172,22 +172,3 @@ $input-line-height: 1.5rem;
 $input-padding: 0.5rem 0.9375rem;
 $input-label-color: $black;
 $input-label-size: 0.75rem;
-
-// Datepicker
-$datepicker-text-color: $dark-500 !default;
-$datepicker-title-color: $dark-1000 !default;
-$datepicker-title-bg: $white !default;
-$datepicker-picker-bg: $white;
-$datepicker-th-color: $primary;
-$datepicker-day-color: $dark-500 !default;
-$datepicker-day-bg: $white !default;
-$datepicker-day-hover-color: $white !default;
-$datepicker-day-hover-bg: $primary-gradient !default;
-$datepicker-day-today-color: $white !default;
-$datepicker-day-selected-color: $white !default;
-$datepicker-day-selected-bg: $primary-gradient !default;
-$datepicker-day-selected-shadow: none !default;
-$datepicker-day-disabled-color: $dark-750 !default;
-
-// Font
-$datepicker-font-family: $font-family-base;
