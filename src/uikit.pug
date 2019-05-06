@@ -3,7 +3,7 @@ extends base.pug
 //- library components
 include components/library/icon/icon.pug
 include components/library/form/form.pug
-include components/library/form-field-text/form-field-text.pug
+include components/library/form-field/form-field.pug
 include components/library/form-field-datetime/form-field-datetime.pug
 include components/library/button/button.pug
 
@@ -59,11 +59,11 @@ block content
       h3.showcase__subtitle input text
       .ui-inputs
         +form(action='#', method='POST')
-          +form-field-text(placeholder='default text input')
-          +form-field-text(placeholder='disabled text input', disabled=true)
-          +form-field-text(placeholder='required text input', required=true)
-          +form-field-text(placeholder='with min lenght = 3', minlength=3, required=true)
-          +form-field-text(placeholder='with max lenght = 7', maxlength=7, required=true)
+          +form-field(placeholder='default text input', type='text')
+          +form-field(placeholder='disabled text input', disabled=true, type='text')
+          +form-field(placeholder='required text input', required=true, type='text')
+          +form-field(placeholder='with min lenght = 3', minlength=3, required=true, type='text')
+          +form-field(placeholder='with max lenght = 7', maxlength=7, required=true, type='text')
 
       h3.showcase__subtitle input datetime
       .ui-inputs
