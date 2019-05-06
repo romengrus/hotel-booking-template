@@ -1,20 +1,19 @@
 //- Button component
-//- value       {string} Button text value
-//- isRounded   {boolean} If true - button has rounded corners
-//- isOutlined  {boolean} If true - button has border, but no background
-//- isText      {boolean} If true - button has no border and background
-//- isDisabled  {boolean} If true - button is disabled
-//- isExpanded  {boolean} If true - button is expanded to the width of container
-//- hasRipple   {boolean} If true - button has ripple effect on click
-//- mods        {array} Modifier classes
-//- icon        {object} Icon component
-//--- name        {string} Icon name
-//--- position    {'left' | 'right'} Icon position
+//- value         {string} Button text value
+//- isRounded     {boolean} If true - button has rounded corners
+//- isOutlined    {boolean} If true - button has border, but no background
+//- isText        {boolean} If true - button has no border and background
+//- isDisabled    {boolean} If true - button is disabled
+//- isExpanded    {boolean} If true - button is expanded to the width of container
+//- hasRipple     {boolean} If true - button has ripple effect on click
+//- mods          {array} Modifier classes
+//- iconName      {string} Icon name
+//- iconPosition  {'left' | 'right'} Icon position
 mixin button(params = {})
   include /components/library/icon/icon.pug
 
   -
-    params = deepmerge({
+    params = Object.assign({
       value: '',
       isRounded: true,
       isOutlined: false,
@@ -23,10 +22,8 @@ mixin button(params = {})
       isExpanded: false,
       hasRipple: false,
       mods: [],
-      icon: {
-        name: '',
-        position: 'right'
-      },
+      iconName: '',
+      iconPosition: 'right'
     }, params)
 
     var classList = ['button'].concat(params.mods)
@@ -37,10 +34,10 @@ mixin button(params = {})
     if (params.isDisabled) classList.push('button_is-disabled')
     if (params.isExpanded) classList.push('button_is-expanded')
     if (params.hasRipple && !params.isDisabled) classList.push('button_has-ripple')
-    if (params.icon.name) classList.push('button_has-icon')
+    if (params.iconName) classList.push('button_has-icon')
 
   a(class= classList)&attributes(attributes)= params.value
-    if (params.icon.name)
-      +icon({name: params.icon.name, mods: [`button__icon`, `button__icon_${params.icon.position}`]})
+    if (params.iconName)
+      +icon({name: params.iconName, mods: [`button__icon`, `button__icon_${params.iconPosition}`]})
 
     block
