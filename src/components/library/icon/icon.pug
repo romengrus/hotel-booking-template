@@ -1,15 +1,15 @@
 //- Responsive Icon component
 //- name  {string} Icon file name (without extension)
 //- mods  {array} Modifier classes
-mixin icon(params = {})
+mixin icon(props = {})
   -
-    params = Object.assign({
+    props = Object.assign({
       name: '',
       mods: []
-    }, params)
+    }, props)
 
-    var classList = ['icon'].concat(params.mods)
-    if (params.name) classList.push(`icon-${params.name}`)
+    var classList = ['icon'].concat(props.mods)
+    if (props.name) classList.push(`icon-${props.name}`)
 
   //- aria-hidden="true"
   //- Since we’re already including accessible text outside of the SVG element, 
@@ -21,4 +21,4 @@ mixin icon(params = {})
   //- This one is for IE and Edge. In those browsers, the SVG element can get keyboard focus. 
   //- This can result in the surrounding link or button being focused twice, and being read twice.
   svg(class= classList, aria-hidden="true" focusable="false")&attributes(attributes)
-    use(xlink:href= `#${params.name}`)
+    use(xlink:href= `#${props.name}`)

@@ -3,31 +3,31 @@
 //- isRangeMode   {boolean} If true - datepicker will select date range
 //- dateFormat    {string} pattern for IMask 
 //- mods          {array} Modifier classes
-mixin form-field-datetime(params = {})
+mixin form-field-datetime(props = {})
   include /components/library/form-field/form-field.pug
   include /components/library/icon/icon.pug
 
   -
-    params = Object.assign({
+    props = Object.assign({
       useDatepicker: false,
       isRangeMode: false,
       dateFormat: 'd.m.Y',
       mods: [],
-    }, params)
+    }, props)
 
     attributes = Object.assign({
       type: 'text', 
-      'data-use-datepicker': params.useDatepicker,
-      'data-is-range-mode': params.isRangeMode,
-      'data-date-format': params.dateFormat,
+      'data-use-datepicker': props.useDatepicker,
+      'data-is-range-mode': props.isRangeMode,
+      'data-date-format': props.dateFormat,
       'data-input': true
     }, attributes)
 
-    var classList = ['form-field-datetime'].concat(params.mods)
+    var classList = ['form-field-datetime'].concat(props.mods)
     var inputClassList = ['form-field-datetime__input']
     var iconClassList = ['form-field-datetime__icon']
 
   div(class= classList)
     +form-field({mods: inputClassList})&attributes(attributes)
-    if (params.useDatepicker)
+    if (props.useDatepicker)
       +icon({name: 'semi-arrow-down', mods: iconClassList})('data-toggle'= true)

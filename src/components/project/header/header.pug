@@ -1,24 +1,24 @@
 //- Main header
 //- isLoggedIn  {boolean} If user is logged in
 //- userName {string} User name to show in auth block
-mixin header(params)
+mixin header(props)
   include /components/library/menu/menu.pug
   include /components/library/button/button.pug
 
   - 
-    params = Object.assign({
+    props = Object.assign({
       isLoggedIn: false,
       userName: 'Cosmin Negoita'
-    }, params)
+    }, props)
     
     menuData = getData('menuMain')
 
   header.header
     include /assets/img/logo.svg
     +menu({items: menuData, mods: ['header__menu']})
-    if params.isLoggedIn
+    if props.isLoggedIn
       .header__auth.header__auth_is-logged-in
-        a(class= 'header__profile-link', href= '#')= params.userName
+        a(class= 'header__profile-link', href= '#')= props.userName
     else 
       .header__auth
         +button({value: 'login', isOutlined: true, mods: ['header__button']})

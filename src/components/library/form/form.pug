@@ -1,12 +1,12 @@
 //- Form component
 //- mods  {array} Modification classes
-mixin form(params = {})
+mixin form(props = {})
   -
-    params = Object.assign({
+    props = Object.assign({
       mods: []
-    }, params)
+    }, props)
 
-    var classList = ['form'].concat(params.mods)
+    var classList = ['form'].concat(props.mods)
 
   form(class= classList)&attributes(attributes)
     block

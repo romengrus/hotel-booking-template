@@ -2,11 +2,11 @@
 //- icons     {array} Array of icon objects 
 //--- name    {string} Icon name
 //--- href    {string} Link to social account/page 
-mixin social-icons(params = {})
+mixin social-icons(props = {})
   include /components/library/icon/icon.pug
 
   - 
-    params = Object.assign({
+    props = Object.assign({
       icons: [{
         name: 'twitter',
         href: '#'
@@ -17,12 +17,12 @@ mixin social-icons(params = {})
         name: 'instagram',
         href: '#'
       }]
-    }, params)
+    }, props)
 
     var classList = ['social-icons'] 
 
   div(class= classList)
-    each icon in params.icons
+    each icon in props.icons
       a(class= 'social-icons__link', href= icon.href)
         +icon({name: icon.name})
 

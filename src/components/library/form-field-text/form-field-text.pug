@@ -1,17 +1,17 @@
 //- Text input component
 //- mods  {array} Modifier classes
-mixin form-field-text(params = {})
+mixin form-field-text(props = {})
   include /components/library/form-field/form-field.pug
 
   -
-    params = Object.assign({
+    props = Object.assign({
       mods: [],
-    }, params)
+    }, props)
 
     attributes = Object.assign({
       type: 'text', 
     }, attributes)
 
-    var classList = ['form-field-text'].concat(params.mods)
+    var classList = ['form-field-text'].concat(props.mods)
 
   +form-field({mods: classList})&attributes(attributes)

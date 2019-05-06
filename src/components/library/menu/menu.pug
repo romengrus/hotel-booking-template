@@ -6,22 +6,22 @@
 //--- href      {string} Menu item href
 //--- isActive  {boolean} Is this currently selected menu item
 //--- submenu   {array} Array of submenu items 
-mixin menu(params)
+mixin menu(props)
   include /components/library/icon/icon.pug
 
   -
-    params = Object.assign({
+    props = Object.assign({
       orientation: 'horizontal',
       mods: [],
       items: []
-    }, params)
+    }, props)
 
-    var classList = ['menu'].concat(params.mods)
+    var classList = ['menu'].concat(props.mods)
 
-    if (params.orientation) classList.push(`menu_${params.orientation}`)
+    if (props.orientation) classList.push(`menu_${props.orientation}`)
 
   ul(class= classList)
-    each item in params.items
+    each item in props.items
       li(class= 'menu__item')
         - var linkClassList = ['menu__link']
         - if (item.isActive) linkClassList.push('menu__link_active')

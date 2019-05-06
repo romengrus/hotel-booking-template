@@ -1,19 +1,19 @@
 //- type  {'' | 'creative'} Footer type
-mixin footer(params = {})
+mixin footer(props = {})
   include /components/library/menu/menu.pug
   include /components/project/social-icons/social-icons.pug
 
   - 
-    params = Object.assign({
+    props = Object.assign({
       type: ''
-    }, params)
+    }, props)
 
     classList = ['footer']
 
-    if (params.type) classList.push(`footer_${params.type}`)
+    if (props.type) classList.push(`footer_${props.type}`)
 
   footer(class= classList)
-    if params.type === 'creative'
+    if props.type === 'creative'
       .footer__content.footer__content_creative
         .footer__block.footer__block_creative
           include /assets/img/logo.svg
