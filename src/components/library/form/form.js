@@ -1,12 +1,11 @@
 import hyperform from 'hyperform'
 import formValidationI18n from '../../../i18n/formValidation'
-import Component from '../../Component'
 
 const lang = 'ru'
 
-export class Form extends Component {
-  constructor($el, app) {
-    super($el, app)
+export class Form {
+  constructor($el) {
+    this.$el = $el
     this.formValidationClasses = {
       warning: 'form-field__warning-msg',
       valid: 'form-field_valid',
@@ -16,7 +15,7 @@ export class Form extends Component {
     this.init()
   }
 
-  static getDomSelector() {
+  static getQuerySelector() {
     return '.form'
   }
 

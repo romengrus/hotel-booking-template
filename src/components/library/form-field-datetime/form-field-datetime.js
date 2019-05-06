@@ -1,10 +1,9 @@
 import IMask from 'imask'
 import flatpickr from 'flatpickr'
-import Component from '../../Component'
 
-export class FormFieldDate extends Component {
-  constructor($el, app) {
-    super($el, app)
+export class FormFieldDate {
+  constructor($el) {
+    this.$el = $el
     this.$input = $el.querySelector('.form-field-datetime__input')
     this.$icon = $el.querySelector('.form-field-datetime__icon')
     this.mask = null
@@ -12,7 +11,7 @@ export class FormFieldDate extends Component {
     this.init()
   }
 
-  static getDomSelector() {
+  static getQuerySelector() {
     return '.form-field-datetime'
   }
 

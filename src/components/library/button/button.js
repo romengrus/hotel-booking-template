@@ -1,12 +1,10 @@
-import Component from '../../Component'
-
-export class Button extends Component {
-  constructor($el, app) {
-    super($el, app)
+export class Button {
+  constructor($el) {
+    this.$el = $el
     this.init()
   }
 
-  static getDomSelector() {
+  static getQuerySelector() {
     return '.button'
   }
 
