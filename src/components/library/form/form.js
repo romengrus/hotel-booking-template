@@ -4,7 +4,7 @@ import Component from '../../Component'
 
 const lang = 'ru'
 
-class Form extends Component {
+export class Form extends Component {
   constructor($el, app) {
     super($el, app)
     this.formValidationClasses = {
@@ -30,5 +30,3 @@ class Form extends Component {
     hyperform.setLanguage(lang)
   }
 }
-
-export default Form

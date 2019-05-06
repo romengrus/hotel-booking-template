@@ -1,6 +1,6 @@
 import Component from '../../Component'
 
-class Button extends Component {
+export class Button extends Component {
   constructor($el, app) {
     super($el, app)
     this.init()
@@ -42,5 +42,3 @@ class Button extends Component {
     }, 1000)
   }
 }
-
-export default Button

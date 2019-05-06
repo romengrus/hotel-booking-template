@@ -2,7 +2,7 @@ import IMask from 'imask'
 import flatpickr from 'flatpickr'
 import Component from '../../Component'
 
-class FormFieldDate extends Component {
+export class FormFieldDate extends Component {
   constructor($el, app) {
     super($el, app)
     this.$input = $el.querySelector('.form-field-datetime__input')
@@ -45,5 +45,3 @@ class FormFieldDate extends Component {
     })
   }
 }
-
-export default FormFieldDate

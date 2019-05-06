@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
-import libraryComponents from './components/library/**/*.js'
-import projectComponents from './components/project/**/*.js'
-import BaseComponent from './components/Component'
+import * as libraryComponents from './components/library'
+import * as projectComponents from './components/project'
+import Component from './components/Component'
 
 const componentRegistry = {}
 
@@ -21,32 +21,25 @@ class App {
 }
 
 /**
- * Creates components and registers them in application
+ * Create and registers components in application
  * @param {object} app Application object
- * @param {class} Component Component class
+ * @param {class} ComponentClass
  */
-const factory = (app, Component) => {
-  const domSelector = Component.getDomSelector()
+const factory = (app, ComponentClass) => {
+  const domSelector = ComponentClass.getDomSelector()
   const $elements = document.querySelectorAll(domSelector)
-  // eslint-disable-next-line no-console
-  if (!$elements) console.info(`No components with ${Component.getDomSelector()} selector found`)
-  $elements.forEach($el => app.registerComponent(new Component($el, app)))
+  $elements.forEach($el => app.registerComponent(new ComponentClass($el, app)))
 }
 
 const app = new App(componentRegistry)
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Register library components
-  const allComponents = { ...libraryComponents, ...projectComponents }
-  Object.keys(allComponents)
-    // get component module
-    .map(name => {
-      const Component = allComponents[name][name].default
-      if (Component === undefined) throw new Error(`No default exported member in ${name}.js`)
-      if (!(Component.prototype instanceof BaseComponent))
-        throw new Error(`${name} component does not inherit from Component`)
-      return Component
-    })
-    // create and register components
-    .forEach(Component => factory(app, Component))
+  // override library components with project components with same name
+  const overridenComponents = Object.values({ ...libraryComponents, ...projectComponents })
+  // get only those components that inherit from Component class
+  const components = overridenComponents.filter(obj => obj.prototype instanceof Component)
+
+  Object.keys(components).forEach(name => {
+    factory(app, components[name])
+  })
 })
