@@ -16,23 +16,23 @@ mixin menu(props)
       items: []
     }, props)
 
-    var classList = ['menu'].concat(props.mods)
+    var mods = ['menu'].concat(props.mods)
 
-    if (props.orientation) classList.push(`menu_${props.orientation}`)
+    if (props.orientation) mods.push(`menu_${props.orientation}`)
 
-  ul(class= classList)
+  ul(class= mods)
     each item in props.items
       li(class= 'menu__item')
-        - var linkClassList = ['menu__link']
-        - if (item.isActive) linkClassList.push('menu__link_active')
-        a(href= item.href, class= linkClassList)= item.name
+        - var linkMods = ['menu__link']
+        - if (item.isActive) linkMods.push('menu__link_active')
+        a(href= item.href, class= linkMods)= item.name
         if item.submenu
-          - var submenuClassList = ['menu__submenu']
-          - if (item.isActive) submenuClassList.push('menu__submenu_active')
+          - var submenuMods = ['menu__submenu']
+          - if (item.isActive) submenuMods.push('menu__submenu_active')
           +icon({name: 'semi-arrow-down'})
-          ul(class= submenuClassList)
+          ul(class= submenuMods)
             each subItem in item.submenu
               li(class= 'menu__item')
-                - var submenuLinkClassList = ['menu__link']
-                - if (subItem.isActive) submenuLinkClassList.push('menu__link_active')
-                a(href= subItem.href, class= submenuLinkClassList)= subItem.name
+                - var submenuLinkMods = ['menu__link']
+                - if (subItem.isActive) submenuLinkMods.push('menu__link_active')
+                a(href= subItem.href, class= submenuLinkMods)= subItem.name

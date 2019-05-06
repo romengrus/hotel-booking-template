@@ -2,6 +2,7 @@
 //- icons     {array} Array of icon objects 
 //--- name    {string} Icon name
 //--- href    {string} Link to social account/page 
+//- mods      {array} Modifier classes
 mixin social-icons(props = {})
   include /components/library/icon/icon.pug
 
@@ -16,12 +17,13 @@ mixin social-icons(props = {})
       }, {
         name: 'instagram',
         href: '#'
-      }]
+      }],
+      mods: []
     }, props)
 
-    var classList = ['social-icons'] 
+    var mods = ['social-icons'].concat(props.mods)
 
-  div(class= classList)
+  div(class= mods)
     each icon in props.icons
       a(class= 'social-icons__link', href= icon.href)
         +icon({name: icon.name})

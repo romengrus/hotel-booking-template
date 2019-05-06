@@ -1,6 +1,7 @@
 //- Main header
 //- isLoggedIn  {boolean} If user is logged in
-//- userName {string} User name to show in auth block
+//- userName    {string} User name to show in auth block
+//- mods        {array} Modifier classes
 mixin header(props)
   include /components/library/menu/menu.pug
   include /components/library/button/button.pug
@@ -8,12 +9,14 @@ mixin header(props)
   - 
     props = Object.assign({
       isLoggedIn: false,
-      userName: 'Cosmin Negoita'
+      userName: 'Cosmin Negoita',
+      mods: []
     }, props)
     
-    menuData = getData('menuMain')
+    var menuData = getData('menuMain')
+    var mods = ['header'].concat(props.mods)
 
-  header.header
+  header(class= mods)
     include /assets/img/logo.svg
     +menu({items: menuData, mods: ['header__menu']})
     if props.isLoggedIn

@@ -12,6 +12,6 @@ mixin form-field-text(props = {})
       type: 'text', 
     }, attributes)
 
-    var classList = ['form-field-text'].concat(props.mods)
+    var mods = ['form-field-text'].concat(props.mods)
 
-  +form-field({mods: classList})&attributes(attributes)
+  +form-field({ mods })&attributes(attributes)

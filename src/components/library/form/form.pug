@@ -6,8 +6,8 @@ mixin form(props = {})
       mods: []
     }, props)
 
-    var classList = ['form'].concat(props.mods)
+    var mods = ['form'].concat(props.mods)
 
-  form(class= classList)&attributes(attributes)
+  form(class= mods)&attributes(attributes)
     block
 

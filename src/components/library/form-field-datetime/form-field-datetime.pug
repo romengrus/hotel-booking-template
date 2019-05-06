@@ -23,11 +23,11 @@ mixin form-field-datetime(props = {})
       'data-input': true
     }, attributes)
 
-    var classList = ['form-field-datetime'].concat(props.mods)
-    var inputClassList = ['form-field-datetime__input']
-    var iconClassList = ['form-field-datetime__icon']
+    var mods = ['form-field-datetime'].concat(props.mods)
+    var inputMods = ['form-field-datetime__input']
+    var iconMods = ['form-field-datetime__icon']
 
-  div(class= classList)
-    +form-field({mods: inputClassList})&attributes(attributes)
+  div(class= mods)
+    +form-field({mods: inputMods})&attributes(attributes)
     if (props.useDatepicker)
-      +icon({name: 'semi-arrow-down', mods: iconClassList})('data-toggle'= true)
+      +icon({name: 'semi-arrow-down', mods: iconMods})('data-toggle'= true)

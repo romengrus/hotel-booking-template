@@ -1,18 +1,20 @@
 //- type  {'' | 'creative'} Footer type
+//- mods  {array} Modifier classes
 mixin footer(props = {})
   include /components/library/menu/menu.pug
   include /components/project/social-icons/social-icons.pug
 
   - 
     props = Object.assign({
-      type: ''
+      type: '',
+      mods: []
     }, props)
 
-    classList = ['footer']
+    var mods = ['footer'].concat(props.mods)
 
-    if (props.type) classList.push(`footer_${props.type}`)
+    if (props.type) mods.push(`footer_${props.type}`)
 
-  footer(class= classList)
+  footer(class= mods)
     if props.type === 'creative'
       .footer__content.footer__content_creative
         .footer__block.footer__block_creative

@@ -6,6 +6,6 @@ mixin form-field(props = {})
       mods: [],
     }, props)
 
-    var classList = ['form-field'].concat(props.mods)
+    var mods = ['form-field'].concat(props.mods)
 
-  input(class= classList)&attributes(attributes)
+  input(class= mods)&attributes(attributes)

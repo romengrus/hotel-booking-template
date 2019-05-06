@@ -8,8 +8,8 @@ mixin icon(props = {})
       mods: []
     }, props)
 
-    var classList = ['icon'].concat(props.mods)
-    if (props.name) classList.push(`icon-${props.name}`)
+    var mods = ['icon'].concat(props.mods)
+    if (props.name) mods.push(`icon-${props.name}`)
 
   //- aria-hidden="true"
   //- Since we’re already including accessible text outside of the SVG element, 
@@ -20,5 +20,5 @@ mixin icon(props = {})
   //- focusable="false"	
   //- This one is for IE and Edge. In those browsers, the SVG element can get keyboard focus. 
   //- This can result in the surrounding link or button being focused twice, and being read twice.
-  svg(class= classList, aria-hidden="true" focusable="false")&attributes(attributes)
+  svg(class= mods, aria-hidden="true" focusable="false")&attributes(attributes)
     use(xlink:href= `#${props.name}`)
