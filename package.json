@@ -15,7 +15,6 @@
   "author": "Roman Korenev",
   "license": "ISC",
   "dependencies": {
-    "deepmerge": "^3.2.0",
     "flatpickr": "^4.5.7",
     "hyperform": "^0.10.1",
     "imask": "^5.1.1",

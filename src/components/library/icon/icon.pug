@@ -3,7 +3,7 @@
 //- mods  {array} Modifier classes
 mixin icon(params = {})
   -
-    params = deepmerge({
+    params = Object.assign({
       name: '',
       mods: []
     }, params)

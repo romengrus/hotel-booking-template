@@ -4,11 +4,11 @@ mixin form-field-text(params = {})
   include /components/library/form-field/form-field.pug
 
   -
-    params = deepmerge({
+    params = Object.assign({
       mods: [],
     }, params)
 
-    attributes = deepmerge({
+    attributes = Object.assign({
       type: 'text', 
     }, attributes)
 

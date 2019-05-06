@@ -4,7 +4,7 @@ mixin footer(params = {})
   include /components/project/social-icons/social-icons.pug
 
   - 
-    params = deepmerge({
+    params = Object.assign({
       type: ''
     }, params)
 

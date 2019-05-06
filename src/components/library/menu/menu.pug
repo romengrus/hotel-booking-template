@@ -10,7 +10,7 @@ mixin menu(params)
   include /components/library/icon/icon.pug
 
   -
-    params = deepmerge({
+    params = Object.assign({
       orientation: 'horizontal',
       mods: [],
       items: []

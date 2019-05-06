@@ -6,7 +6,7 @@ mixin header(params)
   include /components/library/button/button.pug
 
   - 
-    params = deepmerge({
+    params = Object.assign({
       isLoggedIn: false,
       userName: 'Cosmin Negoita'
     }, params)

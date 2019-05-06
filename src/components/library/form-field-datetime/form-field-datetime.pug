@@ -8,14 +8,14 @@ mixin form-field-datetime(params = {})
   include /components/library/icon/icon.pug
 
   -
-    params = deepmerge({
+    params = Object.assign({
       useDatepicker: false,
       isRangeMode: false,
       dateFormat: 'd.m.Y',
       mods: [],
     }, params)
 
-    attributes = deepmerge({
+    attributes = Object.assign({
       type: 'text', 
       'data-use-datepicker': params.useDatepicker,
       'data-is-range-mode': params.isRangeMode,

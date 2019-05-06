@@ -2,7 +2,7 @@
 //- mods  {array} Modifier classes
 mixin form-field(params = {})
   -
-    params = deepmerge({
+    params = Object.assign({
       mods: [],
     }, params)
 

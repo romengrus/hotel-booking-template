@@ -6,7 +6,7 @@ mixin social-icons(params = {})
   include /components/library/icon/icon.pug
 
   - 
-    params = deepmerge({
+    params = Object.assign({
       icons: [{
         name: 'twitter',
         href: '#'
