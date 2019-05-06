@@ -1,4 +1,3 @@
-const pugOptions = require('./.pugrc')
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -59,9 +58,8 @@ module.exports = {
   // globalTeardown: null,
 
   // A set of global variables that need to be available in all test environments
-  globals: {
-    __PUG_OPTIONS: pugOptions
-  },
+  // globals: {
+  // },
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
