@@ -1,6 +1,5 @@
 import path from 'path'
 import pug from 'pug'
-import sinon from 'sinon'
 import { fireEvent } from 'dom-testing-library'
 import { Button } from '../button'
 
@@ -8,8 +7,6 @@ const qs = Button.getQuerySelector()
 const basedir = global.__BASE_DIR
 const templatePath = path.join(__dirname, 'button.test.pug')
 const makeButton = pug.compileFile(templatePath, { basedir })
-
-afterEach(() => sinon.restore())
 
 describe('Button', () => {
   test('static getQuerySelector() should return component css selector', () => {
@@ -138,8 +135,8 @@ describe('Button', () => {
     document.body.innerHTML = makeButton({ props })
     const $el = document.querySelector(qs)
     const $button = new Button($el)
-    const spy = sinon.spy($button, '_showRipple')
+    const spy = jest.spyOn($button, '_showRipple')
     fireEvent.click($el)
-    expect(spy.called).toBe(true)
+    expect(spy).toHaveBeenCalled()
   })
 })
