@@ -47,7 +47,7 @@ block content
       .ui-buttons
         +button({value: 'click me', isRounded: false, hasRipple: true})
         +button({value: 'click me', isRounded: false, isOutlined: true})
-        +button({value: 'click me'})
+        +button({type: 'link', value: 'click me'})(title= 'External link', href= 'https://google.com')
         +button({value: 'click me', isOutlined: true})
         +button({value: 'click me', isText: true})
         +button({value: 'перейти к оплате', isDisabled: true})
