@@ -1,7 +1,19 @@
 import IMask from 'imask'
 import flatpickr from 'flatpickr'
+import { Russian } from 'flatpickr/dist/l10n/ru'
 
-export class FormFieldDate {
+const lang = 'ru'
+
+function getDatepickerLocale(language = 'en') {
+  switch (language) {
+    case 'ru':
+      return Russian
+    default:
+      return null
+  }
+}
+
+export class FormFieldDatetime {
   constructor($el) {
     this.$el = $el
     this.$input = $el.querySelector('.form-field-datetime__input')
@@ -26,7 +38,7 @@ export class FormFieldDate {
   _createMask() {
     return IMask(this.$input, {
       mask: Date,
-      pattern: this.$input.dataset.dateFormat,
+      pattern: this.$input.dataset.dateFormat || 'd.m.Y',
       lazy: false,
       overwrite: true,
       autofix: true,
@@ -40,7 +52,11 @@ export class FormFieldDate {
 
   _createDatepicker() {
     return flatpickr(this.$el, {
-      wrap: true
+      locale: getDatepickerLocale(lang),
+      altInput: true,
+      altFormat: this.$input.dataset.dateFormat || 'd.m.Y',
+      wrap: true,
+      mode: this.$input.dataset.datepickerMode || 'single'
     })
   }
 }

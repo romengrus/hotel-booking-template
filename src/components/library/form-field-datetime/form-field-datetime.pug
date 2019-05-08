@@ -1,8 +1,10 @@
 //- Date input component
-//- useDatepicker {boolean} If true - datepicker will be used to select date(s)
-//- isRangeMode   {boolean} If true - datepicker will select date range
-//- dateFormat    {string} pattern for IMask 
-//- mods          {array} Modifier classes
+//- useDatepicker   {boolean} If true - datepicker will be used to select date(s)
+//- datepickerMode  {'single' | 'range' | 'multiple'} Single - select only 1 date at a time. 
+//-                                                   Range - select date range. 
+//-                                                   Multiple - select multiple dates
+//- dateFormat      {string} pattern for IMask (ref: https://tc39.github.io/ecma262/#sec-date-time-string-format)
+//- mods            {array} Modifier classes
 mixin form-field-datetime(props = {})
   include /components/library/form-field/form-field.pug
   include /components/library/icon/icon.pug
@@ -10,7 +12,7 @@ mixin form-field-datetime(props = {})
   -
     props = Object.assign({
       useDatepicker: false,
-      isRangeMode: false,
+      datepickerMode: 'single',
       dateFormat: 'd.m.Y',
       mods: [],
     }, props)
@@ -18,7 +20,7 @@ mixin form-field-datetime(props = {})
     attributes = Object.assign({
       type: 'text', 
       'data-use-datepicker': props.useDatepicker,
-      'data-is-range-mode': props.isRangeMode,
+      'data-datepicker-mode': props.datepickerMode,
       'data-date-format': props.dateFormat,
       'data-input': true
     }, attributes)

@@ -68,6 +68,17 @@ block content
       h3.showcase__subtitle input datetime
       .ui-inputs
         +form(action='#', method='POST')
+          h4 default
+          +form-field-datetime
+          +form-field-datetime(disabled=true)
+          +form-field-datetime(required=true)
+          h4 with datepicker
           +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГ')
-          +form-field-datetime(placeholder='ДД.ММ.ГГ', disabled=true)
-          +form-field-datetime(placeholder='ДД.ММ.ГГ', required=true)
+          +form-field-datetime({useDatepicker: true, datepickerMode: 'range'})(placeholder='ДД.ММ.ГГ - ДД.ММ.ГГ')
+          +form-field-datetime({useDatepicker: true, datepickerMode: 'multiple'})(placeholder='ДД.ММ.ГГ, ДД.ММ.ГГ, ...')
+          +form-field-datetime({useDatepicker: true, dateFormat: 'm.Y'})(placeholder='ММ.ГГ')
+          +form-field-datetime({useDatepicker: true, dateFormat: 'd M', datepickerMode: 'range'})(placeholder='ДД М - ДД М')
+          h4 with date mask
+          +form-field-datetime({dateFormat: 'Y'})
+          +form-field-datetime({dateFormat: 'm.Y'})
+          +form-field-datetime({dateFormat: 'd.m.Y'})
