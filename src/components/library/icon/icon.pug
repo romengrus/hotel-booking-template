@@ -9,7 +9,11 @@ mixin icon(props = {})
     }, props)
 
     var mods = ['icon'].concat(props.mods)
-    if (props.name) mods.push(`icon-${props.name}`)
+    if (props.name) {
+      mods.push(`icon-${props.name}`)
+    } else {
+      throw new Error(`Icon: name is not provided. Don't know what icon to show`)
+    }
 
   //- aria-hidden="true"
   //- Since we’re already including accessible text outside of the SVG element, 
