@@ -51,12 +51,32 @@ export class FormFieldDatetime {
   }
 
   _createDatepicker() {
-    return flatpickr(this.$el, {
+    const $nextArrow = this.$el.querySelector('.form-field-datetime__icon-next')
+    const $prevArrow = this.$el.querySelector('.form-field-datetime__icon-prev')
+    const $actionsPanel = this.$el.querySelector('.form-field-datetime__actions-panel')
+    const $buttonReset = $actionsPanel.querySelector('.form-field-datetime__reset')
+    const $buttonOk = $actionsPanel.querySelector('.form-field-datetime__ok')
+
+    const datepicker = flatpickr(this.$el, {
       locale: getDatepickerLocale(lang),
       altInput: true,
       altFormat: this.$input.dataset.dateFormat || 'd.m.Y',
       wrap: true,
-      mode: this.$input.dataset.datepickerMode || 'single'
+      mode: this.$input.dataset.datepickerMode || 'single',
+      nextArrow: $nextArrow ? $nextArrow.outerHTML : '>',
+      prevArrow: $prevArrow ? $prevArrow.outerHTML : '<'
     })
+
+    datepicker.$buttonReset = $buttonReset
+    datepicker.$buttonOk = $buttonOk
+
+    // handle action buttons click event
+    $buttonReset.addEventListener('click', () => datepicker.clear())
+    $buttonOk.addEventListener('click', () => datepicker.close())
+
+    // move actions panel inside datepicker container
+    datepicker.calendarContainer.appendChild($actionsPanel)
+
+    return datepicker
   }
 }

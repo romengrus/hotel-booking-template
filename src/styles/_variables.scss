@@ -172,3 +172,17 @@ $input-line-height: 1.5rem;
 $input-padding: 0.5rem 0.9375rem;
 $input-label-color: $black;
 $input-label-size: 0.75rem;
+
+// Datepicker
+$datepicker-width: 320px;
+$datepicker-icon-color: $primary;
+$datepicker-weekday-color: $primary;
+$datepicker-day-width: 40px;
+$datepicker-day-height: 40px;
+$datepikcer-day-color: $dark-500;
+$datepicker-day-today-bg: $secondary-gradient;
+$datepicker-day-today-border: none;
+$datepicker-day-active-bg: $primary-gradient;
+$datepicker-day-active-color: $white;
+$datepicker-range-bg: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+$datepicker-range-other-month-bg: $gray-400;

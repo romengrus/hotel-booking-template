@@ -7,6 +7,7 @@
 //- mods            {array} Modifier classes
 mixin form-field-datetime(props = {})
   include /components/library/form-field/form-field.pug
+  include /components/library/button/button.pug
   include /components/library/icon/icon.pug
 
   -
@@ -26,10 +27,14 @@ mixin form-field-datetime(props = {})
     }, attributes)
 
     var mods = ['form-field-datetime'].concat(props.mods)
-    var inputMods = ['form-field-datetime__input']
-    var iconMods = ['form-field-datetime__icon']
 
   div(class= mods)
-    +form-field({mods: inputMods})&attributes(attributes)
+    +form-field({mods: ['form-field-datetime__input']})&attributes(attributes)
     if (props.useDatepicker)
-      +icon({name: 'semi-arrow-down', mods: iconMods})('data-toggle'= true)
+      +icon({name: 'semi-arrow-down', mods: ['form-field-datetime__icon-toggle']})('data-toggle'= true)
+      div(style= "display: none")
+        +icon({name: 'arrow-left', mods: ['form-field-datetime__icon-prev']})
+        +icon({name: 'arrow-right', mods: ['form-field-datetime__icon-next']})
+        .form-field-datetime__actions-panel
+          +button({value: 'Очистить', isText: true, mods: ['form-field-datetime__reset']})
+          +button({value: 'Применить', isText: true, mods: ['form-field-datetime__ok']})

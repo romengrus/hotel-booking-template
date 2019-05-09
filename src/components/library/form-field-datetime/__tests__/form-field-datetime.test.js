@@ -45,21 +45,21 @@ describe('FormFieldDatetime', () => {
   test('should not have icon by default', () => {
     document.body.innerHTML = makeField()
     const $el = document.querySelector(qs)
-    const $icon = $el.querySelector('.form-field-datetime__icon')
+    const $icon = $el.querySelector('.form-field-datetime__icon-toggle')
     expect($icon).not.toBeInTheDocument()
   })
 
   test('should have icon if useDatepicker = true', () => {
     document.body.innerHTML = makeField({ props: { useDatepicker: true } })
     const $el = document.querySelector(qs)
-    const $icon = $el.querySelector('.form-field-datetime__icon')
+    const $icon = $el.querySelector('.form-field-datetime__icon-toggle')
     expect($icon).toBeInTheDocument()
   })
 
   test('datepicker visibility should be toggled by clicking on icon', () => {
     document.body.innerHTML = makeField({ props: { useDatepicker: true } })
     const $el = document.querySelector(qs)
-    const $icon = $el.querySelector('.form-field-datetime__icon')
+    const $icon = $el.querySelector('.form-field-datetime__icon-toggle')
     const field = new FormFieldDatetime($el)
     expect(field.datepicker.isOpen).toBe(false)
     fireEvent.click($icon)
@@ -118,5 +118,27 @@ describe('FormFieldDatetime', () => {
     const $el1 = document.querySelector(qs)
     const field1 = new FormFieldDatetime($el1)
     expect(field1.datepicker.config.altFormat).toBe('m.Y')
+  })
+
+  test('datepicker state should reset on "reset" button click', () => {
+    document.body.innerHTML = makeField({ props: { useDatepicker: true } })
+    const $el = document.querySelector(qs)
+    const field = new FormFieldDatetime($el)
+    field.datepicker.setDate(new Date())
+    expect(field.datepicker.selectedDates).toHaveLength(1)
+    fireEvent.click(field.datepicker.$buttonReset)
+    expect(field.datepicker.selectedDates).toHaveLength(0)
+  })
+
+  test('datepicker should be closed on "ok" button click', () => {
+    document.body.innerHTML = makeField({ props: { useDatepicker: true } })
+    const $el = document.querySelector(qs)
+    const field = new FormFieldDatetime($el)
+    field.datepicker.setDate(new Date())
+    expect(field.datepicker.isOpen).toBe(false)
+    field.datepicker.open()
+    expect(field.datepicker.isOpen).toBe(true)
+    fireEvent.click(field.datepicker.$buttonOk)
+    expect(field.datepicker.isOpen).toBe(false)
   })
 })
