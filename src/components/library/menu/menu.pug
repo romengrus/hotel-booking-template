@@ -6,7 +6,7 @@
 //--- href      {string} Menu item href
 //--- isActive  {boolean} Is this currently selected menu item
 //--- submenu   {array} Array of submenu items 
-mixin menu(props)
+mixin menu(props = {})
   include /components/library/icon/icon.pug
 
   -
@@ -17,6 +17,8 @@ mixin menu(props)
     }, props)
 
     var mods = ['menu'].concat(props.mods)
+
+    if (props.items.length === 0) throw new Error('Menu: no items provided. Nothing to show')
 
     if (props.orientation) mods.push(`menu_${props.orientation}`)
 
