@@ -1,37 +1,37 @@
-import IMask from 'imask'
-import flatpickr from 'flatpickr'
-import { Russian } from 'flatpickr/dist/l10n/ru'
+import IMask from 'imask';
+import flatpickr from 'flatpickr';
+import { Russian } from 'flatpickr/dist/l10n/ru';
 
-const lang = 'ru'
+const lang = 'ru';
 
 function getDatepickerLocale(language = 'en') {
   switch (language) {
     case 'ru':
-      return Russian
+      return Russian;
     default:
-      return null
+      return null;
   }
 }
 
 export class FormFieldDatetime {
   constructor($el) {
-    this.$el = $el
-    this.$input = $el.querySelector('.form-field-datetime__input')
-    this.$icon = $el.querySelector('.form-field-datetime__icon')
-    this.mask = null
-    this.datepicker = null
-    this.init()
+    this.$el = $el;
+    this.$input = $el.querySelector('.form-field-datetime__input');
+    this.$icon = $el.querySelector('.form-field-datetime__icon');
+    this.mask = null;
+    this.datepicker = null;
+    this.init();
   }
 
   static getQuerySelector() {
-    return '.form-field-datetime'
+    return '.form-field-datetime';
   }
 
   init() {
     if (this.$input.dataset.useDatepicker) {
-      this.datepicker = this._createDatepicker()
+      this.datepicker = this._createDatepicker();
     } else {
-      this.mask = this._createMask()
+      this.mask = this._createMask();
     }
   }
 
@@ -47,15 +47,15 @@ export class FormFieldDatetime {
         m: { mask: IMask.MaskedRange, placeholderChar: 'М', from: 1, to: 12, maxLength: 2 },
         Y: { mask: IMask.MaskedRange, placeholderChar: 'Г', from: 1900, to: 2999, maxLength: 4 }
       }
-    })
+    });
   }
 
   _createDatepicker() {
-    const $nextArrow = this.$el.querySelector('.form-field-datetime__icon-next')
-    const $prevArrow = this.$el.querySelector('.form-field-datetime__icon-prev')
-    const $actionsPanel = this.$el.querySelector('.form-field-datetime__actions-panel')
-    const $buttonReset = $actionsPanel.querySelector('.form-field-datetime__reset')
-    const $buttonOk = $actionsPanel.querySelector('.form-field-datetime__ok')
+    const $nextArrow = this.$el.querySelector('.form-field-datetime__icon-next');
+    const $prevArrow = this.$el.querySelector('.form-field-datetime__icon-prev');
+    const $actionsPanel = this.$el.querySelector('.form-field-datetime__actions-panel');
+    const $buttonReset = $actionsPanel.querySelector('.form-field-datetime__reset');
+    const $buttonOk = $actionsPanel.querySelector('.form-field-datetime__ok');
 
     const datepicker = flatpickr(this.$el, {
       locale: getDatepickerLocale(lang),
@@ -65,18 +65,18 @@ export class FormFieldDatetime {
       mode: this.$input.dataset.datepickerMode || 'single',
       nextArrow: $nextArrow ? $nextArrow.outerHTML : '>',
       prevArrow: $prevArrow ? $prevArrow.outerHTML : '<'
-    })
+    });
 
-    datepicker.$buttonReset = $buttonReset
-    datepicker.$buttonOk = $buttonOk
+    datepicker.$buttonReset = $buttonReset;
+    datepicker.$buttonOk = $buttonOk;
 
     // handle action buttons click event
-    $buttonReset.addEventListener('click', () => datepicker.clear())
-    $buttonOk.addEventListener('click', () => datepicker.close())
+    $buttonReset.addEventListener('click', () => datepicker.clear());
+    $buttonOk.addEventListener('click', () => datepicker.close());
 
     // move actions panel inside datepicker container
-    datepicker.calendarContainer.appendChild($actionsPanel)
+    datepicker.calendarContainer.appendChild($actionsPanel);
 
-    return datepicker
+    return datepicker;
   }
 }

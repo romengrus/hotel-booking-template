@@ -37,4 +37,4 @@ export default {
     'any value': 'любое значение',
     'any valid value': 'любое допустимое значение'
   }
-}
+};
