@@ -1,4 +1,9 @@
 //- Subscription block
+//- url           {string} form action url
+//- placeholder   {string} input placeholder text
+//- iconName      {string} icon name
+//- iconPosition  {'left' | 'right'} position of icon inside input
+//- mods          {array} modifier classess
 mixin subscription(props = {})
   include /components/library/form/form.pug
   include /components/library/form-field/form-field.pug
