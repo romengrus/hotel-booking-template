@@ -11,6 +11,7 @@ include components/library/button/button.pug
 include components/project/header/header.pug
 include components/project/footer/footer.pug
 include components/project/copyright-bar/copyright-bar.pug
+include components/project/subscription/subscription.pug
 
 block content
   section.showcase
@@ -39,6 +40,15 @@ block content
     h2.showcase__title copyright bar
     .showcase__content
       +copyright-bar
+
+  section.showcase
+    h2.showcase__title subscription
+    .showcase__content
+      +subscription()
+      br
+      +subscription({iconName: 'emoticon-happy', url: '/subscribe'})
+      br
+      +subscription({iconName: 'hart-active', iconPosition: 'left'})
 
   section.showcase
     h2.showcase__title form elements

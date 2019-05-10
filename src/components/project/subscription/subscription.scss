@@ -1,0 +1,28 @@
+.subscription {
+  &__form {
+    position: relative;
+  }
+
+  &__input {
+    &_icon_left {
+      padding-left: 2.5rem;
+    }
+
+    &_icon_right {
+      padding-right: 2.5rem;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0.625rem;
+
+    &_left {
+      left: 0.625rem;
+    }
+
+    &_right {
+      right: 0.625rem;
+    }
+  }
+}
