@@ -6,6 +6,7 @@ include components/library/form/form.pug
 include components/library/form-field/form-field.pug
 include components/library/form-field-datetime/form-field-datetime.pug
 include components/library/button/button.pug
+include components/library/counter/counter.pug
 
 //- project components
 include components/project/header/header.pug
@@ -49,6 +50,15 @@ block content
       +subscription({iconName: 'emoticon-happy', url: '/subscribe'})
       br
       +subscription({iconName: 'hart-active', iconPosition: 'left'})
+
+  section.showcase
+    h2.showcase__title counter
+    .showcase__content
+      +counter({label: 'Default counter'})
+      br
+      +counter({label: 'Counter with min & max', min: 5, max: 10, value: 7})
+      br
+      +counter({label: 'Counter with step', step: 10})
 
   section.showcase
     h2.showcase__title form elements
