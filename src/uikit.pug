@@ -122,3 +122,13 @@ block content
           +form-field-radio({label: 'Label text', desc: 'Label description'})(name= 'radio1')
           br
           +form-field-radio({label: 'Label text', desc: 'Label description', mods: ['radio_rich']})(name= 'radio1')
+
+      h3.showcase__subtitle toggle
+      .ui-inputs
+        +form(action='#', method='POST')
+          +form-field-checkbox({label: 'Label text', mods: ['checkbox_theme-toggle']})
+          br
+          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
+          br
+          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
+
