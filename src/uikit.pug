@@ -6,6 +6,7 @@ include components/library/form/form.pug
 include components/library/form-field/form-field.pug
 include components/library/form-field-datetime/form-field-datetime.pug
 include components/library/form-field-checkbox/form-field-checkbox.pug
+include components/library/form-field-radio/form-field-radio.pug
 include components/library/button/button.pug
 include components/library/counter/counter.pug
 
@@ -112,3 +113,12 @@ block content
           +form-field-checkbox({label: 'Label text', desc: 'Label description'})
           br
           +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich']})
+
+      h3.showcase__subtitle radio
+      .ui-inputs
+        +form(action='#', method='POST')
+          +form-field-radio({label: 'Label text'})(name= 'radio1')
+          br
+          +form-field-radio({label: 'Label text', desc: 'Label description'})(name= 'radio1')
+          br
+          +form-field-radio({label: 'Label text', desc: 'Label description', mods: ['radio_rich']})(name= 'radio1')
