@@ -9,6 +9,7 @@ include components/library/form-field-checkbox/form-field-checkbox.pug
 include components/library/form-field-radio/form-field-radio.pug
 include components/library/button/button.pug
 include components/library/counter/counter.pug
+include components/library/button-like/button-like.pug
 
 //- project components
 include components/project/header/header.pug
@@ -61,6 +62,14 @@ block content
       +counter({label: 'Counter with min & max', min: 5, max: 10, value: 7})
       br
       +counter({label: 'Counter with step', step: 10})
+
+  section.showcase
+    h2.showcase__title button like
+    .showcase__content
+      +button-like()
+      +button-like({value: 100, iconPosition: 'right'})
+      +button-like({value: 500, hasVoted: true, iconLike: 'star-active', iconDislike: 'star'})
+      +button-like({value: 700, iconLike: 'star-active', iconDislike: 'star', iconPosition: 'right'})
 
   section.showcase
     h2.showcase__title form elements
@@ -131,4 +140,3 @@ block content
           +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
           br
           +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
-

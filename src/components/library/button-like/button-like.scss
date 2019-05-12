@@ -1,0 +1,44 @@
+.button-like {
+  min-width: 2.5rem;
+  height: 1.25rem;
+  padding: 0;
+  background: none;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+  opacity: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .button__icon {
+    width: 0.625rem;
+    height: 0.625rem;
+    top: 0.25rem;
+    fill-opacity: 1;
+
+    &_left {
+      left: 0.25rem;
+    }
+
+    &_right {
+      right: 0.25rem;
+    }
+  }
+
+  &_has-voted {
+    border: 1px solid transparent;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  &_icon-pos-left {
+    padding: 0 0.7rem 0 1.25rem;
+  }
+
+  &_icon-pos-right {
+    padding: 0 1.25rem 0 0.7rem;
+  }
+}

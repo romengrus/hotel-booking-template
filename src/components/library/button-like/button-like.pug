@@ -1,0 +1,37 @@
+//- Like button
+//- value         {number} Number of likes
+//- objectId      {string} Id of object to assosiate with
+//- iconLike      {string} Name of icon for "liked" state
+//- iconDislike   {string} Name of icon for "dislike" state
+//- iconPosition  {'left' | 'right'} Icon position within button
+//- hasVoted      {boolean} True if has state "liked", false otherwise
+//- mods          {array} Modifier classes
+mixin button-like(props = {})
+  include /components/library/button/button.pug
+
+  -
+    props = Object.assign({
+      value: 0,
+      objectId: '',
+      iconLike: 'hart-active',
+      iconDislike: 'hart',
+      iconPosition: 'left',
+      hasVoted: false,
+      mods: []
+    }, props)
+
+    var mods = ['button-like', `button-like_icon-pos-${props.iconPosition}`].concat(props.mods)
+
+  +button({
+    iconPosition: props.iconPosition,
+    iconName: props.hasVoted ? props.iconLike : props.iconDislike,
+    isOutlined: true,
+    mods
+  })&attributes({
+    'data-value': props.value, 
+    'data-has-voted': props.hasVoted,
+    'data-icon-like': props.iconLike,
+    'data-icon-dislike': props.iconDislike,
+    'data-object-id': props.objectId,
+  })
+    span.button-like__display= props.value
