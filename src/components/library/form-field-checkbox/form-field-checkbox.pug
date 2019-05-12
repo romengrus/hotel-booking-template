@@ -1,0 +1,31 @@
+//- Checkbox
+//- label   {string} Label text
+//- desc    {string} Description text
+//- mods    {array} Modifier classess
+mixin form-field-checkbox(props = {})
+  include /components/library/form-field/form-field.pug
+
+  -
+    props = Object.assign({
+      label: '',
+      desc: '',
+      mods: []
+    }, props)
+
+    if (attributes.id === undefined) {
+      attributes.id = `checkbox-${Math.random().toString(36).substr(2, 7)}`
+    }
+    attributes.type = 'checkbox'
+
+    var mods = ['checkbox'].concat(props.mods)
+    var inputMods = ['checkbox__input']
+
+  div(class= mods)
+    .checkbox__wrapper
+      +form-field({mods: inputMods})&attributes(attributes)
+      span.checkbox__custom
+      if (props.label)
+        label.checkbox__label(for= attributes.id)= props.label
+    if (props.desc)
+      .checkbox__desc= props.desc
+

@@ -1,16 +1,16 @@
-const glob = require('glob')
-const path = require('path')
-const fs = require('fs')
+const glob = require('glob');
+const path = require('path');
+const fs = require('fs');
 
 // get icon names
-const icons = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'))
+const icons = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'));
 
 // get json from src/data directory
 const getData = fileName => {
-  const rawdata = fs.readFileSync(path.join(__dirname, 'src/data', `${fileName}.json`))
-  return JSON.parse(rawdata)
-}
+  const rawdata = fs.readFileSync(path.join(__dirname, 'src/data', `${fileName}.json`));
+  return JSON.parse(rawdata);
+};
 
 module.exports = {
   locals: { icons, getData }
-}
+};
