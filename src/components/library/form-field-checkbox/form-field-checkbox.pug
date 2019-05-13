@@ -13,7 +13,7 @@ mixin form-field-checkbox(props = {})
     }, props)
 
     if (attributes.id === undefined) {
-      attributes.id = `checkbox-${Math.random().toString(36).substr(2, 7)}`
+      attributes.id = `checkbox-${Math.random().toString(36).substring(2, 7)}`
     }
     attributes.type = 'checkbox'
 
