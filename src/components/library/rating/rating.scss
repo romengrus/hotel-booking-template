@@ -1,0 +1,9 @@
+.rating {
+  display: inline-flex;
+  cursor: pointer;
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

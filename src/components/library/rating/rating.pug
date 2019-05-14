@@ -1,0 +1,37 @@
+//- Rating component
+//- value           {number} Rating value
+//- iconEmpty       {string} Name for not active icon
+//- iconFilled      {string} Name for active icon
+//- iconHalfFilled  {string} Name for partially active icon (rating can be partial)
+//- numIcons        {number} Number of icons to show
+//- isPartial       {boolean} If true - partial rating can be used, false - otherwise
+//- objectId        {string} Associated object id
+//- mods            {array} Modifier classess
+mixin rating(props = {})
+  include /components/library/icon/icon.pug
+
+  - 
+    props = Object.assign({
+      value: 0,
+      iconEmpty: 'star',
+      iconFilled: 'star-active',
+      iconHalfFilled: 'star-half-active',
+      numIcons: 5,
+      isPartial: false,
+      objectId: '',
+      mods: []
+    }, props)
+
+    var mods = ['rating'].concat(props.mods)
+    var iconMods = ['rating__icon']
+
+    attributes['data-value'] = props.value
+    attributes['data-is-partial'] = props.isPartial
+    attributes['data-object-id'] = props.objectId
+    attributes['data-icon-empty'] = props.iconEmpty
+    attributes['data-icon-filled'] = props.iconFilled
+    attributes['data-icon-half-filled'] = props.iconHalfFilled
+
+  div(class= mods)&attributes(attributes)
+    - for (let i = 0; i < props.numIcons; i += 1)
+      +icon({name: props.iconEmpty, mods: iconMods})

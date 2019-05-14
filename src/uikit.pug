@@ -10,6 +10,7 @@ include components/library/form-field-radio/form-field-radio.pug
 include components/library/button/button.pug
 include components/library/counter/counter.pug
 include components/library/button-like/button-like.pug
+include components/library/rating/rating.pug
 
 //- project components
 include components/project/header/header.pug
@@ -140,3 +141,12 @@ block content
           +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
           br
           +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
+
+      h3.showcase__subtitle rating
+      .ui-inputs
+        +form(action='#', method='POST')
+          +rating({value: 2.7})
+          br
+          +rating({value: 4.3, isPartial: true})
+          br
+          +rating({value: 7.2, isPartial: true, numIcons: 10})
