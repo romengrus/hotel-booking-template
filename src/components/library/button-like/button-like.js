@@ -33,7 +33,7 @@ export class ButtonLike {
     this.hasVoted = !this.hasVoted;
     this.$el.dataset.value = this.value;
     this.$display.textContent = this.value;
-    this.$icon.setAttribute('xlink:href', `#${this.hasVoted ? this.iconLike : this.iconDislike}`);
+    this.$icon.setAttribute('href', `#${this.hasVoted ? this.iconLike : this.iconDislike}`);
     if (this.hasVoted) {
       this.$el.classList.add('button-like_has-voted');
     } else {

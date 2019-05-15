@@ -53,7 +53,7 @@ describe('Button Like', () => {
     const $icon = $el.querySelector('.icon > use');
     // eslint-disable-next-line no-unused-vars
     expect($el.dataset.iconLike).toBe(iconName);
-    expect($icon).toHaveAttribute('xlink:href', `#${iconName}`);
+    expect($icon).toHaveAttribute('href', `#${iconName}`);
   });
 
   test('should use provided icon for "dislike"', () => {
@@ -63,7 +63,7 @@ describe('Button Like', () => {
     const $icon = $el.querySelector('.icon > use');
     // eslint-disable-next-line no-unused-vars
     expect($el.dataset.iconDislike).toBe(iconName);
-    expect($icon).toHaveAttribute('xlink:href', `#${iconName}`);
+    expect($icon).toHaveAttribute('href', `#${iconName}`);
   });
 
   test('should increase & decrease likes properly', () => {
@@ -79,11 +79,11 @@ describe('Button Like', () => {
     fireEvent.click($el);
     expect($el).toHaveTextContent('1');
     expect($el).toHaveAttribute('data-value', '1');
-    expect($icon).toHaveAttribute('xlink:href', `#${iconLike}`);
+    expect($icon).toHaveAttribute('href', `#${iconLike}`);
     fireEvent.click($el);
     expect($el).toHaveTextContent('0');
     expect($el).toHaveAttribute('data-value', '0');
-    expect($icon).toHaveAttribute('xlink:href', `#${iconDislike}`);
+    expect($icon).toHaveAttribute('href', `#${iconDislike}`);
   });
 
   test('should dispatch event on click with new number of likes & object id', () => {
