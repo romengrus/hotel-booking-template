@@ -11,6 +11,7 @@ include components/library/button/button.pug
 include components/library/counter/counter.pug
 include components/library/button-like/button-like.pug
 include components/library/rating/rating.pug
+include components/library/pagination/pagination.pug
 
 //- project components
 include components/project/header/header.pug
@@ -150,3 +151,13 @@ block content
           +rating({value: 4.3, isPartial: true})
           br
           +rating({value: 7.2, isPartial: true, numIcons: 10})
+
+      h3.showcase__subtitle pagination
+        +pagination({totalItems: 10, perPage: 5, currentPage: 1})
+        +pagination({totalItems: 10, perPage: 5, currentPage: 2})
+        +pagination({totalItems: 30, perPage: 10, currentPage: 1})
+        +pagination({totalItems: 30, perPage: 10, currentPage: 2})
+        +pagination({totalItems: 43, perPage: 10, currentPage: 3})
+        +pagination({totalItems: 97, perPage: 5, currentPage: 1, labelPosition: 'right'})
+        +pagination({totalItems: 125, perPage: 5, currentPage: 5, labelPosition: 'left'})
+        +pagination({totalItems: 107, perPage: 5, currentPage: 16, labelPosition: 'top'})

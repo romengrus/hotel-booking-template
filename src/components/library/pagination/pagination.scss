@@ -1,0 +1,90 @@
+$pagination-color: #000 !default;
+$pagination-current-page-color: #fff !default;
+$pagination-item-width: 2.5rem !default;
+$pagination-item-height: 2.5rem !default;
+$pagination-arrow-bg: #eee !default;
+
+.pagination {
+  display: flex;
+  flex-flow: column nowrap;
+
+  &__listing {
+    padding: 0.625rem 0;
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $pagination-item-width;
+    height: $pagination-item-height;
+    padding: 0;
+    background: $pagination-arrow-bg;
+
+    .button__icon {
+      position: static;
+    }
+  }
+
+  &__page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $pagination-item-width;
+    height: $pagination-item-height;
+    color: $pagination-color;
+    padding: 0;
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+
+    &-current {
+      color: $pagination-current-page-color;
+    }
+  }
+
+  &__dots {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $pagination-item-width;
+    height: $pagination-item-height;
+    color: $pagination-color;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    text-transform: lowercase;
+    font-weight: normal;
+  }
+
+  &_label-pos {
+    &-top {
+      .pagination__label {
+        order: -1;
+      }
+    }
+    &-bottom {
+
+    }
+    &-left {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .pagination__label {
+        order: -1;
+        margin-right: 2rem;
+      }
+    }
+    &-right {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .pagination__label {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
