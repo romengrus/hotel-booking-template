@@ -1,0 +1,24 @@
+//- ordered or unordered list
+//- items     {array} Text strings to show
+//- isOrdered {boolean} If true - shows "ol". If false - shows "ul".
+//- mods      {array} Modifier classes
+mixin list(props = {})
+  -
+    props = Object.assign({
+      items: [],
+      isOrdered: false,
+      mods: []
+    }, props)
+
+    var mods = ['list'].concat(props.mods)
+    var content = []
+
+    for (let i = 0; i < props.items.length; i += 1) {
+      content.push(`<li class="list__item">${props.items[i]}</li>`)
+    }
+
+
+  if (props.isOrdered)
+    ol(class= mods.concat('list_ordered'))&attributes(attributes) !{content.join('')}
+  else
+    ul(class= mods.concat('list_unordered'))&attributes(attributes) !{content.join('')}

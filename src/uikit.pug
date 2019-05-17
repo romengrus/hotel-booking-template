@@ -12,6 +12,7 @@ include components/library/counter/counter.pug
 include components/library/button-like/button-like.pug
 include components/library/rating/rating.pug
 include components/library/pagination/pagination.pug
+include components/library/list/list.pug
 
 //- project components
 include components/project/header/header.pug
@@ -161,3 +162,20 @@ block content
         +pagination({totalItems: 97, perPage: 5, currentPage: 1, labelPosition: 'right'})
         +pagination({totalItems: 125, perPage: 5, currentPage: 5, labelPosition: 'left'})
         +pagination({totalItems: 107, perPage: 5, currentPage: 16, labelPosition: 'top'})
+
+      h3.showcase__subtitle list
+        +list({items: 
+          [
+            'Нельзя с питомцами', 
+            'Без вечеринок и мероприятий', 
+            'Время прибытия — после 13:00, а выезд до 12:00'
+          ]
+        })
+        br
+        +list({isOrdered: true, items: 
+          [
+            'Нельзя с питомцами', 
+            'Без вечеринок и мероприятий', 
+            'Время прибытия — после 13:00, а выезд до 12:00'
+          ]
+        })

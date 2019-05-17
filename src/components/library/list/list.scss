@@ -1,0 +1,45 @@
+$list-color: #000 !default;
+$list-bullet-color: #eee !default;
+
+.list {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+  text-align: left;
+  text-transform: none;
+  color: $list-color;
+
+  &__item {
+    position: relative;
+  }
+
+  &_unordered {
+    list-style: none;
+
+    .list__item::before {
+      content: '';
+      position: absolute;
+      left: -1.25rem;
+      top: 0.4375rem;
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
+      background: $list-bullet-color;
+    }
+  }
+
+  &_ordered {
+    list-style: none;
+    counter-reset: custom-ordered-list;
+
+    .list__item::before {
+      content: counter(custom-ordered-list)'.';
+      counter-increment: custom-ordered-list;
+      position: absolute;
+      left: -1.25rem;
+      top: 0;
+      width: 0.625rem;
+      height: 0.625rem;
+    }
+  }
+}
