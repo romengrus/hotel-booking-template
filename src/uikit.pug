@@ -19,6 +19,7 @@ include components/project/header/header.pug
 include components/project/footer/footer.pug
 include components/project/copyright-bar/copyright-bar.pug
 include components/project/subscription/subscription.pug
+include components/project/testimonial/testimonial.pug
 
 block content
   section.showcase
@@ -179,3 +180,15 @@ block content
             'Время прибытия — после 13:00, а выезд до 12:00'
           ]
         })
+
+  section.showcase
+    h2.showcase__title testimonial
+    .showcase__content
+      +testimonial({
+        userName: 'Мурад Сарафанов', 
+        userImg: '/assets/img/testimonial-user.jpg',
+        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+        createdAt: `${new Date()}`,
+        numLikes: 12,
+      })
+
