@@ -16,10 +16,12 @@ mixin testimonial(props= {})
     if (props.text === '') throw new Error('Testimonial: text is required')
 
   section(class= mods)&attributes(attributes)
-    if (props.userImg)
-      img(class= 'testimonial__user-img', src= props.userImg, title= props.userName)
-    +button-like({value: props.numLikes, mods: ['testimonial__likes']})
-    h3.testimonial__user-name= props.userName
-    if (props.createdAt)
-      span.testimonial__created-at= props.createdAt
-    article.testimonial__text= props.text
+    .testimonial__left-col
+      if (props.userImg)
+        img(class= 'testimonial__user-img', src= props.userImg, title= props.userName)
+      +button-like({value: props.numLikes, mods: ['testimonial__likes']})
+    .testimonial__right-col
+      h3.testimonial__user-name= props.userName
+      if (props.createdAt)
+        span.testimonial__created-at(datetime=props.createdAt)
+      article.testimonial__text= props.text
