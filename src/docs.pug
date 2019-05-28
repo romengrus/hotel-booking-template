@@ -1,194 +1,207 @@
-extends base.pug
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-//- library components
-include components/library/icon/icon.pug
-include components/library/form/form.pug
-include components/library/form-field/form-field.pug
-include components/library/form-field-datetime/form-field-datetime.pug
-include components/library/form-field-checkbox/form-field-checkbox.pug
-include components/library/form-field-radio/form-field-radio.pug
-include components/library/button/button.pug
-include components/library/counter/counter.pug
-include components/library/button-like/button-like.pug
-include components/library/rating/rating.pug
-include components/library/pagination/pagination.pug
-include components/library/list/list.pug
+    title toxin
 
-//- project components
-include components/project/header/header.pug
-include components/project/footer/footer.pug
-include components/project/copyright-bar/copyright-bar.pug
-include components/project/subscription/subscription.pug
-include components/project/testimonial/testimonial.pug
+    link(rel="stylesheet", href="docs.scss")
+    script(src="./app.js", defer)
 
-block content
-  section.showcase
-    h2.showcase__title icons
-    .showcase__content
-      .ui-icons
-        each iconName in icons
-          .ui-icons__icon-info
-            .ui-icons__name= iconName
-            .ui-icons__icon
-              +icon({name: iconName})
+  body
+    span(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
+      include /assets/sprites/icons-sprite.svg
 
-  section.showcase
-    h2.showcase__title header
-    .showcase__content
-      +header({isLoggedIn: false})
-      +header({isLoggedIn: true})
+    //- library components
+    include components/library/icon/icon.pug
+    include components/library/form/form.pug
+    include components/library/form-field/form-field.pug
+    include components/library/form-field-datetime/form-field-datetime.pug
+    include components/library/form-field-checkbox/form-field-checkbox.pug
+    include components/library/form-field-radio/form-field-radio.pug
+    include components/library/button/button.pug
+    include components/library/counter/counter.pug
+    include components/library/button-like/button-like.pug
+    include components/library/rating/rating.pug
+    include components/library/pagination/pagination.pug
+    include components/library/list/list.pug
 
-  section.showcase
-    h2.showcase__title footer
-    .showcase__content
-      +footer
-      +footer({type: 'creative'})
+    //- project components
+    include components/project/header/header.pug
+    include components/project/footer/footer.pug
+    include components/project/copyright-bar/copyright-bar.pug
+    include components/project/subscription/subscription.pug
+    include components/project/testimonial/testimonial.pug
 
-  section.showcase
-    h2.showcase__title copyright bar
-    .showcase__content
-      +copyright-bar
+    block content
+      section.showcase
+        h2.showcase__title icons
+        .showcase__content
+          .ui-icons
+            each iconName in icons
+              .ui-icons__icon-info
+                .ui-icons__name= iconName
+                .ui-icons__icon
+                  +icon({name: iconName})
 
-  section.showcase
-    h2.showcase__title subscription
-    .showcase__content
-      +subscription()
-      br
-      +subscription({iconName: 'emoticon-happy', url: '/subscribe'})
-      br
-      +subscription({iconName: 'hart-active', iconPosition: 'left'})
+      section.showcase
+        h2.showcase__title header
+        .showcase__content
+          +header({isLoggedIn: false})
+          +header({isLoggedIn: true})
 
-  section.showcase
-    h2.showcase__title counter
-    .showcase__content
-      +counter({label: 'Default counter'})
-      br
-      +counter({label: 'Counter with min & max', min: 5, max: 10, value: 7})
-      br
-      +counter({label: 'Counter with step', step: 10})
+      section.showcase
+        h2.showcase__title footer
+        .showcase__content
+          +footer
+          +footer({type: 'creative'})
 
-  section.showcase
-    h2.showcase__title button like
-    .showcase__content
-      +button-like()
-      +button-like({value: 100, iconPosition: 'right'})
-      +button-like({value: 500, hasVoted: true, iconLike: 'star-active', iconDislike: 'star'})
-      +button-like({value: 700, iconLike: 'star-active', iconDislike: 'star', iconPosition: 'right'})
+      section.showcase
+        h2.showcase__title copyright bar
+        .showcase__content
+          +copyright-bar
 
-  section.showcase
-    h2.showcase__title form elements
-    .showcase__content
-      h3.showcase__subtitle buttons
-      .ui-buttons
-        +button({value: 'click me', isRounded: false, hasRipple: true})
-        +button({value: 'click me', isRounded: false, isOutlined: true})
-        +button({type: 'link', value: 'click me'})(title= 'External link', href= 'https://google.com')
-        +button({value: 'click me', isOutlined: true})
-        +button({value: 'click me', isText: true})
-        +button({value: 'перейти к оплате', isDisabled: true})
-        +button({value: 'перейти к оплате', isExpanded: true, hasRipple: true})
-        +button({value: 'перейти к оплате', isExpanded: true, isOutlined: true, iconName: 'arrow-right', iconPosition: 'right'})
-        +button({value: 'перейти к оплате', iconName: 'arrow-right'})
-        +button({value: 'перейти к оплате', isOutlined: true, iconName: 'arrow-left', iconPosition: 'left'})
-
-      h3.showcase__subtitle input text
-      .ui-inputs
-        +form(action='#', method='POST')
-          +form-field(placeholder='default text input', type='text')
-          +form-field(placeholder='disabled text input', disabled=true, type='text')
-          +form-field(placeholder='required text input', required=true, type='text')
-          +form-field(placeholder='with min lenght = 3', minlength=3, required=true, type='text')
-          +form-field(placeholder='with max lenght = 7', maxlength=7, required=true, type='text')
-
-      h3.showcase__subtitle input datetime
-      .ui-inputs
-        +form(action='#', method='POST')
-          h4 default
-          +form-field-datetime
-          +form-field-datetime(disabled=true)
-          +form-field-datetime(required=true)
-          h4 with datepicker
-          +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГ')
-          +form-field-datetime({useDatepicker: true, datepickerMode: 'range'})(placeholder='ДД.ММ.ГГ - ДД.ММ.ГГ')
-          +form-field-datetime({useDatepicker: true, datepickerMode: 'multiple'})(placeholder='ДД.ММ.ГГ, ДД.ММ.ГГ, ...')
-          +form-field-datetime({useDatepicker: true, dateFormat: 'm.Y'})(placeholder='ММ.ГГ')
-          +form-field-datetime({useDatepicker: true, dateFormat: 'd M', datepickerMode: 'range'})(placeholder='ДД М - ДД М')
-          h4 with date mask
-          +form-field-datetime({dateFormat: 'Y'})
-          +form-field-datetime({dateFormat: 'm.Y'})
-          +form-field-datetime({dateFormat: 'd.m.Y'})
-
-      h3.showcase__subtitle checkbox
-      .ui-inputs
-        +form(action='#', method='POST')
-          +form-field-checkbox({label: 'Label text'})
+      section.showcase
+        h2.showcase__title subscription
+        .showcase__content
+          +subscription()
           br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description'})
+          +subscription({iconName: 'emoticon-happy', url: '/subscribe'})
           br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich']})
+          +subscription({iconName: 'hart-active', iconPosition: 'left'})
 
-      h3.showcase__subtitle radio
-      .ui-inputs
-        +form(action='#', method='POST')
-          +form-field-radio({label: 'Label text'})(name= 'radio1')
+      section.showcase
+        h2.showcase__title counter
+        .showcase__content
+          +counter({label: 'Default counter'})
           br
-          +form-field-radio({label: 'Label text', desc: 'Label description'})(name= 'radio1')
+          +counter({label: 'Counter with min & max', min: 5, max: 10, value: 7})
           br
-          +form-field-radio({label: 'Label text', desc: 'Label description', mods: ['radio_rich']})(name= 'radio1')
+          +counter({label: 'Counter with step', step: 10})
 
-      h3.showcase__subtitle toggle
-      .ui-inputs
-        +form(action='#', method='POST')
-          +form-field-checkbox({label: 'Label text', mods: ['checkbox_theme-toggle']})
-          br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
-          br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
+      section.showcase
+        h2.showcase__title button like
+        .showcase__content
+          +button-like()
+          +button-like({value: 100, iconPosition: 'right'})
+          +button-like({value: 500, hasVoted: true, iconLike: 'star-active', iconDislike: 'star'})
+          +button-like({value: 700, iconLike: 'star-active', iconDislike: 'star', iconPosition: 'right'})
 
-      h3.showcase__subtitle rating
-      .ui-inputs
-        +form(action='#', method='POST')
-          +rating({value: 2.7})
-          br
-          +rating({value: 4.3, isPartial: true})
-          br
-          +rating({value: 7.2, isPartial: true, numIcons: 10})
+      section.showcase
+        h2.showcase__title form elements
+        .showcase__content
+          h3.showcase__subtitle buttons
+          .ui-buttons
+            +button({value: 'click me', isRounded: false, hasRipple: true})
+            +button({value: 'click me', isRounded: false, isOutlined: true})
+            +button({type: 'link', value: 'click me'})(title= 'External link', href= 'https://google.com')
+            +button({value: 'click me', isOutlined: true})
+            +button({value: 'click me', isText: true})
+            +button({value: 'перейти к оплате', isDisabled: true})
+            +button({value: 'перейти к оплате', isExpanded: true, hasRipple: true})
+            +button({value: 'перейти к оплате', isExpanded: true, isOutlined: true, iconName: 'arrow-right', iconPosition: 'right'})
+            +button({value: 'перейти к оплате', iconName: 'arrow-right'})
+            +button({value: 'перейти к оплате', isOutlined: true, iconName: 'arrow-left', iconPosition: 'left'})
 
-      h3.showcase__subtitle pagination
-        +pagination({totalItems: 10, perPage: 5, currentPage: 1})
-        +pagination({totalItems: 10, perPage: 5, currentPage: 2})
-        +pagination({totalItems: 30, perPage: 10, currentPage: 1})
-        +pagination({totalItems: 30, perPage: 10, currentPage: 2})
-        +pagination({totalItems: 43, perPage: 10, currentPage: 3})
-        +pagination({totalItems: 97, perPage: 5, currentPage: 1, labelPosition: 'right'})
-        +pagination({totalItems: 125, perPage: 5, currentPage: 5, labelPosition: 'left'})
-        +pagination({totalItems: 107, perPage: 5, currentPage: 16, labelPosition: 'top'})
+          h3.showcase__subtitle input text
+          .ui-inputs
+            +form(action='#', method='POST')
+              +form-field(placeholder='default text input', type='text')
+              +form-field(placeholder='disabled text input', disabled=true, type='text')
+              +form-field(placeholder='required text input', required=true, type='text')
+              +form-field(placeholder='with min lenght = 3', minlength=3, required=true, type='text')
+              +form-field(placeholder='with max lenght = 7', maxlength=7, required=true, type='text')
 
-      h3.showcase__subtitle list
-        +list({items: 
-          [
-            'Нельзя с питомцами', 
-            'Без вечеринок и мероприятий', 
-            'Время прибытия — после 13:00, а выезд до 12:00'
-          ]
-        })
-        br
-        +list({isOrdered: true, items: 
-          [
-            'Нельзя с питомцами', 
-            'Без вечеринок и мероприятий', 
-            'Время прибытия — после 13:00, а выезд до 12:00'
-          ]
-        })
+          h3.showcase__subtitle input datetime
+          .ui-inputs
+            +form(action='#', method='POST')
+              h4 default
+              +form-field-datetime
+              +form-field-datetime(disabled=true)
+              +form-field-datetime(required=true)
+              h4 with datepicker
+              +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГ')
+              +form-field-datetime({useDatepicker: true, datepickerMode: 'range'})(placeholder='ДД.ММ.ГГ - ДД.ММ.ГГ')
+              +form-field-datetime({useDatepicker: true, datepickerMode: 'multiple'})(placeholder='ДД.ММ.ГГ, ДД.ММ.ГГ, ...')
+              +form-field-datetime({useDatepicker: true, dateFormat: 'm.Y'})(placeholder='ММ.ГГ')
+              +form-field-datetime({useDatepicker: true, dateFormat: 'd M', datepickerMode: 'range'})(placeholder='ДД М - ДД М')
+              h4 with date mask
+              +form-field-datetime({dateFormat: 'Y'})
+              +form-field-datetime({dateFormat: 'm.Y'})
+              +form-field-datetime({dateFormat: 'd.m.Y'})
 
-  section.showcase
-    h2.showcase__title testimonial
-    .showcase__content
-      +testimonial({
-        userName: 'Мурад Сарафанов', 
-        userImg: '/assets/img/testimonial-user.jpg',
-        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-        createdAt: `${new Date()}`,
-        numLikes: 12,
-      })
+          h3.showcase__subtitle checkbox
+          .ui-inputs
+            +form(action='#', method='POST')
+              +form-field-checkbox({label: 'Label text'})
+              br
+              +form-field-checkbox({label: 'Label text', desc: 'Label description'})
+              br
+              +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich']})
+
+          h3.showcase__subtitle radio
+          .ui-inputs
+            +form(action='#', method='POST')
+              +form-field-radio({label: 'Label text'})(name= 'radio1')
+              br
+              +form-field-radio({label: 'Label text', desc: 'Label description'})(name= 'radio1')
+              br
+              +form-field-radio({label: 'Label text', desc: 'Label description', mods: ['radio_rich']})(name= 'radio1')
+
+          h3.showcase__subtitle toggle
+          .ui-inputs
+            +form(action='#', method='POST')
+              +form-field-checkbox({label: 'Label text', mods: ['checkbox_theme-toggle']})
+              br
+              +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
+              br
+              +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
+
+          h3.showcase__subtitle rating
+          .ui-inputs
+            +form(action='#', method='POST')
+              +rating({value: 2.7})
+              br
+              +rating({value: 4.3, isPartial: true})
+              br
+              +rating({value: 7.2, isPartial: true, numIcons: 10})
+
+          h3.showcase__subtitle pagination
+            +pagination({totalItems: 10, perPage: 5, currentPage: 1})
+            +pagination({totalItems: 10, perPage: 5, currentPage: 2})
+            +pagination({totalItems: 30, perPage: 10, currentPage: 1})
+            +pagination({totalItems: 30, perPage: 10, currentPage: 2})
+            +pagination({totalItems: 43, perPage: 10, currentPage: 3})
+            +pagination({totalItems: 97, perPage: 5, currentPage: 1, labelPosition: 'right'})
+            +pagination({totalItems: 125, perPage: 5, currentPage: 5, labelPosition: 'left'})
+            +pagination({totalItems: 107, perPage: 5, currentPage: 16, labelPosition: 'top'})
+
+          h3.showcase__subtitle list
+            +list({items: 
+              [
+                'Нельзя с питомцами', 
+                'Без вечеринок и мероприятий', 
+                'Время прибытия — после 13:00, а выезд до 12:00'
+              ]
+            })
+            br
+            +list({isOrdered: true, items: 
+              [
+                'Нельзя с питомцами', 
+                'Без вечеринок и мероприятий', 
+                'Время прибытия — после 13:00, а выезд до 12:00'
+              ]
+            })
+
+      section.showcase
+        h2.showcase__title testimonial
+        .showcase__content
+          +testimonial({
+            userName: 'Мурад Сарафанов', 
+            userImg: '/assets/img/testimonial-user.jpg',
+            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+            createdAt: `${new Date()}`,
+            numLikes: 12,
+          })
 
