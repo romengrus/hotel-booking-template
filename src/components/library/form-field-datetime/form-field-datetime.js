@@ -28,7 +28,7 @@ export class FormFieldDatetime {
   }
 
   init() {
-    if (this.$input.dataset.useDatepicker) {
+    if ('useDatepicker' in this.$input.dataset) {
       this.datepicker = this._createDatepicker();
     } else {
       this.mask = this._createMask();
