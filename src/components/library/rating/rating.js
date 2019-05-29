@@ -5,13 +5,14 @@ export class Rating {
   constructor($el) {
     this.$el = $el;
     this.$icons = $el.querySelectorAll('.rating__icon > use');
-    this.isPartial = !!$el.dataset.isPartial;
+    this.isPartial = 'isPartial' in $el.dataset;
     this.value = parseFloat($el.dataset.value || 0);
     this.objectId = $el.dataset.objectId || '';
     this.iconEmpty = $el.dataset.iconEmpty || 'star';
     this.iconFilled = $el.dataset.iconFilled || 'star-active';
     this.iconHalfFilled = $el.dataset.iconHalfFilled || 'star-half-active';
     this.init();
+    console.log(this.isPartial);
   }
 
   static getQuerySelector() {
