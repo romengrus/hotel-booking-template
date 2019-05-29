@@ -12,7 +12,6 @@ export class Rating {
     this.iconFilled = $el.dataset.iconFilled || 'star-active';
     this.iconHalfFilled = $el.dataset.iconHalfFilled || 'star-half-active';
     this.init();
-    console.log(this.isPartial);
   }
 
   static getQuerySelector() {
