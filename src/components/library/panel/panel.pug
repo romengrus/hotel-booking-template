@@ -1,0 +1,43 @@
+//- Panel
+//-
+//- title           {string} Panel title
+//- isCollapsible   {boolean} If true - panel can collapse and expand. Toggle icon will be shown in this case
+//- isCollapsed     {boolean} If true - will render in collapsed state
+//- iconName        {string} Name of icon for toggler
+//- mods            {array} Modifier classes
+mixin panel(props = {})
+  include /components/library/icon/icon.pug
+
+  -
+    props = Object.assign({
+      title: '',
+      isCollapsible: true,
+      isCollapsed: false,
+      iconName: 'semi-arrow-up',
+      mods: []
+    }, props)
+
+    const mods = ['panel'].concat(props.mods)
+    const togglerMods = ['panel__toggler']
+    const bodyMods = ['panel__body']
+
+    if (props.isCollapsed) {
+      togglerMods.push('panel__toggler_collapsed');
+      bodyMods.push('panel__body_collapsed');
+    }
+
+    attributes['data-is-collapsible'] = props.isCollapsible
+
+  div(class= mods)&attributes(attributes)
+    .panel__header
+      h3.panel__title= props.title 
+      if (props.isCollapsible)
+        div(class= togglerMods)
+          +icon({name: props.iconName, mods: ['panel__icon']})
+    div(class= bodyMods)
+      if block
+        block
+      else
+        p No content provided
+
+

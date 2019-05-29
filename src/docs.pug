@@ -26,6 +26,7 @@ html
     include components/library/rating/rating.pug
     include components/library/pagination/pagination.pug
     include components/library/list/list.pug
+    include components/library/panel/panel.pug
 
     //- project components
     include components/project/header/header.pug
@@ -136,27 +137,21 @@ html
           .ui-inputs
             +form(action='#', method='POST')
               +form-field-checkbox({label: 'Label text'})
-              br
               +form-field-checkbox({label: 'Label text', desc: 'Label description'})
-              br
               +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich']})
 
           h3.showcase__subtitle radio
           .ui-inputs
             +form(action='#', method='POST')
               +form-field-radio({label: 'Label text'})(name= 'radio1')
-              br
               +form-field-radio({label: 'Label text', desc: 'Label description'})(name= 'radio1')
-              br
               +form-field-radio({label: 'Label text', desc: 'Label description', mods: ['radio_rich']})(name= 'radio1')
 
           h3.showcase__subtitle toggle
           .ui-inputs
             +form(action='#', method='POST')
               +form-field-checkbox({label: 'Label text', mods: ['checkbox_theme-toggle']})
-              br
               +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
-              br
               +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
 
           h3.showcase__subtitle rating
@@ -219,3 +214,24 @@ html
             title: 'Удобство',
             desc: 'Окно в каждой из спален',
           })
+
+      section.showcase
+        h2.showcase__title panel
+        .showcase__content
+          +panel({title: 'Expandable checkbox list'})
+            +form(action='#', method='POST')
+              +form-field-checkbox({label: 'Завтрак'})
+              +form-field-checkbox({label: 'Письменный стол'})(checked= true)
+              +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
+              +form-field-checkbox({label: 'Кроватка'})(checked= true)
+              +form-field-checkbox({label: 'Телевизор'})
+              +form-field-checkbox({label: 'Шампунь'})
+
+          +panel({title: 'Expandable checkbox list', isCollapsed: true})
+            +form(action='#', method='POST')
+              +form-field-checkbox({label: 'Завтрак', desc: 'Прямиком в постель'})
+              +form-field-checkbox({label: 'Письменный стол', desc: 'У окна'})(checked= true)
+              +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
+              +form-field-checkbox({label: 'Кроватка'})(checked= true)
+              +form-field-checkbox({label: 'Телевизор'})
+              +form-field-checkbox({label: 'Шампунь'})
