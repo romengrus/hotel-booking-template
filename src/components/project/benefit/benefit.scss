@@ -1,0 +1,30 @@
+$benefit-border: 1px solid #eee !default;
+
+.benefit {
+  display: flex;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: $benefit-border; 
+
+  &__aside {
+    width: 3rem;
+  }
+
+  &__main {
+    margin-left: 0.625rem;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &__title {
+    margin-bottom: 0.25rem;
+  }
+
+  // &__desc {
+  // }
+}

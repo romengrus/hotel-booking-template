@@ -33,6 +33,7 @@ html
     include components/project/copyright-bar/copyright-bar.pug
     include components/project/subscription/subscription.pug
     include components/project/testimonial/testimonial.pug
+    include components/project/benefit/benefit.pug
 
     block content
       section.showcase
@@ -205,3 +206,16 @@ html
             numLikes: 12,
           })
 
+      section.showcase
+        h2.showcase__title benefit
+        .showcase__content
+          +benefit({
+            iconName: 'emoticon-happy', 
+            title: 'Комфорт',
+            desc: 'Шумопоглощающие стены',
+          })
+          +benefit({
+            iconName: 'location-city', 
+            title: 'Удобство',
+            desc: 'Окно в каждой из спален',
+          })

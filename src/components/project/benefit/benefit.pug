@@ -1,0 +1,25 @@
+mixin benefit(props = {})
+  include /components/library/icon/icon.pug
+
+  -
+    props = Object.assign({
+      iconName: '',
+      title: '',
+      desc: '',
+      mods: []
+    }, props)
+
+    const mods = ['benefit'].concat(props.mods)
+
+  div(class= mods)&attributes(attributes)
+    if (props.iconName)
+      .benefit__aside
+        +icon({name: props.iconName, mods: ['benefit__icon']})
+    .benefit__main
+      if (props.title)
+        h3.benefit__title= props.title
+      if (props.desc)
+        .benefit__desc= props.desc
+
+
+    
