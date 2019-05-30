@@ -13,6 +13,7 @@ export class Counter {
     this.step = $el.dataset.step || 1;
     this.min = $el.dataset.min || 0;
     this.max = $el.dataset.max || 100;
+    this.objectId = $el.dataset.objectId || '';
     this.init();
   }
 
@@ -57,7 +58,11 @@ export class Counter {
     this.$btnDec.disabled = false;
 
     const event = new CustomEvent('counter:increased', {
-      detail: { numValue: newValue, strValue: this.toString() }
+      detail: {
+        id: this.objectId,
+        numValue: newValue,
+        strValue: this.toString()
+      }
     });
     this.$el.dispatchEvent(event);
   }
@@ -82,7 +87,11 @@ export class Counter {
     this.$btnInc.disabled = false;
 
     const event = new CustomEvent('counter:decreased', {
-      detail: { numValue: newValue, strValue: this.toString() }
+      detail: {
+        id: this.objectId,
+        numValue: newValue,
+        strValue: this.toString()
+      }
     });
     this.$el.dispatchEvent(event);
   }

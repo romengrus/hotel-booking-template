@@ -1,11 +1,12 @@
 //- Counter component
-//- label   {string} label text
-//- plurals {array} plural forms of label for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
-//- value   {number} initial value
-//- min     {number} maximum possible value
-//- min     {number} minimum possible value
-//- step    {number} step value
-//- mods    {array} modifier classess
+//- label     {string} label text
+//- plurals   {array} plural forms of label for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
+//- value     {number} initial value
+//- min       {number} maximum possible value
+//- min       {number} minimum possible value
+//- step      {number} step value
+//- objectId  {string} will be passed in event to distinguish between different counters
+//- mods      {array} modifier classess
 mixin counter(props = {})
   include /components/library/button/button.pug
   include /components/library/form-field/form-field.pug
@@ -18,6 +19,7 @@ mixin counter(props = {})
       min: 0,
       max: 100,
       step: 1,
+      objectId: '',
       mods: []
     }, props)
 
@@ -31,7 +33,8 @@ mixin counter(props = {})
       'data-min': props.min,
       'data-max': props.max,
       'data-label': props.label,
-      'data-plurals': props.plurals
+      'data-plurals': props.plurals,
+      'data-object-id': props.objectId
     }
     
     var mods = ['counter'].concat(props.mods)

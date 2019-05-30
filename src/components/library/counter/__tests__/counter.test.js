@@ -97,6 +97,22 @@ describe('Counter', () => {
     expect(component.plurals).toEqual(plurals);
   });
 
+  test('should have objectId set to empty string by default', () => {
+    document.body.innerHTML = makeComponent();
+    const $el = document.querySelector(qs);
+    const component = new Counter($el);
+    expect($el).toHaveAttribute('data-object-id');
+    expect(component.objectId).toEqual('');
+  });
+
+  test('should set objectId to provided value', () => {
+    document.body.innerHTML = makeComponent({ props: { objectId: '123' } });
+    const $el = document.querySelector(qs);
+    const component = new Counter($el);
+    expect($el).toHaveAttribute('data-object-id', '123');
+    expect(component.objectId).toEqual('123');
+  });
+
   test('should render label without text by default', () => {
     document.body.innerHTML = makeComponent();
     const $el = document.querySelector(qs);
@@ -182,7 +198,13 @@ describe('Counter', () => {
 
   test('should fire "counter:increased" event with current counter value on inc-button click', () => {
     document.body.innerHTML = makeComponent({
-      props: { label: 'спальни', plurals: ['спальня', 'спальни', 'спален'], value: 0, step: 5 }
+      props: {
+        label: 'спальни',
+        plurals: ['спальня', 'спальни', 'спален'],
+        value: 0,
+        step: 5,
+        objectId: '123'
+      }
     });
     const $el = document.querySelector(qs);
     const $buttonInc = $el.querySelector('.counter__button-inc');
@@ -195,6 +217,7 @@ describe('Counter', () => {
     const eventDetail = listenerMock.mock.calls[0][0].detail;
     expect(eventDetail.numValue).toBe(5);
     expect(eventDetail.strValue).toBe('5 спален');
+    expect(eventDetail.id).toBe('123');
   });
 
   test('should decrease value by step value on dec-button click', () => {
@@ -215,7 +238,12 @@ describe('Counter', () => {
 
   test('should fire "counter:decreased" event with current counter value on dec-button click', () => {
     document.body.innerHTML = makeComponent({
-      props: { title: 'спальни', plurals: ['спальня', 'спальни', 'спален'], value: 2 }
+      props: {
+        title: 'спальни',
+        plurals: ['спальня', 'спальни', 'спален'],
+        value: 2,
+        objectId: '123'
+      }
     });
     const $el = document.querySelector(qs);
     const $buttonDec = $el.querySelector('.counter__button-dec');
@@ -228,6 +256,7 @@ describe('Counter', () => {
     const eventDetail = listenerMock.mock.calls[0][0].detail;
     expect(eventDetail.numValue).toBe(1);
     expect(eventDetail.strValue).toBe('1 спальня');
+    expect(eventDetail.id).toBe('123');
   });
 
   test('if decrease button is disabled - clicking on increase button should enable it', () => {
