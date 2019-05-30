@@ -82,6 +82,21 @@ describe('Counter', () => {
     expect($el).toHaveAttribute('data-max', '1000');
   });
 
+  test('should have plurals attribute set to [] by default', () => {
+    document.body.innerHTML = makeComponent();
+    const $el = document.querySelector(qs);
+    expect($el).toHaveAttribute('data-plurals', '[]');
+  });
+
+  test('should set plurals attribute to provided value', () => {
+    const plurals = ['one', 'two', 'three'];
+    document.body.innerHTML = makeComponent({ props: { plurals } });
+    const $el = document.querySelector(qs);
+    const component = new Counter($el);
+    expect($el).toHaveAttribute('data-plurals');
+    expect(component.plurals).toEqual(plurals);
+  });
+
   test('should render label without text by default', () => {
     document.body.innerHTML = makeComponent();
     const $el = document.querySelector(qs);
@@ -166,7 +181,9 @@ describe('Counter', () => {
   });
 
   test('should fire "counter:increased" event with current counter value on inc-button click', () => {
-    document.body.innerHTML = makeComponent({ props: { value: 0, step: 5 } });
+    document.body.innerHTML = makeComponent({
+      props: { label: 'спальни', plurals: ['спальня', 'спальни', 'спален'], value: 0, step: 5 }
+    });
     const $el = document.querySelector(qs);
     const $buttonInc = $el.querySelector('.counter__button-inc');
     // eslint-disable-next-line no-unused-vars
@@ -175,8 +192,9 @@ describe('Counter', () => {
     $el.addEventListener('counter:increased', e => listenerMock(e));
     fireEvent.click($buttonInc);
     expect(listenerMock).toHaveBeenCalled();
-    const eventValue = listenerMock.mock.calls[0][0].detail;
-    expect(eventValue).toBe(5);
+    const eventDetail = listenerMock.mock.calls[0][0].detail;
+    expect(eventDetail.numValue).toBe(5);
+    expect(eventDetail.strValue).toBe('5 спален');
   });
 
   test('should decrease value by step value on dec-button click', () => {
@@ -196,7 +214,9 @@ describe('Counter', () => {
   });
 
   test('should fire "counter:decreased" event with current counter value on dec-button click', () => {
-    document.body.innerHTML = makeComponent({ props: { value: 2 } });
+    document.body.innerHTML = makeComponent({
+      props: { title: 'спальни', plurals: ['спальня', 'спальни', 'спален'], value: 2 }
+    });
     const $el = document.querySelector(qs);
     const $buttonDec = $el.querySelector('.counter__button-dec');
     // eslint-disable-next-line no-unused-vars
@@ -205,8 +225,9 @@ describe('Counter', () => {
     $el.addEventListener('counter:decreased', e => listenerMock(e));
     fireEvent.click($buttonDec);
     expect(listenerMock).toHaveBeenCalled();
-    const eventValue = listenerMock.mock.calls[0][0].detail;
-    expect(eventValue).toBe(1);
+    const eventDetail = listenerMock.mock.calls[0][0].detail;
+    expect(eventDetail.numValue).toBe(1);
+    expect(eventDetail.strValue).toBe('1 спальня');
   });
 
   test('if decrease button is disabled - clicking on increase button should enable it', () => {
@@ -220,5 +241,63 @@ describe('Counter', () => {
     expect($buttonDec).toBeDisabled();
     fireEvent.click($buttonInc);
     expect($buttonDec).not.toBeDisabled();
+  });
+
+  test('toString() should pluralize title if plurals are provided', () => {
+    document.body.innerHTML = makeComponent({
+      props: { label: 'спальни', plurals: ['спальня', 'спальни', 'спален'] }
+    });
+    const $el = document.querySelector(qs);
+    const component = new Counter($el);
+    expect(component.toString()).toBe('0 спален');
+    component.value = 1;
+    expect(component.toString()).toBe('1 спальня');
+    component.value = 2;
+    expect(component.toString()).toBe('2 спальни');
+    component.value = 3;
+    expect(component.toString()).toBe('3 спальни');
+    component.value = 4;
+    expect(component.toString()).toBe('4 спальни');
+    component.value = 5;
+    expect(component.toString()).toBe('5 спален');
+    component.value = 6;
+    expect(component.toString()).toBe('6 спален');
+    component.value = 7;
+    expect(component.toString()).toBe('7 спален');
+    component.value = 8;
+    expect(component.toString()).toBe('8 спален');
+    component.value = 9;
+    expect(component.toString()).toBe('9 спален');
+    component.value = 10;
+    expect(component.toString()).toBe('10 спален');
+  });
+
+  test('toString() should combine title and count value if plurals are not provided', () => {
+    document.body.innerHTML = makeComponent({
+      props: { label: 'спальни' }
+    });
+    const $el = document.querySelector(qs);
+    const component = new Counter($el);
+    expect(component.toString()).toBe('0 спальни');
+    component.value = 1;
+    expect(component.toString()).toBe('1 спальни');
+    component.value = 2;
+    expect(component.toString()).toBe('2 спальни');
+    component.value = 3;
+    expect(component.toString()).toBe('3 спальни');
+    component.value = 4;
+    expect(component.toString()).toBe('4 спальни');
+    component.value = 5;
+    expect(component.toString()).toBe('5 спальни');
+    component.value = 6;
+    expect(component.toString()).toBe('6 спальни');
+    component.value = 7;
+    expect(component.toString()).toBe('7 спальни');
+    component.value = 8;
+    expect(component.toString()).toBe('8 спальни');
+    component.value = 9;
+    expect(component.toString()).toBe('9 спальни');
+    component.value = 10;
+    expect(component.toString()).toBe('10 спальни');
   });
 });

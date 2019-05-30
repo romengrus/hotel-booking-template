@@ -1,5 +1,6 @@
 //- Counter component
 //- label   {string} label text
+//- plurals {array} plural forms of label for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
 //- value   {number} initial value
 //- min     {number} maximum possible value
 //- min     {number} minimum possible value
@@ -12,6 +13,7 @@ mixin counter(props = {})
   - 
     props = Object.assign({
       label: '',
+      plurals: [],
       value: 0,
       min: 0,
       max: 100,
@@ -19,9 +21,18 @@ mixin counter(props = {})
       mods: []
     }, props)
 
+    //- All counter attributes should be proxied to input element
     attributes.hidden = true
     attributes.type = 'number'
     attributes.value = props.value
+
+    var wrapperAttributes = {
+      'data-step': props.step,
+      'data-min': props.min,
+      'data-max': props.max,
+      'data-label': props.label,
+      'data-plurals': props.plurals
+    }
     
     var mods = ['counter'].concat(props.mods)
     var inputMods = ['counter__input']
@@ -29,7 +40,7 @@ mixin counter(props = {})
     var buttonIncMods = ['counter__button-inc']
     var buttonDecMods = ['counter__button-dec']
 
-  div(class= mods)&attributes({'data-step': props.step, 'data-min': props.min, 'data-max': props.max})
+  div(class= mods)&attributes(wrapperAttributes)
     label(class= labelMods)= props.label
       +form-field({mods: inputMods})&attributes(attributes)
     div.counter__controls
