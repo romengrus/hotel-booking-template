@@ -7,3 +7,4 @@ export * from './counter/counter';
 export * from './button-like/button-like';
 export * from './rating/rating';
 export * from './panel/panel';
+export * from './dropdown-counter/dropdown-counter';

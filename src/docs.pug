@@ -27,6 +27,7 @@ html
     include components/library/pagination/pagination.pug
     include components/library/list/list.pug
     include components/library/panel/panel.pug
+    include components/library/dropdown-counter/dropdown-counter.pug
 
     //- project components
     include components/project/header/header.pug
@@ -241,3 +242,50 @@ html
               +form-field-checkbox({label: 'Кроватка'})(checked= true)
               +form-field-checkbox({label: 'Телевизор'})
               +form-field-checkbox({label: 'Шампунь'})
+<<<<<<< HEAD
+=======
+
+      section.showcase
+        h2.showcase__title dropdown counter
+        .showcase__content
+          +dropdown-counter({
+            counters: [{
+                label: 'спальни',
+                plurals: ['спальня', 'спальни', 'спален'],
+                objectId: 'bedroom'
+              },
+              {
+                label: 'кровати',
+                plurals: ['кровать', 'кровати', 'кроватей'],
+                objectId: 'bed'
+              },
+              {
+                label: 'ванные комнаты',
+                plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+                objectId: 'bathroom'
+            }],
+            displayType: 'concat',
+          })&attributes({placeholder: 'Выберите нужное количество ...'})
+          br
+          +dropdown-counter({
+            counters: [{
+                label: 'взрослые',
+                plurals: ['взрослый', 'взрослых', 'взрослых'],
+                objectId: '18+'
+              },
+              {
+                label: 'дети',
+                plurals: ['ребенок', 'детей', 'детей'],
+                objectId: 'child'
+              },
+              {
+                label: 'младенцы',
+                plurals: ['младенец', 'младенца', 'младенцев'],
+                objectId: 'toddler',
+                min: 0,
+                max: 2
+            }],
+            displayType: 'total',
+            plurals: ['гость', 'гостя', 'гостей']
+          })&attributes({placeholder: 'Сколько гостей'})
+>>>>>>> finished dropdown-counter component

@@ -1,0 +1,87 @@
+$dc-border: 1px solid #ccc !default;
+$dc-border-radius: 0.25rem !default;
+$dc-btn-reset-color: #000 !default;
+$dc-btn-ok-color: #000 !default;
+
+.dropdown-counter {
+  &__header {
+    position: relative;
+    border: $dc-border;
+    border-radius: $dc-border-radius;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+
+    &_collapsed {
+      border-bottom-right-radius: $dc-border-radius;
+      border-bottom-left-radius: $dc-border-radius;
+    }
+  }
+
+  &__value-alt {
+    padding-right: 2.5rem;
+    border: 0;
+
+    &:hover,
+    &:focus {
+      border: 0;
+    }
+  }
+
+  &__toggler {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    transform: rotate(-0.5turn);
+    transition: transform 350ms ease-in-out;
+
+    &_collapsed {
+      transform: none;
+    }
+  }
+
+  &__body {
+    padding: 0.5rem 0.5rem 0.75rem 0.9375rem;
+    border: $dc-border;
+    border-top: none;
+    border-bottom-right-radius: $dc-border-radius;
+    border-bottom-left-radius: $dc-border-radius;
+
+    &_collapsed {
+      display: none;
+    }
+
+    & > * + * {
+      margin-top: 0.4375rem;
+    }
+  }
+
+  &__actions-panel {
+    display: flex;
+    align-items: center;
+    margin-top: 1.25rem;
+
+    &_hidden {
+      display: none;
+    }
+  }
+
+  &__reset {
+    color: $dc-btn-reset-color;
+    font-weight: bold;
+    padding: 0;
+    height: auto;
+
+    &_hidden {
+      display: none;
+    }
+  }
+
+  &__ok {
+    color: $dc-btn-ok-color;
+    font-weight: bold;
+    padding: 0;
+    margin-left: auto;
+    height: auto;
+  }
+}
