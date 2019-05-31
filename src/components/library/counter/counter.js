@@ -36,6 +36,7 @@ export class Counter {
   _attachEventHandlers() {
     this.$btnInc.addEventListener('click', e => this._handleIncButtonClick(e));
     this.$btnDec.addEventListener('click', e => this._handleDecButtonClick(e));
+    this.$el.addEventListener('counter:reset', () => this._handleReset());
   }
 
   _handleIncButtonClick() {
@@ -94,5 +95,12 @@ export class Counter {
       }
     });
     this.$el.dispatchEvent(event);
+  }
+
+  _handleReset() {
+    this.value = this.min;
+    this.$display.textContent = this.min;
+    this.$btnDec.setAttribute('disabled', true);
+    this.$btnInc.removeAttribute('disabled');
   }
 }
