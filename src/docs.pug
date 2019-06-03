@@ -28,6 +28,7 @@ html
     include components/library/list/list.pug
     include components/library/panel/panel.pug
     include components/library/dropdown-counter/dropdown-counter.pug
+    include components/library/chart-doughnut/chart-doughnut.pug
 
     //- project components
     include components/project/header/header.pug
@@ -286,3 +287,26 @@ html
             displayType: 'total',
             plurals: ['гость', 'гостя', 'гостей']
           })&attributes({placeholder: 'Сколько гостей'})
+
+      section.showcase
+        h2.showcase__title chart
+        .showcase__content
+          +chart-doughnut({
+            data: [{
+              value: 556,
+              label: 'Великолепно',
+              bg: '#FFE39C'
+            }, {
+              value: 342,
+              label: 'Хорошо',
+              bg: '#6FCF97'
+            }, {
+              value: 227,
+              label: 'Удовлетворительно',
+              bg: '#BC9CFF'
+            }, {
+              value: 0,
+              label: 'Разочарован',
+              bg: '#919191'
+            }]
+          })
