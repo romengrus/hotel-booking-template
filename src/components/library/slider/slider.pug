@@ -1,0 +1,39 @@
+//- Image Slider
+//-
+//- slides    {array} Array of slide objects
+//--- Note: each slide is an object. This will help to add additional properties to slide later
+//--- slide object: {
+//---   img   {string} image path 
+//--- }
+//- params    {object} Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
+//- mods      {array} Modifier classes
+mixin slider(props = {})
+  -
+    props = Object.assign({
+      slides: [],
+      params: {},
+      mods: [],
+    }, props)
+
+    var mods = ['swiper-container'].concat(props.mods)
+
+    attributes['data-params'] = props.params
+
+  div(class= mods)&attributes(attributes)
+    .swiper-wrapper
+      each slide in props.slides
+        if 'img' in slide
+          .swiper-slide(style= `background-image: url(${slide.img})`)
+
+    if 'pagination' in props.params
+      .swiper-pagination
+
+    if 'navigation' in props.params
+      .swiper-button-prev
+      .swiper-button-next
+
+    if 'scrollbar' in props.params
+      .swiper-scrollbar
+
+    
+    
