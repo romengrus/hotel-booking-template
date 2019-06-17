@@ -20,6 +20,7 @@ html
     include components/library/form-field-datetime/form-field-datetime.pug
     include components/library/form-field-checkbox/form-field-checkbox.pug
     include components/library/form-field-radio/form-field-radio.pug
+    include components/library/form-field-range-slider/form-field-range-slider.pug
     include components/library/button/button.pug
     include components/library/counter/counter.pug
     include components/library/button-like/button-like.pug
@@ -168,6 +169,22 @@ html
               +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
               br
               +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
+
+          h3.showcase__subtitle range slider
+          .ui-inputs
+            +form-field-range-slider({params: {
+              start: [20, 80],
+              range: {min: 0, max: 100},
+              connect: [false, true, false],
+              format: {
+                decimals: 0,
+                thousand: ' ',
+                suffix: ' ₽'
+              }
+            },
+              label: 'Price range',
+              desc: 'How much is the fish?'
+            })
 
           h3.showcase__subtitle rating
           .ui-inputs
