@@ -39,6 +39,7 @@ html
     include components/project/subscription/subscription.pug
     include components/project/testimonial/testimonial.pug
     include components/project/benefit/benefit.pug
+    include components/project/form-room-search/form-room-search.pug
 
     block content
       section.showcase
@@ -333,4 +334,17 @@ html
               label: 'Разочарован',
               bg: '#919191'
             }]
+          })
+
+      section.showcase
+        h2.showcase__title Room Search
+        .showcase__content
+          +form-room-search({
+            labels: {
+              title: "Найдём номера под ваши пожелания",
+              arrival: "Прибытие",
+              departure: "Выезд",
+              guests: "Гости",
+              submit: "Подобрать номер"
+            }
           })

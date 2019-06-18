@@ -1,0 +1,76 @@
+//- Room Search
+//- 
+//- labels    {object} Form labels
+//- mods      {array} Modifier classes
+mixin form-room-search(props = {})
+  include /components/library/form/form.pug
+  include /components/library/form-field-datetime/form-field-datetime.pug
+  include /components/library/dropdown-counter/dropdown-counter.pug
+  include /components/library/button/button.pug
+
+  -
+    props = Object.assign({
+      mods: []
+    }, props)
+
+    // Object.assign can't merge nested objects. 
+    // Make merging separately
+    var labels = Object.assign({
+      title: 'Room search',
+      submit: 'Search',
+      arrival: 'Arrival',
+      departure: 'Departure',
+      guests: 'Guests',
+    }, props.labels || {})
+
+    props.labels = labels
+
+    var mods = ['form-room-search'].concat(props.mods)
+
+    var arrivalFieldId = `form-room-search__arrival-${Math.random().toString(36).substring(2, 7)}`
+    var departureFieldId = `form-room-search__departure-${Math.random().toString(36).substring(2, 7)}`
+    var guestsFieldId = `form-room-search__guests-${Math.random().toString(36).substring(2, 7)}`
+
+  div(class= mods)
+    +form({mods: ['form-room-search__form']})&attributes(attributes)
+      h2.form-room-search__title= labels.title
+
+      .form-room-search__dates
+        .form-room-search__arrival
+          label.form-room-search__arrival-label(for= arrivalFieldId)= labels.arrival
+          +form-field-datetime({useDatepicker: true, mods: ['form-room-search__arrival-input']})(placeholder='ДД.ММ.ГГ')
+        .form-room-search__departure
+          label.form-room-search__departure-label(for= departureFieldId)= labels.departure
+          +form-field-datetime({useDatepicker: true, mods: ['form-room-search__departure-input']})(placeholder='ДД.ММ.ГГ')
+
+      .form-room-search__guests
+        label.form-room-search__guests-label(for= guestsFieldId)= labels.guests
+        +dropdown-counter({
+          counters: [{
+              label: 'взрослые',
+              plurals: ['взрослый', 'взрослых', 'взрослых'],
+              objectId: '18+'
+            },
+            {
+              label: 'дети',
+              plurals: ['ребенок', 'детей', 'детей'],
+              objectId: 'child'
+            },
+            {
+              label: 'младенцы',
+              plurals: ['младенец', 'младенца', 'младенцев'],
+              objectId: 'toddler',
+          }],
+          displayType: 'concat',
+          plurals: ['гость', 'гостя', 'гостей'],
+          mods: ['form-room-search__guests-input']
+        })&attributes({placeholder: 'Сколько гостей'})
+
+      +button({
+        value: labels.submit, 
+        isExpanded: true, 
+        hasRipple: true, 
+        iconName: 'arrow-right',
+        mods: ['form-room-search__submit']
+      })
+

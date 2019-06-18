@@ -112,6 +112,7 @@ $grid-breakpoints: (
   font-style: normal;
 }
 
+// TODO: Change quicksand to Open Sans. (Quicksand has no cyrillic)
 @font-face {
   font-family: 'Quicksand-Bold';
   src: url('assets/fonts/Quicksand-Bold/Quicksand-Bold.eot');

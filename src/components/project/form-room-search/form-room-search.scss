@@ -1,0 +1,38 @@
+.form-room-search {
+  max-width: 23.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem 1.875rem 1.875rem;
+
+  &__dates {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__arrival {
+    flex: 1 1 50%;
+    margin-right: 0.5em;
+  }
+
+  &__departure {
+    flex: 1 1 50%;
+    margin-left: 0.5em;
+  }
+
+  &__guests {
+    margin-top: 1.25rem;
+  }
+
+  &__submit {
+    margin-top: 1.875rem;
+  }
+
+  &__arrival-label, &__departure-label, &__guests-label {
+    margin-bottom: 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
