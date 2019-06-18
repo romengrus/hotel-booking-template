@@ -33,6 +33,12 @@ export class FormFieldDatetime {
     } else {
       this.mask = this._createMask();
     }
+
+    this._attachComponentToDOMElement();
+  }
+
+  _attachComponentToDOMElement() {
+    this.$el.__component = this;
   }
 
   _createMask() {
