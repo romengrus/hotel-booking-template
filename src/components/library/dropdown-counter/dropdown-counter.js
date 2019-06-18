@@ -85,19 +85,24 @@ export class DropdownCounter {
       $counter.addEventListener('counter:increased', e => this.updateModel(e.detail));
       $counter.addEventListener('counter:decreased', e => this.updateModel(e.detail));
     });
-    this.$toggler.addEventListener('click', () => this._handleTogglerClick());
-    this.$reset.addEventListener('click', () => this._handleResetClick());
-    this.$ok.addEventListener('click', () => this._handleTogglerClick());
-    this.$inputAlt.addEventListener('focus', () => this._handleTogglerClick());
+    this.$toggler.addEventListener('click', e => this._handleTogglerClick(e));
+    this.$reset.addEventListener('click', e => this._handleResetClick(e));
+    this.$ok.addEventListener('click', e => this._handleTogglerClick(e));
+    this.$inputAlt.addEventListener('focus', e => this._handleTogglerClick(e));
+    this.$inputAlt.addEventListener('blur', e => this._handleTogglerClick(e));
   }
 
-  _handleTogglerClick() {
+  _handleTogglerClick(e) {
+    e.preventDefault();
+
     this.$toggler.classList.toggle('dropdown-counter__toggler_collapsed');
     this.$header.classList.toggle('dropdown-counter__header_collapsed');
     this.$body.classList.toggle('dropdown-counter__body_collapsed');
   }
 
-  _handleResetClick() {
+  _handleResetClick(e) {
+    e.preventDefault();
+
     // reset model
     const model = this.countersProps.map(counter => {
       const { objectId, plurals } = counter;

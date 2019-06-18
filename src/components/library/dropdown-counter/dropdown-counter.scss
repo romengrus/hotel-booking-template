@@ -2,8 +2,11 @@ $dc-border: 1px solid #ccc !default;
 $dc-border-radius: 0.25rem !default;
 $dc-btn-reset-color: #000 !default;
 $dc-btn-ok-color: #000 !default;
+$dc-body-bg: white !default;
 
 .dropdown-counter {
+  position: relative;
+
   &__header {
     position: relative;
     border: $dc-border;
@@ -41,14 +44,23 @@ $dc-btn-ok-color: #000 !default;
   }
 
   &__body {
+    position: absolute;
+    visibility: visible;
+    opacity: 1;
+    width: 100%;
     padding: 0.5rem 0.5rem 0.75rem 0.9375rem;
     border: $dc-border;
     border-top: none;
     border-bottom-right-radius: $dc-border-radius;
     border-bottom-left-radius: $dc-border-radius;
+    background-color: $dc-body-bg;
+    z-index: 100;
+    transition: all 0.3s ease-in-out 0s;
 
     &_collapsed {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      z-index: -1;
     }
 
     & > * + * {
