@@ -39,7 +39,9 @@ export class Counter {
     this.$el.addEventListener('counter:reset', () => this._handleReset());
   }
 
-  _handleIncButtonClick() {
+  _handleIncButtonClick(e) {
+    e.preventDefault();
+
     if (this.$btnInc.disabled) return;
 
     const value = parseInt(this.value, 10);
@@ -68,7 +70,9 @@ export class Counter {
     this.$el.dispatchEvent(event);
   }
 
-  _handleDecButtonClick() {
+  _handleDecButtonClick(e) {
+    e.preventDefault();
+
     if (this.$btnDec.disabled) return;
 
     const value = parseInt(this.value, 10);
