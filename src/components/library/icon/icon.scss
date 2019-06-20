@@ -40,4 +40,15 @@
   &-twitter, &-facebook, &-instagram {
     fill: url(#paint0_linear);
   }
+
+  &-info {
+    &__circle {
+      fill: none;
+      stroke: rgba(31, 32, 65, 0.25);
+    }
+
+    &__sign {
+      fill: rgba(31, 32, 65, 0.25);
+    }
+  }
 }
