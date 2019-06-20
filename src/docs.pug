@@ -40,6 +40,7 @@ html
     include components/project/testimonial/testimonial.pug
     include components/project/benefit/benefit.pug
     include components/project/form-room-search/form-room-search.pug
+    include components/project/room-reservation/room-reservation.pug
 
     block content
       section.showcase
@@ -347,4 +348,25 @@ html
               guests: "Гости",
               submit: "Подобрать номер"
             }
+          })
+
+      section.showcase
+        h2.showcase__title Room Reservation
+        .showcase__content
+          +room-reservation({roomNumber: 666, price: 9900, isLux: true})
+          +room-reservation({
+            roomNumber: 888, 
+            price: 5900,
+            fees: [{
+              title: 'fee 1',
+              amount: 300
+            }, {
+              title: 'fee 2',
+              desc: 'fee 2 desc',
+              amount: -1500
+            }, {
+              title: 'fee 3',
+              desc: 'fee 3 desc some random text ... maybe a longer string of text ... more',
+              amount: 500
+            }]
           })
