@@ -41,6 +41,7 @@ html
     include components/project/benefit/benefit.pug
     include components/project/room-search/room-search.pug
     include components/project/room-reservation/room-reservation.pug
+    include components/project/register/register.pug
 
     block content
       section.showcase
@@ -370,3 +371,8 @@ html
               amount: 500
             }]
           })
+
+      section.showcase
+        h2.showcase__title Register
+        .showcase__content
+          +register()
