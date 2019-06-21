@@ -20,6 +20,7 @@ mixin form-field-datetime(props = {})
 
     attributes = Object.assign({
       type: 'text', 
+      placeholder: '',
       'data-use-datepicker': props.useDatepicker,
       'data-datepicker-mode': props.datepickerMode,
       'data-date-format': props.dateFormat,
