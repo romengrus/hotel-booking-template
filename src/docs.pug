@@ -42,6 +42,7 @@ html
     include components/project/room-search/room-search.pug
     include components/project/room-reservation/room-reservation.pug
     include components/project/register/register.pug
+    include components/project/login/login.pug
 
     block content
       section.showcase
@@ -376,3 +377,8 @@ html
         h2.showcase__title Register
         .showcase__content
           +register()
+
+      section.showcase
+        h2.showcase__title Login
+        .showcase__content
+          +login()
