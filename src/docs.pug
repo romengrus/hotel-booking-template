@@ -39,7 +39,7 @@ html
     include components/project/subscription/subscription.pug
     include components/project/testimonial/testimonial.pug
     include components/project/benefit/benefit.pug
-    include components/project/form-room-search/form-room-search.pug
+    include components/project/room-search/room-search.pug
     include components/project/room-reservation/room-reservation.pug
 
     block content
@@ -340,7 +340,7 @@ html
       section.showcase
         h2.showcase__title Room Search
         .showcase__content
-          +form-room-search({
+          +room-search({
             labels: {
               title: "Найдём номера под ваши пожелания",
               arrival: "Прибытие",

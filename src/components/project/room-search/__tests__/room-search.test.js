@@ -1,13 +1,13 @@
 import path from 'path';
 import pug from 'pug';
-import { FormRoomSearch } from '../form-room-search';
+import { RoomSearch } from '../room-search';
 
-const qs = FormRoomSearch.getQuerySelector();
+const qs = RoomSearch.getQuerySelector();
 const basedir = global.__BASE_DIR;
-const templatePath = path.join(__dirname, 'form-room-search.test.pug');
+const templatePath = path.join(__dirname, 'room-search.test.pug');
 const makeComponent = pug.compileFile(templatePath, { basedir });
 
-describe('Form Room Search', () => {
+describe('Room Search', () => {
   test('should render', () => {
     document.body.innerHTML = makeComponent();
     const $el = document.querySelector(qs);
@@ -23,14 +23,14 @@ describe('Form Room Search', () => {
   test('should have form wrapper', () => {
     document.body.innerHTML = makeComponent();
     const $el = document.querySelector(qs);
-    const $form = $el.querySelector('.form-room-search__form');
+    const $form = $el.querySelector('.room-search__form');
     expect($form).toBeInTheDocument();
   });
 
   test('should apply provided attributes to form wrapper', () => {
     document.body.innerHTML = makeComponent({ attributes: { foo: 'bar' } });
     const $el = document.querySelector(qs);
-    const $form = $el.querySelector('.form-room-search__form');
+    const $form = $el.querySelector('.room-search__form');
     expect($form).toHaveAttribute('foo', 'bar');
   });
 
@@ -38,7 +38,7 @@ describe('Form Room Search', () => {
     const labels = { title: 'Test title' };
     document.body.innerHTML = makeComponent({ props: { labels } });
     const $el = document.querySelector(qs);
-    const $title = $el.querySelector('.form-room-search__title');
+    const $title = $el.querySelector('.room-search__title');
     expect($title).toBeInTheDocument();
     expect($title.textContent).toBe(labels.title);
   });
@@ -47,8 +47,8 @@ describe('Form Room Search', () => {
     const labels = { arrival: 'Test title' };
     document.body.innerHTML = makeComponent({ props: { labels } });
     const $el = document.querySelector(qs);
-    const $input = $el.querySelector('.form-room-search__arrival-input');
-    const $label = $el.querySelector('.form-room-search__arrival-label');
+    const $input = $el.querySelector('.room-search__arrival-input');
+    const $label = $el.querySelector('.room-search__arrival-label');
     expect($input).toBeInTheDocument();
     expect($label).toBeInTheDocument();
     expect($label.textContent).toBe(labels.arrival);
@@ -58,8 +58,8 @@ describe('Form Room Search', () => {
     const labels = { departure: 'Test title' };
     document.body.innerHTML = makeComponent({ props: { labels } });
     const $el = document.querySelector(qs);
-    const $input = $el.querySelector('.form-room-search__departure-input');
-    const $label = $el.querySelector('.form-room-search__departure-label');
+    const $input = $el.querySelector('.room-search__departure-input');
+    const $label = $el.querySelector('.room-search__departure-label');
     expect($input).toBeInTheDocument();
     expect($label).toBeInTheDocument();
     expect($label.textContent).toBe(labels.departure);
@@ -69,8 +69,8 @@ describe('Form Room Search', () => {
     const labels = { guests: 'Test title' };
     document.body.innerHTML = makeComponent({ props: { labels } });
     const $el = document.querySelector(qs);
-    const $input = $el.querySelector('.form-room-search__guests-input');
-    const $label = $el.querySelector('.form-room-search__guests-label');
+    const $input = $el.querySelector('.room-search__guests-input');
+    const $label = $el.querySelector('.room-search__guests-label');
     expect($input).toBeInTheDocument();
     expect($label).toBeInTheDocument();
     expect($label.textContent).toBe(labels.guests);
@@ -80,7 +80,7 @@ describe('Form Room Search', () => {
     const labels = { submit: 'Test title' };
     document.body.innerHTML = makeComponent({ props: { labels } });
     const $el = document.querySelector(qs);
-    const $btn = $el.querySelector('.form-room-search__submit');
+    const $btn = $el.querySelector('.room-search__submit');
     expect($btn).toBeInTheDocument();
     expect($btn.textContent).toBe(labels.submit);
   });
