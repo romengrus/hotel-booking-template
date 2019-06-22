@@ -1,4 +1,4 @@
-import { pluralize } from '../l10n/pluralize';
+import { pluralize } from '../../../l10n/pluralize';
 
 export class DropdownCounter {
   constructor($el) {

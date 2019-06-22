@@ -1,4 +1,4 @@
-import { pluralize } from '../../library/l10n/pluralize';
+import { pluralize } from '../../../l10n/pluralize';
 
 function feeHtml(fee, currency) {
   const iconHtml = `<svg class="icon"><use href="#info" /></svg>`;
