@@ -1,13 +1,17 @@
 doctype html
 html
   head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    block head
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-    title toxin
+      title #{pageTitle || 'toxin'}
 
-    link(rel="stylesheet", href="app.scss")
-    script(src="./app.js", defer)
+      block styles
+        link(rel="stylesheet", href="app.scss")
+
+      block scripts
+        script(src="./app.js", defer)
 
   body
     span(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
