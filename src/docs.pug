@@ -43,6 +43,7 @@ html
     include components/project/room-reservation/room-reservation.pug
     include components/project/register/register.pug
     include components/project/login/login.pug
+    include components/project/room-card/room-card.pug
 
     block content
       section.showcase
@@ -382,3 +383,53 @@ html
         h2.showcase__title Login
         .showcase__content
           +login()
+
+      section.showcase
+        h2.showcase__title Room Card
+        .showcase__content
+          +room-card({
+            slider: {
+              slides: [{
+                img: 'assets/img/room-card-1.jpg'
+              }, {
+                img: 'assets/img/room-card-2.jpg',
+              }, {
+                img: 'assets/img/room-card-3.jpg',
+              }, {
+                img: 'assets/img/room-card-4.jpg'
+              }],
+              params: {
+                pagination: {
+                  clickable: true
+                }
+              }
+            },
+            roomNumber: 888,
+            isLux: true,
+            price: 5900,
+            rating: 4,
+            numReviews: 148,
+          })
+          br
+          +room-card({
+            slider: {
+              slides: [{
+                img: 'assets/img/room-card-1.jpg'
+              }, {
+                img: 'assets/img/room-card-2.jpg',
+              }, {
+                img: 'assets/img/room-card-3.jpg',
+              }, {
+                img: 'assets/img/room-card-4.jpg'
+              }],
+              params: {
+                pagination: {
+                  clickable: true
+                }
+              }
+            },
+            roomNumber: 345,
+            price: 3400,
+            rating: 5,
+            numReviews: 64,
+          })

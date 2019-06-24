@@ -1,0 +1,42 @@
+mixin room-card(props = {})
+  include /components/library/slider/slider.pug
+  include /components/library/rating/rating.pug
+
+  -
+    props = Object.assign({
+      roomNumber: '',
+      price: 0,
+      currency: '₽',
+      rating: 5,
+      numReviews: 0,
+      isLux: false,
+      slider: {},
+      mods: []
+    }, props)
+
+    var mods = ['room-card'].concat(props.mods)
+    
+    props.slider.mods = ['room-card__slider']
+
+    if (props.isLux) mods.push('room-card_is-lux')
+
+  div(class= mods)&attributes(attributes)
+    +slider(props.slider)
+
+    .room-card__row
+      .room-card__room-details
+        span.room-card__number № #{props.roomNumber}
+        if (props.isLux)
+          span.room-card__lux-indicator люкс
+      if (props.price > 0)
+        .room-card__price-details 
+          span.room-card__price= props.price
+          span.room-card__currency= props.currency
+          | в сутки
+
+    .room-card__row
+      +rating({value: props.rating, objectId: props.roomNumber, mods: ['room-card__rating']})
+      if (props.numReviews > 0)
+        .room-card__reviews 
+          span.room-card__reviews-amount= props.numReviews 
+          | #{pluralize(props.numReviews, ['Отзыв', 'Отзыва', 'Отзывов'])}
