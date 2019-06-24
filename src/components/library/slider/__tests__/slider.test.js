@@ -54,17 +54,15 @@ describe('Slider', () => {
     expect($slides[0]).toHaveStyle('background-image: url(img1.jpg)');
   });
 
-  test('should render pagination if pagination config is provided in props.params.pagination', () => {
-    const params = { pagination: {} };
-    document.body.innerHTML = makeComponent({ props: { params } });
+  test('should render pagination if showPagination = true', () => {
+    document.body.innerHTML = makeComponent({ props: { showPagination: true } });
     const $el = document.querySelector(qs);
     const $pagination = $el.querySelector('.swiper-pagination');
     expect($pagination).toBeInTheDocument();
   });
 
-  test('should render navigation buttons if navigation config is provided in props.params.navigation', () => {
-    const params = { navigation: {} };
-    document.body.innerHTML = makeComponent({ props: { params } });
+  test('should render navigation if showNavigation = true', () => {
+    document.body.innerHTML = makeComponent({ props: { showNavigation: true } });
     const $el = document.querySelector(qs);
     const $prev = $el.querySelector('.swiper-button-prev');
     const $next = $el.querySelector('.swiper-button-next');
@@ -72,9 +70,8 @@ describe('Slider', () => {
     expect($next).toBeInTheDocument();
   });
 
-  test('should render scrollbar if scrollbar config is provided in props.params.scrollbar', () => {
-    const params = { scrollbar: {} };
-    document.body.innerHTML = makeComponent({ props: { params } });
+  test('should render scrollbar if showScrollbar = true', () => {
+    document.body.innerHTML = makeComponent({ props: { showScrollbar: true } });
     const $el = document.querySelector(qs);
     const $scrollbar = $el.querySelector('.swiper-scrollbar');
     expect($scrollbar).toBeInTheDocument();

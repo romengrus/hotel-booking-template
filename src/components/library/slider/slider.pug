@@ -1,21 +1,46 @@
 //- Image Slider
 //-
-//- slides    {array} Array of slide objects
+//- slides          {array} Array of slide objects
 //--- Note: each slide is an object. This will help to add additional properties to slide later
 //--- slide object: {
 //---   img   {string} image path 
 //--- }
-//- params    {object} Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
-//- mods      {array} Modifier classes
+//- params          {object} Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
+//- showPagination  {boolean} If true - pagination will be shown
+//- showNavigation  {boolean} If true - navigation buttons will be shown
+//- showScrollbar   {boolean} If true - scrollbar will be shown
+//- mods            {array} Modifier classes
 mixin slider(props = {})
   -
     props = Object.assign({
       slides: [],
       params: {},
+      showPagination: true,
+      showNavigation: true,
+      showScrollbar: false,
       mods: [],
     }, props)
 
     var mods = ['swiper-container'].concat(props.mods)
+
+    if (props.showNavigation) {
+      props.params.navigation = Object.assign(props.params.navigation || {}, {
+        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next'
+      })
+    }
+
+    if (props.showPagination) {
+      props.params.pagination = Object.assign(props.params.pagination || {}, {
+        el: '.swiper-pagination'
+      })
+    } 
+
+    if (props.showScrollbar) {
+      props.params.scrollbar = Object.assign(props.params.scrollbar || {}, {
+        el: '.swiper-scrollbar'
+      })
+    }
 
     attributes['data-params'] = props.params
 
@@ -25,14 +50,14 @@ mixin slider(props = {})
         if 'img' in slide
           .swiper-slide(style= `background-image: url(${slide.img})`)
 
-    if 'pagination' in props.params
+    if (props.showPagination)
       .swiper-pagination
 
-    if 'navigation' in props.params
+    if (props.showNavigation)
       .swiper-button-prev
       .swiper-button-next
 
-    if 'scrollbar' in props.params
+    if (props.showScrollbar)
       .swiper-scrollbar
 
     
