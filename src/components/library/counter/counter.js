@@ -27,7 +27,7 @@ export class Counter {
 
   toString() {
     if (this.plurals.length === 3) {
-      return `${pluralize(this.value, this.plurals)}`;
+      return `${this.value} ${pluralize(this.value, this.plurals)}`;
     }
 
     return `${this.value} ${this.label}`;

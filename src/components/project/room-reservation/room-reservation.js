@@ -26,7 +26,7 @@ function totalFeeHtml(amount, currency) {
 
 function feesHtml(fees, days, price, currency) {
   const priceForDaysFee = {
-    title: `${price}${currency} x ${pluralize(days, ['сутки', 'суток', 'суток'])}`,
+    title: `${price}${currency} x ${days} ${pluralize(days, ['сутки', 'суток', 'суток'])}`,
     desc: '',
     amount: days * price
   };

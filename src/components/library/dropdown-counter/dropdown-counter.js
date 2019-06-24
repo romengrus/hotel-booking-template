@@ -29,7 +29,7 @@ export class DropdownCounter {
     const initialModel = this.countersProps.map(counter => {
       const { objectId, plurals, value } = counter;
       const numValue = value ? parseInt(value, 10) : 0;
-      const strValue = `${pluralize(numValue, plurals)}`;
+      const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
 
       return [objectId, { numValue, strValue }];
     });
@@ -48,7 +48,7 @@ export class DropdownCounter {
     // set value for visible input
     if (this.displayType === 'total') {
       if (this.plurals.length === 3) {
-        this.$inputAlt.value = total === 0 ? '' : pluralize(total, this.plurals);
+        this.$inputAlt.value = total === 0 ? '' : `${total} ${pluralize(total, this.plurals)}`;
       } else {
         this.$inputAlt.value = total;
       }
@@ -107,7 +107,7 @@ export class DropdownCounter {
     const model = this.countersProps.map(counter => {
       const { objectId, plurals } = counter;
       const numValue = 0;
-      const strValue = `${pluralize(numValue, plurals)}`;
+      const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
 
       return [objectId, { numValue, strValue }];
     });
