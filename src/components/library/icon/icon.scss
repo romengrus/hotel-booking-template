@@ -16,28 +16,33 @@
   }
 
   &-hart {
-    fill: #1F2041;
-    fill-opacity: .25;
+    fill: #1f2041;
+    fill-opacity: 0.25;
   }
 
   &-hart-active {
-    fill: #BC9CFF;
+    fill: #bc9cff;
   }
 
   &-location-city {
     fill: url(#paint0_linear);
   }
 
-  &-semi-arrow-down, &-semi-arrow-up {
-    fill: #1F2041;
-    fill-opacity: .5;
+  &-semi-arrow-down,
+  &-semi-arrow-up {
+    fill: #1f2041;
+    fill-opacity: 0.5;
   }
 
-  &-star, &-star-active, &-star-half-active {
+  &-star,
+  &-star-active,
+  &-star-half-active {
     fill: url(#paint0_linear);
   }
 
-  &-twitter, &-facebook, &-instagram {
+  &-twitter,
+  &-facebook,
+  &-instagram {
     fill: url(#paint0_linear);
   }
 
@@ -50,5 +55,9 @@
     &__sign {
       fill: rgba(31, 32, 65, 0.25);
     }
+  }
+
+  &-fire {
+    fill: url(#paint0_linear);
   }
 }
