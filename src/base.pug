@@ -22,8 +22,9 @@ html
     
     .page__container
       .page__wrapper
-        block header
-          +header({isLoggedIn: false})
+        .page__header
+          block header
+            +header({isLoggedIn: false})
 
         block content
 

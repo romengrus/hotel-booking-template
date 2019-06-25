@@ -3,6 +3,22 @@
 @import '../components/library';
 @import '../components/project';
 
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 2rem;
+}
+
+.col {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+
+  &-5 {
+    flex-basis: 50%;
+  }
+}
+
 .page {
   &__container {
     display: flex;
@@ -13,6 +29,10 @@
   &__wrapper {
     max-width: 1440px;
     min-width: 320px;
+  }
+
+  &__header {
+    margin-bottom: 4.375rem;
   }
 
   &__main {
