@@ -1,5 +1,5 @@
-import * as libraryComponents from './components/library';
-import * as projectComponents from './components/project';
+import * as libraryComponents from '../components/library';
+import * as projectComponents from '../components/project';
 
 function factory(Component) {
   const qs = Component.getQuerySelector();

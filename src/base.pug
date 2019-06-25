@@ -8,10 +8,10 @@ html
       title #{pageTitle || 'toxin'}
 
       block styles
-        link(rel="stylesheet", href="app.scss")
+        link(rel="stylesheet", href="styles/app.scss")
 
       block scripts
-        script(src="./app.js", defer)
+        script(src="scripts/app.js", defer)
 
   body
     span(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
