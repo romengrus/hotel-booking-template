@@ -14,4 +14,38 @@
     max-width: 1440px;
     min-width: 320px;
   }
+
+  &__main {
+    display: flex;
+  }
+
+  &__sidebar {
+    flex: 0 1 326px;
+    margin-right: 3.75rem;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+
+.room-search {
+  &__listing {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -0.75rem;
+    margin-top: -0.75rem;
+
+    .room-card {
+      flex: 1 0 calc(25% - 0.75rem);
+      margin-left: 0.75rem;
+      margin-top: 0.75rem;
+    }
+  }
+
+  &__pagination {
+    text-align: center;
+  }
 }

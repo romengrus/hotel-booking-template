@@ -1,0 +1,350 @@
+[
+  {
+    "roomNumber": 888,
+    "price": 9990,
+    "currency": "₽",
+    "rating": 5,
+    "numReviews": 145,
+    "isLux": true,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-1.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-2.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-3.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-4.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 840,
+    "price": 9900,
+    "currency": "₽",
+    "rating": 4,
+    "numReviews": 65,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-2.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-3.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-4.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-5.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 980,
+    "price": 8500,
+    "currency": "₽",
+    "rating": 3,
+    "numReviews": 35,
+    "isLux": true,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-3.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-4.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-5.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-6.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 856,
+    "price": 7300,
+    "currency": "₽",
+    "rating": 5,
+    "numReviews": 19,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-4.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-5.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-6.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-7.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 740,
+    "price": 6000,
+    "currency": "₽",
+    "rating": 4,
+    "numReviews": 44,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-5.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-6.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-7.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-8.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 982,
+    "price": 5800,
+    "currency": "₽",
+    "rating": 3,
+    "numReviews": 56,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-6.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-7.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-8.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-9.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 678,
+    "price": 5500,
+    "currency": "₽",
+    "rating": 5,
+    "numReviews": 45,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-7.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-8.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-9.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-10.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 450,
+    "price": 5300,
+    "currency": "₽",
+    "rating": 4,
+    "numReviews": 39,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-8.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-9.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-10.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-11.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 350,
+    "price": 5000,
+    "currency": "₽",
+    "rating": 3,
+    "numReviews": 77,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-9.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-10.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-11.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-12.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 666,
+    "price": 5000,
+    "currency": "₽",
+    "rating": 5,
+    "numReviews": 25,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-10.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-11.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-12.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-1.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 444,
+    "price": 5000,
+    "currency": "₽",
+    "rating": 3,
+    "numReviews": 15,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-11.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-12.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-1.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-2.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  },
+  {
+    "roomNumber": 352,
+    "price": 5000,
+    "currency": "₽",
+    "rating": 3,
+    "numReviews": 55,
+    "isLux": false,
+    "slider": {
+      "slides": [
+        {
+          "img": "/assets/img/room-cards/room-card-12.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-1.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-2.png"
+        },
+        {
+          "img": "/assets/img/room-cards/room-card-3.png"
+        }
+      ],
+      "params": {
+        "pagination": {
+          "clickable": true
+        }
+      }
+    }
+  }
+]
