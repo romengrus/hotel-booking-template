@@ -1,0 +1,23 @@
+extends base.pug
+
+block prepend head
+  - var pageTitle = 'Toxin Landing Page 1'
+
+block append scripts
+  include components/library/hero/hero.pug
+  include components/project/room-search/room-search.pug
+
+block content
+  +hero({
+    images: ['assets/img/hero1.jpg', 'assets/img/hero2.jpg', 'assets/img/hero3.jpg'], 
+    info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
+  })
+    +room-search({
+      labels: {
+        title: "Найдём номера под ваши пожелания",
+        arrival: "Прибытие",
+        departure: "Выезд",
+        guests: "Гости",
+        submit: "Подобрать номер"
+      }
+    })

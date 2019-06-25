@@ -2,3 +2,16 @@
 
 @import '../components/library';
 @import '../components/project';
+
+.page {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__wrapper {
+    max-width: 1440px;
+    min-width: 320px;
+  }
+}

@@ -12,10 +12,21 @@ html
 
       block scripts
         script(src="scripts/app.js", defer)
+        include components/project/header/header.pug
+        include components/project/footer/footer.pug
+        include components/project/copyright-bar/copyright-bar.pug
 
   body
     span(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg
-    block header
-    block content
-    block footer
+    
+    .page__container
+      .page__wrapper
+        block header
+          +header({isLoggedIn: false})
+
+        block content
+
+        block footer
+          +footer()
+          +copyright-bar()
