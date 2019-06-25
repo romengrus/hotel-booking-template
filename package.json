@@ -10,7 +10,7 @@
     "buildSprite": "svgstore -o src/assets/sprites/icons-sprite.svg dist/icons/**/*.svg --inline",
     "build": "parcel build src/index.pug",
     "test": "jest",
-    "docs": "parcel src/docs.pug -d docs --open"
+    "docs": "parcel src/docs.pug -d docs"
   },
   "author": "Roman Korenev",
   "license": "ISC",
