@@ -8,13 +8,13 @@ html
       title #{pageTitle || 'toxin'}
 
       block styles
-        link(rel="stylesheet", href="styles/app.scss")
+        link(rel="stylesheet", href="/styles/app.scss")
 
       block scripts
-        script(src="scripts/app.js", defer)
-        include components/project/header/header.pug
-        include components/project/footer/footer.pug
-        include components/project/copyright-bar/copyright-bar.pug
+        script(src="/scripts/app.js", defer)
+        include /components/project/header/header.pug
+        include /components/project/footer/footer.pug
+        include /components/project/copyright-bar/copyright-bar.pug
 
   body
     span(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})

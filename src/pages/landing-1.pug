@@ -1,15 +1,15 @@
-extends base.pug
+extends /layout/base.pug
 
 block prepend head
   - var pageTitle = 'Toxin Landing Page 1'
 
 block append scripts
-  include components/library/hero/hero.pug
-  include components/project/room-search/room-search.pug
+  include /components/library/hero/hero.pug
+  include /components/project/room-search/room-search.pug
 
 block content
   +hero({
-    images: ['assets/img/hero1.jpg', 'assets/img/hero2.jpg', 'assets/img/hero3.jpg'], 
+    images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
     info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
   })
     +room-search({

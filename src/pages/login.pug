@@ -1,0 +1,14 @@
+extends /layout/base.pug
+
+block prepend head
+  - var pageTitle = 'Toxin Registration'
+
+block append scripts
+  include /components/library/hero/hero.pug
+  include /components/project/login/login.pug
+
+block content
+  +hero({
+    images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
+  })
+    +login()

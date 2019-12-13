@@ -1,19 +1,19 @@
-extends base.pug
+extends /layout/base.pug
 
 block prepend head
   - var pageTitle = 'Room Details'
 
 block append scripts
-  include components/library/hero/hero.pug
-  include components/library/chart-doughnut/chart-doughnut.pug
-  include components/library/list/list.pug
-  include components/project/room-reservation/room-reservation.pug
-  include components/project/benefit/benefit.pug
-  include components/project/testimonial/testimonial.pug
+  include /components/library/hero/hero.pug
+  include /components/library/chart-doughnut/chart-doughnut.pug
+  include /components/library/list/list.pug
+  include /components/project/room-reservation/room-reservation.pug
+  include /components/project/benefit/benefit.pug
+  include /components/project/testimonial/testimonial.pug
 
 block append header
   +hero({
-    images: ['assets/img/hero1.jpg', 'assets/img/hero2.jpg', 'assets/img/hero3.jpg'], 
+    images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
   })
 
 block content
