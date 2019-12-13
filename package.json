@@ -2,15 +2,14 @@
   "name": "hotel-booking",
   "version": "1.0.0",
   "description": "FSD lvl2 Hotel Booking ",
-  "main": "index.js",
   "scripts": {
     "cleanDist": "rimraf dist/*",
     "optimizeIcons": "node optimize-icons.js",
     "prebuildSprite": "npm run cleanDist && npm run optimizeIcons",
     "buildSprite": "svgstore -o src/assets/sprites/icons-sprite.svg dist/icons/**/*.svg --inline",
-    "build": "parcel build src/*.pug",
-    "test": "jest",
-    "uikit": "parcel src/uikit.pug"
+    "build": "parcel build src/index.pug",
+    "start": "parcel src/index.pug",
+    "test": "jest"
   },
   "author": "Roman Korenev",
   "license": "ISC",
@@ -28,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
+    "@romengrus/parcel-plugin-pug": "git+https://github.com/romengrus/parcel-plugin-pug.git",
     "@types/jest": "^24.0.23",
     "@types/pikaday": "^1.7.4",
     "autoprefixer": "^9.7.3",
@@ -45,7 +45,7 @@
     "imagemin-svgo": "^7.0.0",
     "jest": "^24.9.0",
     "jest-dom": "^3.5.0",
-    "parcel-bundler": "^1.12.4",
+    "parcel": "^1.12.4",
     "prettier": "^1.19.1",
     "pug": "^2.0.4",
     "rimraf": "^2.7.1",
