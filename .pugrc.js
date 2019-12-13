@@ -1,19 +1,20 @@
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
-const l10nUtils = require('./src/l10n/utils');
+const { pluralize } = require('./src/l10n/utils');
 
-const { pluralize } = l10nUtils;
+const basedir = path.join(__dirname, 'src');
 
 // get icon names
-const icons = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'));
+const iconNames = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'));
 
 // get json from src/data directory
-const getData = fileName => {
-  const rawdata = fs.readFileSync(path.join(__dirname, 'src/data', `${fileName}.json`));
-  return JSON.parse(rawdata);
-};
+function getData(fileName) {
+  const data = fs.readFileSync(path.join(basedir, 'data', `${fileName}.json`));
+  return JSON.parse(data);
+}
 
 module.exports = {
-  locals: { icons, getData, pluralize }
+  basedir,
+  locals: { iconNames, getData, pluralize }
 };
