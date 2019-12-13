@@ -3,3 +3,4 @@ dist
 docs
 .cache
 .directory
+.parcel-cache
