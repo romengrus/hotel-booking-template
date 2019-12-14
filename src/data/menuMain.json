@@ -1,31 +1,58 @@
 [
   {
-    "name": "Home",
+    "name": "о нас",
     "href": "#",
     "isActive": true
   },
   {
-    "name": "About",
-    "href": "#",
-    "isActive": false
-  },
-  {
-    "name": "Services",
+    "name": "услуги",
     "href": "#",
     "isActive": false,
     "submenu": [
       {
-        "name": "Design",
+        "name": "апартаменты",
         "href": "#",
         "isActive": false
       },
       {
-        "name": "DevOps",
+        "name": "spa",
         "href": "#",
         "isActive": false
       },
       {
-        "name": "Programming",
+        "name": "конференц залы",
+        "href": "#",
+        "isActive": false
+      }
+    ]
+  },
+  {
+    "name": "вакансии",
+    "href": "#",
+    "isActive": true
+  },
+  {
+    "name": "новости",
+    "href": "#",
+    "isActive": true
+  },
+  {
+    "name": "соглашения",
+    "href": "#",
+    "isActive": false,
+    "submenu": [
+      {
+        "name": "соглашение 1",
+        "href": "#",
+        "isActive": false
+      },
+      {
+        "name": "соглашение 2",
+        "href": "#",
+        "isActive": false
+      },
+      {
+        "name": "соглашение 3",
         "href": "#",
         "isActive": false
       }
