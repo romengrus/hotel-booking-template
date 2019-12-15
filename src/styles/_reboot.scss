@@ -53,10 +53,10 @@ section {
 
 body {
   margin: 0; // 1
-  font-family: $font-family-base;
+  font-family: $font-family-main;
   font-size: $font-size-base;
-  font-weight: $font-weight-base;
-  line-height: $line-height-base;
+  font-weight: normal;
+  line-height: 1.5;
   color: $black;
   text-align: left; // 3
   background-color: $white; // 2
@@ -104,7 +104,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: $font-family-accent;
-  line-height: $spacer * 1.9;
+  line-height: 1.9;
   letter-spacing: 2px;
   word-spacing: -2px;
 }

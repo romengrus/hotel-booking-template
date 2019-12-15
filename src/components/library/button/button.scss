@@ -11,12 +11,13 @@
   border-style: none;
   outline: none;
   font-size: $button-font-size;
-  font-weight: $font-weight-bold;
+  font-weight: bold;
   text-transform: uppercase;
   overflow: hidden;
   cursor: pointer;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     opacity: 0.5;
     color: $button-text-color;
     text-decoration: none;
