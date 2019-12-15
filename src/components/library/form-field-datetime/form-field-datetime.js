@@ -65,7 +65,7 @@ export class FormFieldDatetime {
 
     const datepicker = flatpickr(this.$el, {
       locale: getDatepickerLocale(lang),
-      altInput: true,
+      altInput: false,
       altFormat: this.$input.dataset.dateFormat || 'd.m.Y',
       wrap: true,
       mode: this.$input.dataset.datepickerMode || 'single',

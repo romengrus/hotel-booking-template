@@ -3,6 +3,9 @@
 mixin footer(props = {})
   include /components/library/menu/menu.pug
   include /components/project/social-icons/social-icons.pug
+  include /components/library/form/form.pug
+  include /components/library/form-field/form-field.pug
+  include /components/library/icon/icon.pug
 
   - 
     props = Object.assign({
@@ -25,19 +28,25 @@ mixin footer(props = {})
           +social-icons
     else
       .footer__content
-        .footer__block.footer__block-1
-          include /assets/img/logo.svg
-          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-        .footer__block.footer__block-2
-          h3.footer__col-title navigation
-          +menu({orientation: 'vertical', items: getData('menuNavigation')})
-        .footer__block.footer__block-3
-          h3.footer__col-title about us
+        .widget.widget-about.footer__widget
+          .widget-about__logo
+            include /assets/img/logo.svg
+          .widget-about__text
+            | Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        .widget.widget-menu.footer__widget
+          h3.widget__title навигация
+          .widget-menu__menu
+            +menu({orientation: 'vertical', items: getData('menuNavigation')})
+        .widget.widget-menu.footer__widget
+          h3.widget__title о нас
           +menu({orientation: 'vertical', items: getData('menuAboutUs')})
-        .footer__block.footer__block-4
-          h3.footer__col-title support
+        .widget.widget-menu.footer__widget
+          h3.widget__title Служба поддержки
           +menu({orientation: 'vertical', items: getData('menuSupport')})
-        .footer__block.footer__block-5
-          h3.footer__block-title subscribe to our newsletter
-          p Receive our latest news and promotions in your inbox! 
-          input(type= 'text')
+        .widget.widget-subscription.footer__widget
+          h3.widget__title Подписка
+          .widget-subscription__text
+            | Получайте специальные предложения и новости сервиса
+          +form({mods: ['widget-subscription__form']})
+            +form-field({mods: ['widget-subscription__email']})(type= 'email', placeholder= 'Email', required= true)
+            +icon({name: 'arrow-right', mods: ['widget-subscription__icon']})

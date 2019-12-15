@@ -20,8 +20,10 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
 
   &__icon-toggle {
     position: absolute;
-    top: 0.625rem;
-    right: 0.625rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    top: 1rem;
+    right: 0.9rem;
   }
 
   &__icon-prev,

@@ -1,24 +1,22 @@
 [
   {
-    "name": "Who we are",
+    "name": "О сервисе",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "Our team",
+    "name": "Наша команда",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "Careers",
+    "name": "Вакансии",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "Investors",
+    "name": "Инвесторы",
     "href": "#",
     "isActive": false
   }
 ]
-
-

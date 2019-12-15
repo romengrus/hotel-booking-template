@@ -1,13 +1,10 @@
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 23.25rem;
+  min-height: 21rem;
+  padding: 6.25rem 0;
+  margin-bottom: 0.5rem;
 
   &__content {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
     width: 100%;
   }
 
@@ -19,27 +16,60 @@
     text-align: center;
   }
 
-  &__block {
-    flex: 1 1 20%;
-    padding: 0 1rem;
-
-    &:first-child {
-      padding: 0 1rem 0 0;
-      flex-basis: 25%;
-    }
-
-    &:last-child {
-      padding: 0 0 0 1rem;
-      flex-basis: 25%;
-    }
-  }
-
   &__block_creative {
     padding: 1rem;
   }
 
-  &__block-title {
+  &__widget {
+    min-width: 160px;
+    max-width: 300px;
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    & > .widget__title {
+      padding-top: 0.3rem;
+    }
+  }
+}
+
+.widget {
+  font-size: 0.88rem;
+  line-height: 1.78;
+
+  &__title {
     text-transform: uppercase;
-    font-size: $font-size-base * 0.75;
+    font-size: 0.83rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.widget-about {
+  &__logo {
+    margin-bottom: 1rem;
+  }
+}
+
+.widget-subscription {
+  &__text {
+    margin-bottom: 1.3rem;
+  }
+
+  &__form {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    right: 0.8rem;
+  }
+
+  input::placeholder {
+    color: $dark-250;
   }
 }

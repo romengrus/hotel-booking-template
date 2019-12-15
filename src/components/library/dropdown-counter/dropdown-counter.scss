@@ -33,8 +33,10 @@ $dc-body-bg: white !default;
 
   &__toggler {
     position: absolute;
-    top: 0.625rem;
-    right: 0.625rem;
+    top: 1rem;
+    right: 0.9rem;
+    height: 0.8rem;
+    width: 0.8rem;
     transform: rotate(-0.5turn);
     transition: transform 350ms ease-in-out;
 

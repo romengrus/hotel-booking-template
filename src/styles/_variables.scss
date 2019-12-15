@@ -140,20 +140,21 @@ $font-size-sm: $font-size-base * 0.875 !default;
 
 // Button
 $button-height: 2.75rem;
-$button-padding: 0.9375rem 1.25rem;
-$button-border-width: 0.1875rem;
+$button-padding: 0 1.25rem;
+$button-border-width: 0.1rem;
 $button-border-radius: 1.375rem;
 $button-font-size: 0.75rem;
 $button-text-color: $white;
 
 // Menu
-$menu-font-size: 0.875rem;
-$menu-horizontal-spacing: 1.875rem;
-$menu-link-color: $dark-500;
+$menu-font-size: 0.85rem;
+$menu-horizontal-spacing: 1.5rem;
+$menu-vertical-spacing: 0.9rem;
+$menu-link-color: $dark-750;
 $menu-link-hover-color: $dark-750;
 
 // Input
-$input-height: 2.75rem;
+$input-height: 2.77rem;
 $input-padding: 0.5rem 0.9375rem;
 $input-border: 1px solid $dark-250;
 $input-border-hover: 1px solid $dark-500;
@@ -216,7 +217,7 @@ $list-bullet-color: $dark-250;
 $benefit-border: 1px solid $dark-100;
 
 // Dropdown Counter
-$dc-border: 1px solid $dark-500;
+$dc-border: 1px solid $dark-250;
 $dc-border-radius: $input-border-radius;
 $dc-btn-reset-color: $dark-500;
 $dc-btn-ok-color: $primary;

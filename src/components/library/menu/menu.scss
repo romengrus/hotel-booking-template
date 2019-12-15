@@ -12,6 +12,11 @@
 
   &_vertical {
     align-items: flex-start;
+
+    & > .menu__item {
+      margin-right: 0;
+      margin-bottom: $menu-vertical-spacing;
+    }
   }
 
   &__item {
@@ -23,8 +28,7 @@
     .icon {
       width: 0.75rem;
       height: 0.75rem;
-      margin-left: 0.3rem;
-      margin-bottom: -0.1rem;
+      margin-left: 0.4rem;
     }
 
     &:last-child {
@@ -47,7 +51,6 @@
     font-size: $menu-font-size;
 
     &_active {
-      font-weight: bold;
       color: $dark-750;
     }
 
@@ -55,6 +58,10 @@
       color: $menu-link-hover-color;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    &::first-letter {
+      text-transform: uppercase;
     }
   }
 }

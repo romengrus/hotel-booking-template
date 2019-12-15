@@ -1,23 +1,22 @@
 [
   {
-    "name": "About Us",
+    "name": "О нас",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "News",
+    "name": "Новости",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "Support",
+    "name": "Служба поддержки",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "Products",
+    "name": "Услуги",
     "href": "#",
     "isActive": false
   }
 ]
-

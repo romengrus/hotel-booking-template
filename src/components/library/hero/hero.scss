@@ -1,10 +1,13 @@
 $hero-text-color: black !default;
 
 .hero {
-  max-width: 1440px;
+  width: 100vw;
   height: 830px;
-  margin: 0 auto;
   position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 
   &__image {
     height: 100%;
@@ -27,11 +30,14 @@ $hero-text-color: black !default;
 
   &__info {
     position: absolute;
-    right: 135px;
-    bottom: 20px;
+    right: 130px;
+    bottom: 3px;
     width: 300px;
     height: 50px;
     color: $hero-text-color;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: right;
     z-index: 30;
   }
 }

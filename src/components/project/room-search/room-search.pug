@@ -38,10 +38,10 @@ mixin room-search(props = {})
       .room-search__dates
         .room-search__arrival
           label.room-search__arrival-label(for= arrivalFieldId)= labels.arrival
-          +form-field-datetime({useDatepicker: true, mods: ['room-search__arrival-input']})(placeholder='ДД.ММ.ГГ')
+          +form-field-datetime({useDatepicker: true, mods: ['room-search__arrival-input']})(placeholder='ДД.ММ.ГГГГ')
         .room-search__departure
           label.room-search__departure-label(for= departureFieldId)= labels.departure
-          +form-field-datetime({useDatepicker: true, mods: ['room-search__departure-input']})(placeholder='ДД.ММ.ГГ')
+          +form-field-datetime({useDatepicker: true, mods: ['room-search__departure-input']})(placeholder='ДД.ММ.ГГГГ')
 
       .room-search__guests
         label.room-search__guests-label(for= guestsFieldId)= labels.guests

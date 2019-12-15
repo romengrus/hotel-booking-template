@@ -1,20 +1,17 @@
 [
   {
-    "name": "Documentation",
+    "name": "Соглашения",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "Community",
+    "name": "Сообщества",
     "href": "#",
     "isActive": false
   },
   {
-    "name": "Get in touch",
+    "name": "Связь с нами",
     "href": "#",
     "isActive": false
   }
 ]
-
-
-

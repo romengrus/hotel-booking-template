@@ -18,7 +18,7 @@ mixin hero(props = {})
 
   div(class= mods)&attributes(attributes)
     if (props.images.length > 1)
-      +slider({ slides, mods: ['hero__slider'] })  
+      +slider({ slides, mods: ['hero__slider'], showPagination: false, showNavigation: false })  
     else if (props.images.length === 1)
       .hero__image(style= `background-image: url(${props.images[0]})`)
 
