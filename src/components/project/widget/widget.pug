@@ -1,0 +1,11 @@
+mixin widget(props = {})
+  - 
+    props = Object.assign({
+      mods: [],
+    }, props)
+
+    var mods = ['widget'].concat(props.mods)
+
+  div(class= mods)
+    if block
+      block

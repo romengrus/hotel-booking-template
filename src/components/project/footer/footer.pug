@@ -3,9 +3,10 @@
 mixin footer(props = {})
   include /components/library/menu/menu.pug
   include /components/project/social-icons/social-icons.pug
-  include /components/library/form/form.pug
-  include /components/library/form-field/form-field.pug
-  include /components/library/icon/icon.pug
+  include /components/project/widget/widget.pug
+  include /components/project/widget-about/widget-about.pug
+  include /components/project/widget-menu/widget-menu.pug
+  include /components/project/widget-subscription/widget-subscription.pug
 
   - 
     props = Object.assign({
@@ -20,33 +21,35 @@ mixin footer(props = {})
   footer(class= mods)
     if props.type === 'creative'
       .footer__content.footer__content_creative
-        .footer__block.footer__block_creative
+        +widget({mods: ['footer__widget']})
           include /assets/img/logo.svg
-        .footer__block.footer__block_creative
-          p Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
-        .footer__block.footer__block_creative
+        +widget({mods: ['footer__widget']})
+          | Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+        +widget({mods: ['footer__widget']})
           +social-icons
     else
       .footer__content
-        .widget.widget-about.footer__widget
-          .widget-about__logo
-            include /assets/img/logo.svg
-          .widget-about__text
-            | Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
-        .widget.widget-menu.footer__widget
-          h3.widget__title навигация
-          .widget-menu__menu
-            +menu({orientation: 'vertical', items: getData('menuNavigation')})
-        .widget.widget-menu.footer__widget
-          h3.widget__title о нас
-          +menu({orientation: 'vertical', items: getData('menuAboutUs')})
-        .widget.widget-menu.footer__widget
-          h3.widget__title Служба поддержки
-          +menu({orientation: 'vertical', items: getData('menuSupport')})
-        .widget.widget-subscription.footer__widget
-          h3.widget__title Подписка
-          .widget-subscription__text
-            | Получайте специальные предложения и новости сервиса
-          +form({mods: ['widget-subscription__form']})
-            +form-field({mods: ['widget-subscription__email']})(type= 'email', placeholder= 'Email', required= true)
-            +icon({name: 'arrow-right', mods: ['widget-subscription__icon']})
+        +widget-about({
+          text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
+          mods: ['footer__widget']
+        })
+        +widget-menu({
+          title: 'навигация',
+          items: getData('menuNavigation'),
+          mods: ['footer__widget']
+        })
+        +widget-menu({
+          title: 'о нас',
+          items: getData('menuAboutUs'),
+          mods: ['footer__widget']
+        })
+        +widget-menu({
+          title: 'служба поддержки',
+          items: getData('menuSupport'),
+          mods: ['footer__widget']
+        })
+        +widget-subscription({
+          title: 'подписка',
+          text: 'Получайте специальные предложения и новости сервиса',
+          mods: ['footer__widget']
+        })

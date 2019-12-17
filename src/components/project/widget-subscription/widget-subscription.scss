@@ -1,0 +1,21 @@
+.widget-subscription {
+  &__text {
+    margin-bottom: 1.3rem;
+  }
+
+  &__form {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    right: 0.8rem;
+  }
+
+  input::placeholder {
+    color: $dark-250;
+  }
+}

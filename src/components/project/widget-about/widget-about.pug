@@ -1,0 +1,16 @@
+mixin widget-about(props = {})
+  include /components/project/widget/widget.pug
+
+  - 
+    props = Object.assign({
+      text: '',
+      mods: [],
+    }, props)
+
+    var mods = ['widget-about'].concat(props.mods)
+
+  +widget({mods})
+    .widget-about__logo
+      include /assets/img/logo.svg
+    if (props.text)
+      .widget-about__text #{props.text}

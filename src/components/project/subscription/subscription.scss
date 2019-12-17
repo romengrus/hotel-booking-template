@@ -16,14 +16,16 @@
   &__icon {
     position: absolute;
     margin: 0;
-    top: 0.625rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    top: 0.9rem;
 
     &_left {
       left: 0.625rem;
     }
 
     &_right {
-      right: 0.625rem;
+      right: 0.8rem;
     }
   }
 }

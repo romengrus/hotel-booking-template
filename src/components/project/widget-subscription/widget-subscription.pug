@@ -1,0 +1,23 @@
+mixin widget-subscription(props = {})
+  include /components/project/subscription/subscription.pug
+  include /components/project/widget/widget.pug
+
+  - 
+    props = Object.assign({
+      title: 'Подписка',
+      text: 'Получайте специальные предложения и новости сервиса',
+      mods: [],
+    }, props)
+
+    var mods = ['widget-about'].concat(props.mods)
+
+  +widget({mods})
+    if (props.title)
+      h3.widget__title #{props.title}
+    if (props.text)
+      .widget-subscription__text #{props.text}
+    +subscription({
+      placeholder: 'Email',
+      iconName: 'arrow-right',
+      iconPosition: 'right',
+    })

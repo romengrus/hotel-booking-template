@@ -1,0 +1,10 @@
+.widget {
+  font-size: 0.88rem;
+  line-height: 1.78;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 0.83rem;
+    margin-bottom: 1rem;
+  }
+}
