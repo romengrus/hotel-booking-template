@@ -1,8 +1,15 @@
 .header {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   height: 4.375rem;
+
+  &__wrapper {
+    max-width: 1160px;
+    min-width: 320px;
+    display: flex;
+    flex: 1;
+  }
 
   &__menu {
     margin-left: auto;

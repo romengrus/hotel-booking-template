@@ -10,7 +10,7 @@ mixin footer(props = {})
 
   - 
     props = Object.assign({
-      type: '',
+      type: 'normal',
       mods: []
     }, props)
 
@@ -19,16 +19,15 @@ mixin footer(props = {})
     if (props.type) mods.push(`footer_${props.type}`)
 
   footer(class= mods)
-    if props.type === 'creative'
-      .footer__content.footer__content_creative
+    .footer__wrapper
+      if props.type === 'creative'
         +widget({mods: ['footer__widget']})
           include /assets/img/logo.svg
         +widget({mods: ['footer__widget']})
           | Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
         +widget({mods: ['footer__widget']})
           +social-icons
-    else
-      .footer__content
+      else
         +widget-about({
           text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
           mods: ['footer__widget']

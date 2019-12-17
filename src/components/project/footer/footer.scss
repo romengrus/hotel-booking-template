@@ -1,11 +1,12 @@
 .footer {
-  min-height: 21rem;
-  padding: 6.25rem 0;
-  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5.2rem;
 
-  &__content {
+  &__wrapper {
     display: flex;
-    width: 100%;
+    max-width: 1160px;
   }
 
   &__content_creative {

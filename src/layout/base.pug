@@ -17,17 +17,16 @@ html
         include /components/project/copyright-bar/copyright-bar.pug
 
   body
-    span(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
+    div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg
     
-    .page__container
-      .page__wrapper
-        .page__header
-          block header
-            +header({isLoggedIn: false})
+    block header
+      +header({isLoggedIn: false})
 
+    main.main
+      .main__wrapper
         block content
 
-        block footer
-          +footer()
-          +copyright-bar()
+    block footer
+      +footer
+      +copyright-bar

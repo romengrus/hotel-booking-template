@@ -3,47 +3,17 @@
 @import '../components/library';
 @import '../components/project';
 
-.row {
+.main {
   display: flex;
-  flex-flow: row wrap;
-  margin-bottom: 2rem;
-}
-
-.col {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: column nowrap;
-
-  &-5 {
-    flex-basis: 50%;
-  }
-}
-
-.page {
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  justify-content: center;
+  margin-bottom: 6.2rem;
 
   &__wrapper {
-    max-width: 1160px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     min-width: 320px;
-  }
-
-  &__main {
-    display: flex;
-  }
-
-  &__sidebar {
-    flex: 0 1 326px;
-    margin-right: 3.75rem;
-  }
-
-  &__content {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: column nowrap;
+    max-width: 1440px;
   }
 }
 
