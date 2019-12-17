@@ -24,17 +24,19 @@ mixin menu(props = {})
 
   ul(class= mods)
     each item in props.items
-      li(class= 'menu__item')
+      - var itemMods = ['menu__item']
+      - if (item.submenu) itemMods.push('menu__item_has-submenu')
+      li(class= itemMods)
         - var linkMods = ['menu__link']
-        - if (item.isActive) linkMods.push('menu__link_active')
+        - if (item.isActive) linkMods.push('menu__link_is-active')
         a(href= item.href, class= linkMods)= item.name
         if item.submenu
           - var submenuMods = ['menu__submenu']
-          - if (item.isActive) submenuMods.push('menu__submenu_active')
+          - if (item.isActive) submenuMods.push('menu__submenu_is-active')
           +icon({name: 'semi-arrow-down'})
           ul(class= submenuMods)
             each subItem in item.submenu
               li(class= 'menu__item')
                 - var submenuLinkMods = ['menu__link']
-                - if (subItem.isActive) submenuLinkMods.push('menu__link_active')
+                - if (subItem.isActive) submenuLinkMods.push('menu__link_is-active')
                 a(href= subItem.href, class= submenuLinkMods)= subItem.name
