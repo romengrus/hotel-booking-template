@@ -23,6 +23,16 @@
   }
 }
 
+.registration-page {
+  &_hero {
+    height: 702px;
+
+    & > .hero__content {
+      top: 30px;
+    }
+  }
+}
+
 .room-search {
   &__listing {
     display: flex;
