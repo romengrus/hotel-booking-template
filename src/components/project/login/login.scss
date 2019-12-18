@@ -1,16 +1,21 @@
 .login {
-  max-width: 23.75rem;
+  width: 23.75rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   padding: 2.5rem 1.875rem 1.875rem;
+  background: $white;
 
   &__title {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.3rem;
+  }
+
+  &__password {
+    margin-bottom: 0.5rem;
   }
 
   &__submit {
-    margin-bottom: 1.875rem;
+    margin-bottom: 1.2rem;
   }
 
   &__have-account {
@@ -18,10 +23,6 @@
     align-items: center;
     justify-content: space-between;
     font-size: 0.875rem;
-  }
-
-  &__password {
-    margin-bottom: 1.25rem;
   }
 
   label {

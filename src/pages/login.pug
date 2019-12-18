@@ -1,7 +1,7 @@
 extends /layout/base.pug
 
 block prepend head
-  - var pageTitle = 'Toxin Registration'
+  - var pageTitle = 'Toxin Login'
 
 block append scripts
   include /components/library/hero/hero.pug
@@ -10,5 +10,6 @@ block append scripts
 block content
   +hero({
     images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
+    mods: ['login-page_hero'],
   })
     +login()

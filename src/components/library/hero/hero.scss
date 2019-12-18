@@ -19,8 +19,9 @@ $hero-text-color: black !default;
 
   &__content {
     position: absolute;
-    top: 70px;
-    left: 140px;
+    top: 162px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 20;
   }
 

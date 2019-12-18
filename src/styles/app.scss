@@ -17,6 +17,12 @@
   }
 }
 
+.login-page {
+  &_hero {
+    height: 683px;
+  }
+}
+
 .room-search {
   &__listing {
     display: flex;
