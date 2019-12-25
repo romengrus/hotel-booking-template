@@ -10,3 +10,10 @@
   background-position: bottom;
   background-repeat: no-repeat;
 }
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0.45;
+  cursor: auto;
+  pointer-events: all;
+}

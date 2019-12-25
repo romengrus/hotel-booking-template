@@ -9,16 +9,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-1.png"
+          "img": "/assets/img/room-cards/room-card-1.png",
+          "url": "#room888"
         },
         {
-          "img": "/assets/img/room-cards/room-card-2.png"
+          "img": "/assets/img/room-cards/room-card-2.png",
+          "url": "#room888"
         },
         {
-          "img": "/assets/img/room-cards/room-card-3.png"
+          "img": "/assets/img/room-cards/room-card-3.png",
+          "url": "#room888"
         },
         {
-          "img": "/assets/img/room-cards/room-card-4.png"
+          "img": "/assets/img/room-cards/room-card-4.png",
+          "url": "#room888"
         }
       ],
       "params": {
@@ -38,16 +42,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-2.png"
+          "img": "/assets/img/room-cards/room-card-2.png",
+          "url": "#room840"
         },
         {
-          "img": "/assets/img/room-cards/room-card-3.png"
+          "img": "/assets/img/room-cards/room-card-3.png",
+          "url": "#room840"
         },
         {
-          "img": "/assets/img/room-cards/room-card-4.png"
+          "img": "/assets/img/room-cards/room-card-4.png",
+          "url": "#room840"
         },
         {
-          "img": "/assets/img/room-cards/room-card-5.png"
+          "img": "/assets/img/room-cards/room-card-5.png",
+          "url": "#room840"
         }
       ],
       "params": {
@@ -67,16 +75,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-3.png"
+          "img": "/assets/img/room-cards/room-card-3.png",
+          "url": "#room980"
         },
         {
-          "img": "/assets/img/room-cards/room-card-4.png"
+          "img": "/assets/img/room-cards/room-card-4.png",
+          "url": "#room980"
         },
         {
-          "img": "/assets/img/room-cards/room-card-5.png"
+          "img": "/assets/img/room-cards/room-card-5.png",
+          "url": "#room980"
         },
         {
-          "img": "/assets/img/room-cards/room-card-6.png"
+          "img": "/assets/img/room-cards/room-card-6.png",
+          "url": "#room980"
         }
       ],
       "params": {
@@ -96,16 +108,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-4.png"
+          "img": "/assets/img/room-cards/room-card-4.png",
+          "url": "#room856"
         },
         {
-          "img": "/assets/img/room-cards/room-card-5.png"
+          "img": "/assets/img/room-cards/room-card-5.png",
+          "url": "#room856"
         },
         {
-          "img": "/assets/img/room-cards/room-card-6.png"
+          "img": "/assets/img/room-cards/room-card-6.png",
+          "url": "#room856"
         },
         {
-          "img": "/assets/img/room-cards/room-card-7.png"
+          "img": "/assets/img/room-cards/room-card-7.png",
+          "url": "#room856"
         }
       ],
       "params": {
@@ -125,16 +141,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-5.png"
+          "img": "/assets/img/room-cards/room-card-5.png",
+          "url": "#room740"
         },
         {
-          "img": "/assets/img/room-cards/room-card-6.png"
+          "img": "/assets/img/room-cards/room-card-6.png",
+          "url": "#room740"
         },
         {
-          "img": "/assets/img/room-cards/room-card-7.png"
+          "img": "/assets/img/room-cards/room-card-7.png",
+          "url": "#room740"
         },
         {
-          "img": "/assets/img/room-cards/room-card-8.png"
+          "img": "/assets/img/room-cards/room-card-8.png",
+          "url": "#room740"
         }
       ],
       "params": {
@@ -154,16 +174,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-6.png"
+          "img": "/assets/img/room-cards/room-card-6.png",
+          "url": "#room982"
         },
         {
-          "img": "/assets/img/room-cards/room-card-7.png"
+          "img": "/assets/img/room-cards/room-card-7.png",
+          "url": "#room982"
         },
         {
-          "img": "/assets/img/room-cards/room-card-8.png"
+          "img": "/assets/img/room-cards/room-card-8.png",
+          "url": "#room982"
         },
         {
-          "img": "/assets/img/room-cards/room-card-9.png"
+          "img": "/assets/img/room-cards/room-card-9.png",
+          "url": "#room982"
         }
       ],
       "params": {
@@ -183,16 +207,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-7.png"
+          "img": "/assets/img/room-cards/room-card-7.png",
+          "url": "#room678"
         },
         {
-          "img": "/assets/img/room-cards/room-card-8.png"
+          "img": "/assets/img/room-cards/room-card-8.png",
+          "url": "#room678"
         },
         {
-          "img": "/assets/img/room-cards/room-card-9.png"
+          "img": "/assets/img/room-cards/room-card-9.png",
+          "url": "#room678"
         },
         {
-          "img": "/assets/img/room-cards/room-card-10.png"
+          "img": "/assets/img/room-cards/room-card-10.png",
+          "url": "#room678"
         }
       ],
       "params": {
@@ -212,16 +240,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-8.png"
+          "img": "/assets/img/room-cards/room-card-8.png",
+          "url": "#room450"
         },
         {
-          "img": "/assets/img/room-cards/room-card-9.png"
+          "img": "/assets/img/room-cards/room-card-9.png",
+          "url": "#room450"
         },
         {
-          "img": "/assets/img/room-cards/room-card-10.png"
+          "img": "/assets/img/room-cards/room-card-10.png",
+          "url": "#room450"
         },
         {
-          "img": "/assets/img/room-cards/room-card-11.png"
+          "img": "/assets/img/room-cards/room-card-11.png",
+          "url": "#room450"
         }
       ],
       "params": {
@@ -241,16 +273,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-9.png"
+          "img": "/assets/img/room-cards/room-card-9.png",
+          "url": "#room350"
         },
         {
-          "img": "/assets/img/room-cards/room-card-10.png"
+          "img": "/assets/img/room-cards/room-card-10.png",
+          "url": "#room350"
         },
         {
-          "img": "/assets/img/room-cards/room-card-11.png"
+          "img": "/assets/img/room-cards/room-card-11.png",
+          "url": "#room350"
         },
         {
-          "img": "/assets/img/room-cards/room-card-12.png"
+          "img": "/assets/img/room-cards/room-card-12.png",
+          "url": "#room350"
         }
       ],
       "params": {
@@ -270,16 +306,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-10.png"
+          "img": "/assets/img/room-cards/room-card-10.png",
+          "url": "#room666"
         },
         {
-          "img": "/assets/img/room-cards/room-card-11.png"
+          "img": "/assets/img/room-cards/room-card-11.png",
+          "url": "#room666"
         },
         {
-          "img": "/assets/img/room-cards/room-card-12.png"
+          "img": "/assets/img/room-cards/room-card-12.png",
+          "url": "#room666"
         },
         {
-          "img": "/assets/img/room-cards/room-card-1.png"
+          "img": "/assets/img/room-cards/room-card-1.png",
+          "url": "#room666"
         }
       ],
       "params": {
@@ -299,16 +339,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-11.png"
+          "img": "/assets/img/room-cards/room-card-11.png",
+          "url": "#room444"
         },
         {
-          "img": "/assets/img/room-cards/room-card-12.png"
+          "img": "/assets/img/room-cards/room-card-12.png",
+          "url": "#room444"
         },
         {
-          "img": "/assets/img/room-cards/room-card-1.png"
+          "img": "/assets/img/room-cards/room-card-1.png",
+          "url": "#room444"
         },
         {
-          "img": "/assets/img/room-cards/room-card-2.png"
+          "img": "/assets/img/room-cards/room-card-2.png",
+          "url": "#room444"
         }
       ],
       "params": {
@@ -328,16 +372,20 @@
     "slider": {
       "slides": [
         {
-          "img": "/assets/img/room-cards/room-card-12.png"
+          "img": "/assets/img/room-cards/room-card-12.png",
+          "url": "#room352"
         },
         {
-          "img": "/assets/img/room-cards/room-card-1.png"
+          "img": "/assets/img/room-cards/room-card-1.png",
+          "url": "#room352"
         },
         {
-          "img": "/assets/img/room-cards/room-card-2.png"
+          "img": "/assets/img/room-cards/room-card-2.png",
+          "url": "#room352"
         },
         {
-          "img": "/assets/img/room-cards/room-card-3.png"
+          "img": "/assets/img/room-cards/room-card-3.png",
+          "url": "#room352"
         }
       ],
       "params": {

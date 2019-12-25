@@ -3,7 +3,8 @@
 //- slides          {array} Array of slide objects
 //--- Note: each slide is an object. This will help to add additional properties to slide later
 //--- slide object: {
-//---   img   {string} image path 
+//---   img   {string} image path
+//---   url   {string} image url
 //--- }
 //- params          {object} Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
 //- showPagination  {boolean} If true - pagination will be shown
@@ -48,7 +49,7 @@ mixin slider(props = {})
     .swiper-wrapper
       each slide in props.slides
         if 'img' in slide
-          .swiper-slide(style= `background-image: url(${slide.img})`)
+          a(class= 'swiper-slide', href= `${slide.url || '#'}`, style= `background-image: url(${slide.img})`)
 
     if (props.showPagination)
       .swiper-pagination
