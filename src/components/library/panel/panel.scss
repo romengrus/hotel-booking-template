@@ -17,6 +17,10 @@
     margin-top: 1.125rem;
     transition: height 350ms ease-in-out;
 
+    * + * {
+      margin-top: 0.2rem;
+    }
+
     &_collapsed {
       display: none;
       height: 0;

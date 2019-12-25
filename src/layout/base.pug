@@ -16,7 +16,7 @@ html
         include /components/project/footer/footer.pug
         include /components/project/copyright-bar/copyright-bar.pug
 
-  body
+  body(class= bodyClass)
     div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg
     

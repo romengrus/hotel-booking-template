@@ -2,6 +2,7 @@ extends /layout/base.pug
 
 block prepend head
   - var pageTitle = 'Room Search & Filter'
+  - var bodyClass = 'page-room-search-body'
 
 block append scripts
   include /components/library/form/form.pug
@@ -14,34 +15,42 @@ block append scripts
   include /components/project/room-card/room-card.pug
 
 block content
-  .page__main
-    aside.page__sidebar
-      +form(action='#', method='POST')
-        label Даты пребывания в отеле
-          +form-field-datetime({useDatepicker: true, dateFormat: 'd M', datepickerMode: 'range'})(placeholder='ДД М - ДД М')
+  .page-room-search
+    aside.page-room-search__sidebar
+      +form({mods: 'page-room-search__form'})(action='#', method='POST')
+        - var arrivalDateId = `arrival-date-${Math.random().toString(36).substring(2, 7)}`
+        label(for= arrivalDateId, class= 'arrival-date__label') Даты пребывания в отеле
+        +form-field-datetime({
+          useDatepicker: true, 
+          dateFormat: 'd M', 
+          datepickerMode: 'range',
+          mods: ['arrival-date__input']
+        })(placeholder='ДД М - ДД М', id= arrivalDateId)
 
-        label Гости
-          +dropdown-counter({
-            counters: [{
-                label: 'взрослые',
-                plurals: ['взрослый', 'взрослых', 'взрослых'],
-                objectId: '18+'
-              },
-              {
-                label: 'дети',
-                plurals: ['ребенок', 'детей', 'детей'],
-                objectId: 'child'
-              },
-              {
-                label: 'младенцы',
-                plurals: ['младенец', 'младенца', 'младенцев'],
-                objectId: 'toddler',
-                min: 0,
-                max: 2
-            }],
-            displayType: 'total',
-            plurals: ['гость', 'гостя', 'гостей']
-          })&attributes({placeholder: 'Сколько гостей'})
+        - var counterId = `counter-${Math.random().toString(36).substring(2, 7)}`
+        label(for= counterId, class= 'counter__label') Гости
+        +dropdown-counter({
+          counters: [{
+              label: 'взрослые',
+              plurals: ['взрослый', 'взрослых', 'взрослых'],
+              objectId: '18+'
+            },
+            {
+              label: 'дети',
+              plurals: ['ребенок', 'детей', 'детей'],
+              objectId: 'child'
+            },
+            {
+              label: 'младенцы',
+              plurals: ['младенец', 'младенца', 'младенцев'],
+              objectId: 'toddler',
+              min: 0,
+              max: 2
+          }],
+          displayType: 'total',
+          plurals: ['гость', 'гостя', 'гостей'],
+          mods: ['counter__input']
+        })(placeholder= 'Сколько гостей', id= counterId)
 
         +form-field-range-slider({params: {
           start: [5000, 10000],
@@ -57,7 +66,7 @@ block content
           desc: 'Стоимость за сутки пребывания в номере'
         })
 
-        h3 Checkbox Buttons
+        h3 Дополнительно
         +form-field-checkbox({label: 'Можно курить'})
         +form-field-checkbox({label: 'Можно с питомцами'})
         +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})
@@ -104,10 +113,10 @@ block content
           +form-field-checkbox({label: 'Телевизор'})
           +form-field-checkbox({label: 'Шампунь'})
 
-    main.page__content
+    article.page-room-search__content
       h2.page__header Номера, которые мы для вас подобрали
 
-      .room-search__listing
+      .page-room-search__listing
         - var roomCards = getData('roomCards')
         each roomData in roomCards
           +room-card(roomData)
@@ -117,5 +126,5 @@ block content
         perPage: 12, 
         currentPage: 1, 
         labelPosition: 'bottom',
-        mods: ['room-search__pagination']
+        mods: ['page-room-search__pagination']
       })
