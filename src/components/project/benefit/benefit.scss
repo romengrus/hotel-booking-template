@@ -8,6 +8,10 @@ $benefit-border: 1px solid #eee !default;
   padding-bottom: 1.25rem;
   border-bottom: $benefit-border; 
 
+  &:last-child {
+    border-bottom: 0;
+  }
+
   &__aside {
     width: 3rem;
   }

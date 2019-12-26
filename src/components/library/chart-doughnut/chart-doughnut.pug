@@ -17,7 +17,7 @@ mixin chart-doughnut(props = {})
 
     attributes['data-chart-data'] = props.data
 
-    var mods = ['chart-doughnut'].concat(props.mods)
+    var mods = ['chart', 'chart-doughnut'].concat(props.mods)
     var gap = 0.5
     var circumference = 100
     var radius = circumference / (2 * 3.14159265358)

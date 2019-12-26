@@ -2,6 +2,7 @@ extends /layout/base.pug
 
 block prepend head
   - var pageTitle = 'Room Details'
+  - var bodyClass = 'page-details'
 
 block append scripts
   include /components/library/hero/hero.pug
@@ -14,14 +15,15 @@ block append scripts
 block append header
   +hero({
     images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
+    mods: 'page-details__hero',
   })
 
 block content
   .page__main
-    main.page__content
+    .page__content
       .row
-        .col
-          h2 Сведения о номере
+        .col.room-info
+          h3 Сведения о номере
           +benefit({
             iconName: 'emoticon-happy', 
             title: 'Комфорт',
@@ -38,8 +40,8 @@ block content
             desc: 'Номер оснащен камином',
           })
 
-        .col
-          h2 Впечатления от номера
+        .col.room-stats
+          h3 Впечатления от номера
           +chart-doughnut({
             data: [{
               value: 556,
@@ -61,8 +63,8 @@ block content
           })
       
       .row
-        .col
-          h2 Отзывы посетителей номера
+        .col.testimonials
+          h3 Отзывы посетителей номера
           +testimonial({
             userName: 'Мурад Сарафанов', 
             userImg: '/assets/img/testimonial-user.jpg',
@@ -80,9 +82,9 @@ block content
             numLikes: 2,
           })
 
-      .row
-        .col.col-5
-          h2 Правила
+      .row.additional-info
+        .col.behavior-rules
+          h3 Правила
           +list({items: 
             [
               'Нельзя с питомцами', 
@@ -91,8 +93,8 @@ block content
             ]
           })
 
-        .col.col-5
-          h2 Отмена
+        .col.cancel-rules
+          h3 Отмена
           p 
             | Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. 
             | до прибытия вы получите полный возврат за вычетом сбора за услуги.

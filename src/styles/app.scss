@@ -3,6 +3,18 @@
 @import '../components/library';
 @import '../components/project';
 
+.row {
+  display: flex;
+
+  & + .row {
+    margin-top: 7px;
+  }
+}
+
+.col {
+  flex: 1;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -108,5 +120,74 @@
   &__pagination {
     align-items: center;
     text-align: center;
+  }
+}
+
+.page-details {
+  &__hero {
+    height: 486px;
+  }
+
+  .main {
+    margin-bottom: 76px;
+  }
+
+  .main__wrapper {
+    padding-top: 70px;
+  }
+
+  .page__main {
+    display: flex;
+    max-width: 1160px;
+  }
+
+  .page__content {
+    flex: 1;
+    margin-right: 70px;
+  }
+
+  .page__sidebar {
+    flex: 0 1 380px;
+  }
+
+  .room-info {
+    flex: 0 1 280px;
+    margin-right: 80px;
+  }
+
+  .room-stats {
+    & > * + * {
+      margin-top: 24px;
+    }
+
+    .chart {
+      justify-content: flex-start;
+    }
+  }
+
+  .testimonials {
+    .testimonial {
+      margin-top: 22px;
+    }
+  }
+
+  .additional-info {
+    margin-top: 40px;
+  }
+
+  .behavior-rules {
+    ul,
+    ol {
+      margin-left: -20px;
+
+      & > li {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .footer {
+    border-top: 1px solid $dark-250;
+    padding-top: 100px;
   }
 }
