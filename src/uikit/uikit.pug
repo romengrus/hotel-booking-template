@@ -4,12 +4,12 @@ block variables
   - var pageTitle = 'Toxin UIKit'
   - var bodyClass = 'uikit-page'
 
-block append parts
+block parts
   include /components/library/index.pug
   include /components/project/index.pug
 
-block append styles
-  link(rel="stylesheet", href="/styles/docs.scss")
+block styles
+  link(rel="stylesheet", href="./uikit.scss")
 
 block content
   section.showcase

@@ -1,0 +1,76 @@
+.page-room-search {
+  display: flex;
+  max-width: 1160px;
+  padding-top: 1.5rem;
+
+  &-body {
+    .main {
+      margin-bottom: 4.4rem;
+    }
+
+    .footer {
+      border-top: 1px solid $dark-250;
+      padding-top: 6.3rem;
+    }
+  }
+
+  &__sidebar {
+    min-width: 16.6rem;
+    margin-right: 3.8rem;
+
+    label {
+      font-size: 12px;
+      font-weight: normal;
+      margin-bottom: 3px;
+      flex: 1;
+    }
+
+    .arrival-date {
+      &__input {
+        margin-bottom: 16px;
+      }
+    }
+
+    .counter__input {
+      margin-bottom: 1.8rem;
+    }
+  }
+
+  &__form {
+    h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .form-field-range-slider {
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  &__content {
+    padding-top: 0.5rem;
+
+    & > .page__header {
+      margin-bottom: 1.3rem;
+    }
+  }
+
+  &__listing {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -0.75rem;
+    margin-bottom: 1.5rem;
+
+    .room-card {
+      flex: 1 0 calc(25% - 0.75rem);
+      margin-right: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  &__pagination {
+    align-items: center;
+    text-align: center;
+  }
+}
