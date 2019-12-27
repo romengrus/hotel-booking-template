@@ -1,7 +1,8 @@
 extends /layout/base.pug
 
-block prepend head
-  - var pageTitle = 'Toxin Docs'
+block variables
+  - var pageTitle = 'Toxin UIKit'
+  - var bodyClass = 'uikit-page'
 
 block append styles
   link(rel="stylesheet", href="/styles/docs.scss")
