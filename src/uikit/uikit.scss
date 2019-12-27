@@ -1,5 +1,9 @@
 @import '../styles/app.scss';
 
+.main__wrapper {
+  max-width: 1920px;
+}
+
 .showcase {
   width: 80%;
   margin: 0 auto;
