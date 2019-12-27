@@ -24,6 +24,12 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
     height: 0.8rem;
     top: 1rem;
     right: 0.9rem;
+    transform: rotate(-0.25turn);
+    transition: transform 350ms ease-in-out;
+
+    &_collapsed {
+      transform: none;
+    }
   }
 
   &__icon-prev,

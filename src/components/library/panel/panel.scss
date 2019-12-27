@@ -8,7 +8,6 @@
 
   &__title {
     margin-right: 3rem;
-    margin-bottom: 0;
   }
 
   &__body {
@@ -30,8 +29,9 @@
 
   &__toggler {
     position: absolute;
-    top: 3px;
-    right: 11px;
+    top: 0;
+    right: 14px;
+    transform: rotate(0.25turn);
     transition: transform 350ms ease-in-out;
 
     &_collapsed {

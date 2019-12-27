@@ -62,6 +62,7 @@ export class FormFieldDatetime {
     const $actionsPanel = this.$el.querySelector('.form-field-datetime__actions-panel');
     const $buttonReset = $actionsPanel.querySelector('.form-field-datetime__reset');
     const $buttonOk = $actionsPanel.querySelector('.form-field-datetime__ok');
+    const $toggler = this.$el.querySelector('.form-field-datetime__icon-toggle');
 
     const datepicker = flatpickr(this.$el, {
       locale: getDatepickerLocale(lang),
@@ -75,6 +76,12 @@ export class FormFieldDatetime {
 
     datepicker.$buttonReset = $buttonReset;
     datepicker.$buttonOk = $buttonOk;
+    datepicker.config.onOpen.push(() =>
+      $toggler.classList.remove('form-field-datetime__icon-toggle_collapsed')
+    );
+    datepicker.config.onClose.push(() =>
+      $toggler.classList.add('form-field-datetime__icon-toggle_collapsed')
+    );
 
     // handle action buttons click event
     $buttonReset.addEventListener('click', () => datepicker.clear());

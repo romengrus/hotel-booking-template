@@ -2,28 +2,12 @@
   .main__wrapper {
     flex-direction: row;
     align-items: flex-start;
+    padding-top: 23px;
   }
 
   .page__sidebar {
     min-width: 16.6rem;
     margin-right: 3.8rem;
-
-    label {
-      font-size: 12px;
-      font-weight: normal;
-      margin-bottom: 3px;
-      flex: 1;
-    }
-
-    .arrival-date {
-      &__input {
-        margin-bottom: 16px;
-      }
-    }
-
-    .counter__input {
-      margin-bottom: 1.8rem;
-    }
   }
 
   .page__content {
@@ -40,14 +24,12 @@
   }
 
   &__filter {
-    h3 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
+    label {
+      flex: 1;
+      margin-bottom: 5px;
+      font-size: 12px;
       font-weight: bold;
-    }
-
-    .form-field-range-slider {
-      margin-bottom: 1.4rem;
+      text-transform: uppercase;
     }
   }
 

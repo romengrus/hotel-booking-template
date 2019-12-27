@@ -65,12 +65,12 @@ block sidebar
         desc: 'Стоимость за сутки пребывания в номере'
       })
 
-      h3 Дополнительно
+      label Дополнительно
       +form-field-checkbox({label: 'Можно курить'})
       +form-field-checkbox({label: 'Можно с питомцами'})
       +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})
 
-      h3 Доступность
+      label Доступность
       +form-field-checkbox({
         label: 'Широкий коридор', 
         desc: 'Ширина коридора в номере не менее 91 см.', 
@@ -82,7 +82,7 @@ block sidebar
         mods: ['checkbox_rich']
       })
 
-      h3 Удобства номера
+      label Удобства номера
       +dropdown-counter({
         counters: [{
             label: 'спальни',

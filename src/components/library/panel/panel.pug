@@ -30,7 +30,7 @@ mixin panel(props = {})
 
   div(class= mods)&attributes(attributes)
     .panel__header
-      h3.panel__title= props.title 
+      label.panel__title= props.title 
       if (props.isCollapsible)
         div(class= togglerMods)
           +icon({name: props.iconName, mods: ['panel__icon']})

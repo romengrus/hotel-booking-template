@@ -28,11 +28,12 @@ mixin form-field-datetime(props = {})
     }, attributes)
 
     var mods = ['form-field-datetime'].concat(props.mods)
+    var togglerMods = ['form-field-datetime__icon-toggle', 'form-field-datetime__icon-toggle_collapsed']
 
   div(class= mods)
     +form-field({mods: ['form-field-datetime__input']})&attributes(attributes)
     if (props.useDatepicker)
-      +icon({name: 'semi-arrow-down', mods: ['form-field-datetime__icon-toggle']})('data-toggle'= true)
+      +icon({name: 'semi-arrow-down', mods: togglerMods})('data-toggle'= true)
       div(style= "display: none")
         +icon({name: 'arrow-left', mods: ['form-field-datetime__icon-prev']})
         +icon({name: 'arrow-right', mods: ['form-field-datetime__icon-next']})
