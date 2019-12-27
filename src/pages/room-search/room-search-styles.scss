@@ -1,20 +1,10 @@
-.page-room-search {
-  display: flex;
-  max-width: 1160px;
-  padding-top: 1.5rem;
-
-  &-body {
-    .main {
-      margin-bottom: 4.4rem;
-    }
-
-    .footer {
-      border-top: 1px solid $dark-250;
-      padding-top: 6.3rem;
-    }
+.room-search-page {
+  .main__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
   }
 
-  &__sidebar {
+  .page__sidebar {
     min-width: 16.6rem;
     margin-right: 3.8rem;
 
@@ -36,7 +26,20 @@
     }
   }
 
-  &__form {
+  .page__content {
+    padding-top: 0.5rem;
+
+    & > .page__header {
+      margin-bottom: 1.3rem;
+    }
+  }
+
+  .pagination {
+    align-items: center;
+    text-align: center;
+  }
+
+  &__filter {
     h3 {
       font-size: 0.9rem;
       text-transform: uppercase;
@@ -45,14 +48,6 @@
 
     .form-field-range-slider {
       margin-bottom: 1.4rem;
-    }
-  }
-
-  &__content {
-    padding-top: 0.5rem;
-
-    & > .page__header {
-      margin-bottom: 1.3rem;
     }
   }
 
@@ -67,10 +62,5 @@
       margin-right: 0.75rem;
       margin-bottom: 1.2rem;
     }
-  }
-
-  &__pagination {
-    align-items: center;
-    text-align: center;
   }
 }

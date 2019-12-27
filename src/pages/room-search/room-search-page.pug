@@ -1,4 +1,4 @@
-extends /layout/base.pug
+extends /layout/left-sidebar.pug
 
 block variables
   - var pageTitle = 'Room Search & Filter'
@@ -14,117 +14,116 @@ block append parts
   include /components/library/pagination/pagination.pug
   include /components/project/room-card/room-card.pug
 
-block content
-  .page-room-search
-    aside.page-room-search__sidebar
-      +form({mods: 'page-room-search__form'})(action='#', method='POST')
-        - var arrivalDateId = `arrival-date-${Math.random().toString(36).substring(2, 7)}`
-        label(for= arrivalDateId, class= 'arrival-date__label') Даты пребывания в отеле
-        +form-field-datetime({
-          useDatepicker: true, 
-          dateFormat: 'd M', 
-          datepickerMode: 'range',
-          mods: ['arrival-date__input']
-        })(placeholder='ДД М - ДД М', id= arrivalDateId)
+block sidebar
+  aside.page__sidebar
+    +form({mods: `${bodyClass}__filter`})(action='#', method='POST')
+      - var arrivalDateId = `arrival-date-${Math.random().toString(36).substring(2, 7)}`
+      label(for= arrivalDateId, class= 'arrival-date__label') Даты пребывания в отеле
+      +form-field-datetime({
+        useDatepicker: true, 
+        dateFormat: 'd M', 
+        datepickerMode: 'range',
+        mods: ['arrival-date__input']
+      })(placeholder='ДД М - ДД М', id= arrivalDateId)
 
-        - var counterId = `counter-${Math.random().toString(36).substring(2, 7)}`
-        label(for= counterId, class= 'counter__label') Гости
-        +dropdown-counter({
-          counters: [{
-              label: 'взрослые',
-              plurals: ['взрослый', 'взрослых', 'взрослых'],
-              objectId: '18+'
-            },
-            {
-              label: 'дети',
-              plurals: ['ребенок', 'детей', 'детей'],
-              objectId: 'child'
-            },
-            {
-              label: 'младенцы',
-              plurals: ['младенец', 'младенца', 'младенцев'],
-              objectId: 'toddler',
-              min: 0,
-              max: 2
-          }],
-          displayType: 'total',
-          plurals: ['гость', 'гостя', 'гостей'],
-          mods: ['counter__input']
-        })(placeholder= 'Сколько гостей', id= counterId)
+      - var counterId = `counter-${Math.random().toString(36).substring(2, 7)}`
+      label(for= counterId, class= 'counter__label') Гости
+      +dropdown-counter({
+        counters: [{
+            label: 'взрослые',
+            plurals: ['взрослый', 'взрослых', 'взрослых'],
+            objectId: '18+'
+          },
+          {
+            label: 'дети',
+            plurals: ['ребенок', 'детей', 'детей'],
+            objectId: 'child'
+          },
+          {
+            label: 'младенцы',
+            plurals: ['младенец', 'младенца', 'младенцев'],
+            objectId: 'toddler',
+            min: 0,
+            max: 2
+        }],
+        displayType: 'total',
+        plurals: ['гость', 'гостя', 'гостей'],
+        mods: ['counter__input']
+      })(placeholder= 'Сколько гостей', id= counterId)
 
-        +form-field-range-slider({params: {
-          start: [5000, 10000],
-          range: {min: 1000, max: 20000},
-          connect: [false, true, false],
-          format: {
-            decimals: 0,
-            thousand: ' ',
-            suffix: ' ₽'
-          }
-        },
-          label: 'Диапазон цены',
-          desc: 'Стоимость за сутки пребывания в номере'
-        })
-
-        h3 Дополнительно
-        +form-field-checkbox({label: 'Можно курить'})
-        +form-field-checkbox({label: 'Можно с питомцами'})
-        +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})
-
-        h3 Доступность
-        +form-field-checkbox({
-          label: 'Широкий коридор', 
-          desc: 'Ширина коридора в номере не менее 91 см.', 
-          mods: ['checkbox_rich']
-        })
-        +form-field-checkbox({
-          label: 'Помошник для инвалидов',
-          desc: 'На 1 этаже вас встретит специалист и проводит до номера',
-          mods: ['checkbox_rich']
-        })
-
-        h3 Удобства номера
-        +dropdown-counter({
-          counters: [{
-              label: 'спальни',
-              plurals: ['спальня', 'спальни', 'спален'],
-              objectId: 'bedroom'
-            },
-            {
-              label: 'кровати',
-              plurals: ['кровать', 'кровати', 'кроватей'],
-              objectId: 'bed'
-            },
-            {
-              label: 'ванные комнаты',
-              plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-              objectId: 'bathroom'
-          }],
-          displayType: 'concat',
-        })&attributes({placeholder: 'Выберите нужное количество ...'})
-
-        +panel({title: 'Дополнительные удобства', isCollapsed: true})
-          +form-field-checkbox({label: 'Завтрак'})
-          +form-field-checkbox({label: 'Письменный стол'})(checked= true)
-          +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
-          +form-field-checkbox({label: 'Кроватка'})(checked= true)
-          +form-field-checkbox({label: 'Телевизор'})
-          +form-field-checkbox({label: 'Шампунь'})
-          +form-field-checkbox({label: 'Телевизор'})
-          +form-field-checkbox({label: 'Шампунь'})
-
-    article.page-room-search__content
-      h2.page__header Номера, которые мы для вас подобрали
-
-      .page-room-search__listing
-        - var roomCards = getData('roomCards')
-        each roomData in roomCards
-          +room-card(roomData)
-
-      +pagination({
-        totalItems: 170, 
-        perPage: 12, 
-        currentPage: 1, 
-        labelPosition: 'bottom',
-        mods: ['page-room-search__pagination']
+      +form-field-range-slider({params: {
+        start: [5000, 10000],
+        range: {min: 1000, max: 20000},
+        connect: [false, true, false],
+        format: {
+          decimals: 0,
+          thousand: ' ',
+          suffix: ' ₽'
+        }
+      },
+        label: 'Диапазон цены',
+        desc: 'Стоимость за сутки пребывания в номере'
       })
+
+      h3 Дополнительно
+      +form-field-checkbox({label: 'Можно курить'})
+      +form-field-checkbox({label: 'Можно с питомцами'})
+      +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})
+
+      h3 Доступность
+      +form-field-checkbox({
+        label: 'Широкий коридор', 
+        desc: 'Ширина коридора в номере не менее 91 см.', 
+        mods: ['checkbox_rich']
+      })
+      +form-field-checkbox({
+        label: 'Помошник для инвалидов',
+        desc: 'На 1 этаже вас встретит специалист и проводит до номера',
+        mods: ['checkbox_rich']
+      })
+
+      h3 Удобства номера
+      +dropdown-counter({
+        counters: [{
+            label: 'спальни',
+            plurals: ['спальня', 'спальни', 'спален'],
+            objectId: 'bedroom'
+          },
+          {
+            label: 'кровати',
+            plurals: ['кровать', 'кровати', 'кроватей'],
+            objectId: 'bed'
+          },
+          {
+            label: 'ванные комнаты',
+            plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+            objectId: 'bathroom'
+        }],
+        displayType: 'concat',
+      })&attributes({placeholder: 'Выберите нужное количество ...'})
+
+      +panel({title: 'Дополнительные удобства', isCollapsed: true})
+        +form-field-checkbox({label: 'Завтрак'})
+        +form-field-checkbox({label: 'Письменный стол'})(checked= true)
+        +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
+        +form-field-checkbox({label: 'Кроватка'})(checked= true)
+        +form-field-checkbox({label: 'Телевизор'})
+        +form-field-checkbox({label: 'Шампунь'})
+        +form-field-checkbox({label: 'Телевизор'})
+        +form-field-checkbox({label: 'Шампунь'})
+
+block content
+  article.page__content
+    h2.page__header Номера, которые мы для вас подобрали
+
+    div(class= `${bodyClass}__listing`)
+      - var roomCards = getData('roomCards')
+      each roomData in roomCards
+        +room-card(roomData)
+
+    +pagination({
+      totalItems: 170, 
+      perPage: 12, 
+      currentPage: 1, 
+      labelPosition: 'bottom',
+    })

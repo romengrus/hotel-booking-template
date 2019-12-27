@@ -9,11 +9,9 @@
 
   .main__wrapper {
     padding-top: 70px;
-  }
-
-  .page__main {
-    display: flex;
     max-width: 1160px;
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .page__content {
