@@ -2,6 +2,11 @@ block variables
   - var pageTitle = 'toxin'
   - var bodyClass = ''
 
+block parts
+  include /components/project/header/header.pug
+  include /components/project/footer/footer.pug
+  include /components/project/copyright-bar/copyright-bar.pug
+
 doctype html
 html
   head
@@ -16,9 +21,6 @@ html
 
       block scripts
         script(src="/scripts/app.js", defer)
-        include /components/project/header/header.pug
-        include /components/project/footer/footer.pug
-        include /components/project/copyright-bar/copyright-bar.pug
 
   body(class= bodyClass)
     div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})

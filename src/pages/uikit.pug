@@ -4,43 +4,12 @@ block variables
   - var pageTitle = 'Toxin UIKit'
   - var bodyClass = 'uikit-page'
 
+block append parts
+  include /components/library/index.pug
+  include /components/project/index.pug
+
 block append styles
   link(rel="stylesheet", href="/styles/docs.scss")
-
-block append scripts
-  //- library components
-  include /components/library/icon/icon.pug
-  include /components/library/form/form.pug
-  include /components/library/form-field/form-field.pug
-  include /components/library/form-field-datetime/form-field-datetime.pug
-  include /components/library/form-field-checkbox/form-field-checkbox.pug
-  include /components/library/form-field-radio/form-field-radio.pug
-  include /components/library/form-field-range-slider/form-field-range-slider.pug
-  include /components/library/button/button.pug
-  include /components/library/counter/counter.pug
-  include /components/library/button-like/button-like.pug
-  include /components/library/rating/rating.pug
-  include /components/library/pagination/pagination.pug
-  include /components/library/list/list.pug
-  include /components/library/panel/panel.pug
-  include /components/library/dropdown-counter/dropdown-counter.pug
-  include /components/library/chart-doughnut/chart-doughnut.pug
-  include /components/library/hero/hero.pug
-
-  //- project components
-  include /components/project/header/header.pug
-  include /components/project/footer/footer.pug
-  include /components/project/copyright-bar/copyright-bar.pug
-  include /components/project/subscription/subscription.pug
-  include /components/project/testimonial/testimonial.pug
-  include /components/project/benefit/benefit.pug
-  include /components/project/room-search/room-search.pug
-  include /components/project/room-reservation/room-reservation.pug
-  include /components/project/register/register.pug
-  include /components/project/login/login.pug
-  include /components/project/room-card/room-card.pug
-
-block header
 
 block content
   section.showcase
@@ -430,5 +399,3 @@ block content
         rating: 5,
         numReviews: 64,
       })
-
-block footer

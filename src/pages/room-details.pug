@@ -4,7 +4,7 @@ block variables
   - var pageTitle = 'Room Details'
   - var bodyClass = 'details-page'
 
-block append scripts
+block append parts
   include /components/library/hero/hero.pug
   include /components/library/chart-doughnut/chart-doughnut.pug
   include /components/library/list/list.pug
@@ -15,7 +15,7 @@ block append scripts
 block append header
   +hero({
     images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
-    mods: 'page-details__hero',
+    mods: 'details-page__hero',
   })
 
 block content
