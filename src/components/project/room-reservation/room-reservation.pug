@@ -44,9 +44,9 @@ mixin room-reservation(props = {})
 
     if (props.isLux) mods.push('room-reservation_is-lux')
 
-    var arrivalFieldId = `room-reservation__arrival-${Math.random().toString(36).substring(2, 7)}`
-    var departureFieldId = `room-reservation__departure-${Math.random().toString(36).substring(2, 7)}`
-    var guestsFieldId = `room-reservation__guests-${Math.random().toString(36).substring(2, 7)}`
+    var arrivalFieldId = createRandomId('room-reservation__arrival');
+    var departureFieldId = createRandomId('room-reservation__departure');
+    var guestsFieldId = createRandomId('room-reservation__guests');
 
   div(class= mods)
     +form({mods: ['room-reservation__form']})&attributes(attributes)

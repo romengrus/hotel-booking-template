@@ -21,7 +21,7 @@ mixin form-field-range-slider(props = {})
     var mods = ['form-field-range-slider'].concat(props.mods)
 
     if (attributes.id === undefined) {
-      attributes.id = `form-field-range-slider-${Math.random().toString(36).substring(2, 7)}`
+      attributes.id = createRandomId('form-field-range-slider');
     }
 
     attributes['data-params'] = props.params

@@ -13,7 +13,7 @@ mixin form-field-radio(props = {})
     }, props)
 
     if (attributes.id === undefined) {
-      attributes.id = `radio-${Math.random().toString(36).substring(2, 7)}`
+      attributes.id = createRandomId('radio');
     }
     attributes.type = 'radio'
 

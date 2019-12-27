@@ -27,9 +27,9 @@ mixin room-search(props = {})
 
     var mods = ['room-search'].concat(props.mods)
 
-    var arrivalFieldId = `room-search__arrival-${Math.random().toString(36).substring(2, 7)}`
-    var departureFieldId = `room-search__departure-${Math.random().toString(36).substring(2, 7)}`
-    var guestsFieldId = `room-search__guests-${Math.random().toString(36).substring(2, 7)}`
+    var arrivalFieldId = createRandomId('room-search__arrival');
+    var departureFieldId = createRandomId('room-search__departure');
+    var guestsFieldId = createRandomId('room-search__guests');
 
   div(class= mods)
     +form({mods: ['room-search__form']})&attributes(attributes)

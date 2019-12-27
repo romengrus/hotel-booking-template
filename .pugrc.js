@@ -14,7 +14,14 @@ function getData(fileName) {
   return JSON.parse(data);
 }
 
+function createRandomId(prefix = '') {
+  const randomHash = Math.random()
+    .toString(36)
+    .substring(2, 7);
+  return prefix ? `${prefix}-${randomHash}` : `${randomHash}`;
+}
+
 module.exports = {
   basedir,
-  locals: { iconNames, getData, pluralize }
+  locals: { iconNames, getData, pluralize, createRandomId }
 };

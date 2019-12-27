@@ -13,7 +13,7 @@ mixin form-field-checkbox(props = {})
     }, props)
 
     if (attributes.id === undefined) {
-      attributes.id = `checkbox-${Math.random().toString(36).substring(2, 7)}`
+      attributes.id = createRandomId('checkbox');
     }
     attributes.type = 'checkbox'
 
@@ -25,7 +25,7 @@ mixin form-field-checkbox(props = {})
       +form-field({mods: inputMods})&attributes(attributes)
       span.checkbox__custom
       if (props.label)
-        label.checkbox__label(for= attributes.id)= props.label
+        label(class= 'checkbox__label', for= attributes.id)= props.label
     if (props.desc)
       .checkbox__desc= props.desc
 

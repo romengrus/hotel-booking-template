@@ -35,8 +35,9 @@ mixin register(props = {})
 
     var mods = ['register'].concat(props.mods)
 
-    var birthdateFieldId = `register__birthdate-${Math.random().toString(36).substring(2, 7)}`
-    var emailFieldId = `register__email-${Math.random().toString(36).substring(2, 7)}`
+    var birthdateFieldId = createRandomId('register__birthdate');
+    var emailFieldId = createRandomId('register__email');
+
 
   div(class= mods)
     +form({mods: ['register__form']})&attributes(attributes)
