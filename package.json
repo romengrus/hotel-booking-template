@@ -9,7 +9,9 @@
     "buildSprite": "svgstore -o src/assets/sprites/icons-sprite.svg dist/icons/**/*.svg --inline",
     "build": "parcel build src/index.pug",
     "start": "parcel src/index.pug",
-    "test": "jest"
+    "test": "jest",
+    "lint:style": "stylelint 'src/**/*.scss'",
+    "lint:style-fix": "stylelint 'src/**/*.scss' --fix"
   },
   "author": "Roman Korenev",
   "license": "ISC",
@@ -52,6 +54,7 @@
     "sass": "^1.23.7",
     "stylelint": "^12.0.1",
     "stylelint-config-recommended-scss": "^4.1.0",
+    "stylelint-order": "^3.1.1",
     "stylelint-scss": "^3.13.0",
     "svgstore-cli": "^1.3.1"
   }
