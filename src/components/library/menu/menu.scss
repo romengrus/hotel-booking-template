@@ -1,3 +1,9 @@
+$menu-font-size: 0.85rem !default;
+$menu-horizontal-spacing: 1.5rem !default;
+$menu-vertical-spacing: 0.9rem !default;
+$menu-link-color: rgba(31, 32, 65, 0.75) !default;
+$menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
+
 .menu {
   display: flex;
   flex-direction: column;
