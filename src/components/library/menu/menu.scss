@@ -10,10 +10,10 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
   margin: 0;
   padding: 0;
   list-style: none;
-
-  @import './__submenu/menu__submenu';
-  @import './__item/menu__item';
-  @import './__link/menu__link';
-  @import './_horizontal/menu_horizontal';
-  @import './_vertical/menu_vertical';
 }
+
+@import './__submenu/menu__submenu';
+@import './__item/menu__item';
+@import './__link/menu__link';
+@import './_horizontal/menu_horizontal';
+@import './_vertical/menu_vertical';

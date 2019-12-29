@@ -61,7 +61,7 @@ $checkbox-toggle-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12
     color: $checkobx-color;
     margin-left: 1.875rem;
   }
-
-  @import './_rich/checkbox_rich';
-  @import './_theme-toggle/checkbox_theme-toggle';
 }
+
+@import './_rich/checkbox_rich';
+@import './_theme-toggle/checkbox_theme-toggle';
