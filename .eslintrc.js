@@ -1,7 +1,6 @@
 module.exports = {
   env: {
-    browser: true,
-    jest: true
+    browser: true
   },
   extends: ['airbnb-base', 'prettier'],
   plugins: ['prettier'],
@@ -14,4 +13,4 @@ module.exports = {
     ],
     'no-underscore-dangle': 'off'
   }
-}
+};
