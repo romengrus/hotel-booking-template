@@ -64,6 +64,7 @@ $pagination-arrow-bg: #eee !default;
         order: -1;
       }
     }
+
     &-left {
       flex-direction: row;
       align-items: center;
@@ -74,6 +75,7 @@ $pagination-arrow-bg: #eee !default;
         margin-right: 2rem;
       }
     }
+
     &-right {
       flex-direction: row;
       align-items: center;

@@ -28,7 +28,7 @@
     line-height: 1.5rem;
     cursor: default;
 
-    &_active{
+    &_active {
       &::before {
         transform: scale(1.2);
       }

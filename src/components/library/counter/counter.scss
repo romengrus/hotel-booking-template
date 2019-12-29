@@ -1,7 +1,7 @@
-$counter-color: #1F2041 !default;
+$counter-color: #1f2041 !default;
 $counter-font-size: 12px !default;
-$counter-button-border: 1px solid rgba(31, 32, 65, 0.5) !default; 
-$counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default; 
+$counter-button-border: 1px solid rgba(31, 32, 65, 0.5) !default;
+$counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default;
 
 .counter {
   display: flex;
@@ -12,7 +12,7 @@ $counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default;
     font-size: $counter-font-size;
     font-weight: bold;
     color: $counter-color;
-    text-transform: uppercase; 
+    text-transform: uppercase;
   }
 
   &__controls {
@@ -28,7 +28,8 @@ $counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default;
     color: $counter-color;
   }
 
-  &__button-dec, &__button-inc {
+  &__button-dec,
+  &__button-inc {
     display: flex;
     align-items: center;
     justify-content: center;

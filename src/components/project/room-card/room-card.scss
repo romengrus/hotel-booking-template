@@ -1,7 +1,7 @@
 .room-card {
   max-width: 266px;
-  background: #ffffff;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  background: $white;
+  box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   padding-bottom: 0.625rem;
 
@@ -38,6 +38,7 @@
     .swiper-button-prev {
       background: linear-gradient(to right, $dark-050 0%, $dark-750 100%);
       left: 0;
+
       &::after {
         background-image: url("data:image/svg+xml,%3Csvg width='8' height='13' viewBox='0 0 8 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.42188 11.0928L6.01563 12.499L0.0156253 6.49902L6.01563 0.499024L7.42188 1.90527L2.82813 6.49902L7.42188 11.0928Z' fill='white'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
@@ -48,6 +49,7 @@
     .swiper-button-next {
       background: linear-gradient(to left, $dark-050 0%, $dark-750 100%);
       right: 0;
+
       &::after {
         background-image: url("data:image/svg+xml,%3Csvg width='8' height='13' viewBox='0 0 8 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.578125 1.90527L1.98438 0.499024L7.98438 6.49902L1.98438 12.499L0.578125 11.0928L5.17188 6.49902L0.578125 1.90527Z' fill='white'/%3E%3C/svg%3E%0A");
         background-repeat: no-repeat;
@@ -73,12 +75,12 @@
 
     .swiper-pagination-bullet {
       opacity: 1;
-      border: 1px solid white;
+      border: 1px solid $white;
       background-color: transparent;
-      box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3);
+      box-shadow: 0 5px 5px rgba(31, 32, 65, 0.3);
 
       &-active {
-        background-color: white;
+        background-color: $white;
       }
     }
 

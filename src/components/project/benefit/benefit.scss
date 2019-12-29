@@ -6,7 +6,7 @@ $benefit-border: 1px solid #eee !default;
   line-height: 1.5rem;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  border-bottom: $benefit-border; 
+  border-bottom: $benefit-border;
 
   &:last-child {
     border-bottom: 0;
@@ -28,7 +28,4 @@ $benefit-border: 1px solid #eee !default;
   &__title {
     margin-bottom: 0.25rem;
   }
-
-  // &__desc {
-  // }
 }

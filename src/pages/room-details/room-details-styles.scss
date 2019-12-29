@@ -1,5 +1,4 @@
 .details-page {
-
   .main {
     margin-bottom: 76px;
   }
@@ -25,10 +24,10 @@
   }
 
   .room-stats {
-
     .chart {
       justify-content: flex-start;
     }
+
     & > * + * {
       margin-top: 24px;
     }
@@ -59,6 +58,7 @@
     border-top: 1px solid $dark-250;
     padding-top: 100px;
   }
+
   &__hero {
     height: 486px;
   }

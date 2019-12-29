@@ -33,7 +33,7 @@ $list-bullet-color: #eee !default;
     counter-reset: custom-ordered-list;
 
     .list__item::before {
-      content: counter(custom-ordered-list)'.';
+      content: counter(custom-ordered-list) + '.';
       position: absolute;
       top: 0;
       left: -1.25rem;
