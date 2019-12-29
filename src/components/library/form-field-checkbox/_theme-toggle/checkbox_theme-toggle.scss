@@ -1,0 +1,36 @@
+.checkbox_theme-toggle {
+  .checkbox__custom {
+    position: relative;
+    width: 2.5rem;
+    height: 1.25rem;
+    border-radius: 0.625rem;
+  }
+
+  .checkbox__custom::before {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background: $checkbox-toggle-bg;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+
+  .checkbox__input:checked ~ .checkbox__custom {
+    background-image: none;
+  }
+
+  .checkbox__input:checked ~ .checkbox__custom::before {
+    left: 1.5rem;
+    background: $checkbox-toggle-bg-active;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .checkbox__desc {
+    margin: 0.3125rem 0 0 3.125rem;
+  }
+}

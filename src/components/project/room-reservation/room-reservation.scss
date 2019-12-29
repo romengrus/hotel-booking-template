@@ -14,8 +14,8 @@ $room-reservation-underline: 1px dotted gray;
 
   &__row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 
   &__label {
@@ -99,18 +99,18 @@ $room-reservation-underline: 1px dotted gray;
 
     &-tooltip {
       position: absolute;
-      left: -90px;
       bottom: 30px;
-      visibility: hidden;
-      opacity: 0;
-      padding: 0.75rem;
+      left: -90px;
       width: 200px;
       border: 1px solid gray;
+      padding: 0.75rem;
+      transition: all 0.3s ease-in;
+      visibility: hidden;
+      opacity: 0;
       border-radius: 4px;
       box-shadow: 0px 5px 10px rgba(31, 32, 65, 0.05);
       background-color: white;
       text-align: center;
-      transition: all 0.3s ease-in;
     }
 
     .icon:hover ~ &-tooltip {

@@ -319,15 +319,6 @@ button {
   border-radius: 0;
 }
 
-// Work around a Firefox/IE bug where the transparent `button` background
-// results in a loss of the default `button` focus styles.
-//
-// Credit: https://github.com/suitcss/base/
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-
 input,
 button,
 select,
@@ -366,16 +357,6 @@ button,
   -webkit-appearance: button; // 2
 }
 
-// Opinionated: add "hand" cursor to non-disabled button elements.
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  &:not(:disabled) {
-    cursor: pointer;
-  }
-}
-
 // Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
 button::-moz-focus-inner,
 [type='button']::-moz-focus-inner,
@@ -383,6 +364,15 @@ button::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
   padding: 0;
   border-style: none;
+}
+
+// Work around a Firefox/IE bug where the transparent `button` background
+// results in a loss of the default `button` focus styles.
+//
+// Credit: https://github.com/suitcss/base/
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 input[type='radio'],
@@ -416,10 +406,10 @@ fieldset {
   // See https://github.com/twbs/bootstrap/issues/12359
   // and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
   min-width: 0;
-  // Reset the default outline behavior of fieldsets so they don't affect page layout.
-  padding: 0;
   margin: 0;
   border: 0;
+  // Reset the default outline behavior of fieldsets so they don't affect page layout.
+  padding: 0;
 }
 
 // 1. Correct the text wrapping in Edge and IE.

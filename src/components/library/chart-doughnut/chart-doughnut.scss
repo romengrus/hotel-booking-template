@@ -35,8 +35,8 @@
     }
 
     &::before {
-      position: absolute;
       content: '';
+      position: absolute;
       top: 0.4375rem;
       left: -1rem;
       width: 0.625rem;

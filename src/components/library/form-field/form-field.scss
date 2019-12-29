@@ -11,23 +11,18 @@ $input-label-size: 0.75rem !default;
 
 .form-field {
   display: flex;
-  height: $input-height;
   width: 100%;
+  height: $input-height;
   border: $input-border;
+  padding: $input-padding;
   border-radius: $input-border-radius;
   font-size: $input-font-size;
   line-height: $input-line-height;
   color: $input-font-color;
-  padding: $input-padding;
 
-  &:hover,
-  &:focus {
-    border: $input-border-hover;
-    outline: none;
-  }
-
-  &::placeholder {
-    color: $dark-500;
+  &__warning-msg {
+    color: lighten($red, 10%);
+    font-size: $font-size-sm;
   }
 
   &_invalid {
@@ -38,8 +33,13 @@ $input-label-size: 0.75rem !default;
     background: lighten($green, 20%);
   }
 
-  &__warning-msg {
-    color: lighten($red, 10%);
-    font-size: $font-size-sm;
+  &:hover,
+  &:focus {
+    border: $input-border-hover;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $dark-500;
   }
 }

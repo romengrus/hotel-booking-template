@@ -1,9 +1,9 @@
 $hero-text-color: black !default;
 
 .hero {
-  height: 830px;
-  width: 100%;
   position: relative;
+  width: 100%;
+  height: 830px;
 
   &__image {
     height: 100%;
@@ -19,14 +19,15 @@ $hero-text-color: black !default;
 
   &__content {
     position: absolute;
+    z-index: 20;
     top: 162px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 20;
   }
 
   &__info {
     position: absolute;
+    z-index: 30;
     right: 130px;
     bottom: 3px;
     width: 300px;
@@ -35,6 +36,5 @@ $hero-text-color: black !default;
     font-size: 0.9rem;
     line-height: 1.7;
     text-align: right;
-    z-index: 30;
   }
 }

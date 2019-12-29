@@ -1,0 +1,26 @@
+.menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-right: $menu-horizontal-spacing;
+
+  & > .icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left: 0.4rem;
+  }
+
+  &_has-submenu {
+    position: relative;
+  }
+
+  &:hover > .menu__submenu {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

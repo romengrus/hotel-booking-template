@@ -19,8 +19,8 @@ $list-bullet-color: #eee !default;
     .list__item::before {
       content: '';
       position: absolute;
-      left: -1.25rem;
       top: 0.4375rem;
+      left: -1.25rem;
       width: 0.625rem;
       height: 0.625rem;
       border-radius: 50%;
@@ -34,12 +34,12 @@ $list-bullet-color: #eee !default;
 
     .list__item::before {
       content: counter(custom-ordered-list)'.';
-      counter-increment: custom-ordered-list;
       position: absolute;
-      left: -1.25rem;
       top: 0;
+      left: -1.25rem;
       width: 0.625rem;
       height: 0.625rem;
+      counter-increment: custom-ordered-list;
     }
   }
 }

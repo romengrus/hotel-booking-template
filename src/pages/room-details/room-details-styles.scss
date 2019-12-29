@@ -1,7 +1,4 @@
 .details-page {
-  &__hero {
-    height: 486px;
-  }
 
   .main {
     margin-bottom: 76px;
@@ -28,12 +25,12 @@
   }
 
   .room-stats {
-    & > * + * {
-      margin-top: 24px;
-    }
 
     .chart {
       justify-content: flex-start;
+    }
+    & > * + * {
+      margin-top: 24px;
     }
   }
 
@@ -61,5 +58,8 @@
   .footer {
     border-top: 1px solid $dark-250;
     padding-top: 100px;
+  }
+  &__hero {
+    height: 486px;
   }
 }

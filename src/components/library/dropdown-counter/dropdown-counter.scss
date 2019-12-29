@@ -35,8 +35,8 @@ $dc-body-bg: white !default;
     position: absolute;
     top: 1rem;
     right: 0.9rem;
-    height: 0.8rem;
     width: 0.8rem;
+    height: 0.8rem;
     transform: rotate(-0.25turn);
     transition: transform 350ms ease-in-out;
 
@@ -47,22 +47,22 @@ $dc-body-bg: white !default;
 
   &__body {
     position: absolute;
+    z-index: 100;
+    width: 100%;
+    border: $dc-border;
+    padding: 0.5rem 0.5rem 0.75rem 0.9375rem;
+    transition: all 0.3s ease-in-out 0s;
     visibility: visible;
     opacity: 1;
-    width: 100%;
-    padding: 0.5rem 0.5rem 0.75rem 0.9375rem;
-    border: $dc-border;
     border-top: none;
     border-bottom-right-radius: $dc-border-radius;
     border-bottom-left-radius: $dc-border-radius;
     background-color: $dc-body-bg;
-    z-index: 100;
-    transition: all 0.3s ease-in-out 0s;
 
     &_collapsed {
+      z-index: -1;
       visibility: hidden;
       opacity: 0;
-      z-index: -1;
     }
 
     & > * + * {
@@ -81,10 +81,10 @@ $dc-body-bg: white !default;
   }
 
   &__reset {
+    height: auto;
+    padding: 0;
     color: $dc-btn-reset-color;
     font-weight: bold;
-    padding: 0;
-    height: auto;
 
     &_hidden {
       display: none;
@@ -92,10 +92,10 @@ $dc-body-bg: white !default;
   }
 
   &__ok {
+    height: auto;
+    padding: 0;
     color: $dc-btn-ok-color;
     font-weight: bold;
-    padding: 0;
     margin-left: auto;
-    height: auto;
   }
 }

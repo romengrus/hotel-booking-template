@@ -1,0 +1,8 @@
+.menu_vertical {
+  align-items: flex-start;
+
+  & > .menu__item {
+    margin-right: 0;
+    margin-bottom: $menu-vertical-spacing;
+  }
+}

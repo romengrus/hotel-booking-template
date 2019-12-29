@@ -17,9 +17,9 @@ $counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default;
 
   &__controls {
     display: flex;
-    min-width: 5.75rem;
     align-items: center;
     justify-content: space-between;
+    min-width: 5.75rem;
   }
 
   &__display {
@@ -29,14 +29,14 @@ $counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default;
   }
 
   &__button-dec, &__button-inc {
-    width: 1.875rem;
-    height: 1.875rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 1.875rem;
+    height: 1.875rem;
+    border: $counter-button-border;
     padding: 0;
     background: none;
-    border: $counter-button-border;
     font-size: 1.125rem;
     font-weight: normal;
     line-height: 1.375rem;

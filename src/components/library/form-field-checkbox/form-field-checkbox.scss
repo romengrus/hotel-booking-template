@@ -1,6 +1,6 @@
 $checkbox-width: 1.25rem !default;
 $checkbox-height: 1.25rem !default;
-$checkobx-color:  rgba(31, 32, 65, 0.5) !default;
+$checkobx-color: rgba(31, 32, 65, 0.5) !default;
 $checkbox-border: 1px solid rgba(31, 32, 65, 0.25) !default;
 $checkbox-border-active: 1px solid #bc9cff !default;
 $checkbox-border-radius: 0.25rem !default;
@@ -16,8 +16,8 @@ $checkbox-toggle-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12
 
   &__input {
     position: absolute;
-    left: -10000px;
     top: auto;
+    left: -10000px;
     width: 1px;
     height: 1px;
     overflow: hidden;
@@ -62,47 +62,6 @@ $checkbox-toggle-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12
     margin-left: 1.875rem;
   }
 
-  &_rich {
-    .checkbox__label {
-      font-weight: bold;
-      color: rgba(31, 32, 65, 0.75);
-    }
-  }
-
-  &_theme-toggle {
-    .checkbox__custom {
-      position: relative;
-      width: 2.5rem;
-      height: 1.25rem;
-      border-radius: 0.625rem;
-    }
-
-    .checkbox__custom::before {
-      position: absolute;
-      content: '';
-      width: 0.625rem;
-      height: 0.625rem;
-      top: 0.25rem;
-      left: 0.25rem;
-      border-radius: 50%;
-      background: $checkbox-toggle-bg;
-      transition-property: all;
-      transition-duration: 300ms;
-    }
-
-    .checkbox__input:checked ~ .checkbox__custom {
-      background-image: none;
-    }
-
-    .checkbox__input:checked ~ .checkbox__custom::before {
-      left: 1.5rem;
-      background: $checkbox-toggle-bg-active;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-
-    .checkbox__desc {
-      margin: 0.3125rem 0 0 3.125rem;
-    }
-  }
+  @import './_rich/checkbox_rich';
+  @import './_theme-toggle/checkbox_theme-toggle';
 }

@@ -1,11 +1,12 @@
 .button {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   height: $button-height;
   padding: $button-padding;
+  overflow: hidden;
   vertical-align: middle;
-  align-items: center;
-  justify-content: center;
   color: $button-text-color;
   background: $primary-gradient;
   border-style: none;
@@ -13,19 +14,25 @@
   font-size: $button-font-size;
   font-weight: bold;
   text-transform: uppercase;
-  overflow: hidden;
   cursor: pointer;
-
-  &:hover,
-  &:active {
-    opacity: 0.5;
-    color: $button-text-color;
-    text-decoration: none;
-    outline: none;
-  }
 
   &:focus {
     outline: none;
+  }
+
+  &__icon {
+    position: absolute;
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: $button-text-color;
+
+    &_right {
+      right: 0.8rem;
+    }
+
+    &_left {
+      left: 0.625rem;
+    }
   }
 
   &_is-rounded {
@@ -33,9 +40,9 @@
   }
 
   &_is-outlined {
-    color: $primary;
     border: $button-border-width solid transparent;
     padding: 0 1.15rem;
+    color: $primary;
     background-image: linear-gradient($button-text-color, $button-text-color), $primary-gradient;
     background-origin: border-box;
     background-clip: padding-box, border-box;
@@ -46,14 +53,14 @@
     }
 
     .button__icon {
-      fill: url(#paint0_linear);
       top: 0.45rem;
+      fill: url(#paint0_linear);
     }
   }
 
   &_is-text {
-    background: none;
     border: none;
+    background: none;
     color: $primary;
 
     &:hover {
@@ -89,19 +96,12 @@
     background: $white;
   }
 
-  &__icon {
-    position: absolute;
-    fill: $button-text-color;
-    width: 1.1rem;
-    height: 1.1rem;
-
-    &_right {
-      right: 0.8rem;
-    }
-
-    &_left {
-      left: 0.625rem;
-    }
+  &:hover,
+  &:active {
+    opacity: 0.5;
+    color: $button-text-color;
+    text-decoration: none;
+    outline: none;
   }
 }
 
