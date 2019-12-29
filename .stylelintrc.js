@@ -1,6 +1,7 @@
 module.exports = {
   extends: 'stylelint-config-recommended-scss',
   plugins: ['stylelint-order'],
+  ignoreFiles: ['src/**/vendor/*.scss'],
   rules: {
     /**
      * Check selector ordering
