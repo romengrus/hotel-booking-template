@@ -24,7 +24,7 @@
   }
 
   .checkbox__input:checked ~ .checkbox__custom::before {
-    left: 1.5rem;
+    left: 1.2rem;
     background: $checkbox-toggle-bg-active;
     background-repeat: no-repeat;
     background-position: center center;
