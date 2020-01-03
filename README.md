@@ -92,9 +92,6 @@ src/            # Source code
   }
 ```
 
-5. All component styles are automatically included in app.scss file using glob pattern.
-6. All component js classes are automatically included in app.js file using glob pattern.
-
 # Pug mixin usage
 
 1. Every mixin has **params** & **attributes**[https://pugjs.org/language/mixins.html#mixin-attributes]
