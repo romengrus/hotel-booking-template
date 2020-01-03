@@ -24,8 +24,8 @@ $radio-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill='no
 
   &__custom {
     position: relative;
-    width: $radio-width;
-    height: $radio-height;
+    min-width: $radio-width;
+    min-height: $radio-height;
     border: $radio-border;
     border-radius: $radio-border-radius;
     cursor: pointer;
