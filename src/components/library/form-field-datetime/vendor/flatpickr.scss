@@ -145,7 +145,7 @@
   -ms-flex: 1;
   flex: 1;
   position: relative;
-  height: 28px;
+  height: 34px;
   overflow: hidden;
   background: transparent;
   color: rgba(0, 0, 0, 0.9);
@@ -335,7 +335,6 @@
 .flatpickr-current-month .numInputWrapper {
   display: inline-block;
   width: 6ch;
-  width: 7ch\0;
 }
 .flatpickr-current-month .numInputWrapper span.arrowUp:after {
   border-bottom-color: rgba(0, 0, 0, 0.9);
