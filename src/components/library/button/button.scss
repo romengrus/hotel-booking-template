@@ -27,6 +27,14 @@ $button-text-color: $white;
     outline: none;
   }
 
+  &:hover,
+  &:active {
+    opacity: 0.5;
+    color: $button-text-color;
+    text-decoration: none;
+    outline: none;
+  }
+
   &__icon {
     position: absolute;
     width: 1.1rem;
@@ -60,7 +68,6 @@ $button-text-color: $white;
     }
 
     .button__icon {
-      top: 0.45rem;
       fill: url(#paint0_linear);
     }
   }
@@ -101,14 +108,6 @@ $button-text-color: $white;
     animation: ripple 1s;
     border-radius: 50%;
     background: $white;
-  }
-
-  &:hover,
-  &:active {
-    opacity: 0.5;
-    color: $button-text-color;
-    text-decoration: none;
-    outline: none;
   }
 }
 
