@@ -7,18 +7,33 @@ html
 
       title Toxin Hotel Pages
 
+      style(type= "text/css").
+        .main {
+          text-align: center;
+        }
+        .page-links {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+        .page-link {
+          padding: 5px;
+          font-size: 1.1rem;
+        }
+
   body
-    h1 Toxin Hotel Pages
-    ul
-      li
-        a(href="/uikit/uikit.pug") UIKit
-      li
-        a(href="./pages/login/login-page.pug") Login
-      li
-        a(href="./pages/registration/registration-page.pug") Registration
-      li
-        a(href="./pages/landing/landing-page.pug") Landing Page
-      li
-        a(href="./pages/room-search/room-search-page.pug") Room Search
-      li
-        a(href="./pages/room-details/room-details-page.pug") Room Details
+    main.main
+      h1 Toxin Hotel Pages
+      ul.page-links
+        li.page-link
+          a(href="/uikit/uikit.pug") UIKit
+        li.page-link
+          a(href="./pages/login/login-page.pug") Login
+        li.page-link
+          a(href="./pages/registration/registration-page.pug") Registration
+        li.page-link
+          a(href="./pages/landing/landing-page.pug") Landing Page
+        li.page-link
+          a(href="./pages/room-search/room-search-page.pug") Room Search
+        li.page-link
+          a(href="./pages/room-details/room-details-page.pug") Room Details
