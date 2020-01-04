@@ -31,6 +31,10 @@ Main purpose of this project is to learn the basics of:
 
 4. open `localhost:1234` in browser
 
+# Demo
+
+[https://romengrus.github.io/hotel-booking-template/](https://romengrus.github.io/hotel-booking-template/)
+
 # Icon System
 
 - All icons are svg
