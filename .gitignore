@@ -1,6 +1,5 @@
 node_modules
 dist
-docs
 .cache
 .directory
 .parcel-cache

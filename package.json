@@ -4,11 +4,13 @@
   "description": "FSD lvl2 Hotel Booking ",
   "scripts": {
     "cleanDist": "rimraf dist/*",
+    "cleanDocs": "rimraf docs/*",
     "optimizeIcons": "node optimize-icons.js",
     "prebuildSprite": "npm run cleanDist && npm run optimizeIcons",
     "buildSprite": "svgstore -o src/assets/sprites/icons-sprite.svg dist/icons/**/*.svg --inline",
     "build": "parcel build src/index.pug",
     "start": "parcel src/index.pug",
+    "docs": "npm run cleanDocs && parcel build src/index.pug --out-dir docs --public-url /hotel-booking-template",
     "lint:style": "stylelint 'src/**/*.scss'",
     "lint:style-fix": "stylelint 'src/**/*.scss' --fix"
   },
