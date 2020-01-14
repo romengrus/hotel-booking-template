@@ -1,17 +1,9 @@
-extends /layout/without-sidebar.pug
+extends /uikit/_layout.pug
 
-block variables
-  - var pageTitle = 'Toxin UIKit'
-  - var bodyClass = 'uikit-page'
-
-block parts
+block main
   include /components/library/index.pug
   include /components/project/index.pug
 
-block styles
-  link(rel="stylesheet", href="./uikit.scss")
-
-block content
   section.showcase
     h2.showcase__title icons
     .showcase__content

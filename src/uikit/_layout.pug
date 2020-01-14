@@ -1,0 +1,22 @@
+block variables
+  - var pageTitle = 'Toxin UIKit'
+  - var bodyClass = 'uikit'
+
+doctype html
+html
+  head
+    block head
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+      title= pageTitle
+
+      block styles
+        link(rel="stylesheet", href="/uikit/uikit.scss")
+
+  body(class= bodyClass)
+    div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
+      include /assets/sprites/icons-sprite.svg
+    
+    block main
+      //- Content goes here ...

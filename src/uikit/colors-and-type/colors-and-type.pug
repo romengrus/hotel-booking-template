@@ -1,0 +1,45 @@
+extends /uikit/_layout.pug
+
+block append styles
+  link(rel="stylesheet", href="./colors-and-type.scss")
+
+block variables
+  - var pageTitle = 'Toxin UIKit | Colors & Type'
+  - var bodyClass = 'uikit__colors-and-type'
+
+  mixin color-block(title, hex, alpha)
+    .color-block
+      div(class= "color-block__showcase", style= `background-color: ${hexToRGBA(hex, alpha)};`)
+      .color-block__meta
+        span.color-block__title= title
+        span.color-block__value= hex
+
+  mixin typography-block(tag, text)
+    .typography-block
+      span(class= `typography-block__label typography-block__label-${tag.toLowerCase()}`)= tag
+      span(class= `typography-block__showcase typography-block__showcase-${tag.toLowerCase()}`)= text
+
+block main
+  header.container.uikit__header
+    a(href= '/')
+      img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
+
+  main.container
+    .colors-and-type
+      .colors
+        +color-block('Dark Shade 100%', '#1F2041', 1)
+        +color-block('Dark Shade 75%', '#1F2041', 0.75)
+        +color-block('Dark Shade 50%', '#1F2041', 0.5)
+        +color-block('Dark Shade 25%', '#1F2041', 0.25)
+        +color-block('Dark Shade 5%', '#1F2041', 0.05)
+        +color-block('Purple', '#BC9CFF', 1)
+        +color-block('Green', '#6FCF97', 1)
+
+      .typography
+        +typography-block('H1', 'This one is the sub-section or widget title')
+        +typography-block('H2', 'Next one is the item title inside widgets')
+        +typography-block('H3', 'This is a label or CTA text')
+        +typography-block('Body', 'This is the body text which is used for most of the design, like paragraphs, lists, etc.')
+
+
+    
