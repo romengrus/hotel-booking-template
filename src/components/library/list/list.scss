@@ -2,6 +2,7 @@ $list-color: #000 !default;
 $list-bullet-color: #eee !default;
 
 .list {
+  padding-left: 21px;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: normal;
@@ -11,6 +12,10 @@ $list-bullet-color: #eee !default;
 
   &__item {
     position: relative;
+
+    & + .list__item {
+      margin-top: 10px;
+    }
   }
 
   &_unordered {

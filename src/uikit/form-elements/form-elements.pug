@@ -1,0 +1,330 @@
+extends /uikit/_layout.pug
+
+block append styles
+  link(rel="stylesheet", href="./form-elements.scss")
+
+block variables
+  - var pageTitle = 'Toxin UIKit | Form Elements'
+  - var bodyClass = 'uikit__form-elements'
+
+  mixin form-element(title, state= '')
+    .form-element
+      .form-element__meta
+        span.form-element__title= title
+        span.form-element__state= state
+      .form-element__showcase
+        if block
+          block
+
+  include /components/library/index.pug
+  include /components/project/index.pug
+
+block main
+  header.container.uikit__header
+    a(href= '/')
+      img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
+
+  main.container
+    .row
+      div(class= 'col col_small')
+        +form-element('text field', 'default')
+          +form-field(type= "email", placeholder= "Email")
+
+        +form-element('text field', 'hover / focus')
+          +form-field(type= "text", value= "This is pretty awesome")
+
+        +form-element('dropdown', 'default')
+          +dropdown-counter({
+            counters: [{
+                label: 'взрослые',
+                plurals: ['взрослый', 'взрослых', 'взрослых'],
+                objectId: '18+'
+              },
+              {
+                label: 'дети',
+                plurals: ['ребенок', 'детей', 'детей'],
+                objectId: 'child'
+              },
+              {
+                label: 'младенцы',
+                plurals: ['младенец', 'младенца', 'младенцев'],
+                objectId: 'toddler',
+                min: 0,
+                max: 2
+            }],
+            displayType: 'total',
+            plurals: ['гость', 'гостя', 'гостей']
+          })&attributes({placeholder: 'Сколько гостей'})
+
+        +form-element('masked text field', 'default')
+          +form-field-datetime
+
+        div(class= 'row', style= 'justify-content: space-between; margin-top: 38px;')
+          div(class= 'col', style= 'max-width: 150px')
+            +form-element('date dropdown')
+              +form-field-datetime({useDatepicker: true})(placeholder= 'ДД.ММ.ГГГГ')
+          div(class= 'col', style= 'max-width: 150px;')
+            +form-element('date dropdown')
+              +form-field-datetime({useDatepicker: true, defaultDate: '2019.08.19'})
+
+        div(class= 'row', style= 'justify-content: space-between; margin-top: 40px;')
+          div(class= 'col', style= 'max-width: 266px')
+            +form-element('filter date dropdown')
+              +form-field-datetime({
+                useDatepicker: true, 
+                datepickerMode: 'range',
+                dateFormat: 'd M',
+              })(placeholder='ДД.ММ - ДД.ММ')
+
+        div(class= 'row', style= 'justify-content: space-between; margin-top:38px;')
+          div(class= 'col', style= 'max-width: 266px')
+            +form-element('subscription text field')
+              +subscription({placeholder: 'Email'})
+
+      div(class= 'col col_small', style= 'margin-left: 126px;')
+        +form-element('checkbox buttons')
+          div(style= 'margin-top: 14px;')
+            +form-field-checkbox({label: 'Можно курить'})
+            +form-field-checkbox({label: 'Можно с питомцами'})(checked= true)
+            +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})(checked= true)
+
+        div(style= 'margin-top: 37px;')
+          +form-element('radio buttons')
+            div(style= 'margin-top: 14px;')
+              div(style= 'display: inline-block;')
+                +form-field-radio({label: 'Мужчина'})(checked= true)
+              div(style= 'display: inline-block; margin-left: 16px;')
+                +form-field-radio({label: 'Женщина'})
+
+        div(style= 'margin-top: 34px;')
+          +form-element('toggle')
+            div(style= 'margin-top: 12px;')
+              +form-field-checkbox({
+                label: 'Получать спецпредложения', 
+                mods: ['checkbox_theme-toggle']
+              })(checked= true)
+            div(style= 'margin-top: 13px;')
+              +form-field-checkbox({
+                label: 'Получать спецпредложения', 
+                mods: ['checkbox_theme-toggle']
+              })
+
+        div(style= 'margin-top: 43px;')
+          +form-element('like button')
+            div(style= 'margin-top: 12px;')
+              +button-like({value: 2})
+              span(style= 'margin-left: 4px;')
+                +button-like({value: 12, hasVoted: true})
+
+        div(style= 'margin-top: 38px;')
+          +form-element('rate button')
+            div(style= 'margin-top: 14px; margin-left: 2px;')
+              +rating({value: 4})
+              span(style= 'margin-left: 20px;')
+                +rating({value: 5})
+
+      div(class= 'col col_small', style= 'margin-left: 72px; padding-right: 54px;')
+        +form-field-range-slider({
+          params: {
+            start: [5000, 10000],
+            range: {min: 0, max: 20000},
+            connect: [false, true, false],
+            format: {
+              decimals: 0,
+              thousand: ' ',
+              suffix: ' ₽'
+            }
+          },
+          label: 'Range Slider',
+        })
+
+        div(style= 'margin-top: 43px;')
+          +form-element('buttons')
+            div(style= 'margin-top: 14px;')
+              +button({value: 'click me', isRounded: true, hasRipple: true})
+              span(style= 'margin-left: 15px;')
+                +button({value: 'click me', isRounded: true, isDisabled: true})
+            div(style= 'margin-top: 30px;')
+              +button({value: 'click me', isOutlined: true})
+              span(style= 'margin-left: 15px;')
+                +button({value: 'click me', isOutlined: true, isDisabled: true})
+            div(style= 'margin-top: 18px; margin-left: -19px;')
+              +button({value: 'click me', isText: true})
+              span(style= 'margin-left: 15px; margin-left: -23px;')
+                +button({value: 'click me', isText: true, isDisabled: true})
+            div(style= 'margin-top: 14px; width: 320px;')
+              +button({value: 'Перейти к оплате', isRounded: true, iconName: 'arrow-right', isExpanded: true})
+
+        div(style= 'margin-top: 39px;')
+          +form-element('pagination')
+            +pagination({
+              totalItems: 150, 
+              perPage: 10, 
+              currentPage: 1, 
+              label: '${idxFrom} - ${idxTo} из ${approximately(totalItems)} вариантов аренды'
+            })
+
+    div(class= 'row', style= 'margin-top: 97px;')
+      div(class= 'col col_small', style= 'max-width: 266px;')
+        +form-element('dropdown', 'default')
+          +dropdown-counter({
+            counters: [{
+                label: 'спальни',
+                plurals: ['спальня', 'спальни', 'спален'],
+                objectId: 'bedroom'
+              },
+              {
+                label: 'кровати',
+                plurals: ['кровать', 'кровати', 'кроватей'],
+                objectId: 'bed'
+              },
+              {
+                label: 'ванные комнаты',
+                plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+                objectId: 'bathroom'
+            }],
+            displayType: 'concat',
+          })&attributes({placeholder: 'Выберите нужное количество ...'})
+
+        div(style= 'margin-top: 18px;')
+          +form-element('dropdown', 'expanded')
+            +dropdown-counter({
+              counters: [{
+                  label: 'спальни',
+                  plurals: ['спальня', 'спальни', 'спален'],
+                  objectId: 'bedroom'
+                },
+                {
+                  label: 'кровати',
+                  plurals: ['кровать', 'кровати', 'кроватей'],
+                  objectId: 'bed'
+                },
+                {
+                  label: 'ванные комнаты',
+                  plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+                  objectId: 'bathroom'
+              }],
+              displayType: 'concat',
+              isCollapsed: false,
+            })&attributes({placeholder: 'Выберите нужное количество ...'})
+
+      div(class= 'col col_small', style= 'margin-left: 180px;')
+        +form-element('dropdown')
+          +dropdown-counter({
+            counters: [{
+                label: 'взрослые',
+                plurals: ['взрослый', 'взрослых', 'взрослых'],
+                objectId: '18+'
+              },
+              {
+                label: 'дети',
+                plurals: ['ребенок', 'детей', 'детей'],
+                objectId: 'child'
+              },
+              {
+                label: 'младенцы',
+                plurals: ['младенец', 'младенца', 'младенцев'],
+                objectId: 'toddler',
+                min: 0,
+                max: 2
+            }],
+            displayType: 'total',
+            plurals: ['гость', 'гостя', 'гостей'],
+            isCollapsed: false,
+          })&attributes({placeholder: 'Сколько гостей'})
+
+      div(class= 'col col_small', style= 'margin-left: 72px;')
+        +form-element('dropdown')
+          +dropdown-counter({
+            counters: [{
+                label: 'взрослые',
+                plurals: ['взрослый', 'взрослых', 'взрослых'],
+                objectId: '18+'
+              },
+              {
+                label: 'дети',
+                plurals: ['ребенок', 'детей', 'детей'],
+                objectId: 'child'
+              },
+              {
+                label: 'младенцы',
+                plurals: ['младенец', 'младенца', 'младенцев'],
+                objectId: 'toddler',
+                min: 0,
+                max: 2
+            }],
+            displayType: 'total',
+            plurals: ['гость', 'гостя', 'гостей'],
+            isCollapsed: false,
+          })&attributes({placeholder: 'Сколько гостей'})
+
+    div(class= 'row', style= 'margin-top: 157px;')
+      div(class= 'col col_small', style= 'max-width: 266px;')
+        +panel({title: 'Expandable checkbox list', isCollapsed: true})
+          +form(action='#', method='POST')
+            +form-field-checkbox({label: 'Завтрак', desc: 'Прямиком в постель'})
+            +form-field-checkbox({label: 'Письменный стол', desc: 'У окна'})(checked= true)
+            +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
+            +form-field-checkbox({label: 'Кроватка'})(checked= true)
+            +form-field-checkbox({label: 'Телевизор'})
+            +form-field-checkbox({label: 'Шампунь'})
+        
+        div(style= 'margin-top: 12px;')
+          +panel({title: 'Expandable checkbox list'})
+            +form(action='#', method='POST')
+              +form-field-checkbox({label: 'Завтрак'})
+              +form-field-checkbox({label: 'Письменный стол'})(checked= true)
+              +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
+              +form-field-checkbox({label: 'Кроватка'})(checked= true)
+              +form-field-checkbox({label: 'Телевизор'})
+              +form-field-checkbox({label: 'Шампунь'})
+              +form-field-checkbox({label: 'Телевизор'})
+              +form-field-checkbox({label: 'Шампунь'})
+
+      div(class= 'col col_small', style= 'margin-left: 180px; margin-top: 12px; max-width: 250px;')
+        +form-element('Rich checkbox buttons')
+          div(style= 'margin-top: 14px;')
+            +form-field-checkbox({
+              label: 'Широкий коридор', 
+              desc: 'Ширина коридоров в номере не менее 91 см.', 
+              mods: ['checkbox_rich']
+            })
+            +form-field-checkbox({
+              label: 'Помощник для инвалидов', 
+              desc: 'На 1 этаже вас встретит специалист и проводит до номера.', 
+              mods: ['checkbox_rich']
+            })
+
+      div(class= 'col col_small', style= 'margin-left: 142px; margin-top: 12px; max-width: 250px;')
+        +form-element('Bullet list')
+          div(style= 'margin-top: 12px;')
+            +list({items: 
+              [
+                'Нельзя с питомцами', 
+                'Без вечеринок и мероприятий', 
+                'Время прибытия — после 13:00, а выезд до 12:00'
+              ]
+            })
+
+    div(class= 'row', style= 'margin-top: 16px;')
+      div(class= 'col col_small')
+        +benefit({
+          iconName: 'emoticon-happy', 
+          title: 'Комфорт',
+          desc: 'Шумопоглощающие стены',
+        })
+        +benefit({
+          iconName: 'location-city', 
+          title: 'Удобство',
+          desc: 'Окно в каждой из спален',
+        })
+
+      div(class= 'col')
+        div(style= 'margin-left: 123px; margin-top: 30px;')
+          +testimonial({
+            userName: 'Мурад Сарафанов', 
+            userImg: '/assets/img/testimonial-user.jpg',
+            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+            createdAt: `${Date.now() - 1000 * 60 * 60 * 7}`,
+            numLikes: 12,
+          })

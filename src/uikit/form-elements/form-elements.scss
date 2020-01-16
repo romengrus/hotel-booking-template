@@ -1,0 +1,31 @@
+.uikit__form-elements {
+  main {
+    padding: 13px 0 0 141px;
+  }
+}
+
+.form-element {
+  & + .form-element {
+    margin-top: 18px;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__state {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  &__showcase {
+    margin-top: 4px;
+  }
+}

@@ -14,6 +14,9 @@ html
       block styles
         link(rel="stylesheet", href="/uikit/uikit.scss")
 
+      block scripts
+        script(src="/scripts/app.js", defer)
+
   body(class= bodyClass)
     div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg

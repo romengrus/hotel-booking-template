@@ -1,8 +1,9 @@
 .button-like {
+  position: relative;
   min-width: 2.5rem;
   height: 1.25rem;
-  border: 1px solid rgba(31, 32, 65, 0.25);
   padding: 0;
+  border: 1px solid rgba(31, 32, 65, 0.25);
   background: none;
   font-size: 0.625rem;
   line-height: 0.75rem;
@@ -13,6 +14,7 @@
   }
 
   .button__icon {
+    position: absolute;
     top: 0.25rem;
     width: 0.625rem;
     height: 0.625rem;
@@ -35,10 +37,10 @@
   }
 
   &_icon-pos-left {
-    padding: 0 0.7rem 0 1.25rem;
+    padding-left: 12px;
   }
 
   &_icon-pos-right {
-    padding: 0 1.25rem 0 0.7rem;
+    padding-right: 12px;
   }
 }

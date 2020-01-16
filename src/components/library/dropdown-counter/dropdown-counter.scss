@@ -33,11 +33,11 @@ $dc-body-bg: white !default;
 
   &__toggler {
     position: absolute;
-    top: 1rem;
+    top: 0.9rem;
     right: 0.9rem;
     width: 0.8rem;
     height: 0.8rem;
-    transform: rotate(-0.25turn);
+    transform: rotate(-0.5turn);
     transition: transform 350ms ease-in-out;
 
     &_collapsed {
@@ -50,7 +50,7 @@ $dc-body-bg: white !default;
     z-index: 100;
     width: 100%;
     border: $dc-border;
-    padding: 0.5rem 0.5rem 0.75rem 0.9375rem;
+    padding: 0.2rem 0.5rem 0.5rem 0.9rem;
     transition: all 0.3s ease-in-out 0s;
     visibility: visible;
     opacity: 1;
@@ -66,14 +66,14 @@ $dc-body-bg: white !default;
     }
 
     & > * + * {
-      margin-top: 0.4375rem;
+      margin-top: 0.38rem;
     }
   }
 
   &__actions-panel {
     display: flex;
     align-items: center;
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
 
     &_hidden {
       display: none;

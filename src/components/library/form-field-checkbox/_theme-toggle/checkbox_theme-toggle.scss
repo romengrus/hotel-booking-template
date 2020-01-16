@@ -1,18 +1,18 @@
 .checkbox_theme-toggle {
   .checkbox__custom {
     position: relative;
-    width: 2.5rem;
-    height: 1.25rem;
+    width: 3rem;
+    height: 1.3rem;
     border-radius: 0.625rem;
   }
 
   .checkbox__custom::before {
     content: '';
     position: absolute;
-    top: 0.25rem;
-    left: 0.25rem;
-    width: 0.625rem;
-    height: 0.625rem;
+    top: 20%;
+    left: 12%;
+    width: 0.7rem;
+    height: 0.7rem;
     border-radius: 50%;
     background: $checkbox-toggle-bg;
     transition-property: all;
@@ -24,7 +24,7 @@
   }
 
   .checkbox__input:checked ~ .checkbox__custom::before {
-    left: 1.2rem;
+    left: 63%;
     background: $checkbox-toggle-bg-active;
     background-repeat: no-repeat;
     background-position: center center;
