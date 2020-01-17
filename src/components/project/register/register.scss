@@ -7,66 +7,58 @@
   background: $white;
 
   label {
-    font-size: 0.85rem;
+    margin-bottom: 0;
+    font-size: 12px;
     font-weight: bold;
+    text-transform: uppercase;
     word-spacing: 1px;
   }
 
-  &__title {
-    margin-bottom: 1.25rem;
+  &__name {
+    margin-top: 20px;
+
+    & > * + * {
+      margin-top: 10px;
+    }
   }
 
   &__gender {
     display: flex;
-    margin-bottom: 1rem;
 
     & > * + * {
-      margin-left: 1.25rem;
-    }
-
-    & label {
-      font-weight: normal;
+      margin-left: 18px;
     }
   }
 
   &__birthdate {
-    margin-top: -0.4rem;
-    margin-bottom: 0.9rem;
+    margin-top: 20px;
   }
 
-  &__email {
-    margin-top: -0.6rem;
-  }
+  &__credentials {
+    margin-top: 16px;
 
-  &__password {
-    margin-bottom: 0.5rem;
+    & > input + input {
+      margin-top: 10px;
+    }
   }
 
   &__newsletter {
-    margin-bottom: 1.6rem;
-
     label {
+      font-size: 14px;
       font-weight: normal;
+      text-transform: none;
     }
   }
 
   &__submit {
-    margin-bottom: 1.875rem;
+    margin-top: 24px;
   }
 
   &__have-account {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    font-size: 0.875rem;
-    margin-bottom: 0;
-
-    .button {
-      padding: 0 1.5rem;
-    }
-  }
-
-  &__login {
-    margin-left: 1rem;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 14px;
   }
 }

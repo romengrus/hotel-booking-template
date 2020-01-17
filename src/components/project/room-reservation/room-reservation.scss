@@ -9,7 +9,7 @@ $room-reservation-underline: 1px dotted gray;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  padding: 2.5rem 1.875rem 1.875rem;
+  padding: 40px 1.875rem 1.875rem;
   color: $room-reservation-text-color;
 
   &__row {
@@ -28,7 +28,7 @@ $room-reservation-underline: 1px dotted gray;
 
   &__arrival {
     flex: 1 1 50%;
-    margin-right: 0.5em;
+    margin-right: 12px;
   }
 
   &__departure {
@@ -37,7 +37,7 @@ $room-reservation-underline: 1px dotted gray;
   }
 
   &__guests {
-    margin-top: 1.25rem;
+    margin-top: 18px;
   }
 
   &__submit {
@@ -49,21 +49,23 @@ $room-reservation-underline: 1px dotted gray;
   }
 
   &__room-number {
-    font-size: 0.875rem;
+    font-size: 22px;
     font-weight: bold;
-    margin-left: 4px;
+    margin-left: 6px;
     color: $room-reservation-title-color;
   }
 
   &__lux-indicator {
+    font-size: 15px;
     font-weight: bold;
-    margin-left: 5px;
+    margin-left: 4px;
     color: $room-reservation-primary-color;
   }
 
   &__price-details {
     color: $room-reservation-accent-color;
-    font-size: 0.8125rem;
+    font-size: 12px;
+    margin-top: 4px;
   }
 
   &__price {
@@ -82,6 +84,7 @@ $room-reservation-underline: 1px dotted gray;
     align-items: center;
     justify-content: space-between;
     margin-top: 0.75rem;
+    font-size: 14px;
 
     &-title {
       flex: 1 1 60%;

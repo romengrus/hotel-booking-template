@@ -1,0 +1,88 @@
+extends /uikit/_layout.pug
+
+block append styles
+  link(rel="stylesheet", href="./cards.scss")
+
+block variables
+  - var pageTitle = 'Toxin UIKit | Cards'
+  - var bodyClass = 'uikit__cards'
+
+  include /components/library/index.pug
+  include /components/project/index.pug
+
+block main
+  header.container.uikit__header
+    a(href= '/')
+      img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
+
+  main.container
+    .row
+      div(class= 'col col_small')
+        +room-search
+        +register
+
+      div(class= 'col col_small')
+        +room-reservation({
+          roomNumber: 888,
+          isLux: true,
+          price: 9990,
+          fees: [{
+            title: 'Сбор за услуги: скидка 2 179₽',
+            desc: 'desc',
+            amount: 0
+          }, {
+            title: 'Сбор за дополнительные услуги',
+            desc: 'desc',
+            amount: 300,
+          }]
+        })
+
+        +login
+
+      div(class= 'col col_small')
+        +room-card({
+          roomNumber: 888,
+          isLux: true,
+          price: 9990,
+          rating: 5, 
+          numReviews: 145,
+          slider: {
+            slides: [{
+              img: '/assets/img/room-card-1.jpg'
+            }, {
+              img: '/assets/img/room-card-2.jpg',
+            }, {
+              img: '/assets/img/room-card-3.jpg',
+            }, {
+              img: '/assets/img/room-card-4.jpg'
+            }],
+            params: {
+              pagination: {
+                clickable: true
+              }
+            }
+          },
+        })
+
+        +room-card({
+          roomNumber: 840,
+          price: 9990,
+          rating: 4, 
+          numReviews: 65,
+          slider: {
+          slides: [{
+            img: '/assets/img/room-card-1.jpg'
+          }, {
+            img: '/assets/img/room-card-2.jpg',
+          }, {
+            img: '/assets/img/room-card-3.jpg',
+          }, {
+            img: '/assets/img/room-card-4.jpg'
+          }],
+          params: {
+            pagination: {
+              clickable: true
+            }
+          }
+          },
+        })
