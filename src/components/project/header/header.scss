@@ -28,6 +28,7 @@
 
   &__profile-link {
     color: $dark-500;
+    font-size: 14px;
 
     &:hover {
       color: $dark-750;
@@ -39,8 +40,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 2rem;
-    padding-left: 2rem;
+    margin-left: 5px;
+    padding-left: 30px;
     border-left: 1px solid $dark-100;
     min-height: 1.875rem;
   }

@@ -9,7 +9,7 @@ html
 
       style(type= "text/css").
         .main {
-          text-align: center;
+          padding-left: 20px;
         }
         .page-links {
           margin: 0;
@@ -27,12 +27,15 @@ html
       ul.page-links
         li.page-link
           a(href="./uikit/uikit.pug") UIKit
-        li.page-link
-          a(href="./uikit/colors-and-type/colors-and-type.pug") Colors & Type
-        li.page-link
-          a(href="./uikit/form-elements/form-elements.pug") Form Elements
-        li.page-link
-          a(href="./uikit/cards/cards.pug") Cards
+          ul
+            li.page-link
+              a(href="./uikit/colors-and-type/colors-and-type.pug") Colors & Type
+            li.page-link
+              a(href="./uikit/form-elements/form-elements.pug") Form Elements
+            li.page-link
+              a(href="./uikit/cards/cards.pug") Cards
+            li.page-link
+              a(href="./uikit/headers-and-footers/headers-and-footers.pug") Headers & Footers
         li.page-link
           a(href="./pages/login/login-page.pug") Login
         li.page-link

@@ -2,23 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5.2rem;
+  padding: 100px 0 83px;
 
   &__wrapper {
     display: flex;
     max-width: 1160px;
-  }
-
-  &__content_creative {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    text-align: center;
-  }
-
-  &__block_creative {
-    padding: 1rem;
   }
 
   &__widget {
@@ -32,6 +20,24 @@
 
     & > .widget__title {
       padding-top: 0.3rem;
+    }
+  }
+
+  &_creative {
+    .footer__wrapper {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .footer__widget {
+      margin: 0 0 15px 0;
+      max-width: 600px;
+    }
+
+    .social-icons {
+      margin-top: 10px;
     }
   }
 }

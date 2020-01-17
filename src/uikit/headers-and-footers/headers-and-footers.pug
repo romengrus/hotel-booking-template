@@ -1,0 +1,34 @@
+extends /uikit/_layout.pug
+
+block append styles
+  link(rel="stylesheet", href="./headers-and-footers.scss")
+
+block variables
+  - var pageTitle = 'Toxin UIKit | Headers & Footers'
+  - var bodyClass = 'uikit__headers-and-footers'
+
+  include /components/library/index.pug
+  include /components/project/index.pug
+
+block main
+  header.container.uikit__header
+    a(href= '/')
+      img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
+
+  main.container
+    .row
+      div(class= 'col', style= 'margin-top: 20px')
+        +header({isLoggedIn: false})
+
+    .row
+      div(class= 'col', style= 'margin-top: 34px')
+        +header({isLoggedIn: true})
+
+    .row
+      div(class= 'col', style= 'margin-top: 33px')
+        +footer
+        +copyright-bar
+
+    .row
+      div(class= 'col', style= 'margin-top: 33px')
+        +footer({type: 'creative'})
