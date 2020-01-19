@@ -1,4 +1,5 @@
 //- Checkbox
+//- type    {string} Checkbox type (rich, normal)
 //- label   {string} Label text
 //- desc    {string} Description text
 //- mods    {array} Modifier classess
@@ -7,18 +8,24 @@ mixin form-field-checkbox(props = {})
 
   -
     props = Object.assign({
+      type: 'normal',
       label: '',
       desc: '',
       mods: []
     }, props)
 
+    var mods = ['checkbox'].concat(props.mods)
+    var inputMods = ['checkbox__input']
+
+    if (props.type !== 'normal') {
+      mods.push(`checkbox_${props.type}`)
+    }
+
     if (attributes.id === undefined) {
       attributes.id = createRandomId('checkbox');
     }
-    attributes.type = 'checkbox'
 
-    var mods = ['checkbox'].concat(props.mods)
-    var inputMods = ['checkbox__input']
+    attributes.type = 'checkbox'
 
   div(class= mods)
     .checkbox__wrapper

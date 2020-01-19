@@ -9,7 +9,7 @@ $checkbox-toggle-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12
 
 .checkbox {
   & + .checkbox {
-    margin-top: 9px;
+    margin-top: 10px;
   }
 
   &__wrapper {
@@ -60,11 +60,10 @@ $checkbox-toggle-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12
   }
 
   &__desc {
-    font-size: 12px;
+    margin-left: 1.875rem;
+    font-size: 14px;
     line-height: 0.875rem;
     color: $checkobx-color;
-    margin-left: 1.875rem;
-    margin-top: 5px;
   }
 }
 
