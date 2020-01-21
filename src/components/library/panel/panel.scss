@@ -14,9 +14,15 @@
     font-weight: bold;
   }
 
+  &__icon {
+    width: 12px;
+    height: 12px;
+  }
+
   &__body {
     display: block;
     height: auto;
+    margin-top: 14px;
     transition: height 350ms ease-in-out;
 
     &_collapsed {
@@ -29,7 +35,7 @@
   &__toggler {
     position: absolute;
     top: 0;
-    right: 16px;
+    right: 17px;
     transform: rotate(0turn);
     transition: transform 350ms ease-in-out;
 

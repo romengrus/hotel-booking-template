@@ -1,13 +1,14 @@
 .room-card {
-  max-width: 266px;
+  max-width: 270px;
+  margin-bottom: 22px;
+  padding-bottom: 10px;
   background: $white;
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
-  padding-bottom: 0.625rem;
 
   &__slider {
     height: 150px;
-    margin-bottom: 0.625rem;
+    margin-bottom: 12px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 
@@ -98,9 +99,8 @@
   &__row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     position: relative;
-    padding: 0.625rem 1.25rem;
+    padding: 9px;
   }
 
   &__row + &__row::before {
@@ -114,8 +114,18 @@
   }
 
   &__number {
+    margin-left: 10px;
+    font-family: $font-family-accent;
+    font-size: 16px;
     font-weight: bold;
+    letter-spacing: 1px;
     color: black;
+
+    &::before {
+      content: '№';
+      font-size: 14px;
+      margin-right: 10px;
+    }
   }
 
   &__lux-indicator {
@@ -124,7 +134,12 @@
     color: #bc9cff;
   }
 
+  &__room-details {
+    margin-right: auto;
+  }
+
   &__price-details {
+    margin-right: 7px;
     color: rgba(31, 32, 65, 0.5);
     font-size: 0.75rem;
   }
@@ -140,10 +155,17 @@
     margin-right: 0.3125rem;
   }
 
+  &__rating {
+    margin-left: 14px;
+    margin-right: auto;
+  }
+
   &__reviews {
+    margin-top: 2px;
+    margin-right: 10px;
     color: rgba(31, 32, 65, 0.5);
     position: relative;
-    font-size: 0.9rem;
+    font-size: 14px;
 
     &-amount {
       font-weight: bold;

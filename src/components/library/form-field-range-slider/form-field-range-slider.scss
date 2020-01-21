@@ -11,6 +11,7 @@ $range-slider-handle-bg: #eee !default;
     align-items: flex-start;
     justify-content: space-between;
     font-size: 0.75rem;
+    margin-bottom: 6px;
   }
 
   &__label {
@@ -26,12 +27,13 @@ $range-slider-handle-bg: #eee !default;
   }
 
   &__slider {
-    margin-top: 0.35rem;
-    margin-bottom: 0.625rem;
+    margin-bottom: 10px;
   }
 
   &__desc {
     color: $range-slider-color;
-    font-size: 0.75rem;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: none;
   }
 }

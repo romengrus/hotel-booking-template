@@ -15,94 +15,98 @@ block append parts
   include /components/project/room-card/room-card.pug
 
 block sidebar
-  aside.page__sidebar
-    +form({mods: `${bodyClass}__filter`})(action='#', method='POST')
-      - var arrivalDateId = `arrival-date-${Math.random().toString(36).substring(2, 7)}`
-      label(for= arrivalDateId, class= 'arrival-date__label') Даты пребывания в отеле
-      +form-field-datetime({
-        useDatepicker: true, 
-        dateFormat: 'd M', 
-        datepickerMode: 'range',
-        mods: ['arrival-date__input']
-      })(placeholder='ДД М - ДД М', id= arrivalDateId)
+  aside.sidebar
+    +form(action= '#', method= 'POST', class= 'room-filter')
+      .room-filter__dates
+        label.room-filter__label Даты пребывания в отеле
+          +form-field-datetime({
+            useDatepicker: true, 
+            dateFormat: 'd M', 
+            datepickerMode: 'range',
+            mods: ['arrival-date__input']
+          })(placeholder='ДД М - ДД М')
 
-      - var counterId = `counter-${Math.random().toString(36).substring(2, 7)}`
-      label(for= counterId, class= 'counter__label') Гости
-      +dropdown-counter({
-        counters: [{
-            label: 'взрослые',
-            plurals: ['взрослый', 'взрослых', 'взрослых'],
-            objectId: '18+'
-          },
-          {
-            label: 'дети',
-            plurals: ['ребенок', 'детей', 'детей'],
-            objectId: 'child'
-          },
-          {
-            label: 'младенцы',
-            plurals: ['младенец', 'младенца', 'младенцев'],
-            objectId: 'toddler',
-            min: 0,
-            max: 2
-        }],
-        displayType: 'total',
-        plurals: ['гость', 'гостя', 'гостей'],
-        mods: ['counter__input']
-      })(placeholder= 'Сколько гостей', id= counterId)
+      .room-filter__guests
+        label.room-filter__label Гости
+          +dropdown-counter({
+            counters: [{
+                label: 'взрослые',
+                plurals: ['взрослый', 'взрослых', 'взрослых'],
+                objectId: '18+'
+              },
+              {
+                label: 'дети',
+                plurals: ['ребенок', 'детей', 'детей'],
+                objectId: 'child'
+              },
+              {
+                label: 'младенцы',
+                plurals: ['младенец', 'младенца', 'младенцев'],
+                objectId: 'toddler',
+                min: 0,
+                max: 2
+            }],
+            displayType: 'total',
+            plurals: ['гость', 'гостя', 'гостей'],
+            mods: ['counter__input']
+          })(placeholder= 'Сколько гостей')
 
-      +form-field-range-slider({params: {
-        start: [5000, 10000],
-        range: {min: 1000, max: 20000},
-        connect: [false, true, false],
-        format: {
-          decimals: 0,
-          thousand: ' ',
-          suffix: ' ₽'
-        }
-      },
-        label: 'Диапазон цены',
-        desc: 'Стоимость за сутки пребывания в номере'
-      })
+      .room-filter__price
+        +form-field-range-slider({params: {
+          start: [5000, 10000],
+          range: {min: 1000, max: 20000},
+          connect: [false, true, false],
+          format: {
+            decimals: 0,
+            thousand: ' ',
+            suffix: '₽'
+          }
+        },
+          label: 'Диапазон цены',
+          desc: 'Стоимость за сутки пребывания в номере'
+        })
 
-      label Дополнительно
-      +form-field-checkbox({label: 'Можно курить'})
-      +form-field-checkbox({label: 'Можно с питомцами'})
-      +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})
+      fieldset.room-filter__permissions 
+        legend.room-filter__label Checkbox Buttons
+        +form-field-checkbox({label: 'Можно курить'})
+        +form-field-checkbox({label: 'Можно с питомцами'})
+        +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})
 
-      label Доступность
-      +form-field-checkbox({
-        label: 'Широкий коридор', 
-        desc: 'Ширина коридора в номере не менее 91 см.', 
-        mods: ['checkbox_rich']
-      })
-      +form-field-checkbox({
-        label: 'Помошник для инвалидов',
-        desc: 'На 1 этаже вас встретит специалист и проводит до номера',
-        mods: ['checkbox_rich']
-      })
+      fieldset.room-filter__accessability 
+        legend.room-filter__label Доступность
+        +form-field-checkbox({
+          label: 'Широкий коридор', 
+          desc: 'Ширина коридора в номере не менее 91 см.', 
+          mods: ['checkbox_rich']
+        })
+        +form-field-checkbox({
+          label: 'Помошник для инвалидов',
+          desc: 'На 1 этаже вас встретит специалист и проводит до номера',
+          mods: ['checkbox_rich']
+        })
 
-      label Удобства номера
-      +dropdown-counter({
-        counters: [{
-            label: 'спальни',
-            plurals: ['спальня', 'спальни', 'спален'],
-            objectId: 'bedroom'
-          },
-          {
-            label: 'кровати',
-            plurals: ['кровать', 'кровати', 'кроватей'],
-            objectId: 'bed'
-          },
-          {
-            label: 'ванные комнаты',
-            plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-            objectId: 'bathroom'
-        }],
-        displayType: 'concat',
-      })&attributes({placeholder: 'Выберите нужное количество ...'})
+      .room-filter__facilities
+        label.room-filter__label Удобства номера
+          +dropdown-counter({
+            counters: [{
+                label: 'спальни',
+                plurals: ['спальня', 'спальни', 'спален'],
+                objectId: 'bedroom'
+              },
+              {
+                label: 'кровати',
+                plurals: ['кровать', 'кровати', 'кроватей'],
+                objectId: 'bed'
+              },
+              {
+                label: 'ванные комнаты',
+                plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+                objectId: 'bathroom'
+            }],
+            displayType: 'concat',
+          })&attributes({placeholder: 'Выберите нужное количество ...'})
 
-      +panel({title: 'Дополнительные удобства', isCollapsed: true})
+      +panel({title: 'Дополнительные удобства', isCollapsed: true, mods: 'room-filter__additional-facilities'})
         +form-field-checkbox({label: 'Завтрак'})
         +form-field-checkbox({label: 'Письменный стол'})(checked= true)
         +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
@@ -113,8 +117,8 @@ block sidebar
         +form-field-checkbox({label: 'Шампунь'})
 
 block content
-  article.page__content
-    h2.page__header Номера, которые мы для вас подобрали
+  article.content
+    h2.content__header Номера, которые мы для вас подобрали
 
     div(class= `${bodyClass}__listing`)
       - var roomCards = getData('roomCards')

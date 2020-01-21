@@ -29,7 +29,9 @@ html
     block header
       +header({isLoggedIn: false})
 
-    block main
+    main.main
+      .main__wrapper
+        block main
 
     block footer
       +footer

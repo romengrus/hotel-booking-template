@@ -141,7 +141,7 @@ $font-size-sm: $font-size-base * 0.875 !default;
 // Button
 $button-height: 2.75rem;
 $button-padding: 0 1.25rem;
-$button-border-width: 0.1rem;
+$button-border-width: 2px;
 $button-border-radius: 1.375rem;
 $button-font-size: 0.75rem;
 $button-text-color: $white;
@@ -215,9 +215,6 @@ $list-bullet-color: $dark-250;
 
 // Benefit
 $benefit-border: 1px solid $dark-100;
-
-// Copyright Bar
-$copyright-bar-border: 1px solid $dark-250;
 
 // Dropdown Counter
 $dc-border: 1px solid $dark-250;
