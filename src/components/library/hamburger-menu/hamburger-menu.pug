@@ -1,0 +1,18 @@
+//- Hamburger menu
+//-
+//- bars    {number} Number of bars
+//- mods    {array} Modifier classes
+mixin hamburger-menu(props = {})
+  -
+    props = Object.assign({
+      bars: 3,
+      mods: []
+    }, props)
+
+    var mods = ['hamburger-menu'].concat(props.mods)
+
+  button(class= mods)
+    - var i = 0;
+    while i < props.bars
+      span
+      - i += 1
