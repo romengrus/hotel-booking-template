@@ -4,6 +4,9 @@ block variables
   - var pageTitle = 'Room Search & Filter'
   - var bodyClass = 'room-search-page'
 
+block append scripts
+  script(src= '/pages/room-search/room-search-page.js')
+
 block append parts
   include /components/library/form/form.pug
   include /components/library/form-field-datetime/form-field-datetime.pug
@@ -16,7 +19,7 @@ block append parts
 
 block sidebar
   aside.sidebar
-    +form(action= '#', method= 'POST', class= 'room-filter')
+    +form(action= '#', method= 'POST', class= 'room-filter js-room-filter')
       .room-filter__dates
         label.room-filter__label Даты пребывания в отеле
           +form-field-datetime({
@@ -118,9 +121,10 @@ block sidebar
 
 block content
   article.content
+    a.room-filter__toggle.js-room-filter__toggle Изменить параметры поиска
     h2.content__header Номера, которые мы для вас подобрали
 
-    div(class= `${bodyClass}__listing`)
+    div(class= 'room-cards')
       - var roomCards = getData('roomCards')
       each roomData in roomCards
         +room-card(roomData)

@@ -1,19 +1,35 @@
 .copyright-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 4.6rem;
+  min-height: 4.6rem;
+  padding: 23px 0;
   font-size: 0.87rem;
   border-top: 1px solid $dark-100;
 
   &__wrapper {
-    display: flex;
-    flex: 1;
-    max-width: 1160px;
+    @include wrapper();
+    @include row();
+    @include md(justify-content, center);
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  &__text {
+    @include col();
+    @include size-sm(10);
+    @include md-block() {
+      margin-right: 15px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    @include from(780px) {
+      margin-right: auto;
+    }
   }
 
   &__icons {
-    margin-left: auto;
+    @include col();
+    @include size-sm(10);
+    @include md(text-align, center);
 
     .icon {
       width: 24px;

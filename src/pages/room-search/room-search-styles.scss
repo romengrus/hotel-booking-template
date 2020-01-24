@@ -1,9 +1,26 @@
 .room-search-page {
+  .main {
+    margin-bottom: 70px;
+    transition: transform 250ms ease-in;
+  }
+
   .sidebar {
     padding-top: 30px;
 
     @include col();
     @include size(3);
+    @include size-md(4);
+    @include size-sm(0);
+    @include sm-block() {
+      position: absolute;
+      width: 250px;
+      transform: translateX(-270px);
+      z-index: 1000;
+    }
+
+    &_visible-on-mobile {
+      transform: translate(0);
+    }
   }
 
   .room-filter {
@@ -45,13 +62,25 @@
     &__additional-facilities {
       margin-top: 6px;
     }
+
+    &__toggle {
+      display: none;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: $black;
+      cursor: pointer;
+
+      @include sm(display, block);
+    }
   }
 
   .content {
+    padding: 30px 0 0 28px;
     @include col();
     @include size(9);
-
-    padding: 30px 0 0 28px;
+    @include size-md(8);
+    @include size-sm(12);
+    @include sm(padding-left, 0);
 
     &__header {
       margin-bottom: 23px;
@@ -64,16 +93,32 @@
     text-align: center;
   }
 
-  &__listing {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -6px;
-    margin-right: -6px;
+  .room-cards {
+    @include row();
+    @include from(1200px) {
+      margin-left: -6px;
+      margin-right: -6px;
+    }
+    @include lg(justify-content, flex-start);
+    @include sm(justify-content, center);
 
     .room-card {
-      margin-left: 6px;
-      margin-right: 6px;
-      width: 270px;
+      @include col();
+      @include from(960px) {
+        width: calc(32.5% - 8px);
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+      @include from(1200px) {
+        width: calc(33% - 8px);
+      }
+      @include size-sm(12);
     }
+  }
+}
+
+.sidebar-visible-on-mobile {
+  .main {
+    transform: translate(270px);
   }
 }
