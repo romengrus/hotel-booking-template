@@ -16,7 +16,6 @@
 
 .main {
   @include wrapper();
-  margin-top: 15px;
 
   &__wrapper {
     @include row();

@@ -4,11 +4,14 @@ block variables
   - var pageTitle = 'Toxin Landing Page 1'
   - var bodyClass = 'landing-page'
 
+block append styles
+  link(rel= 'stylesheet', href= './landing-page.scss')
+
 block append parts
   include /components/library/hero/hero.pug
   include /components/project/room-search/room-search.pug
 
-block append header
+block content
   +hero({
     images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
     info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
