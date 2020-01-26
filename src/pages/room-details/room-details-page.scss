@@ -1,56 +1,100 @@
 .details-page {
   .main {
-    margin-bottom: 76px;
+    max-width: 1440px;
+    padding: 0;
   }
 
   .main__wrapper {
-    padding-top: 70px;
-    flex-direction: row;
+    margin: 0;
+  }
+
+  .page-wrapper {
+    @include wrapper();
+    margin-top: 70px;
+    padding-bottom: 54px;
+  }
+
+  .content {
+    @include col();
+    @include size(8);
+    @include size-md(12);
+  }
+
+  .sidebar {
+    @include col();
+    @include size(4);
+    @include size-md(12);
+    @include md-block() {
+      padding-top: 30px;
+      justify-content: center;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
   }
 
-  .page__content {
-    flex: 1;
-    margin-right: 70px;
-  }
-
-  .page__sidebar {
-    flex: 0 1 380px;
+  .main-info {
+    @include row();
   }
 
   .room-info {
-    flex: 0 1 280px;
-    margin-right: 80px;
+    @include col();
+    @include size(5);
+    @include size-sm(8);
   }
 
   .room-stats {
-    .chart {
-      justify-content: flex-start;
+    padding-left: 30px;
+
+    @include col();
+    @include size(7);
+    @include size-sm(12);
+    @include sm-block() {
+      margin-top: 20px;
+      padding-left: 0;
     }
 
-    & > * + * {
+    .chart {
       margin-top: 24px;
+      justify-content: flex-start;
     }
   }
 
   .testimonials {
+    margin-top: 13px;
+
+    @include col();
+    @include size(12);
+    @include sm(margin-top, 40px);
+
     .testimonial {
-      margin-top: 22px;
+      margin-top: 25px;
     }
   }
 
-  .additional-info {
-    margin-top: 40px;
+  .behavior-rules {
+    @include col();
+    @include size(5);
+    margin-top: 34px;
+    padding-left: 20px;
+
+    ul {
+      margin-top: 20px;
+      margin-left: -20px;
+    }
   }
 
-  .behavior-rules {
-    ul,
-    ol {
-      margin-left: -20px;
+  .cancel-rules {
+    @include col();
+    @include size(7);
+    margin-top: 34px;
+    padding-left: 30px;
 
-      & > li {
-        margin-top: 5px;
-      }
+    p {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 23px;
     }
   }
 
@@ -59,7 +103,19 @@
     padding-top: 100px;
   }
 
-  &__hero {
-    height: 486px;
+  &_hero {
+    min-height: 486px;
+
+    @include md-block() {
+      .swiper-container-thumbs {
+        width: 250px;
+      }
+    }
+
+    @include sm-block() {
+      .swiper-container-thumbs {
+        display: none;
+      }
+    }
   }
 }

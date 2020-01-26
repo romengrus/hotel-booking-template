@@ -1,18 +1,10 @@
-// .row {
-//   display: flex;
+.row {
+  @include row();
+}
 
-//   & + .row {
-//     margin-top: 7px;
-//   }
-// }
-
-// .col {
-//   flex: 1;
-
-//   &_small {
-//     max-width: 320px;
-//   }
-// }
+.col {
+  @include col();
+}
 
 .main {
   @include wrapper();

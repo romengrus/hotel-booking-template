@@ -1,26 +1,28 @@
 //- Hero
 //-
-//- images  {array} Array of image src strings
-//- info    {string} Some arbitrary text to show
-//- mods    {array} Modifier array
+//- sliderOptions   {object} Object with slider options to be passed to inner slider
+//- bgImg           {string} Url to background image (will be used if sliderOptions is empty)
+//- info            {string} Some arbitrary text to show
+//- mods            {array} Modifier array
 mixin hero(props = {})
   include /components/library/slider/slider.pug
 
   -
     props = Object.assign({
-      images: [],
+      sliderOptions: {},
+      bgImg: '',
       info: '',
       mods: []
     }, props)
 
     var mods = ['hero'].concat(props.mods)
-    var slides = props.images.map(img => ({img}))
 
   div(class= mods)&attributes(attributes)
-    if (props.images.length > 1)
-      +slider({ slides, mods: ['hero__slider'], showPagination: false, showNavigation: false })  
-    else if (props.images.length === 1)
-      .hero__image(style= `background-image: url(${props.images[0]})`)
+    if (typeof props.sliderOptions === 'object' && Object.keys(props.sliderOptions).length > 0)
+      - var sliderAttributes = Object.assign(props.sliderOptions, {mods: ['hero__slider']})
+      +slider(sliderAttributes)  
+    else if (props.bgImg)
+      .hero__image(style= `background-image: url(${props.bgImg})`)
 
     if (block)
       .hero__content

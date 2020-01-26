@@ -1,4 +1,4 @@
-extends /layout/without-sidebar.pug
+extends /layout/base.pug
 
 block variables
   - var pageTitle = 'Toxin Registration'
@@ -8,9 +8,20 @@ block append parts
   include /components/library/hero/hero.pug
   include /components/project/register/register.pug
 
-block content
+block main
   +hero({
-    images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
+    sliderOptions: {
+      slides: [{
+          img: '/assets/img/hero1.jpg',
+          url: '#'
+        }, {
+          img: '/assets/img/hero2.jpg',
+          url: '#'
+        }, {
+          img: '/assets/img/hero3.jpg', 
+          url: '#'
+      }]
+    }, 
     mods: ['registration-page_hero'],
   })
     +register()

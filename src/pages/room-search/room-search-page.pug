@@ -1,4 +1,4 @@
-extends /layout/left-sidebar.pug
+extends /layout/base.pug
 
 block variables
   - var pageTitle = 'Room Search & Filter'
@@ -17,7 +17,7 @@ block append parts
   include /components/library/pagination/pagination.pug
   include /components/project/room-card/room-card.pug
 
-block sidebar
+block main
   aside.sidebar
     +form(action= '#', method= 'POST', class= 'room-filter js-room-filter')
       .room-filter__dates
@@ -119,7 +119,6 @@ block sidebar
         +form-field-checkbox({label: 'Телевизор'})
         +form-field-checkbox({label: 'Шампунь'})
 
-block content
   article.content
     a.room-filter__toggle.js-room-filter__toggle Изменить параметры поиска
     h2.content__header Номера, которые мы для вас подобрали
