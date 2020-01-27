@@ -4,6 +4,14 @@
 
 .col {
   @include col();
+
+  &_full-width {
+    @include size(12);
+  }
+
+  &_one-half {
+    @include size(6);
+  }
 }
 
 .main {

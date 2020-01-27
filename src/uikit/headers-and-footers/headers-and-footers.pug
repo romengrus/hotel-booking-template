@@ -17,18 +17,18 @@ block main
 
   main.container
     .row
-      div(class= 'col', style= 'margin-top: 20px')
+      div(class= 'col col_full-width', style= 'margin-top: 20px')
         +header({isLoggedIn: false})
 
     .row
-      div(class= 'col', style= 'margin-top: 34px')
+      div(class= 'col col_full-width', style= 'margin-top: 34px')
         +header({isLoggedIn: true})
 
     .row
-      div(class= 'col', style= 'margin-top: 33px')
+      div(class= 'col col_full-width', style= 'margin-top: 33px')
         +footer
         +copyright-bar
 
     .row
-      div(class= 'col', style= 'margin-top: 33px')
+      div(class= 'col col_full-width', style= 'margin-top: 33px')
         +footer({type: 'creative'})
