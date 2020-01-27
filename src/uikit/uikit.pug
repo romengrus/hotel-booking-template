@@ -20,11 +20,30 @@ block main
       +header({isLoggedIn: false})
       +header({isLoggedIn: true})
 
-  h2.showcase__title hero
-  +hero({
-    images: ['/assets/img/hero1.jpg', '/assets/img/hero2.jpg', '/assets/img/hero3.jpg'], 
-    info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
-  })
+  section.showcase
+    h2.showcase__title hero with slider
+    +hero({
+      sliderOptions: {
+        slides: [{
+            img: '/assets/img/hero1.jpg',
+            url: '#'
+          }, {
+            img: '/assets/img/hero2.jpg',
+            url: '#'
+          }, {
+            img: '/assets/img/hero3.jpg', 
+            url: '#'
+        }]
+      }, 
+      info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
+    })
+
+  section.showcase
+    h2.showcase__title hero with static image
+    +hero({
+      bgImg: '/assets/img/hero1.jpg',
+      info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
+    })
 
   section.showcase
     h2.showcase__title footer

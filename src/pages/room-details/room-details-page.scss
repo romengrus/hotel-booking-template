@@ -104,7 +104,7 @@
   }
 
   &_hero {
-    min-height: 486px;
+    height: 486px;
 
     @include md-block() {
       .swiper-container-thumbs {
