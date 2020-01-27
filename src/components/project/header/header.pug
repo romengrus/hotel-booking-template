@@ -19,21 +19,22 @@ mixin header(props)
 
   header(class= mods)
     .header__wrapper
-      .header__logo
-        a(href= '/')
-          include /assets/img/logo.svg
+      .row
+        .header__logo
+          a(href= '/')
+            include /assets/img/logo.svg
 
-      .header__menu.js-header__menu
-        button.header__menu-close.js-header__menu-close &times;
+        .header__menu.js-header__menu
+          button.header__menu-close.js-header__menu-close &times;
 
-        +menu({items: menuData})
+          +menu({items: menuData})
 
-        if props.isLoggedIn
-          .header__auth.header__auth_is-logged-in
-            a(class= 'header__profile-link', href= '#')= props.userName
-        else 
-          .header__auth
-            +button({value: 'войти', isOutlined: true, mods: ['header__button']})
-            +button({value: 'зарегистрироваться', mods: ['header__button']})
+          if props.isLoggedIn
+            .header__auth.header__auth_is-logged-in
+              a(class= 'header__profile-link', href= '#')= props.userName
+          else 
+            .header__auth
+              +button({value: 'войти', isOutlined: true, mods: ['header__button']})
+              +button({value: 'зарегистрироваться', mods: ['header__button']})
 
-      +hamburger-menu({mods: ['header__menu-toggler', 'js-header__menu-toggler']})
+        +hamburger-menu({mods: ['header__menu-toggler', 'js-header__menu-toggler']})

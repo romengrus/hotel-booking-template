@@ -1,10 +1,10 @@
 .header {
-  @include wrapper();
-  padding-top: 15px;
-  padding-bottom: 15px;
+  box-shadow: 0px 10px 20px $dark-050;
 
   &__wrapper {
-    @include row();
+    @include wrapper();
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   &__logo {
