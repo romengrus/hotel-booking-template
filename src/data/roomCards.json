@@ -25,6 +25,8 @@
           "url": "#room888"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -58,6 +60,8 @@
           "url": "#room840"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -91,6 +95,8 @@
           "url": "#room980"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -124,6 +130,8 @@
           "url": "#room856"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -157,6 +165,8 @@
           "url": "#room740"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -190,6 +200,8 @@
           "url": "#room982"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -223,6 +235,8 @@
           "url": "#room678"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -256,6 +270,8 @@
           "url": "#room450"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -289,6 +305,8 @@
           "url": "#room350"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -322,6 +340,8 @@
           "url": "#room666"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -355,6 +375,8 @@
           "url": "#room444"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
@@ -388,6 +410,8 @@
           "url": "#room352"
         }
       ],
+      "showPagination": true,
+      "showNavigation": true,
       "params": {
         "pagination": {
           "clickable": true
