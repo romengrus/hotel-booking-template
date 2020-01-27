@@ -1,5 +1,4 @@
 // Color system
-
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
@@ -40,55 +39,6 @@ $dark-050: rgba(31, 32, 65, 0.05);
 // Gradients
 $primary-gradient: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%) !default;
 $secondary-gradient: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%) !default;
-
-// Spacing
-
-$spacer: 1rem !default;
-$spacers: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$spacers: map-merge(
-  (
-    0: 0,
-    1: (
-      $spacer * 0.25
-    ),
-    2: (
-      $spacer * 0.5
-    ),
-    3: $spacer,
-    4: (
-      $spacer * 1.5
-    ),
-    5: (
-      $spacer * 3
-    )
-  ),
-  $spacers
-);
-
-// This variable affects the `.h-*` and `.w-*` classes.
-$sizes: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$sizes: map-merge(
-  (
-    25: 25%,
-    50: 50%,
-    75: 75%,
-    100: 100%,
-    auto: auto
-  ),
-  $sizes
-);
-
-// Grid breakpoints
-
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-) !default;
 
 // Typography
 // stylelint-disable value-keyword-case
@@ -132,10 +82,6 @@ $font-family-main: Montserrat, Arial, sans-serif !default;
 $font-family-accent: OpenSans, Arial, sans-serif !default;
 $font-family-monospace: Consolas, 'Courier New', monospace !default;
 
-$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg: $font-size-base * 1.25 !default;
-$font-size-sm: $font-size-base * 0.875 !default;
-
 // Components
 
 // Button
@@ -171,7 +117,7 @@ $datepicker-icon-color: $primary;
 $datepicker-weekday-color: $primary;
 $datepicker-day-width: 40px;
 $datepicker-day-height: 40px;
-$datepikcer-day-color: $dark-500;
+$datepicker-day-color: $dark-500;
 $datepicker-day-today-bg: $secondary-gradient;
 $datepicker-day-today-border: none;
 $datepicker-day-active-bg: $primary-gradient;
@@ -186,7 +132,7 @@ $datepicker-range-other-month-bg: $gray-400;
 // Checkbox
 $checkbox-width: 1.3rem;
 $checkbox-height: 1.3rem;
-$checkobx-color: $dark-500;
+$checkbox-color: $dark-500;
 $checkbox-border: 1px solid $dark-250;
 $checkbox-border-active: 1px solid $primary;
 $checkbox-border-radius: 0.25rem;

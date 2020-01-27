@@ -22,7 +22,7 @@ $input-label-size: 0.75rem !default;
 
   &__warning-msg {
     color: lighten($red, 10%);
-    font-size: $font-size-sm;
+    font-size: 0.875rem;
   }
 
   &_invalid {
