@@ -18,16 +18,17 @@ $hero-text-color: black !default;
   }
 
   &__content {
-    position: absolute;
-    min-width: 320px;
-    z-index: 20;
-    top: 70px;
-    left: 140px;
 
     @include to(980px) {
       left: 50%;
       transform: translateX(-50%);
     }
+
+    position: absolute;
+    z-index: 20;
+    top: 70px;
+    left: 140px;
+    min-width: 320px;
   }
 
   &__info {

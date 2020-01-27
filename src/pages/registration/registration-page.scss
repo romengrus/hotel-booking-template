@@ -1,13 +1,4 @@
 .registration-page {
-  &_hero {
-    height: 700px;
-
-    .hero__content {
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
 
   .main {
     max-width: 1440px;
@@ -16,5 +7,14 @@
 
   .main__wrapper {
     margin: 0;
+  }
+  &_hero {
+    height: 700px;
+
+    .hero__content {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }

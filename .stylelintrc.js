@@ -1,14 +1,17 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  plugins: ['stylelint-order'],
+  plugins: ['stylelint-order', 'stylelint-scss'],
   ignoreFiles: ['src/**/vendor/*.scss'],
   rules: {
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
     /**
      * Check selector ordering
      * https://github.com/hudochenkov/stylelint-order/blob/master/rules/order/README.md
      */
     'order/order': [
       'custom-properties',
+      'dollar-variables',
       // mixin includes
       {
         type: 'at-rule',

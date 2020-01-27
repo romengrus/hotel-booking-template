@@ -5,7 +5,6 @@
   }
 
   .sidebar {
-    padding-top: 30px;
 
     @include col();
     @include size(3);
@@ -13,10 +12,12 @@
     @include size-sm(0);
     @include sm-block() {
       position: absolute;
+      z-index: 1000;
       width: 250px;
       transform: translateX(-270px);
-      z-index: 1000;
     }
+
+    padding-top: 30px;
 
     &_visible-on-mobile {
       transform: translate(0);
@@ -64,23 +65,25 @@
     }
 
     &__toggle {
+
+      @include sm(display, block);
+
       display: none;
       margin-bottom: 10px;
       font-size: 16px;
       color: $black;
       cursor: pointer;
-
-      @include sm(display, block);
     }
   }
 
   .content {
-    padding: 30px 0 0 28px;
     @include col();
     @include size(9);
     @include size-md(8);
     @include size-sm(12);
     @include sm(padding-left, 0);
+
+    padding: 30px 0 0 28px;
 
     &__header {
       margin-bottom: 23px;

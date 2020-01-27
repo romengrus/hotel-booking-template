@@ -22,13 +22,13 @@ $fields: 20px;
 $fields_sm: 10px;
 
 @mixin wrapper-full() {
-  padding-left: $fields;
-  padding-right: $fields;
-
   @include sm-block() {
     padding-left: $fields_sm;
     padding-right: $fields_sm;
   }
+
+  padding-left: $fields;
+  padding-right: $fields;
 }
 
 @mixin row-offsets() {
@@ -42,25 +42,29 @@ $fields_sm: 10px;
 }
 
 @mixin wrapper() {
+  @include wrapper-full();
+
   max-width: 1200px;
   margin: 0 auto;
-  @include wrapper-full();
 }
 
 @mixin row() {
+  @include row-offsets();
+
   display: flex;
   flex-wrap: wrap;
-  @include row-offsets();
 }
 
 @mixin col() {
+  @include col-offsets(margin);
+
   box-sizing: border-box;
   word-wrap: break-word;
-  @include col-offsets(margin);
 }
 
 @mixin size($n) {
   $val: 100% / $columns * $n;
+
   width: #{calc(#{$val} - #{$offset})};
 }
 
@@ -151,21 +155,24 @@ $fields_sm: 10px;
 }
 
 @mixin debug($background, $outline) {
-  height: 100vh;
   position: fixed;
   width: 100%;
+  height: 100vh;
 
   > div {
-    height: inherit;
     @include wrapper();
 
+    height: inherit;
+
     > div {
-      height: inherit;
       @include row();
+
+      height: inherit;
 
       > div {
         @include col();
         @include size(1);
+
         height: inherit;
         outline: $outline;
         background: $background;

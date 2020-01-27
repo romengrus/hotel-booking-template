@@ -8,6 +8,7 @@
     @include wrapper();
     @include row();
     @include md(justify-content, center);
+
     margin: 0 auto;
     padding-left: 5px;
     padding-right: 5px;

@@ -10,6 +10,7 @@
 
   .page-wrapper {
     @include wrapper();
+
     margin-top: 70px;
     padding-bottom: 54px;
   }
@@ -45,7 +46,6 @@
   }
 
   .room-stats {
-    padding-left: 30px;
 
     @include col();
     @include size(7);
@@ -55,6 +55,8 @@
       padding-left: 0;
     }
 
+    padding-left: 30px;
+
     .chart {
       margin-top: 24px;
       justify-content: flex-start;
@@ -62,11 +64,12 @@
   }
 
   .testimonials {
-    margin-top: 13px;
 
     @include col();
     @include size(12);
     @include sm(margin-top, 40px);
+
+    margin-top: 13px;
 
     .testimonial {
       margin-top: 25px;
@@ -76,6 +79,7 @@
   .behavior-rules {
     @include col();
     @include size(5);
+
     margin-top: 34px;
     padding-left: 20px;
 
@@ -88,6 +92,7 @@
   .cancel-rules {
     @include col();
     @include size(7);
+
     margin-top: 34px;
     padding-left: 30px;
 
@@ -104,7 +109,6 @@
   }
 
   &_hero {
-    height: 486px;
 
     @include md-block() {
       .swiper-container-thumbs {
@@ -117,5 +121,7 @@
         display: none;
       }
     }
+
+    height: 486px;
   }
 }
