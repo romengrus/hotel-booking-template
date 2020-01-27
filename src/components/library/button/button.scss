@@ -56,7 +56,7 @@ $button-text-color: $white;
 
   &_is-outlined {
     border: $button-border-width solid transparent;
-    padding: 0 19px;
+    padding: 0 17px;
     color: $primary;
     background-image: linear-gradient($button-text-color, $button-text-color), $primary-gradient;
     background-origin: border-box;

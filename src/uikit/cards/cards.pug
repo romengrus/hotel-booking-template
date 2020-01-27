@@ -17,11 +17,11 @@ block main
 
   main.container
     .row
-      div(class= 'col col_small')
+      div(class= 'col')
         +room-search
         +register
 
-      div(class= 'col col_small')
+      div(class= 'col', style= 'margin-left: 25px;')
         +room-reservation({
           roomNumber: 888,
           isLux: true,
@@ -37,9 +37,10 @@ block main
           }]
         })
 
-        +login
+        div(style= 'margin-top: 208px;')
+          +login
 
-      div(class= 'col col_small')
+      div(class= 'col', style= 'margin-left: 25px; padding-top: 409px;')
         +room-card({
           roomNumber: 888,
           isLux: true,
