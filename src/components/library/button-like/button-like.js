@@ -1,7 +1,8 @@
 export class ButtonLike {
   constructor($el) {
+    const cls = ButtonLike.getBaseCSSClass();
     this.$el = $el;
-    this.$display = $el.querySelector('.button-like__display');
+    this.$display = $el.querySelector(`${cls}__display`);
     this.$icon = $el.querySelector('.icon > use');
     this.value = parseInt($el.dataset.value, 10);
     this.objectId = $el.dataset.objectId;
@@ -11,7 +12,7 @@ export class ButtonLike {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.button-like';
   }
 

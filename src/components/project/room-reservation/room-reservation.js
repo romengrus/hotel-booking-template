@@ -43,11 +43,12 @@ function feesHtml(fees, days, price, currency) {
 
 export class RoomReservation {
   constructor($el) {
+    this.cls = RoomReservation.getBaseCSSClass();
     this.$el = $el;
-    this.$arrival = $el.querySelector('.room-reservation__arrival-input');
-    this.$departure = $el.querySelector('.room-reservation__departure-input');
-    this.$fees = $el.querySelector('.room-reservation__fees');
-    this.$infoIcons = $el.querySelectorAll('.room-reservation__fee-desc > .icon');
+    this.$arrival = $el.querySelector(`${this.cls}__arrival-input`);
+    this.$departure = $el.querySelector(`${this.cls}__departure-input`);
+    this.$fees = $el.querySelector(`${this.cls}__fees`);
+    this.$infoIcons = $el.querySelectorAll(`${this.cls}__fee-desc > .icon`);
     this.cArrival = this.$arrival.__component;
     this.cDeparture = this.$departure.__component;
     this.fees = JSON.parse(this.$fees.dataset.fees);
@@ -56,7 +57,7 @@ export class RoomReservation {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.room-reservation';
   }
 

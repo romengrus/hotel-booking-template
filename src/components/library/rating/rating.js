@@ -3,8 +3,9 @@ import { debounce } from 'lodash';
 
 export class Rating {
   constructor($el) {
+    this.cls = Rating.getBaseCSSClass();
     this.$el = $el;
-    this.$icons = $el.querySelectorAll('.rating__icon > use');
+    this.$icons = $el.querySelectorAll(`${this.cls}__icon > use`);
     this.isPartial = 'isPartial' in $el.dataset;
     this.value = parseFloat($el.dataset.value || 0);
     this.objectId = $el.dataset.objectId || '';
@@ -14,7 +15,7 @@ export class Rating {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.rating';
   }
 

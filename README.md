@@ -84,8 +84,8 @@ src/            # Source code
       this.init()
     }
 
-    static getQuerySelector() {
-      return 'css class name';
+    static getBaseCSSClass() {
+      return 'css-class-name';
     }
 
     init() {

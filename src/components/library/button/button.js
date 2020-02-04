@@ -4,7 +4,7 @@ export class Button {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.button';
   }
 

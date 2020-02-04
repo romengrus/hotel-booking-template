@@ -1,19 +1,20 @@
 export class RoomSearch {
   constructor($el) {
+    this.cls = RoomSearch.getBaseCSSClass();
     this.$el = $el;
-    this.$arrival = $el.querySelector('.room-search__arrival-input');
-    this.$departure = $el.querySelector('.room-search__departure-input');
+    this.$arrival = $el.querySelector(`${this.cls}__arrival-input`);
+    this.$departure = $el.querySelector(`${this.cls}__departure-input`);
     this.cArrival = this.$arrival.__component;
     this.cDeparture = this.$departure.__component;
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.room-search';
   }
 
   init() {
-    // restrict arrival & departure lower boun to current date
+    // restrict arrival & departure lower bound to current date
     this.cArrival.datepicker.set('minDate', new Date());
     this.cDeparture.datepicker.set('minDate', new Date());
 

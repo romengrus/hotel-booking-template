@@ -1,8 +1,6 @@
-import IMask from 'imask';
-import flatpickr from 'flatpickr';
 import { Russian } from 'flatpickr/dist/l10n/ru';
-
-const lang = 'ru';
+import flatpickr from 'flatpickr';
+import IMask from 'imask';
 
 function getDatepickerLocale(language = 'en') {
   switch (language) {
@@ -15,15 +13,17 @@ function getDatepickerLocale(language = 'en') {
 
 export class FormFieldDatetime {
   constructor($el) {
+    this.cls = FormFieldDatetime.getBaseCSSClass();
+    this.lang = 'ru';
     this.$el = $el;
-    this.$input = $el.querySelector('.form-field-datetime__input');
-    this.$icon = $el.querySelector('.form-field-datetime__icon');
+    this.$input = $el.querySelector(`${this.cls}__input`);
+    this.$icon = $el.querySelector(`${this.cls}__icon`);
     this.mask = null;
     this.datepicker = null;
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.form-field-datetime';
   }
 
@@ -57,15 +57,15 @@ export class FormFieldDatetime {
   }
 
   _createDatepicker() {
-    const $nextArrow = this.$el.querySelector('.form-field-datetime__icon-next');
-    const $prevArrow = this.$el.querySelector('.form-field-datetime__icon-prev');
-    const $actionsPanel = this.$el.querySelector('.form-field-datetime__actions-panel');
-    const $buttonReset = $actionsPanel.querySelector('.form-field-datetime__reset');
-    const $buttonOk = $actionsPanel.querySelector('.form-field-datetime__ok');
-    const $toggler = this.$el.querySelector('.form-field-datetime__icon-toggle');
+    const $nextArrow = this.$el.querySelector(`${this.cls}__icon-next`);
+    const $prevArrow = this.$el.querySelector(`${this.cls}__icon-prev`);
+    const $actionsPanel = this.$el.querySelector(`${this.cls}__actions-panel`);
+    const $buttonReset = $actionsPanel.querySelector(`${this.cls}__reset`);
+    const $buttonOk = $actionsPanel.querySelector(`${this.cls}__ok`);
+    const $toggler = this.$el.querySelector(`${this.cls}__icon-toggle`);
 
     const datepicker = flatpickr(this.$el, {
-      locale: getDatepickerLocale(lang),
+      locale: getDatepickerLocale(this.lang),
       altInput: true,
       altInputClass: 'form-field',
       altFormat: this.$input.dataset.dateFormat || 'd.m.Y',

@@ -8,7 +8,7 @@ export class Slider {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.slider';
   }
 

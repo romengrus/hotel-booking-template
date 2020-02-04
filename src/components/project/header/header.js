@@ -1,13 +1,14 @@
 export class Header {
   constructor($el) {
+    this.cls = Header.getBaseCSSClass();
     this.$el = $el;
-    this.menu = $el.querySelector('.js-header__menu');
-    this.menuToggler = $el.querySelector('.js-header__menu-toggler');
-    this.menuClose = $el.querySelector('.js-header__menu-close');
+    this.menu = $el.querySelector(`${this.cls}__menu`);
+    this.menuToggler = $el.querySelector(`${this.cls}__menu-toggler`);
+    this.menuClose = $el.querySelector(`${this.cls}__menu-close`);
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.header';
   }
 

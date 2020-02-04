@@ -6,7 +6,7 @@ export class Subscription {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.subscription';
   }
 

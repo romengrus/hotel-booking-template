@@ -3,17 +3,18 @@ import wNumb from 'wnumb';
 
 export class FormFieldRangeSlider {
   constructor($el) {
+    this.cls = FormFieldRangeSlider.getBaseCSSClass();
     this.$el = $el;
-    this.$slider = $el.querySelector('.form-field-range-slider__slider');
-    this.$input = $el.querySelector('.form-field-range-slider__input');
-    this.$display = $el.querySelector('.form-field-range-slider__display');
+    this.$slider = $el.querySelector(`${this.cls}__slider`);
+    this.$input = $el.querySelector(`${this.cls}__input`);
+    this.$display = $el.querySelector(`${this.cls}__display`);
     this.params = JSON.parse(this.$input.dataset.params);
     this.showValue = 'showValue' in this.$input.dataset;
     this.slider = null;
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.form-field-range-slider';
   }
 

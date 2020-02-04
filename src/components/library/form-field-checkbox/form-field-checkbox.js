@@ -1,12 +1,13 @@
 export class FormFieldCheckbox {
   constructor($el) {
+    const cls = FormFieldCheckbox.getBaseCSSClass();
     this.$el = $el;
-    this.$input = $el.querySelector('.checkbox__input');
-    this.$customInput = $el.querySelector('.checkbox__custom');
+    this.$input = $el.querySelector(`${cls}__input`);
+    this.$customInput = $el.querySelector(`${cls}__custom`);
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.checkbox';
   }
 

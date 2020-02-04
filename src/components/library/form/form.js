@@ -1,10 +1,10 @@
 import hyperform from 'hyperform';
-import formValidationI18n from '../../../i18n/formValidation';
 
-const lang = 'ru';
+import formValidationI18n from '../../../i18n/formValidation';
 
 export class Form {
   constructor($el) {
+    this.lang = 'ru';
     this.$el = $el;
     this.formValidationClasses = {
       warning: 'form-field__warning-msg',
@@ -15,7 +15,7 @@ export class Form {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.form';
   }
 
@@ -25,7 +25,7 @@ export class Form {
       validateNameless: true,
       preventImplicitSubmit: true
     });
-    hyperform.addTranslation(lang, formValidationI18n[lang]);
-    hyperform.setLanguage(lang);
+    hyperform.addTranslation(this.lang, formValidationI18n[this.lang]);
+    hyperform.setLanguage(this.lang);
   }
 }

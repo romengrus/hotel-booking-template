@@ -1,14 +1,15 @@
 export class Panel {
   constructor($el) {
+    this.cls = Panel.getBaseCSSClass();
     this.$el = $el;
-    this.$toggler = $el.querySelector('.panel__toggler');
-    this.$header = $el.querySelector('.panel__header');
-    this.$body = $el.querySelector('.panel__body');
+    this.$toggler = $el.querySelector(`${this.cls}__toggler`);
+    this.$header = $el.querySelector(`${this.cls}__header`);
+    this.$body = $el.querySelector(`${this.cls}__body`);
     this.isCollapsible = 'isCollapsible' in $el.dataset;
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.panel';
   }
 

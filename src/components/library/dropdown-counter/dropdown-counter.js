@@ -2,16 +2,17 @@ import { pluralize } from '../../../l10n/utils';
 
 export class DropdownCounter {
   constructor($el) {
+    const cls = DropdownCounter.getBaseCSSClass();
     this.$el = $el;
-    this.$header = $el.querySelector('.dropdown-counter__header');
-    this.$body = $el.querySelector('.dropdown-counter__body');
-    this.$actionsPanel = $el.querySelector('.dropdown-counter__actions-panel');
-    this.$input = $el.querySelector('.dropdown-counter__value');
-    this.$inputAlt = $el.querySelector('.dropdown-counter__value-alt');
-    this.$toggler = $el.querySelector('.dropdown-counter__toggler');
-    this.$ok = $el.querySelector('.dropdown-counter__ok');
-    this.$reset = $el.querySelector('.dropdown-counter__reset');
-    this.$counters = $el.querySelectorAll('.dropdown-counter__counter');
+    this.$header = $el.querySelector(`${cls}__header`);
+    this.$body = $el.querySelector(`${cls}__body`);
+    this.$actionsPanel = $el.querySelector(`${cls}__actions-panel`);
+    this.$input = $el.querySelector(`${cls}__value`);
+    this.$inputAlt = $el.querySelector(`${cls}__value-alt`);
+    this.$toggler = $el.querySelector(`${cls}__toggler`);
+    this.$ok = $el.querySelector(`${cls}__ok`);
+    this.$reset = $el.querySelector(`${cls}__reset`);
+    this.$counters = $el.querySelectorAll(`${cls}__counter`);
     this.countersProps = JSON.parse($el.dataset.countersProps);
     this.displayType = $el.dataset.displayType || 'total';
     this.plurals = JSON.parse($el.dataset.plurals) || [];
@@ -21,7 +22,7 @@ export class DropdownCounter {
     this.updateDOM();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.dropdown-counter';
   }
 

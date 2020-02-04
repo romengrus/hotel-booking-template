@@ -1,12 +1,13 @@
 export class FormFieldRadio {
   constructor($el) {
+    this.cls = FormFieldRadio.getBaseCSSClass();
     this.$el = $el;
-    this.$input = $el.querySelector('.radio__input');
-    this.$customInput = $el.querySelector('.radio__custom');
+    this.$input = $el.querySelector(`${this.cls}__input`);
+    this.$customInput = $el.querySelector(`${this.cls}__custom`);
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.radio';
   }
 

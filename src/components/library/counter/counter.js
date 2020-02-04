@@ -2,11 +2,12 @@ import { pluralize } from '../../../l10n/utils';
 
 export class Counter {
   constructor($el) {
+    const cls = Counter.getBaseCSSClass();
     this.$el = $el;
-    this.$input = $el.querySelector('.counter__input');
-    this.$display = $el.querySelector('.counter__display');
-    this.$btnInc = $el.querySelector('.counter__button-inc');
-    this.$btnDec = $el.querySelector('.counter__button-dec');
+    this.$input = $el.querySelector(`${cls}__input`);
+    this.$display = $el.querySelector(`${cls}__display`);
+    this.$btnInc = $el.querySelector(`${cls}__button-inc`);
+    this.$btnDec = $el.querySelector(`${cls}__button-dec`);
     this.value = this.$input.value || 0;
     this.label = $el.dataset.label || '';
     this.plurals = JSON.parse($el.dataset.plurals) || [];
@@ -17,7 +18,7 @@ export class Counter {
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.counter';
   }
 

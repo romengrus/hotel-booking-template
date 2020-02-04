@@ -1,4 +1,5 @@
 //- Main header
+//-
 //- isLoggedIn  {boolean} If user is logged in
 //- userName    {string} User name to show in auth block
 //- mods        {array} Modifier classes
@@ -24,8 +25,8 @@ mixin header(props)
           a(href= '/')
             include /assets/img/logo.svg
 
-        .header__menu.js-header__menu
-          button.header__menu-close.js-header__menu-close &times;
+        .header__menu
+          button.header__menu-close &times;
 
           +menu({items: menuData})
 
@@ -37,4 +38,4 @@ mixin header(props)
               +button({value: 'войти', isOutlined: true, mods: ['header__button']})
               +button({value: 'зарегистрироваться', mods: ['header__button']})
 
-        +hamburger-menu({mods: ['header__menu-toggler', 'js-header__menu-toggler']})
+        +hamburger-menu({mods: ['header__menu-toggler']})

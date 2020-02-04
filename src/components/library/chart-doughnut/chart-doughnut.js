@@ -1,15 +1,16 @@
 export class ChartDoughnut {
   constructor($el) {
+    const cls = ChartDoughnut.getBaseCSSClass();
     this.$el = $el;
     this.chartData = JSON.parse(this.$el.getAttribute('data-chart-data'));
-    this.$segments = $el.querySelectorAll('.chart-doughnut__segment');
-    this.$labels = $el.querySelectorAll('.chart-doughnut__label');
-    this.$header = $el.querySelector('.chart-doughnut__header');
+    this.$segments = $el.querySelectorAll(`${cls}__segment`);
+    this.$labels = $el.querySelectorAll(`${cls}__label`);
+    this.$header = $el.querySelector(`${cls}__header`);
     this.total = this.chartData.map(v => v.value).reduce((a, b) => a + b, 0);
     this.init();
   }
 
-  static getQuerySelector() {
+  static getBaseCSSClass() {
     return '.chart-doughnut';
   }
 
