@@ -32,7 +32,7 @@ mixin header(props)
 
           if props.isLoggedIn
             .header__auth.header__auth_is-logged-in
-              a(class= 'header__profile-link', href= '#')= props.userName
+              a(class= 'header__profile-link', href= dummyURL)= props.userName
           else 
             .header__auth
               +button({value: 'войти', isOutlined: true, mods: ['header__button']})

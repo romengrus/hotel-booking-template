@@ -58,7 +58,7 @@ mixin slider(props = {})
       .swiper-wrapper
         each slide in props.slides
           if 'img' in slide
-            a(class= 'swiper-slide', href= `${slide.url || '#'}`, style= `background-image: url(${slide.img})`)
+            a(class= 'swiper-slide', href= `${slide.url || dummyURL}`, style= `background-image: url(${slide.img})`)
 
       if (props.showPagination)
         .swiper-pagination

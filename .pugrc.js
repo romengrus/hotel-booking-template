@@ -33,7 +33,9 @@ function hexToRGBA(hex, alpha) {
   }
 }
 
+const dummyURL = '/please-change-this-url-is-source-files';
+
 module.exports = {
   basedir,
-  locals: { iconNames, getData, pluralize, createRandomId, hexToRGBA }
+  locals: { iconNames, getData, pluralize, createRandomId, hexToRGBA, dummyURL }
 };

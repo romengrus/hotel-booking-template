@@ -99,18 +99,18 @@ mixin pagination(props = {})
             iconName: 'arrow-left', 
             iconPosition: 'left',
             mods: arrowMods.concat('pagination__prev')
-          })(href= '#')
+          })(href= dummyURL)
 
         //- main listing
         - for(let i = 1; i <= lastPage; i += 1)
           if (i === currentPage)
             +button({value: i, mods: pageMods.concat('pagination__page-current')})
           else if (i === 1)
-            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-first')})(href= '#')
+            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-first')})(href= dummyURL)
           else if (i === lastPage)
-            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-last')})(href= '#')
+            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-last')})(href= dummyURL)
           else if (i >= currentPage - delta && i <= currentPage + delta)
-            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-delta')})(href= '#')
+            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-delta')})(href= dummyURL)
           else if (i === currentPage - delta - 1 || i === currentPage + delta + 1)
             span(class= pageMods.concat('pagination__dots')) ...
 
@@ -122,7 +122,7 @@ mixin pagination(props = {})
             iconName: 'arrow-right', 
             iconPosition: 'right',
             mods: arrowMods.concat('pagination__next')
-          })(href= '#')
+          })(href= dummyURL)
 
       if (props.showLabel)
         .pagination__label= eval('`' + props.label + '`')
