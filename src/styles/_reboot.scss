@@ -213,6 +213,10 @@ a {
     color: darken($blue, 10%);
     text-decoration: underline;
   }
+
+  &:visited {
+    color: $black;
+  }
 }
 
 // And undo these styles for placeholder links/named anchors (without href)
