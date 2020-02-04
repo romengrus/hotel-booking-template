@@ -3,9 +3,9 @@ import hyperform from 'hyperform';
 import formValidationI18n from '../../../i18n/formValidation';
 
 export class Form {
-  constructor($el) {
+  constructor(el) {
     this.lang = 'ru';
-    this.$el = $el;
+    this.el = el;
     this.formValidationClasses = {
       warning: 'form-field__warning-msg',
       valid: 'form-field_valid',
@@ -20,7 +20,7 @@ export class Form {
   }
 
   init() {
-    hyperform(this.$el, {
+    hyperform(this.el, {
       classes: this.formValidationClasses,
       validateNameless: true,
       preventImplicitSubmit: true

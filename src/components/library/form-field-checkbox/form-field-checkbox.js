@@ -1,9 +1,9 @@
 export class FormFieldCheckbox {
-  constructor($el) {
+  constructor(el) {
     const cls = FormFieldCheckbox.getBaseCSSClass();
-    this.$el = $el;
-    this.$input = $el.querySelector(`${cls}__input`);
-    this.$customInput = $el.querySelector(`${cls}__custom`);
+    this.el = el;
+    this.input = el.querySelector(`${cls}__input`);
+    this.customInput = el.querySelector(`${cls}__custom`);
     this.init();
   }
 
@@ -16,10 +16,10 @@ export class FormFieldCheckbox {
   }
 
   _attachEventHandlers() {
-    this.$customInput.addEventListener('click', () => this._handleCustomInputClick());
+    this.customInput.addEventListener('click', () => this._handleCustomInputClick());
   }
 
   _handleCustomInputClick() {
-    this.$input.checked = !this.$input.checked;
+    this.input.checked = !this.input.checked;
   }
 }

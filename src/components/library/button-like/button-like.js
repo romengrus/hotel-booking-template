@@ -1,14 +1,14 @@
 export class ButtonLike {
-  constructor($el) {
+  constructor(el) {
     const cls = ButtonLike.getBaseCSSClass();
-    this.$el = $el;
-    this.$display = $el.querySelector(`${cls}__display`);
-    this.$icon = $el.querySelector('.icon > use');
-    this.value = parseInt($el.dataset.value, 10);
-    this.objectId = $el.dataset.objectId;
-    this.hasVoted = !!$el.dataset.hasVoted;
-    this.iconLike = $el.dataset.iconLike;
-    this.iconDislike = $el.dataset.iconDislike;
+    this.el = el;
+    this.display = el.querySelector(`${cls}__display`);
+    this.icon = el.querySelector('.icon > use');
+    this.value = parseInt(el.dataset.value, 10);
+    this.objectId = el.dataset.objectId;
+    this.hasVoted = !!el.dataset.hasVoted;
+    this.iconLike = el.dataset.iconLike;
+    this.iconDislike = el.dataset.iconDislike;
     this.init();
   }
 
@@ -21,7 +21,7 @@ export class ButtonLike {
   }
 
   _attachEventHandlers() {
-    this.$el.addEventListener('click', () => this._handleButtonClick());
+    this.el.addEventListener('click', () => this._handleButtonClick());
   }
 
   _handleButtonClick() {
@@ -32,13 +32,13 @@ export class ButtonLike {
     }
 
     this.hasVoted = !this.hasVoted;
-    this.$el.dataset.value = this.value;
-    this.$display.textContent = this.value;
-    this.$icon.setAttribute('href', `#${this.hasVoted ? this.iconLike : this.iconDislike}`);
+    this.el.dataset.value = this.value;
+    this.display.textContent = this.value;
+    this.icon.setAttribute('href', `#${this.hasVoted ? this.iconLike : this.iconDislike}`);
     if (this.hasVoted) {
-      this.$el.classList.add('button-like_has-voted');
+      this.el.classList.add('button-like_has-voted');
     } else {
-      this.$el.classList.remove('button-like_has-voted');
+      this.el.classList.remove('button-like_has-voted');
     }
 
     this.dispatchVotedEvent();
@@ -51,6 +51,6 @@ export class ButtonLike {
         objectId: this.objectId
       }
     });
-    this.$el.dispatchEvent(event);
+    this.el.dispatchEvent(event);
   }
 }

@@ -1,8 +1,8 @@
 export class Subscription {
-  constructor($el) {
-    this.$el = $el;
-    this.$form = $el.querySelector('.form');
-    this.$icon = $el.querySelector('.icon');
+  constructor(el) {
+    this.el = el;
+    this.form = el.querySelector('.form');
+    this.icon = el.querySelector('.icon');
     this.init();
   }
 
@@ -15,6 +15,6 @@ export class Subscription {
   }
 
   _attachEventHandlers() {
-    this.$icon.addEventListener('click', () => this.$form.submit());
+    this.icon.addEventListener('click', () => this.form.submit());
   }
 }

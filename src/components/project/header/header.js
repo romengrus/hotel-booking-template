@@ -1,10 +1,10 @@
 export class Header {
-  constructor($el) {
+  constructor(el) {
     this.cls = Header.getBaseCSSClass();
-    this.$el = $el;
-    this.menu = $el.querySelector(`${this.cls}__menu`);
-    this.menuToggler = $el.querySelector(`${this.cls}__menu-toggler`);
-    this.menuClose = $el.querySelector(`${this.cls}__menu-close`);
+    this.el = el;
+    this.menu = el.querySelector(`${this.cls}__menu`);
+    this.menuToggler = el.querySelector(`${this.cls}__menu-toggler`);
+    this.menuClose = el.querySelector(`${this.cls}__menu-close`);
     this.init();
   }
 

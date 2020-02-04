@@ -12,12 +12,12 @@ function getDatepickerLocale(language = 'en') {
 }
 
 export class FormFieldDatetime {
-  constructor($el) {
+  constructor(el) {
     this.cls = FormFieldDatetime.getBaseCSSClass();
     this.lang = 'ru';
-    this.$el = $el;
-    this.$input = $el.querySelector(`${this.cls}__input`);
-    this.$icon = $el.querySelector(`${this.cls}__icon`);
+    this.el = el;
+    this.input = el.querySelector(`${this.cls}__input`);
+    this.icon = el.querySelector(`${this.cls}__icon`);
     this.mask = null;
     this.datepicker = null;
     this.init();
@@ -28,7 +28,7 @@ export class FormFieldDatetime {
   }
 
   init() {
-    if ('useDatepicker' in this.$input.dataset) {
+    if ('useDatepicker' in this.input.dataset) {
       this.datepicker = this._createDatepicker();
     } else {
       this.mask = this._createMask();
@@ -38,13 +38,13 @@ export class FormFieldDatetime {
   }
 
   _attachComponentToDOMElement() {
-    this.$el.__component = this;
+    this.el.__component = this;
   }
 
   _createMask() {
-    return IMask(this.$input, {
+    return IMask(this.input, {
       mask: Date,
-      pattern: this.$input.dataset.dateFormat || 'd.m.Y',
+      pattern: this.input.dataset.dateFormat || 'd.m.Y',
       lazy: false,
       overwrite: true,
       autofix: true,
@@ -57,40 +57,40 @@ export class FormFieldDatetime {
   }
 
   _createDatepicker() {
-    const $nextArrow = this.$el.querySelector(`${this.cls}__icon-next`);
-    const $prevArrow = this.$el.querySelector(`${this.cls}__icon-prev`);
-    const $actionsPanel = this.$el.querySelector(`${this.cls}__actions-panel`);
-    const $buttonReset = $actionsPanel.querySelector(`${this.cls}__reset`);
-    const $buttonOk = $actionsPanel.querySelector(`${this.cls}__ok`);
-    const $toggler = this.$el.querySelector(`${this.cls}__icon-toggle`);
+    const nextArrow = this.el.querySelector(`${this.cls}__icon-next`);
+    const prevArrow = this.el.querySelector(`${this.cls}__icon-prev`);
+    const actionsPanel = this.el.querySelector(`${this.cls}__actions-panel`);
+    const buttonReset = actionsPanel.querySelector(`${this.cls}__reset`);
+    const buttonOk = actionsPanel.querySelector(`${this.cls}__ok`);
+    const toggler = this.el.querySelector(`${this.cls}__icon-toggle`);
 
-    const datepicker = flatpickr(this.$el, {
+    const datepicker = flatpickr(this.el, {
       locale: getDatepickerLocale(this.lang),
       altInput: true,
       altInputClass: 'form-field',
-      altFormat: this.$input.dataset.dateFormat || 'd.m.Y',
-      defaultDate: this.$input.dataset.defaultDate,
+      altFormat: this.input.dataset.dateFormat || 'd.m.Y',
+      defaultDate: this.input.dataset.defaultDate,
       wrap: true,
-      mode: this.$input.dataset.datepickerMode || 'single',
-      nextArrow: $nextArrow ? $nextArrow.outerHTML : '>',
-      prevArrow: $prevArrow ? $prevArrow.outerHTML : '<'
+      mode: this.input.dataset.datepickerMode || 'single',
+      nextArrow: nextArrow ? nextArrow.outerHTML : '>',
+      prevArrow: prevArrow ? prevArrow.outerHTML : '<'
     });
 
-    datepicker.$buttonReset = $buttonReset;
-    datepicker.$buttonOk = $buttonOk;
+    datepicker.$buttonReset = buttonReset;
+    datepicker.$buttonOk = buttonOk;
     datepicker.config.onOpen.push(() =>
-      $toggler.classList.remove('form-field-datetime__icon-toggle_collapsed')
+      toggler.classList.remove('form-field-datetime__icon-toggle_collapsed')
     );
     datepicker.config.onClose.push(() =>
-      $toggler.classList.add('form-field-datetime__icon-toggle_collapsed')
+      toggler.classList.add('form-field-datetime__icon-toggle_collapsed')
     );
 
     // handle action buttons click event
-    $buttonReset.addEventListener('click', () => datepicker.clear());
-    $buttonOk.addEventListener('click', () => datepicker.close());
+    buttonReset.addEventListener('click', () => datepicker.clear());
+    buttonOk.addEventListener('click', () => datepicker.close());
 
     // move actions panel inside datepicker container
-    datepicker.calendarContainer.appendChild($actionsPanel);
+    datepicker.calendarContainer.appendChild(actionsPanel);
 
     return datepicker;
   }

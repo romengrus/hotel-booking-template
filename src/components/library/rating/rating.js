@@ -2,16 +2,16 @@
 import { debounce } from 'lodash';
 
 export class Rating {
-  constructor($el) {
+  constructor(el) {
     this.cls = Rating.getBaseCSSClass();
-    this.$el = $el;
-    this.$icons = $el.querySelectorAll(`${this.cls}__icon > use`);
-    this.isPartial = 'isPartial' in $el.dataset;
-    this.value = parseFloat($el.dataset.value || 0);
-    this.objectId = $el.dataset.objectId || '';
-    this.iconEmpty = $el.dataset.iconEmpty || 'star';
-    this.iconFilled = $el.dataset.iconFilled || 'star-active';
-    this.iconHalfFilled = $el.dataset.iconHalfFilled || 'star-half-active';
+    this.el = el;
+    this.icons = el.querySelectorAll(`${this.cls}__icon > use`);
+    this.isPartial = 'isPartial' in el.dataset;
+    this.value = parseFloat(el.dataset.value || 0);
+    this.objectId = el.dataset.objectId || '';
+    this.iconEmpty = el.dataset.iconEmpty || 'star';
+    this.iconFilled = el.dataset.iconFilled || 'star-active';
+    this.iconHalfFilled = el.dataset.iconHalfFilled || 'star-half-active';
     this.init();
   }
 
@@ -25,24 +25,24 @@ export class Rating {
   }
 
   updateDOM(ratingValue) {
-    const { $icons, iconEmpty, iconFilled, iconHalfFilled } = this;
+    const { icons, iconEmpty, iconFilled, iconHalfFilled } = this;
     const currentValue = this.roundToNearestHalf(ratingValue);
     const activeIconsLength = Math.trunc(currentValue);
     const halfActiveIconsLength = currentValue - activeIconsLength;
 
     // Make all icons empty
-    for (let i = 0; i < $icons.length; i += 1) {
-      $icons[i].setAttribute('href', `#${iconEmpty}`);
+    for (let i = 0; i < icons.length; i += 1) {
+      icons[i].setAttribute('href', `#${iconEmpty}`);
     }
 
     // Fill active icons
     for (let i = 0; i < activeIconsLength; i += 1) {
-      $icons[i].setAttribute('href', `#${iconFilled}`);
+      icons[i].setAttribute('href', `#${iconFilled}`);
     }
 
     // Fill half icons
     if (halfActiveIconsLength) {
-      $icons[activeIconsLength].setAttribute('href', `#${iconHalfFilled}`);
+      icons[activeIconsLength].setAttribute('href', `#${iconHalfFilled}`);
     }
   }
 
@@ -73,8 +73,8 @@ export class Rating {
    * @param {number} mouseClientX Position of mouse pointer on x axis
    */
   valueFromMousePos(mouseClientX) {
-    const numIcons = this.$icons.length;
-    const rect = this.$el.getBoundingClientRect();
+    const numIcons = this.icons.length;
+    const rect = this.el.getBoundingClientRect();
     const x = mouseClientX - rect.left;
     const width = rect.width;
 
@@ -88,16 +88,16 @@ export class Rating {
         objectId: this.objectId
       }
     });
-    this.$el.dispatchEvent(event);
+    this.el.dispatchEvent(event);
   }
 
   _attachEventHandlers() {
     const onMouseMoveDebounced = debounce(this._onMouseMove, 5, { leading: true });
     const onMouseMoveDebouncedBinded = onMouseMoveDebounced.bind(this);
 
-    this.$el.addEventListener('mousemove', e => onMouseMoveDebouncedBinded(e));
-    this.$el.addEventListener('mouseleave', e => this._onMouseLeave(e));
-    this.$el.addEventListener('click', e => this._onClick(e));
+    this.el.addEventListener('mousemove', e => onMouseMoveDebouncedBinded(e));
+    this.el.addEventListener('mouseleave', e => this._onMouseLeave(e));
+    this.el.addEventListener('click', e => this._onClick(e));
   }
 
   _onMouseMove(e) {

@@ -3,8 +3,8 @@ import * as projectComponents from '../components/project';
 
 function factory(Component) {
   const qs = Component.getBaseCSSClass();
-  const $elements = document.querySelectorAll(qs);
-  return [...$elements].map($el => new Component($el));
+  const elements = document.querySelectorAll(qs);
+  return [...elements].map(el => new Component(el));
 }
 
 document.addEventListener('DOMContentLoaded', () => {

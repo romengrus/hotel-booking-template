@@ -1,9 +1,9 @@
 export class FormFieldRadio {
-  constructor($el) {
+  constructor(el) {
     this.cls = FormFieldRadio.getBaseCSSClass();
-    this.$el = $el;
-    this.$input = $el.querySelector(`${this.cls}__input`);
-    this.$customInput = $el.querySelector(`${this.cls}__custom`);
+    this.el = el;
+    this.input = el.querySelector(`${this.cls}__input`);
+    this.customInput = el.querySelector(`${this.cls}__custom`);
     this.init();
   }
 
@@ -16,10 +16,10 @@ export class FormFieldRadio {
   }
 
   _attachEventHandlers() {
-    this.$customInput.addEventListener('click', () => this._handleCustomInputClick());
+    this.customInput.addEventListener('click', () => this._handleCustomInputClick());
   }
 
   _handleCustomInputClick() {
-    this.$input.checked = true;
+    this.input.checked = true;
   }
 }

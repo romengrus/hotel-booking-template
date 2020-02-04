@@ -2,14 +2,14 @@ import RangeSlider from 'nouislider';
 import wNumb from 'wnumb';
 
 export class FormFieldRangeSlider {
-  constructor($el) {
+  constructor(el) {
     this.cls = FormFieldRangeSlider.getBaseCSSClass();
-    this.$el = $el;
-    this.$slider = $el.querySelector(`${this.cls}__slider`);
-    this.$input = $el.querySelector(`${this.cls}__input`);
-    this.$display = $el.querySelector(`${this.cls}__display`);
-    this.params = JSON.parse(this.$input.dataset.params);
-    this.showValue = 'showValue' in this.$input.dataset;
+    this.el = el;
+    this.sliderEl = el.querySelector(`${this.cls}__slider`);
+    this.input = el.querySelector(`${this.cls}__input`);
+    this.display = el.querySelector(`${this.cls}__display`);
+    this.params = JSON.parse(this.input.dataset.params);
+    this.showValue = 'showValue' in this.input.dataset;
     this.slider = null;
     this.init();
   }
@@ -27,7 +27,7 @@ export class FormFieldRangeSlider {
     // Change default cssPrefix
     const params = { ...this.params, cssPrefix: 'range-slider-' };
 
-    this.slider = RangeSlider.create(this.$slider, params);
+    this.slider = RangeSlider.create(this.sliderEl, params);
 
     this._attachEventHandlers();
   }
@@ -47,9 +47,9 @@ export class FormFieldRangeSlider {
   // eslint-disable-next-line no-unused-vars
   _handleSliderUpdate(values, handle, unencoded, tap, positions) {
     if (this.showValue) {
-      this.$display.innerText = values.join(' - ');
+      this.display.innerText = values.join(' - ');
     }
 
-    this.$input.value = JSON.stringify(this.slider.get());
+    this.input.value = JSON.stringify(this.slider.get());
   }
 }

@@ -1,8 +1,8 @@
 import Swiper from 'swiper';
 
 export class Slider {
-  constructor($el) {
-    this.$el = $el;
+  constructor(el) {
+    this.el = el;
     this.slider = null;
     this.thumbs = null;
     this.init();
@@ -13,10 +13,10 @@ export class Slider {
   }
 
   init() {
-    const sliderContainer = this.$el.querySelector('.swiper-container');
+    const sliderContainer = this.el.querySelector('.swiper-container');
     let params = JSON.parse(sliderContainer.dataset.params || {});
 
-    const thumbnailsContainer = this.$el.querySelector('.swiper-container-thumbs');
+    const thumbnailsContainer = this.el.querySelector('.swiper-container-thumbs');
 
     if (params.showThumbnails && thumbnailsContainer) {
       const thumbnailsParams = JSON.parse(thumbnailsContainer.dataset.params || {});

@@ -42,18 +42,18 @@ function feesHtml(fees, days, price, currency) {
 }
 
 export class RoomReservation {
-  constructor($el) {
+  constructor(el) {
     this.cls = RoomReservation.getBaseCSSClass();
-    this.$el = $el;
-    this.$arrival = $el.querySelector(`${this.cls}__arrival-input`);
-    this.$departure = $el.querySelector(`${this.cls}__departure-input`);
-    this.$fees = $el.querySelector(`${this.cls}__fees`);
-    this.$infoIcons = $el.querySelectorAll(`${this.cls}__fee-desc > .icon`);
-    this.cArrival = this.$arrival.__component;
-    this.cDeparture = this.$departure.__component;
-    this.fees = JSON.parse(this.$fees.dataset.fees);
-    this.price = parseFloat(this.$fees.dataset.price);
-    this.currency = this.$fees.dataset.currency;
+    this.el = el;
+    this.arrival = el.querySelector(`${this.cls}__arrival-input`);
+    this.departure = el.querySelector(`${this.cls}__departure-input`);
+    this.feesEl = el.querySelector(`${this.cls}__fees`);
+    this.infoIcons = el.querySelectorAll(`${this.cls}__fee-desc > .icon`);
+    this.cArrival = this.arrival.__component;
+    this.cDeparture = this.departure.__component;
+    this.fees = JSON.parse(this.feesEl.dataset.fees);
+    this.price = parseFloat(this.feesEl.dataset.price);
+    this.currency = this.feesEl.dataset.currency;
     this.init();
   }
 
@@ -74,15 +74,15 @@ export class RoomReservation {
     const departureDate = this.cDeparture.datepicker.selectedDates[0];
 
     if (arrivalDate === undefined || departureDate === undefined) {
-      this.$fees.innerHTML = '';
-      this.$fees.style.display = 'none';
+      this.feesEl.innerHTML = '';
+      this.feesEl.style.display = 'none';
       return;
     }
 
     const daysReserved = Math.floor((departureDate - arrivalDate) / (24 * 60 * 60 * 1000));
 
-    this.$fees.innerHTML = feesHtml(this.fees, daysReserved, this.price, this.currency);
-    this.$fees.style.display = 'block';
+    this.feesEl.innerHTML = feesHtml(this.fees, daysReserved, this.price, this.currency);
+    this.feesEl.style.display = 'block';
   }
 
   _attachEventHandlers() {
