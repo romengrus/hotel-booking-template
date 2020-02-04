@@ -103,7 +103,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
   font-family: $font-family-accent;
   line-height: 1.2;
   word-spacing: -1px;
@@ -116,7 +116,7 @@ h6 {
 // bottom margin to use `rem` units instead of `em`.
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 // Abbreviations
@@ -138,7 +138,7 @@ abbr[data-original-title] {
 }
 
 address {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   font-style: normal;
   line-height: inherit;
 }
@@ -147,7 +147,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 ol ol,
@@ -162,12 +162,12 @@ dt {
 }
 
 dd {
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
   margin-left: 0; // Undo browser default
 }
 
 blockquote {
-  margin: 0 0 1rem;
+  margin: 0 0 16px;
 }
 
 b,
@@ -253,7 +253,7 @@ pre {
   // Remove browser default top margin
   margin-top: 0;
   // Reset browser default of `1em` to use `rem`s
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   // Don't allow content to break outside
   overflow: auto;
 }
@@ -264,7 +264,7 @@ pre {
 
 figure {
   // Apply a consistent margin strategy (matches our type styles).
-  margin: 0 0 1rem;
+  margin: 0 0 16px;
 }
 
 //
@@ -292,8 +292,8 @@ table {
 }
 
 caption {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 16px;
+  padding-bottom: 16px;
   color: $black;
   text-align: left;
   caption-side: bottom;
@@ -312,7 +312,7 @@ th {
 label {
   // Allow labels to use `margin` for spacing.
   display: inline-block;
-  margin-bottom: 0.9rem;
+  margin-bottom: 14px;
   width: 100%;
 }
 
@@ -424,8 +424,8 @@ legend {
   width: 100%;
   max-width: 100%; // 1
   padding: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-size: 24px;
   line-height: inherit;
   color: inherit; // 2
   white-space: normal; // 1

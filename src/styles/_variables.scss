@@ -85,31 +85,31 @@ $font-family-monospace: Consolas, 'Courier New', monospace !default;
 // Components
 
 // Button
-$button-height: 2.75rem;
-$button-padding: 0 1.25rem;
+$button-height: 44px;
+$button-padding: 0 20px;
 $button-border-width: 2px;
-$button-border-radius: 1.375rem;
-$button-font-size: 0.75rem;
+$button-border-radius: 22px;
+$button-font-size: 12px;
 $button-text-color: $white;
 
 // Menu
-$menu-font-size: 0.85rem;
-$menu-horizontal-spacing: 1.5rem;
-$menu-vertical-spacing: 0.9rem;
+$menu-font-size: 14px;
+$menu-horizontal-spacing: 24px;
+$menu-vertical-spacing: 14px;
 $menu-link-color: $dark-750;
 $menu-link-hover-color: $dark-750;
 
 // Input
 $input-height: 44px;
-$input-padding: 0.5rem 0.9375rem;
+$input-padding: 8px 15px;
 $input-border: 1px solid $dark-250;
 $input-border-hover: 1px solid $dark-500;
-$input-border-radius: 0.25rem;
-$input-font-size: 0.875rem;
+$input-border-radius: 4px;
+$input-font-size: 14px;
 $input-font-color: $dark-750;
-$input-line-height: 1.5rem;
+$input-line-height: 24px;
 $input-label-color: $black;
-$input-label-size: 0.75rem;
+$input-label-size: 12px;
 
 // Datepicker
 $datepicker-width: 320px;
@@ -130,29 +130,29 @@ $datepicker-range-bg: linear-gradient(
 $datepicker-range-other-month-bg: $gray-400;
 
 // Checkbox
-$checkbox-width: 1.3rem;
-$checkbox-height: 1.3rem;
+$checkbox-width: 21px;
+$checkbox-height: 21px;
 $checkbox-color: $dark-500;
 $checkbox-border: 1px solid $dark-250;
 $checkbox-border-active: 1px solid $primary;
-$checkbox-border-radius: 0.25rem;
+$checkbox-border-radius: 4px;
 $checkbox-toggle-bg: $dark-250;
 $checkbox-toggle-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='6' x2='6' y2='12' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
 
 // Radio
-$radio-width: 1.25rem;
-$radio-height: 1.25rem;
+$radio-width: 20px;
+$radio-height: 20px;
 $radio-color: $dark-500;
 $radio-border: 1px solid $dark-250;
 $radio-border-active: 1px solid $primary;
-$radio-border-radius: 0.625rem !default;
+$radio-border-radius: 10px !default;
 $radio-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='6' x2='6' y2='12' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") !default;
 
 // Pagination
 $pagination-color: $dark-500;
 $pagination-current-page-color: $white;
-$pagination-item-width: 2.5rem;
-$pagination-item-height: 2.5rem;
+$pagination-item-width: 40px;
+$pagination-item-height: 40px;
 $pagination-arrow-bg: $secondary-gradient;
 
 // List

@@ -3,8 +3,8 @@ $list-bullet-color: #eee !default;
 
 .list {
   padding-left: 21px;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14px;
+  line-height: 24px;
   font-weight: normal;
   text-align: left;
   text-transform: none;
@@ -24,10 +24,10 @@ $list-bullet-color: #eee !default;
     .list__item::before {
       content: '';
       position: absolute;
-      top: 0.4375rem;
-      left: -1.25rem;
-      width: 0.625rem;
-      height: 0.625rem;
+      top: 7px;
+      left: -20px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: $list-bullet-color;
     }
@@ -41,9 +41,9 @@ $list-bullet-color: #eee !default;
       content: counter(custom-ordered-list) + '.';
       position: absolute;
       top: 0;
-      left: -1.25rem;
-      width: 0.625rem;
-      height: 0.625rem;
+      left: -20px;
+      width: 10px;
+      height: 10px;
       counter-increment: custom-ordered-list;
     }
   }

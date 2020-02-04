@@ -5,27 +5,27 @@
 
   &__input {
     &_icon_left {
-      padding-left: 2.5rem;
+      padding-left: 40px;
     }
 
     &_icon_right {
-      padding-right: 2.5rem;
+      padding-right: 40px;
     }
   }
 
   &__icon {
     position: absolute;
-    top: 0.9rem;
-    width: 1.1rem;
-    height: 1.1rem;
+    top: 14px;
+    width: 16px;
+    height: 16px;
     margin: 0;
 
     &_left {
-      left: 0.625rem;
+      left: 10px;
     }
 
     &_right {
-      right: 0.8rem;
+      right: 13px;
     }
   }
 }

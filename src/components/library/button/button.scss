@@ -1,8 +1,8 @@
-$button-height: 2.75rem;
-$button-padding: 0 1.25rem;
+$button-height: 44px;
+$button-padding: 0 20px;
 $button-border-width: 2px;
-$button-border-radius: 1.375rem;
-$button-font-size: 0.75rem;
+$button-border-radius: 22px;
+$button-font-size: 12px;
 $button-text-color: $white;
 
 .button {
@@ -37,16 +37,16 @@ $button-text-color: $white;
 
   &__icon {
     position: absolute;
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 18px;
+    height: 18px;
     fill: $button-text-color;
 
     &_right {
-      right: 0.8rem;
+      right: 13px;
     }
 
     &_left {
-      left: 0.625rem;
+      left: 10px;
     }
   }
 
@@ -97,7 +97,7 @@ $button-text-color: $white;
   }
 
   &_has-icon {
-    padding: 0 3rem;
+    padding: 0 48px;
   }
 
   &_ripple-effect {

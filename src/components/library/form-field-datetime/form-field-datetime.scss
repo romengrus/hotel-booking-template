@@ -20,7 +20,7 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
 
   &__icon-toggle {
     position: absolute;
-    top: 1rem;
+    top: 16px;
     right: 17px;
     width: 12px;
     height: 12px;
@@ -38,7 +38,7 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
   }
 
   &__input {
-    padding-right: 2.5rem !important;
+    padding-right: 40px !important;
   }
 
   &__actions-panel {

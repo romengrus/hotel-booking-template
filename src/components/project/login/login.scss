@@ -1,28 +1,28 @@
 .login {
-  width: 23.75rem;
+  width: 380px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  padding: 2.5rem 1.875rem 1.875rem;
+  padding: 40px 30px 30px;
   background: $white;
 
   &__title {
-    margin-bottom: 1.3rem;
+    margin-bottom: 21px;
   }
 
   &__password {
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
   }
 
   &__submit {
-    margin-bottom: 1.2rem;
+    margin-bottom: 20px;
   }
 
   &__have-account {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.875rem;
+    font-size: 14px;
   }
 
   label {

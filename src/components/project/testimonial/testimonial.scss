@@ -1,7 +1,7 @@
 .testimonial {
   display: flex;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14px;
+  line-height: 24px;
 
   &__left-col {
     display: flex;
@@ -14,7 +14,7 @@
     display: flex;
     flex: 1;
     flex-flow: column nowrap;
-    margin-left: 0.625rem;
+    margin-left: 10px;
   }
 
   &__user-img {
@@ -26,11 +26,11 @@
   }
 
   &__likes {
-    margin-top: 0.625rem;
+    margin-top: 10px;
   }
 
   &__user-name {
-    margin-bottom: 0.25rem;
+    margin-bottom: 4px;
     font-size: 14px;
   }
 
@@ -39,6 +39,6 @@
   }
 
   &__text {
-    margin-top: 0.7rem;
+    margin-top: 11px;
   }
 }

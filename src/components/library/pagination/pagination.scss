@@ -1,7 +1,7 @@
 $pagination-color: #000 !default;
 $pagination-current-page-color: #fff !default;
-$pagination-item-width: 2.5rem !default;
-$pagination-item-height: 2.5rem !default;
+$pagination-item-width: 40px !default;
+$pagination-item-height: 40px !default;
 $pagination-arrow-bg: #eee !default;
 
 .pagination {
@@ -9,7 +9,7 @@ $pagination-arrow-bg: #eee !default;
   flex-flow: column nowrap;
 
   &__listing {
-    padding: 0.625rem 0;
+    padding: 10px 0;
   }
 
   &__arrow {
@@ -34,8 +34,8 @@ $pagination-arrow-bg: #eee !default;
     height: $pagination-item-height;
     color: $pagination-color;
     padding: 0;
-    font-size: 0.75rem;
-    line-height: 0.9375rem;
+    font-size: 12px;
+    line-height: 15px;
 
     &-current {
       color: $pagination-current-page-color;
@@ -52,9 +52,9 @@ $pagination-arrow-bg: #eee !default;
   }
 
   &__label {
-    font-size: 0.875rem;
-    line-height: 1.5rem;
-    padding-left: 0.5rem;
+    font-size: 14px;
+    line-height: 24px;
+    padding-left: 8px;
     text-transform: lowercase;
     font-weight: normal;
   }
@@ -73,7 +73,7 @@ $pagination-arrow-bg: #eee !default;
 
       .pagination__label {
         order: -1;
-        margin-right: 2rem;
+        margin-right: 32px;
       }
     }
 
@@ -83,7 +83,7 @@ $pagination-arrow-bg: #eee !default;
       justify-content: center;
 
       .pagination__label {
-        margin-left: 2rem;
+        margin-left: 32px;
       }
     }
   }

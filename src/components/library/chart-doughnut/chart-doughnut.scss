@@ -7,8 +7,8 @@
   margin: 0;
 
   &__display {
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 120px;
+    height: 120px;
   }
 
   &__legend {
@@ -24,8 +24,8 @@
 
   &__label {
     position: relative;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
+    font-size: 14px;
+    line-height: 24px;
     cursor: default;
 
     &_active {
@@ -37,10 +37,10 @@
     &::before {
       content: '';
       position: absolute;
-      top: 0.4375rem;
-      left: -1rem;
-      width: 0.625rem;
-      height: 0.625rem;
+      top: 7px;
+      left: -16px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--chart-doughnut-segment-bg);
     }
@@ -54,10 +54,10 @@
 
   &__text {
     fill: $primary;
-    -moz-transform: translateY(0.25em);
-    -ms-transform: translateY(0.25em);
-    -webkit-transform: translateY(0.25em);
-    transform: translateY(0.25em);
+    -moz-transform: translateY(4px);
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
   }
 
   &__header {

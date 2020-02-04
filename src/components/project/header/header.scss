@@ -15,7 +15,6 @@
   }
 
   &__menu {
-
     @include col();
     @include to(960px) {
       flex-direction: column;
@@ -104,7 +103,7 @@
       margin-left: 35px;
       padding-left: 30px;
       border-left: 1px solid $dark-100;
-      min-height: 1.875rem;
+      min-height: 30px;
     }
   }
 

@@ -1,12 +1,12 @@
 .button-like {
   position: relative;
-  min-width: 2.5rem;
-  height: 1.25rem;
+  min-width: 40px;
+  height: 20px;
   border: 1px solid rgba(31, 32, 65, 0.25);
   padding: 0;
   background: none;
-  font-size: 0.625rem;
-  line-height: 0.75rem;
+  font-size: 10px;
+  line-height: 12px;
   opacity: 1;
 
   &:hover {
@@ -15,17 +15,17 @@
 
   .button__icon {
     position: absolute;
-    top: 0.25rem;
-    width: 0.625rem;
-    height: 0.625rem;
+    top: 4px;
+    width: 10px;
+    height: 10px;
     fill-opacity: 1;
 
     &_left {
-      left: 0.25rem;
+      left: 4px;
     }
 
     &_right {
-      right: 0.25rem;
+      right: 4px;
     }
   }
 

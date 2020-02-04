@@ -1,5 +1,5 @@
 $dc-border: 1px solid #ccc !default;
-$dc-border-radius: 0.25rem !default;
+$dc-border-radius: 4px !default;
 $dc-btn-reset-color: #000 !default;
 $dc-btn-ok-color: #000 !default;
 $dc-body-bg: white !default;
@@ -22,7 +22,7 @@ $dc-body-bg: white !default;
   }
 
   &__value-alt {
-    padding-right: 2.5rem;
+    padding-right: 40px;
     border: 0;
 
     &:hover,
@@ -50,7 +50,7 @@ $dc-body-bg: white !default;
     z-index: 100;
     width: 100%;
     border: $dc-border;
-    padding: 0.2rem 0.5rem 0.5rem 0.9rem;
+    padding: 3px 8px 8px 14px;
     transition: all 0.3s ease-in-out 0s;
     visibility: visible;
     opacity: 1;
@@ -66,14 +66,14 @@ $dc-body-bg: white !default;
     }
 
     & > * + * {
-      margin-top: 0.38rem;
+      margin-top: 6px;
     }
   }
 
   &__actions-panel {
     display: flex;
     align-items: center;
-    margin-top: 1.5rem;
+    margin-top: 24px;
 
     &_hidden {
       display: none;

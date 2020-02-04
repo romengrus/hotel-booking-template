@@ -17,7 +17,7 @@
       z-index: 1;
       top: 0;
       right: 0;
-      width: 2.75rem;
+      width: 44px;
       height: 100%;
       margin: 0;
       transition: opacity ease-in 0.1s;
@@ -30,8 +30,8 @@
         content: '';
         position: absolute;
         top: 50%;
-        width: 2.75rem;
-        height: 2.75rem;
+        width: 44px;
+        height: 44px;
         transform: translateY(-50%);
       }
     }
@@ -107,8 +107,8 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 1.25rem;
-    width: calc(100% - 2.5rem);
+    left: 20px;
+    width: calc(100% - 40px);
     height: 1px;
     border-top: 1px solid rgba(31, 32, 65, 0.1);
   }
@@ -129,7 +129,7 @@
   }
 
   &__lux-indicator {
-    margin-left: 0.3125rem;
+    margin-left: 5px;
     font-weight: bold;
     color: #bc9cff;
   }
@@ -141,18 +141,18 @@
   &__price-details {
     margin-right: 7px;
     color: rgba(31, 32, 65, 0.5);
-    font-size: 0.75rem;
+    font-size: 12px;
   }
 
   &__price {
     font-weight: bold;
-    font-size: 0.875rem;
+    font-size: 14px;
   }
 
   &__currency {
     font-weight: bold;
-    font-size: 0.875rem;
-    margin-right: 0.3125rem;
+    font-size: 14px;
+    margin-right: 5px;
   }
 
   &__rating {
@@ -169,7 +169,7 @@
 
     &-amount {
       font-weight: bold;
-      margin-right: 0.3125rem;
+      margin-right: 5px;
     }
   }
 }

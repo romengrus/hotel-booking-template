@@ -27,7 +27,7 @@ body {
 .showcase {
   width: 80%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 32px;
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
 
   &__title {
@@ -53,11 +53,11 @@ body {
 
   &__icon-info {
     display: flex;
-    flex: 1 1 15rem;
+    flex: 1 1 240px;
     align-items: center;
     justify-content: space-between;
-    margin: 0.5rem;
-    padding: 0.5rem;
+    margin: 8px;
+    padding: 8px;
     transition: background-color 0.3s ease;
     cursor: default;
 
@@ -81,8 +81,8 @@ body {
 
 .ui-buttons {
   .button {
-    margin-right: 2rem;
-    margin-bottom: 2rem;
+    margin-right: 32px;
+    margin-bottom: 32px;
 
     &:last-child {
       margin-right: 0;
@@ -92,7 +92,7 @@ body {
 
 .ui-inputs {
   .form-field {
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
   }
 
   &:last-child {

@@ -24,6 +24,7 @@ body {
 
 .col {
   @include col();
+  flex: 1;
 
   &_full-width {
     @include size(12);

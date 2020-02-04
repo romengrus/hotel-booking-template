@@ -20,7 +20,7 @@ $counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 5.75rem;
+    min-width: 92px;
   }
 
   &__display {
@@ -34,14 +34,14 @@ $counter-button-disabled-border: 1px solid rgba(31, 32, 65, 0.25) !default;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 30px;
+    height: 30px;
     border: $counter-button-border;
     padding: 0;
     background: none;
-    font-size: 1.125rem;
+    font-size: 18px;
     font-weight: normal;
-    line-height: 1.375rem;
+    line-height: 22px;
 
     &:disabled {
       border: $counter-button-disabled-border;

@@ -2,8 +2,8 @@ $benefit-border: 1px solid #eee !default;
 
 .benefit {
   display: flex;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14px;
+  line-height: 24px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: $benefit-border;
@@ -13,11 +13,11 @@ $benefit-border: 1px solid #eee !default;
   }
 
   &__aside {
-    width: 3rem;
+    width: 48px;
   }
 
   &__main {
-    margin-left: 0.6rem;
+    margin-left: 10px;
   }
 
   &__icon {
@@ -26,7 +26,7 @@ $benefit-border: 1px solid #eee !default;
   }
 
   &__title {
-    margin-bottom: 0.25rem;
+    margin-bottom: 4px;
     font-size: 15px;
     letter-spacing: 0;
   }
