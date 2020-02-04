@@ -9,9 +9,10 @@ body {
 }
 
 .main {
+  @include wrapper();
+
   flex: 1 0 auto;
   width: 100%;
-  @include wrapper();
 
   &__wrapper {
     @include row();
@@ -24,6 +25,7 @@ body {
 
 .col {
   @include col();
+
   flex: 1;
 
   &_full-width {
