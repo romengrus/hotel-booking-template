@@ -1,3 +1,23 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+  width: 100%;
+  @include wrapper();
+
+  &__wrapper {
+    @include row();
+  }
+}
+
 .row {
   @include row();
 }
@@ -11,13 +31,5 @@
 
   &_one-half {
     @include size(6);
-  }
-}
-
-.main {
-  @include wrapper();
-
-  &__wrapper {
-    @include row();
   }
 }
