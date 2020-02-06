@@ -1,7 +1,9 @@
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
+/**
+ * Returns a function, that, as long as it continues to be invoked, will not be triggered.
+ * @param {Function} func Function to call after predetermined number of milliseconds
+ * @param {number} wait Number of milliseconds to wait before calling a function
+ * @param {boolean} immediate If true - trigger the function on the leading edge, instead of the trailing.
+ */
 function debounce(func, wait, immediate) {
   let timeout;
   return function debounced(...args) {
