@@ -20,6 +20,7 @@ block append parts
   include /components/panel/panel.pug
   include /components/pagination/pagination.pug
   include /components/room-card/room-card.pug
+  include /components/room-cards/room-cards.pug
 
 block main
   aside.sidebar
@@ -127,10 +128,7 @@ block main
     a.room-filter__toggle.js-room-filter__toggle Изменить параметры поиска
     h2.content__header Номера, которые мы для вас подобрали
 
-    div(class= 'room-cards')
-      - var roomCards = getData('roomCards')
-      each roomData in roomCards
-        +room-card(roomData)
+    +room-cards()
 
     +pagination({
       totalItems: 170, 
