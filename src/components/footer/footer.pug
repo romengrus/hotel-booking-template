@@ -34,17 +34,69 @@ mixin footer(props = {})
         })
         +widget-menu({
           title: 'навигация',
-          items: getData('menuNavigation'),
+          items: [{
+              "name": "О нас",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Новости",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Служба поддержки",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Услуги",
+              "href": "#",
+              "isActive": false
+          }],
           mods: ['footer__widget']
         })
         +widget-menu({
           title: 'о нас',
-          items: getData('menuAboutUs'),
+          items: [{
+              "name": "О сервисе",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Наша команда",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Вакансии",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Инвесторы",
+              "href": "#",
+              "isActive": false
+          }],
           mods: ['footer__widget']
         })
         +widget-menu({
           title: 'служба поддержки',
-          items: getData('menuSupport'),
+          items: [{
+              "name": "Соглашения",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Сообщества",
+              "href": "#",
+              "isActive": false
+            },
+            {
+              "name": "Связь с нами",
+              "href": "#",
+              "isActive": false
+          }],
           mods: ['footer__widget']
         })
         +widget-subscription({

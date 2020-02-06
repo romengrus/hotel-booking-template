@@ -15,7 +15,6 @@ mixin header(props)
       mods: []
     }, props)
     
-    var menuData = getData('menuMain')
     var mods = ['header'].concat(props.mods)
 
   header(class= mods)
@@ -28,7 +27,66 @@ mixin header(props)
         .header__menu
           button.header__menu-close &times;
 
-          +menu({items: menuData})
+          +menu({items: [{
+              "name": "о нас",
+              "href": "#",
+              "isActive": true
+            },
+            {
+              "name": "услуги",
+              "href": "#",
+              "isActive": false,
+              "submenu": [
+                {
+                  "name": "апартаменты",
+                  "href": "#",
+                  "isActive": false
+                },
+                {
+                  "name": "spa",
+                  "href": "#",
+                  "isActive": false
+                },
+                {
+                  "name": "конференц залы",
+                  "href": "#",
+                  "isActive": false
+                }
+              ]
+            },
+            {
+              "name": "вакансии",
+              "href": "#",
+              "isActive": true
+            },
+            {
+              "name": "новости",
+              "href": "#",
+              "isActive": true
+            },
+            {
+              "name": "соглашения",
+              "href": "#",
+              "isActive": false,
+              "submenu": [
+                {
+                  "name": "соглашение 1",
+                  "href": "#",
+                  "isActive": false
+                },
+                {
+                  "name": "соглашение 2",
+                  "href": "#",
+                  "isActive": false
+                },
+                {
+                  "name": "соглашение 3",
+                  "href": "#",
+                  "isActive": false
+                }
+              ]
+            }]
+          })
 
           if props.isLoggedIn
             .header__auth.header__auth_is-logged-in

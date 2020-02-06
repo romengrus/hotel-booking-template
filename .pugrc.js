@@ -8,12 +8,6 @@ const basedir = path.join(__dirname, 'src');
 // get icon names
 const iconNames = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'));
 
-// get json from src/data directory
-function getData(fileName) {
-  const data = fs.readFileSync(path.join(basedir, 'data', `${fileName}.json`));
-  return JSON.parse(data);
-}
-
 function createRandomId(prefix = '') {
   const randomHash = Math.random()
     .toString(36)
@@ -37,5 +31,5 @@ const dummyURL = '/please-change-this-url-is-source-files';
 
 module.exports = {
   basedir,
-  locals: { iconNames, getData, pluralize, createRandomId, hexToRGBA, dummyURL }
+  locals: { iconNames, pluralize, createRandomId, hexToRGBA, dummyURL }
 };
