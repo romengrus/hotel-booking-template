@@ -17,4 +17,19 @@ function debounce(func, wait, immediate) {
   };
 }
 
-export { debounce };
+/**
+ * Plural forms for russian words
+ * @param  {Integer} count quantity for word
+ * @param  {Array} words Array of words. Example: ['депутат', 'депутата', 'депутатов'], ['коментарий', 'коментария', 'комментариев']
+ * @return {String} plural form of word
+ */
+function pluralize(count, words) {
+  const cases = [2, 0, 1, 1, 1, 2];
+  const word = words[count % 100 > 4 && count % 100 < 20 ? 2 : cases[Math.min(count % 10, 5)]];
+  return word;
+}
+
+module.exports = {
+  debounce,
+  pluralize
+};

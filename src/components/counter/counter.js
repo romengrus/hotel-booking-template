@@ -1,4 +1,4 @@
-import { pluralize } from '../../l10n/utils';
+import { pluralize } from '../../utils';
 
 export class Counter {
   constructor(el) {

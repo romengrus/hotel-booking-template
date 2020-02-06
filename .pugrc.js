@@ -1,7 +1,6 @@
 const glob = require('glob');
 const path = require('path');
-const fs = require('fs');
-const { pluralize } = require('./src/l10n/utils');
+const { pluralize } = require('./src/utils');
 
 const basedir = path.join(__dirname, 'src');
 
