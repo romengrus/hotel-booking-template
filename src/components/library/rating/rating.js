@@ -1,5 +1,5 @@
 /* eslint-disable prefer-destructuring */
-import { debounce } from 'lodash';
+import { debounce } from '../../../utils';
 
 export class Rating {
   constructor(el) {
