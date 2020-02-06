@@ -12,7 +12,9 @@
     "start": "parcel src/index.pug --no-hmr",
     "docs": "npm run cleanDocs && parcel build src/index.pug --out-dir docs --public-url /hotel-booking-template",
     "lint:style": "stylelint 'src/**/*.scss'",
-    "lint:style-fix": "stylelint 'src/**/*.scss' --fix"
+    "lint:style-fix": "stylelint 'src/**/*.scss' --fix",
+    "lint:js": "eslint src/",
+    "lint:js-fix": "eslint --fix src/"
   },
   "author": "Roman Korenev",
   "license": "ISC",
