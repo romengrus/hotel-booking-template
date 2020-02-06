@@ -1,0 +1,50 @@
+//- Login Form
+//-
+//- registerLink  {string} Link to register page
+//- mods          {array} modifier classes
+mixin login(props = {})
+  include /components/form/form.pug
+  include /components/form-field/form-field.pug
+  include /components/button/button.pug
+
+  -
+    props = Object.assign({
+      registerLink: '',
+      mods: []
+    }, props)
+
+    // TODO: create system for localization
+    var labels = {
+      title: 'Войти',
+      email: 'Email',
+      password: 'Пароль',
+      submit: 'Войти',
+      haveAccount: 'Нет аккаунта на Toxin?',
+      createAccount: 'Создать'
+    }
+
+    var mods = ['login'].concat(props.mods)
+
+  div(class= mods)
+    +form({mods: ['login__form']})&attributes(attributes)
+      h2.login__title= labels.title
+
+      +form-field({mods: ['login__email']})(type= 'email', placeholder= labels.email, required= true)
+      +form-field({mods: ['login__password']})(type= 'password', placeholder= labels.password, required= true)
+
+      +button({
+        value: labels.submit, 
+        isExpanded: true, 
+        hasRipple: true, 
+        iconName: 'arrow-right',
+        mods: ['login__submit']
+      })
+
+      .login__have-account
+        span= labels.haveAccount
+        +button({
+          type: 'link',
+          value: labels.createAccount, 
+          isOutlined: true,
+          mods: ['login__register']
+        })&attributes({href: props.registerLink})

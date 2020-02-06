@@ -1,0 +1,46 @@
+//- Panel
+//-
+//- title           {string} Panel title
+//- wrapperElement  {string} DOM element to use as wrapper
+//- isCollapsible   {boolean} If true - panel can collapse and expand. Toggle icon will be shown in this case
+//- isCollapsed     {boolean} If true - will render in collapsed state
+//- iconName        {string} Name of icon for toggler
+//- mods            {array} Modifier classes
+mixin panel(props = {})
+  include /components/icon/icon.pug
+
+  -
+    props = Object.assign({
+      title: '',
+      wrapperElement: 'div',
+      isCollapsible: true,
+      isCollapsed: false,
+      iconName: 'semi-arrow-up',
+      mods: []
+    }, props)
+
+    const panelTitleElement = props.wrapperElement === 'fieldset' ? 'legend' : 'span';
+    const mods = ['panel'].concat(props.mods)
+    const togglerMods = ['panel__toggler']
+    const bodyMods = ['panel__body']
+
+    if (props.isCollapsed) {
+      togglerMods.push('panel__toggler_collapsed');
+      bodyMods.push('panel__body_collapsed');
+    }
+
+    attributes['data-is-collapsible'] = props.isCollapsible
+
+  #{props.wrapperElement}(class= mods)&attributes(attributes)
+    .panel__header
+      #{panelTitleElement}.panel__title= props.title 
+
+      if (props.isCollapsible)
+        div(class= togglerMods)
+          +icon({name: props.iconName, mods: ['panel__icon']})
+
+    div(class= bodyMods)
+      if block
+        block
+
+

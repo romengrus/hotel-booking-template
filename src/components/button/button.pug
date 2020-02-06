@@ -1,0 +1,52 @@
+//- Button
+//-
+//- type          {'button' | 'link'} Type of underlying dom element
+//- value         {string} Button text value
+//- isRounded     {boolean} If true - button has rounded corners
+//- isOutlined    {boolean} If true - button has border, but no background
+//- isText        {boolean} If true - button has no border and background
+//- isDisabled    {boolean} If true - button is disabled
+//- isExpanded    {boolean} If true - button is expanded to the width of container
+//- hasRipple     {boolean} If true - button has ripple effect on click
+//- iconName      {string} Icon name
+//- iconPosition  {'left' | 'right'} Icon position
+//- mods          {array} Modifier classes
+mixin button(props = {})
+  include /components/icon/icon.pug
+
+  -
+    props = Object.assign({
+      type: 'button',
+      value: '',
+      isRounded: true,
+      isOutlined: false,
+      isText: false,
+      isDisabled: false,
+      isExpanded: false,
+      hasRipple: false,
+      iconName: '',
+      iconPosition: 'right',
+      mods: [],
+    }, props)
+
+    var mods = ['button'].concat(props.mods)
+
+    if (props.isRounded) mods.push('button_is-rounded')
+    if (props.isOutlined) mods.push('button_is-outlined')
+    if (props.isText) mods.push('button_is-text')
+    if (props.isDisabled) mods.push('button_is-disabled')
+    if (props.isExpanded) mods.push('button_is-expanded')
+    if (props.hasRipple && !props.isDisabled) mods.push('button_has-ripple')
+    if (props.iconName) mods.push('button_has-icon')
+
+  if (props.type === 'link')
+    a(class= mods)&attributes(attributes)= props.value
+      if (props.iconName)
+        +icon({name: props.iconName, mods: [`button__icon`, `button__icon_${props.iconPosition}`]})
+      block
+
+  if (props.type === 'button')
+    button(class= mods, disabled= props.isDisabled)&attributes(attributes)= props.value
+      if (props.iconName)
+        +icon({name: props.iconName, mods: [`button__icon`, `button__icon_${props.iconPosition}`]})
+      block

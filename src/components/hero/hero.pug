@@ -1,0 +1,32 @@
+//- Hero
+//-
+//- sliderOptions   {object} Object with slider options to be passed to inner slider
+//- bgImg           {string} Url to background image (will be used if sliderOptions is empty)
+//- info            {string} Some arbitrary text to show
+//- mods            {array} Modifier array
+mixin hero(props = {})
+  include /components/slider/slider.pug
+
+  -
+    props = Object.assign({
+      sliderOptions: {},
+      bgImg: '',
+      info: '',
+      mods: []
+    }, props)
+
+    var mods = ['hero'].concat(props.mods)
+
+  div(class= mods)&attributes(attributes)
+    if (typeof props.sliderOptions === 'object' && Object.keys(props.sliderOptions).length > 0)
+      - var sliderAttributes = Object.assign(props.sliderOptions, {mods: ['hero__slider']})
+      +slider(sliderAttributes)  
+    else if (props.bgImg)
+      .hero__image(style= `background-image: url(${props.bgImg})`)
+
+    if (block)
+      .hero__content
+        block
+
+    if (props.info)
+      p.hero__info= props.info

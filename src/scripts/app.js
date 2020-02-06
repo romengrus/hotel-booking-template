@@ -1,5 +1,4 @@
-import * as libraryComponents from '../components/library';
-import * as projectComponents from '../components/project';
+import * as components from '../components';
 
 function factory(Component) {
   const qs = Component.getBaseCSSClass();
@@ -8,8 +7,8 @@ function factory(Component) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  Object.values({ ...libraryComponents, ...projectComponents }).map(Component => {
-    if (typeof Component.getBaseCSSClass !== 'function') return null;
-    return factory(Component);
+  Object.values({ ...components }).map(component => {
+    if (typeof component.getBaseCSSClass !== 'function') return null;
+    return factory(component);
   });
 });

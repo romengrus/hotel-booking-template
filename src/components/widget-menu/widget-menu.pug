@@ -1,0 +1,18 @@
+mixin widget-menu(props = {})
+  include /components/widget/widget.pug
+
+  - 
+    props = Object.assign({
+      title: '',
+      items: [],
+      orientation: 'vertical',
+      mods: [],
+    }, props)
+
+    var mods = ['widget-menu'].concat(props.mods)
+
+  +widget({mods})
+    if (props.title)
+      h3.widget__title #{props.title}
+    .widget-menu__menu
+      +menu({orientation: props.orientation, items: props.items})

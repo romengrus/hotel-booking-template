@@ -1,0 +1,38 @@
+// base components
+@import './icon/icon.scss';
+@import './button/button.scss';
+@import './form/form.scss';
+@import './form-field/form-field.scss';
+@import './form-field-datetime/form-field-datetime.scss';
+@import './form-field-checkbox/form-field-checkbox.scss';
+@import './form-field-radio/form-field-radio.scss';
+@import './form-field-range-slider/form-field-range-slider.scss';
+@import './menu/menu.scss';
+@import './counter/counter.scss';
+@import './button-like/button-like.scss';
+@import './rating/rating.scss';
+@import './pagination/pagination.scss';
+@import './list/list.scss';
+@import './panel/panel.scss';
+@import './dropdown-counter/dropdown-counter.scss';
+@import './chart-doughnut/chart-doughnut.scss';
+@import './slider/slider.scss';
+@import './hero/hero.scss';
+@import './hamburger-menu/hamburger-menu.scss';
+
+// compound components
+@import './header/header.scss';
+@import './footer/footer.scss';
+@import './copyright-bar/copyright-bar.scss';
+@import './social-icons/social-icons.scss';
+@import './subscription/subscription.scss';
+@import './testimonial/testimonial.scss';
+@import './benefit/benefit.scss';
+@import './room-search/room-search.scss';
+@import './room-reservation/room-reservation.scss';
+@import './register/register.scss';
+@import './login/login.scss';
+@import './room-card/room-card.scss';
+@import './widget/widget.scss';
+@import './widget-about/widget-about.scss';
+@import './widget-subscription/widget-subscription.scss';

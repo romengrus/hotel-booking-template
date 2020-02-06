@@ -1,0 +1,54 @@
+//- type  {'' | 'creative'} Footer type
+//- mods  {array} Modifier classes
+mixin footer(props = {})
+  include /components/menu/menu.pug
+  include /components/social-icons/social-icons.pug
+  include /components/widget/widget.pug
+  include /components/widget-about/widget-about.pug
+  include /components/widget-menu/widget-menu.pug
+  include /components/widget-subscription/widget-subscription.pug
+
+  - 
+    props = Object.assign({
+      type: 'normal',
+      mods: []
+    }, props)
+
+    var mods = ['footer'].concat(props.mods)
+
+    if (props.type) mods.push(`footer_${props.type}`)
+
+  footer(class= mods)
+    .footer__wrapper
+      if props.type === 'creative'
+        +widget({mods: ['footer__widget']})
+          include /assets/img/logo.svg
+        +widget({mods: ['footer__widget']})
+          | Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+        +widget({mods: ['footer__widget']})
+          +social-icons
+      else
+        +widget-about({
+          text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
+          mods: ['footer__widget']
+        })
+        +widget-menu({
+          title: 'навигация',
+          items: getData('menuNavigation'),
+          mods: ['footer__widget']
+        })
+        +widget-menu({
+          title: 'о нас',
+          items: getData('menuAboutUs'),
+          mods: ['footer__widget']
+        })
+        +widget-menu({
+          title: 'служба поддержки',
+          items: getData('menuSupport'),
+          mods: ['footer__widget']
+        })
+        +widget-subscription({
+          title: 'подписка',
+          text: 'Получайте специальные предложения и новости сервиса',
+          mods: ['footer__widget']
+        })
