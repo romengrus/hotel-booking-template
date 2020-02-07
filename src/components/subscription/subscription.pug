@@ -7,7 +7,7 @@
 mixin subscription(props = {})
   include /components/form/form.pug
   include /components/form-field/form-field.pug
-  include /components/icon/icon.pug
+  include /components/button/button.pug
 
   -
     props = Object.assign({
@@ -26,4 +26,4 @@ mixin subscription(props = {})
   div(class= mods)
     +form({mods: formMods})&attributes({method: 'POST', action: props.url})
       +form-field({mods: inputMods})&attributes({type: 'email', required: true, placeholder: props.placeholder})
-      +icon({name: props.iconName, mods: iconMods})
+      +button({iconName: props.iconName, showIconOnly: true, mods: iconMods})

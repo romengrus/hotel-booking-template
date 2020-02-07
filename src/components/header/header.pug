@@ -93,7 +93,7 @@ mixin header(props)
               a(class= 'header__profile-link', href= dummyURL)= props.userName
           else 
             .header__auth
-              +button({value: 'войти', isOutlined: true, mods: ['header__button']})
-              +button({value: 'зарегистрироваться', mods: ['header__button']})
+              +button({value: 'войти', type: 'link', isOutlined: true, mods: ['header__button']})(href= dummyURL)
+              +button({value: 'зарегистрироваться', type: 'link', mods: ['header__button']})(href= dummyURL)
 
         +hamburger-menu({mods: ['header__menu-toggler']})

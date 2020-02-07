@@ -23,11 +23,12 @@ $radio-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill='no
   }
 
   &__custom {
-    position: relative;
-    min-width: $radio-width;
-    min-height: $radio-height;
+    width: $radio-width;
+    height: $radio-height;
+    padding: 10px;
     border: $radio-border;
     border-radius: $radio-border-radius;
+    background: none;
     cursor: pointer;
   }
 
@@ -43,7 +44,6 @@ $radio-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill='no
     background: $radio-bg-active;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 60%;
     border: $radio-border-active;
   }
 

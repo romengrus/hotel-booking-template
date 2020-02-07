@@ -5,7 +5,7 @@ export class Rating {
   constructor(el) {
     this.cls = Rating.getBaseCSSClass();
     this.el = el;
-    this.icons = el.querySelectorAll(`${this.cls}__icon > use`);
+    this.icons = el.querySelectorAll(`${this.cls}__icon svg > use`);
     this.isPartial = 'isPartial' in el.dataset;
     this.value = parseFloat(el.dataset.value || 0);
     this.objectId = el.dataset.objectId || '';

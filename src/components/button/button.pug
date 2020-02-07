@@ -2,6 +2,7 @@
 //-
 //- type          {'button' | 'link'} Type of underlying dom element
 //- value         {string} Button text value
+//- size          {'big' | 'medium' | 'small'} Button size
 //- isRounded     {boolean} If true - button has rounded corners
 //- isOutlined    {boolean} If true - button has border, but no background
 //- isText        {boolean} If true - button has no border and background
@@ -11,14 +12,22 @@
 //- hasRipple     {boolean} If true - button has ripple effect on click
 //- iconName      {string} Icon name
 //- iconPosition  {'left' | 'right'} Icon position
+//- iconSize      {'full' | 'big' | 'medium' | 'small'} Icon size
 //- mods          {array} Modifier classes
 mixin button(props = {})
   include /components/icon/icon.pug
+
+  //- insert icon if exists
+  mixin maybe-icon(name, mods)
+    if (name)
+      +icon({name: name, mods: mods})
+    block
 
   -
     props = Object.assign({
       type: 'button',
       value: '',
+      size: 'medium',
       isRounded: true,
       isOutlined: false,
       isText: false,
@@ -28,11 +37,13 @@ mixin button(props = {})
       hasRipple: false,
       iconName: '',
       iconPosition: 'right',
+      iconSize: 'small',
       mods: [],
     }, props)
 
     var mods = ['button'].concat(props.mods)
 
+    if (props.size) mods.push(`button_${props.size}`)
     if (props.isRounded) mods.push('button_is-rounded')
     if (props.isOutlined) mods.push('button_is-outlined')
     if (props.isText) mods.push('button_is-text')
@@ -42,14 +53,18 @@ mixin button(props = {})
     if (props.hasRipple && !props.isDisabled) mods.push('button_has-ripple')
     if (props.iconName) mods.push('button_has-icon')
 
-  if (props.type === 'link')
-    a(class= mods)&attributes(attributes)= props.value
-      if (props.iconName)
-        +icon({name: props.iconName, mods: [`button__icon`, `button__icon_${props.iconPosition}`]})
-      block
+    var iconMods = ['button__icon']
+
+    if (props.iconSize) iconMods.push(`button__icon_${props.iconSize}`)
+    if (props.iconName) iconMods.push(`button__icon_${props.iconPosition}`)
 
   if (props.type === 'button')
     button(class= mods, disabled= props.isDisabled)&attributes(attributes)= props.value
-      if (props.iconName)
-        +icon({name: props.iconName, mods: [`button__icon`, `button__icon_${props.iconPosition}`]})
-      block
+      +maybe-icon(props.iconName, iconMods)
+      if block
+        block
+  else
+    a(class= mods)&attributes(attributes)= props.value
+      +maybe-icon(props.iconName, iconMods)
+      if block
+        block

@@ -5,6 +5,7 @@
 //- mods    {array} Modifier classess
 mixin form-field-checkbox(props = {})
   include /components/form-field/form-field.pug
+  include /components/button/button.pug
 
   -
     props = Object.assign({
@@ -30,7 +31,7 @@ mixin form-field-checkbox(props = {})
   div(class= mods)
     .checkbox__wrapper
       +form-field({mods: inputMods})&attributes(attributes)
-      span.checkbox__custom
+      +button({mods: ['checkbox__custom']})
       if (props.label)
         label(class= 'checkbox__label', for= attributes.id)= props.label
     if (props.desc)

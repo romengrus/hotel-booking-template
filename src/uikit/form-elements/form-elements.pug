@@ -133,7 +133,7 @@ block main
         div(style= 'margin-top: 38px;')
           +form-element('rate button')
             div(style= 'margin-top: 14px; margin-left: 2px;')
-              +rating({value: 4})
+              +rating({value: 4, isPartial: true})
               span(style= 'margin-left: 20px;')
                 +rating({value: 5})
 
@@ -167,7 +167,7 @@ block main
               span(style= 'margin-left: 15px; margin-left: -23px;')
                 +button({value: 'click me', isText: true, isDisabled: true})
             div(style= 'margin-top: 14px; width: 320px;')
-              +button({value: 'Перейти к оплате', isRounded: true, iconName: 'arrow-right', isExpanded: true})
+              +button({value: 'Перейти к оплате', isRounded: true, iconName: 'arrow-right', iconSize: 'medium', isExpanded: true})
 
         div(style= 'margin-top: 39px;')
           +form-element('pagination')

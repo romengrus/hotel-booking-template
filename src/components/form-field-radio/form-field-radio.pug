@@ -4,6 +4,7 @@
 //- mods    {array} Modifier classess
 mixin form-field-radio(props = {})
   include /components/form-field/form-field.pug
+  include /components/button/button.pug
 
   -
     props = Object.assign({
@@ -23,7 +24,7 @@ mixin form-field-radio(props = {})
   div(class= mods)
     .radio__wrapper
       +form-field({mods: inputMods})&attributes(attributes)
-      span.radio__custom
+      +button({mods: ['radio__custom']})
       if (props.label)
         label.radio__label(for= attributes.id)= props.label
     if (props.desc)
