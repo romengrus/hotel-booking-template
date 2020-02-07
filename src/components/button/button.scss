@@ -4,8 +4,12 @@ $button-border-width: 2px;
 $button-border-radius: 22px;
 $button-font-size: 12px;
 $button-text-color: $white;
+$button-icon-width: 18px;
+$button-icon-height: 18px;
 
 .button {
+  $root: &;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -37,8 +41,8 @@ $button-text-color: $white;
 
   &__icon {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: $button-icon-width;
+    height: $button-icon-height;
     fill: $button-text-color;
 
     &_right {
@@ -98,6 +102,23 @@ $button-text-color: $white;
 
   &_has-icon {
     padding: 0 48px;
+  }
+
+  &_show-icon-only {
+    padding: 0;
+    width: $button-icon-width;
+    height: $button-icon-height;
+    background: none;
+
+    #{$root}__icon {
+      position: static;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      fill: $dark-500;
+    }
   }
 
   &_ripple-effect {

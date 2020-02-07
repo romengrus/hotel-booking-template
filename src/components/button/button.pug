@@ -7,6 +7,7 @@
 //- isText        {boolean} If true - button has no border and background
 //- isDisabled    {boolean} If true - button is disabled
 //- isExpanded    {boolean} If true - button is expanded to the width of container
+//- showIconOnly  {boolean} If true - show only icon (if any)
 //- hasRipple     {boolean} If true - button has ripple effect on click
 //- iconName      {string} Icon name
 //- iconPosition  {'left' | 'right'} Icon position
@@ -23,6 +24,7 @@ mixin button(props = {})
       isText: false,
       isDisabled: false,
       isExpanded: false,
+      showIconOnly: false,
       hasRipple: false,
       iconName: '',
       iconPosition: 'right',
@@ -36,6 +38,7 @@ mixin button(props = {})
     if (props.isText) mods.push('button_is-text')
     if (props.isDisabled) mods.push('button_is-disabled')
     if (props.isExpanded) mods.push('button_is-expanded')
+    if (props.showIconOnly) mods.push('button_show-icon-only')
     if (props.hasRipple && !props.isDisabled) mods.push('button_has-ripple')
     if (props.iconName) mods.push('button_has-icon')
 
