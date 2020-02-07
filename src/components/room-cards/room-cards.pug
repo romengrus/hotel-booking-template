@@ -425,6 +425,6 @@
 mixin room-cards(rooms = defaultRooms)
   include /components/room-card/room-card.pug
 
-  .room-cards
+  ul.room-cards
     each room in rooms
       +room-card(room)

@@ -30,7 +30,7 @@ mixin room-card(props = {})
 
     if (props.isLux) mods.push('room-card_is-lux')
 
-  div(class= mods)&attributes(attributes)
+  li(class= mods)&attributes(attributes)
     +slider(props.slider)
 
     .room-card__row
