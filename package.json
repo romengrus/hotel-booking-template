@@ -22,6 +22,7 @@
     "flatpickr": "^4.6.3",
     "hyperform": "^0.10.2",
     "imask": "^5.2.1",
+    "jquery": "^3.4.1",
     "nouislider": "^13.1.5",
     "swiper": "^4.5.1",
     "timeago.js": "^4.0.2",
