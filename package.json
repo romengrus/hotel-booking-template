@@ -14,7 +14,9 @@
     "lint:style": "stylelint 'src/**/*.scss'",
     "lint:style-fix": "stylelint 'src/**/*.scss' --fix",
     "lint:js": "eslint src/",
-    "lint:js-fix": "eslint --fix src/"
+    "lint:js-fix": "eslint --fix src/",
+    "lint:pug": "pug-lint src/components.new/",
+    "lint": "npm run lint:style && npm run lint:js && npm run lint:pug"
   },
   "author": "Roman Korenev",
   "license": "ISC",
@@ -46,6 +48,7 @@
     "postcss-plugin-px2rem": "^0.8.1",
     "prettier": "^1.19.1",
     "pug": "^2.0.4",
+    "pug-lint": "^2.6.0",
     "rimraf": "^2.7.1",
     "sass": "^1.25.0",
     "stylelint": "^12.0.1",
