@@ -84,11 +84,16 @@ $font-family-monospace: Consolas, 'Courier New', monospace !default;
 
 // Components
 
+// Icon
+$icon-width: 16px;
+$icon-height: 16px;
+
 // Button
 $button-height: 44px;
 $button-padding: 0 20px;
 $button-border-width: 2px;
 $button-border-radius: 22px;
+$button-bg: $primary-gradient;
 $button-font-size: 12px;
 $button-text-color: $white;
 

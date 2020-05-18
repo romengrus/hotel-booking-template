@@ -15,7 +15,7 @@
     "lint:style-fix": "stylelint 'src/**/*.scss' --fix",
     "lint:js": "eslint src/",
     "lint:js-fix": "eslint --fix src/",
-    "lint:pug": "pug-lint src/components.new/",
+    "lint:pug": "pug-lint src/components",
     "lint": "npm run lint:style && npm run lint:js && npm run lint:pug"
   },
   "author": "Roman Korenev",
