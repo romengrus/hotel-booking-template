@@ -1,11 +1,2 @@
-//- Form field component
-//- mods  {array} Modifier classes
-mixin form-field(props = {})
-  -
-    props = Object.assign({
-      mods: [],
-    }, props)
-
-    var mods = ['form-field'].concat(props.mods)
-
-  input(class= mods)&attributes(attributes)
+mixin form-field
+  input.form-field&attributes(attributes)
