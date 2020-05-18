@@ -13,20 +13,10 @@
     opacity: 1;
   }
 
-  .button__icon {
-    position: absolute;
-    top: 4px;
+  .icon {
     width: 10px;
     height: 10px;
     fill-opacity: 1;
-
-    &_left {
-      left: 4px;
-    }
-
-    &_right {
-      right: 4px;
-    }
   }
 
   &_has-voted {
@@ -34,13 +24,5 @@
     background-image: linear-gradient(#fff, #fff), linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-  }
-
-  &_icon-pos-left {
-    padding-left: 12px;
-  }
-
-  &_icon-pos-right {
-    padding-right: 12px;
   }
 }
