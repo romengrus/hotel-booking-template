@@ -8,10 +8,9 @@ export class Rating {
     this.icons = el.querySelectorAll(`${this.cls}__icon svg > use`);
     this.isPartial = 'isPartial' in el.dataset;
     this.value = parseFloat(el.dataset.value || 0);
-    this.objectId = el.dataset.objectId || '';
     this.iconEmpty = el.dataset.iconEmpty || 'star';
     this.iconFilled = el.dataset.iconFilled || 'star-active';
-    this.iconHalfFilled = el.dataset.iconHalfFilled || 'star-half-active';
+    this.iconHalfFilled = el.dataset.iconHalf || 'star-half';
     this.init();
   }
 
