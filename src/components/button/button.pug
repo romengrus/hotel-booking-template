@@ -1,70 +1,25 @@
 //- Button
 //-
-//- type          {'button' | 'link'} Type of underlying dom element
-//- value         {string} Button text value
-//- size          {'big' | 'medium' | 'small'} Button size
-//- isRounded     {boolean} If true - button has rounded corners
-//- isOutlined    {boolean} If true - button has border, but no background
-//- isText        {boolean} If true - button has no border and background
-//- isDisabled    {boolean} If true - button is disabled
-//- isExpanded    {boolean} If true - button is expanded to the width of container
-//- showIconOnly  {boolean} If true - show only icon (if any)
-//- hasRipple     {boolean} If true - button has ripple effect on click
-//- iconName      {string} Icon name
-//- iconPosition  {'left' | 'right'} Icon position
-//- iconSize      {'full' | 'big' | 'medium' | 'small'} Icon size
-//- mods          {array} Modifier classes
-mixin button(props = {})
-  include /components/icon/icon.pug
-
-  //- insert icon if exists
-  mixin maybe-icon(name, mods)
-    if (name)
-      +icon({name: name, mods: mods})
-    block
-
+//- type    oneOf ('button' | 'link') - Type of underlying dom element
+//- href    string ('') - Href if type is 'link' 
+//- mods    setOf (
+              'rounded',      // button has rounded corners
+              'outlined',     // button has border, but no background
+              'disabled',     // button is disabled
+              'expanded',     // button is expanded to the width of container
+              'text-only',    // button has no border and background
+            )
+mixin button({type: 'button', href: '' mods: []} = {})
   -
-    props = Object.assign({
-      type: 'button',
-      value: '',
-      size: 'medium',
-      isRounded: true,
-      isOutlined: false,
-      isText: false,
-      isDisabled: false,
-      isExpanded: false,
-      showIconOnly: false,
-      hasRipple: false,
-      iconName: '',
-      iconPosition: 'right',
-      iconSize: 'small',
-      mods: [],
-    }, props)
+    const baseClass = 'button'
+    const classList = mods.map(mod => `${baseClass}_is-${mod}`).concat(baseClass)
+    const isDisabled = mods.includes('disabled')
 
-    var mods = ['button'].concat(props.mods)
-
-    if (props.size) mods.push(`button_${props.size}`)
-    if (props.isRounded) mods.push('button_is-rounded')
-    if (props.isOutlined) mods.push('button_is-outlined')
-    if (props.isText) mods.push('button_is-text')
-    if (props.isDisabled) mods.push('button_is-disabled')
-    if (props.isExpanded) mods.push('button_is-expanded')
-    if (props.showIconOnly) mods.push('button_show-icon-only')
-    if (props.hasRipple && !props.isDisabled) mods.push('button_has-ripple')
-    if (props.iconName) mods.push('button_has-icon')
-
-    var iconMods = ['button__icon']
-
-    if (props.iconSize) iconMods.push(`button__icon_${props.iconSize}`)
-    if (props.iconName) iconMods.push(`button__icon_${props.iconPosition}`)
-
-  if (props.type === 'button')
-    button(class= mods, disabled= props.isDisabled)&attributes(attributes)= props.value
-      +maybe-icon(props.iconName, iconMods)
+  if (type === 'button')
+    button(class = classList, disabled = isDisabled)&attributes(attributes)
       if block
         block
   else
-    a(class= mods)&attributes(attributes)= props.value
-      +maybe-icon(props.iconName, iconMods)
+    a(class = classList, href = href)&attributes(attributes)
       if block
         block
