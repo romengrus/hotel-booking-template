@@ -12,11 +12,6 @@ $hero-text-color: black !default;
     background-repeat: no-repeat;
   }
 
-  &__slider {
-    position: relative;
-    z-index: 10;
-  }
-
   &__content {
     @include to(980px) {
       left: 50%;
