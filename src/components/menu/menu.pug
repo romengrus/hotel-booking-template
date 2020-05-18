@@ -1,42 +1,32 @@
-//- Menu component
-//- orientation   {'horizontal' | 'vertical'} Menu items orientation
-//- mods          {array} Modifier classes
-//- items         {array} Menu items
-//--- name      {string} Menu item name
-//--- href      {string} Menu item href
-//--- isActive  {boolean} Is this currently selected menu item
-//--- submenu   {array} Array of submenu items 
-mixin menu(props = {})
+//- Menu 
+//-
+//- orientation   oneOf ('horizontal' | 'vertical') - Menu items orientation
+//- items         array ([]) - Menu items
+//--- name      string ('') - Menu item name
+//--- href      string ('') - Menu item href
+//--- isActive  boolean (false) - Is this currently selected menu item
+//--- submenu   array ([]) - Array of submenu items 
+mixin menu({orientation: 'horizontal', items: []} = {})
   include /components/button/button.pug
 
   -
-    props = Object.assign({
-      orientation: 'horizontal',
-      mods: [],
-      items: []
-    }, props)
+    function makeMenu(items, orientation) {
+      const classList = ['menu', `menu_is-${orientation}`]
 
-    var mods = ['menu'].concat(props.mods)
+      return `<ul class="${classList.join(' ')}">${items.map(makeItem).join('')}</ul`;
+    }
 
-    if (props.items.length === 0) throw new Error('Menu: no items provided. Nothing to show')
+    function makeItem({name: '', href: '', isActive: false, submenu: []} = {}) {
+      const classList = ['.menu__item'];
+      if (submenu) classList.push('.menu__item_has-submenu');
+      if (isActive) classList.push('.menu__item_is-active');
 
-    if (props.orientation) mods.push(`menu_${props.orientation}`)
+      return `
+        <li class="${classList.join(' ')}">
+          <a class="menu__link" href="${href}">${name}</a>
+          ${submenu && `<ul class="menu__submenu">${makeMenu(submenu)}</ul>`}
+        </li>
+      `;
+    }
 
-  ul(class= mods)
-    each item in props.items
-      - var itemMods = ['menu__item']
-      - if (item.submenu) itemMods.push('menu__item_has-submenu')
-      li(class= itemMods)
-        - var linkMods = ['menu__link']
-        - if (item.isActive) linkMods.push('menu__link_is-active')
-        a(href= item.href, class= linkMods)= item.name
-        if item.submenu
-          - var submenuMods = ['menu__submenu']
-          - if (item.isActive) submenuMods.push('menu__submenu_is-active')
-          +button({iconName: 'semi-arrow-down', showIconOnly: true, iconSize: 'small'})
-          ul(class= submenuMods)
-            each subItem in item.submenu
-              li(class= 'menu__item')
-                - var submenuLinkMods = ['menu__link']
-                - if (subItem.isActive) submenuLinkMods.push('menu__link_is-active')
-                a(href= subItem.href, class= submenuLinkMods)= subItem.name
+    makeMenu(items, orientation);
