@@ -1,28 +1,6 @@
-//- Responsive Icon component
-//- name  {string} Icon file name (without extension)
-//- mods  {array} Modifier classes
-mixin icon(props = {})
-  -
-    props = Object.assign({
-      name: '',
-      mods: []
-    }, props)
-
-    var mods = ['icon'].concat(props.mods)
-    if (props.name) {
-      mods.push(`icon-${props.name}`)
-    } else {
-      throw new Error(`Icon: name is not provided. Don't know what icon to show`)
-    }
-
-  //- aria-hidden="true"
-  //- Since we’re already including accessible text outside of the SVG element, 
-  //- we can tell screen readers to ignore it. This prevents issues where some readers 
-  //- might try to read something for the icon, 
-  //- or read the link or button’s text twice.
-  //-
-  //- focusable="false"	
-  //- This one is for IE and Edge. In those browsers, the SVG element can get keyboard focus. 
-  //- This can result in the surrounding link or button being focused twice, and being read twice.
-  svg(class= mods, aria-hidden="true" focusable="false")&attributes(attributes)
-    use(href= `#${props.name}`)
+//- Icon
+//-
+//- name    string ('hart') - Icon file name (without extension)
+mixin icon({name: 'hart'} = {})
+  svg.icon
+    use(href= `#${name}`)

@@ -1,0 +1,57 @@
+.icon-arrow-right {
+  fill: url(#paint0_linear);
+}
+
+.icon-arrow-left {
+  fill: #bc9cff;
+}
+
+.icon-emoticon-happy {
+  fill: url(#paint0_linear);
+}
+
+.icon-hart {
+  fill: #1f2041;
+  fill-opacity: 0.25;
+}
+
+.icon-hart-active {
+  fill: #bc9cff;
+}
+
+.icon-location-city {
+  fill: url(#paint0_linear);
+}
+
+.icon-semi-arrow-down,
+.icon-semi-arrow-up {
+  fill: #1f2041;
+  fill-opacity: 0.5;
+}
+
+.icon-star,
+.icon-star-active,
+.icon-star-half-active {
+  fill: url(#paint0_linear);
+}
+
+.icon-twitter,
+.icon-facebook,
+.icon-instagram {
+  fill: url(#paint0_linear);
+}
+
+.icon-info {
+  &__circle {
+    fill: none;
+    stroke: rgba(31, 32, 65, 0.25);
+  }
+
+  &__sign {
+    fill: rgba(31, 32, 65, 0.25);
+  }
+}
+
+.icon-fire {
+  fill: url(#paint0_linear);
+}
