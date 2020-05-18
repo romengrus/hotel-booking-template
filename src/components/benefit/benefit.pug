@@ -1,31 +1,17 @@
 //- Benefit component
 //-
-//- iconName  {string} Icon name to show
-//- title     {string} Header text
-//- desc      {string} Description text
-//- mods      {array} Modifier classes
-mixin benefit(props = {})
+//- icon    string ('') Icon name
+//- title   string ('') Header text
+//- desc    string ('') Description text
+mixin benefit({icon: '', title: '', desc: ''} = {})
   include /components/icon/icon.pug
 
-  -
-    props = Object.assign({
-      iconName: '',
-      title: '',
-      desc: '',
-      mods: []
-    }, props)
-
-    const mods = ['benefit'].concat(props.mods)
-
-  div(class= mods)&attributes(attributes)
-    if (props.iconName)
+  .benefit
+    if (icon)
       .benefit__aside
-        +icon({name: props.iconName, mods: ['benefit__icon']})
+        +icon({name: icon})
     .benefit__main
-      if (props.title)
-        h3.benefit__title= props.title
-      if (props.desc)
-        .benefit__desc= props.desc
-
-
-    
+      if (title)
+        h3.benefit__title= title
+      if (desc)
+        .benefit__desc= desc

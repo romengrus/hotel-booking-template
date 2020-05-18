@@ -20,14 +20,14 @@ $benefit-border: 1px solid #eee !default;
     margin-left: 10px;
   }
 
-  &__icon {
-    width: 46px;
-    height: 42px;
-  }
-
   &__title {
     margin-bottom: 4px;
     font-size: 15px;
     letter-spacing: 0;
+  }
+
+  &.icon {
+    width: 46px;
+    height: 42px;
   }
 }
