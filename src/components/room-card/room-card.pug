@@ -1,52 +1,36 @@
 //- Room Card
 //-
-//- roomNumber    {number} 
-//- price         {number}
-//- currency      {string} Currency symbol
-//- rating        {number} Rating value
-//- numReviews    {number} Number of votes in rating
-//- isLux         {boolean} If true - room is indicated as lux
-//- slider        {object} image slider props (properties are described in slider component)
-//- mods          {array} modifier classes
-mixin room-card(props = {})
-  include /components/slider/slider.pug
+//- room          string ('') - Room number/id
+//- price         number (0) - Room price
+//- currency      string ('₽') - Currency symbol
+//- rating        number (5) - Rating value
+//- numReviews    number (0) - Number of votes in rating
+//- isLux         boolean (false) - If true - room is indicated as lux
+mixin room-card({room: '', price: 0, currency: '₽', rating: 5, numReviews: 0, isLux: false} = {})
   include /components/rating/rating.pug
 
   -
-    props = Object.assign({
-      roomNumber: '',
-      price: 0,
-      currency: '₽',
-      rating: 5,
-      numReviews: 0,
-      isLux: false,
-      slider: {},
-      mods: []
-    }, props)
+    const classList = ['room-card']
+    if (isLux) classList.push('room-card_is-lux')
 
-    var mods = ['room-card'].concat(props.mods)
-    
-    props.slider.mods = ['room-card__slider']
-
-    if (props.isLux) mods.push('room-card_is-lux')
-
-  li(class= mods)&attributes(attributes)
-    +slider(props.slider)
+  li(class= classList)
+    if (block)
+      block
 
     .room-card__row
       .room-card__room-details
-        span.room-card__number #{props.roomNumber}
-        if (props.isLux)
+        span.room-card__number= roomNumber
+        if (isLux)
           span.room-card__lux-indicator люкс
-      if (props.price > 0)
+      if (price > 0)
         .room-card__price-details 
-          span.room-card__price= props.price
-          span.room-card__currency= props.currency
+          span.room-card__price= price
+          span.room-card__currency= currency
           | в сутки
 
     .room-card__row
-      +rating({value: props.rating, objectId: props.roomNumber, mods: ['room-card__rating']})
-      if (props.numReviews > 0)
+      +rating({value: rating})
+      if (numReviews > 0)
         .room-card__reviews 
-          span.room-card__reviews-amount= props.numReviews 
-          | #{pluralize(props.numReviews, ['Отзыв', 'Отзыва', 'Отзывов'])}
+          span.room-card__reviews-amount= numReviews 
+          | #{pluralize(numReviews, ['Отзыв', 'Отзыва', 'Отзывов'])}
