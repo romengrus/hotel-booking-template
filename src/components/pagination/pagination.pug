@@ -1,4 +1,4 @@
-//- Pagination component
+//- Pagination 
 //- ====================
 //- Expected output (delta = 1, total = 1):
 //- Selected page 1: ''
@@ -41,11 +41,11 @@
 //- Selected page 20: [<-, 1, "...", 18, 19, (20)]
 //- ====================
 //- 
-//- currentPage     {number} Current page number
-//- perPage         {number} Items to show per page
-//- totalItems      {number} Total items in listing
-//- delta           {number} Number of pages always visible from the left & right side of current page
-//- label           {text}  Label template text.
+//- currentPage     number (1) - Current page number
+//- perPage         number (10) - Items to show per page
+//- totalItems      number (0) - Total items in listing
+//- delta           number (2) - Number of pages always visible from the left & right side of current page
+//- label           string - Label template text.
 //-                         Can use variables:
 //-                           * idxFrom     {number} Index of first item on page
 //-                           * idxTo       {number} Index of last item on page
@@ -54,75 +54,64 @@
 //-                         Can use functions:
 //-                           * approximately(num) -> number rounded to nearest 10 downwards, adding '+' if needed
 //-                           * any other js function ... 
-//- labelPosition   {'left' | 'right' | 'top' | 'bottom'}
-//- showLabel       {boolean} If true - label will be shown, false - otherwise
-//- mods            {array} Modifier classess
-mixin pagination(props = {})
-  include /components/icon/icon.pug
-  include /components/button/button.pug
-
+//- showLabel       boolean (true) - If true - label will be shown, false - otherwise
+//- labelPosition   oneOf ('left' | 'right' | 'top' | 'bottom')
+mixin pagination(
+  currentPage = 1,
+  perPage = 10,
+  totalItems = 0,
+  delta = 2,
+  label = "${idxFrom} - ${idxTo} from ${approximately(totalItems)} variants for rent",
+  showLabel = true,
+  labelPosition = 'bottom'
+)
   -
-    props = Object.assign({
-      currentPage: 1,
-      perPage: 10,
-      totalItems: 0,
-      delta: 2,
-      label: "${idxFrom} - ${idxTo} from ${approximately(totalItems)} variants for rent",
-      showLabel: true,
-      labelPosition: 'bottom',
-      mods: []
-    }, props)
+    const classList = ['pagination', `pagination_label-pos-${labelPosition}`]
+    const lastPage = Math.ceil(props.totalItems / props.perPage)
+    const idxFrom = 1
+    const idxTo = 12
+    const arrowMods = ['pagination__arrow']
+    const pageMods = ['pagination__page']
 
-    var mods = ['pagination', `pagination_label-pos-${props.labelPosition}`].concat(props.mods)
-    var {currentPage, perPage, totalItems, delta} = props
-    var lastPage = Math.ceil(props.totalItems / props.perPage)
-    var idxFrom = 1
-    var idxTo = 12
-    var arrowMods = ['pagination__arrow']
-    var pageMods = ['pagination__page']
-
-    //- round number to nearest 10
-    function approximately(n) {
-      const x = Math.floor(n / 10) * 10
+    function approximately(n, to = 10) {
+      const x = Math.floor(n / to) * to
       if (x < n) return `${x}+`
       return `${x}`   
     }
+
+    function inScope(page, currentPage, delta) {
+      return (page >= currentPage - delta) 
+          && (page <= currentPage + delta);
+    }
+
+    function atScopeBoundary(page, currentPage, delta) {
+      return (page === currentPage - delta - 1) 
+          || (page === currentPage + delta + 1);
+    }
   
-  div(class= mods)&attributes(attributes)
+  div(class = classList)
     if (lastPage > 1)
       .pagination__listing
         //- prev arrow
         if (currentPage > 1 && lastPage > 2)
-          +button({
-            type: 'link', 
-            isRounded: true, 
-            iconName: 'arrow-left', 
-            iconPosition: 'left',
-            mods: arrowMods.concat('pagination__prev')
-          })(href= dummyURL)
+          a(href = dummyURL, class = arrowMods.concat('pagination__prev'))
 
         //- main listing
         - for(let i = 1; i <= lastPage; i += 1)
           if (i === currentPage)
-            +button({type: 'link', value: i, mods: pageMods.concat('pagination__page-current')})(href= dummyURL)
+            a(href = dummyURL, class = pageMods.concat('pagination__page-current'))= i
           else if (i === 1)
-            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-first')})(href= dummyURL)
+            a(href = dummyURL, class = pageMods.concat('pagination__page-first'))= i
           else if (i === lastPage)
-            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-last')})(href= dummyURL)
-          else if (i >= currentPage - delta && i <= currentPage + delta)
-            +button({type: 'link', isText: true, value: i, mods: pageMods.concat('pagination__page-delta')})(href= dummyURL)
-          else if (i === currentPage - delta - 1 || i === currentPage + delta + 1)
+            a(href = dummyURL, class = pageMods.concat('pagination__page-last')})= i
+          else if (inScope(i, currentPage, delta))
+            a(href = dummyURL, class = pageMods.concat('pagination__page-delta')})= i
+          else if (atScopeBoundary(i, currentPage, delta))
             span(class= pageMods.concat('pagination__dots')) ...
 
         //- next arrow
         if (currentPage < lastPage && lastPage > 2)
-          +button({
-            type: 'link', 
-            isRounded: true, 
-            iconName: 'arrow-right', 
-            iconPosition: 'right',
-            mods: arrowMods.concat('pagination__next')
-          })(href= dummyURL)
+          a(href = dummyURL, class = arrowMods.concat('pagination__next'))
 
       if (props.showLabel)
-        .pagination__label= eval('`' + props.label + '`')
+        .pagination__label= eval('`' + label + '`')
