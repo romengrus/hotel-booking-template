@@ -16,10 +16,10 @@ mixin button({type: 'button', href: '' mods: []} = {})
     const isDisabled = mods.includes('disabled')
 
   if (type === 'button')
-    button(class = classList, disabled = isDisabled)&attributes(attributes)
+    button(class = classList, disabled = isDisabled)
       if block
         block
   else
-    a(class = classList, href = href)&attributes(attributes)
+    a(class = classList, href = href)
       if block
         block
