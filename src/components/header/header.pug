@@ -2,22 +2,12 @@
 //-
 //- isLoggedIn  {boolean} If user is logged in
 //- userName    {string} User name to show in auth block
-//- mods        {array} Modifier classes
-mixin header(props)
+mixin header({isLoggedIn: false, userName: 'Cosmin Negoita'})
   include /components/menu/menu.pug
   include /components/button/button.pug
   include /components/hamburger-menu/hamburger-menu.pug
 
-  - 
-    props = Object.assign({
-      isLoggedIn: false,
-      userName: 'Cosmin Negoita',
-      mods: []
-    }, props)
-    
-    var mods = ['header'].concat(props.mods)
-
-  header(class= mods)
+  header.header
     .header__wrapper
       .row
         .header__logo
@@ -88,12 +78,12 @@ mixin header(props)
             }]
           })
 
-          if props.isLoggedIn
+          if (isLoggedIn)
             .header__auth.header__auth_is-logged-in
-              a(class= 'header__profile-link', href= dummyURL)= props.userName
+              a(class= 'header__profile-link', href= dummyURL)= userName
           else 
             .header__auth
-              +button({value: 'войти', type: 'link', isOutlined: true, mods: ['header__button']})(href= dummyURL)
-              +button({value: 'зарегистрироваться', type: 'link', mods: ['header__button']})(href= dummyURL)
+              +button({type: 'link', mods: 'outlined'})(href= dummyURL) войти
+              +button({type: 'link'})(href= dummyURL) зарегистрироваться 
 
-        +hamburger-menu({mods: ['header__menu-toggler']})
+        +hamburger-menu
