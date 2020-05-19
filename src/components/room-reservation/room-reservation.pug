@@ -1,17 +1,15 @@
 //- Room Reservation
 //-
-//- roomNumber    {string} room number
-//- isLux         {boolean} If true - number is of lux quality, false - otherwise
-//- price         {number} price per day
-//- currency      {string} Currency indicator
-//- labels        {object} Form labels
-//- fees          {array} additional fees 
+//- room          string ('') - room number
+//- isLux         boolean (false) - If true - number is of lux quality, false - otherwise
+//- price         number (0) - price per day
+//- currency      string ('₽') - Currency indicator
+//- fees          array ([]) - additional fees 
 //--- fee { 
-//---   title     {string} fee name
-//---   desc      {string} fee description
-//---   amount    {number} fee amount
+//---   title     string ('') - fee name
+//---   desc      string ('') - fee description
+//---   amount    number (0) - fee amount
 //--- }
-//- mods          {array} modifier classes
 mixin room-reservation(props = {})
   include /components/form/form.pug
   include /components/form-field-datetime/form-field-datetime.pug
@@ -20,87 +18,62 @@ mixin room-reservation(props = {})
   include /components/button/button.pug
 
   -
-    props = Object.assign({
-      roomNumber: '',
-      isLux: false,
-      price: 0,
-      currency: '₽',
-      fees: [],
-      mods: []
-    }, props)
-
-    // Object.assign can't merge nested objects. 
-    // Make merging separately
-    var labels = Object.assign({
+    const labels = {
       submit: 'Забронировать',
       arrival: 'Прибытие',
       departure: 'Выезд',
       guests: 'Гости',
-    }, props.labels || {})
+      lux: 'люкс',
+    };
 
-    props.labels = labels
+    const classList = ['room-reservation']
+    if (isLux) classList.push('room-reservation_is-lux')
 
-    var mods = ['room-reservation'].concat(props.mods)
-
-    if (props.isLux) mods.push('room-reservation_is-lux')
-
-    var arrivalFieldId = createRandomId('room-reservation__arrival');
-    var departureFieldId = createRandomId('room-reservation__departure');
-    var guestsFieldId = createRandomId('room-reservation__guests');
-
-  div(class= mods)
-    +form({mods: ['room-reservation__form']})&attributes(attributes)
+  div(class= classList)
+    +form
       .room-reservation__row
         .room-reservation__room-details №
-          span.room-reservation__room-number= props.roomNumber
-          if (props.isLux)
-            span.room-reservation__lux-indicator люкс
+          span.room-reservation__room-number= roomNumber
+          if (isLux)
+            span.room-reservation__lux-indicator= labels.lux
         .room-reservation__price-details
-          span.room-reservation__price= props.price
-          span.room-reservation__currency= props.currency
+          span.room-reservation__price= price
+          span.room-reservation__currency= currency
           | в сутки
 
       .room-reservation__row
         .room-reservation__arrival
-          label.room-reservation__label(for= arrivalFieldId)= labels.arrival
-          +form-field-datetime({useDatepicker: true, mods: ['room-reservation__arrival-input']})(placeholder='ДД.ММ.ГГ')
+          label= labels.arrival
+            +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГ')
         .room-reservation__departure
-          label.room-reservation__label(for= departureFieldId)= labels.departure
-          +form-field-datetime({useDatepicker: true, mods: ['room-reservation__departure-input']})(placeholder='ДД.ММ.ГГ')
+          label= labels.departure
+            +form-field-datetime({useDatepicker: true })(placeholder='ДД.ММ.ГГ')
 
       .room-reservation__guests
-        label.room-reservation__label(for= guestsFieldId)= labels.guests
-        +dropdown-counter({
-          counters: [{
-              label: 'взрослые',
-              plurals: ['взрослый', 'взрослых', 'взрослых'],
-              objectId: '18+'
-            },
-            {
-              label: 'дети',
-              plurals: ['ребенок', 'детей', 'детей'],
-              objectId: 'child'
-            },
-            {
-              label: 'младенцы',
-              plurals: ['младенец', 'младенца', 'младенцев'],
-              objectId: 'toddler',
-          }],
-          displayType: 'concat',
-          plurals: ['гость', 'гостя', 'гостей'],
-          mods: ['room-reservation__guests-input']
-        })&attributes({placeholder: 'Сколько гостей'})
+        label= labels.guests
+          +dropdown-counter({
+            counters: [{
+                label: 'взрослые',
+                plurals: ['взрослый', 'взрослых', 'взрослых'],
+              },
+              {
+                label: 'дети',
+                plurals: ['ребенок', 'детей', 'детей'],
+              },
+              {
+                label: 'младенцы',
+                plurals: ['младенец', 'младенца', 'младенцев'],
+            }],
+            displayType: 'concat',
+            plurals: ['гость', 'гостя', 'гостей'],
+          })(placeholder= 'Сколько гостей')
 
-      div(class= 'room-reservation__fees', style= 'display: none')&attributes({
-        'data-fees': props.fees,
-        'data-price': props.price,
-        'data-currency': props.currency
-      })
+      .room-reservation__fees(
+        style= 'display: none',
+        'data-fees'= fees,
+        'data-price'= price,
+        'data-currency'= currency
+      )
 
-      +button({
-        value: labels.submit, 
-        isExpanded: true, 
-        hasRipple: true, 
-        iconName: 'arrow-right',
-        mods: ['room-reservation__submit']
-      })
+      +button({mods: 'expanded'})= labels.submit
+        +icon({name: 'arrow-right'})
