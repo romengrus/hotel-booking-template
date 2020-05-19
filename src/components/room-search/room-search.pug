@@ -1,76 +1,49 @@
-//- Room Search
-//- 
-//- labels    {object} Form labels
-//- mods      {array} Modifier classes
-mixin room-search(props = {})
+mixin room-search
   include /components/form/form.pug
   include /components/form-field-datetime/form-field-datetime.pug
   include /components/dropdown-counter/dropdown-counter.pug
   include /components/button/button.pug
 
   -
-    props = Object.assign({
-      mods: []
-    }, props)
-
-    // Object.assign can't merge nested objects. 
-    // Make merging separately
-    var labels = Object.assign({
+    const labels = {
       title: 'Найдем номера под ваши пожелания',
       submit: 'Подобрать номер',
       arrival: 'Прибытие',
       departure: 'Выезд',
       guests: 'Гости',
-    }, props.labels || {})
+    };
 
-    props.labels = labels
-
-    var mods = ['room-search'].concat(props.mods)
-
-    var arrivalFieldId = createRandomId('room-search__arrival');
-    var departureFieldId = createRandomId('room-search__departure');
-    var guestsFieldId = createRandomId('room-search__guests');
-
-  div(class= mods)
-    +form({mods: ['room-search__form']})&attributes(attributes)
+  .room-search
+    +form
       h2.room-search__title= labels.title
 
       .room-search__dates
         .room-search__arrival
-          label.room-search__arrival-label(for= arrivalFieldId)= labels.arrival
-          +form-field-datetime({useDatepicker: true, mods: ['room-search__arrival-input']})(placeholder='ДД.ММ.ГГГГ')
+          label= labels.arrival
+            +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГГГ')
         .room-search__departure
-          label.room-search__departure-label(for= departureFieldId)= labels.departure
-          +form-field-datetime({useDatepicker: true, mods: ['room-search__departure-input']})(placeholder='ДД.ММ.ГГГГ')
+          label= labels.departure
+            +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГГГ')
 
       .room-search__guests
-        label.room-search__guests-label(for= guestsFieldId)= labels.guests
-        +dropdown-counter({
-          counters: [{
-              label: 'взрослые',
-              plurals: ['взрослый', 'взрослых', 'взрослых'],
-              objectId: '18+'
-            },
-            {
-              label: 'дети',
-              plurals: ['ребенок', 'детей', 'детей'],
-              objectId: 'child'
-            },
-            {
-              label: 'младенцы',
-              plurals: ['младенец', 'младенца', 'младенцев'],
-              objectId: 'toddler',
-          }],
-          displayType: 'concat',
-          plurals: ['гость', 'гостя', 'гостей'],
-          mods: ['room-search__guests-input']
-        })&attributes({placeholder: 'Сколько гостей'})
+        label= labels.guests
+          +dropdown-counter({
+            counters: [{
+                label: 'взрослые',
+                plurals: ['взрослый', 'взрослых', 'взрослых'],
+              },
+              {
+                label: 'дети',
+                plurals: ['ребенок', 'детей', 'детей'],
+              },
+              {
+                label: 'младенцы',
+                plurals: ['младенец', 'младенца', 'младенцев'],
+            }],
+            displayType: 'concat',
+            plurals: ['гость', 'гостя', 'гостей'],
+          })(placeholder= 'Сколько гостей')
 
-      +button({
-        value: labels.submit, 
-        isExpanded: true, 
-        hasRipple: true, 
-        iconName: 'arrow-right',
-        mods: ['room-search__submit']
-      })
+      +button({mods: 'expanded'})= labels.submit
+        +icon({name: 'arrow-right'})
 
