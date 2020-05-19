@@ -1,80 +1,63 @@
 //- Image Slider
 //-
-//- slides          {array} Array of slide objects
-//--- Note: each slide is an object. This will help to add additional properties to slide later
-//--- slide object: {
-//---   img   {string} image path
-//---   url   {string} image url
+//- slides             array ([]) - Array of slide objects
+//--- slide {
+//---   img     string ('') - image path
+//---   url     string ('') - image url
 //--- }
-//- params            {object} Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
-//- showPagination    {boolean} If true - pagination will be shown
-//- showNavigation    {boolean} If true - navigation buttons will be shown
-//- showScrollbar     {boolean} If true - scrollbar will be shown
-//- showThumbnails    {boolean} If true - show another slider with thumbnails
-//- thumbnailsParams  {object} Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
-//- mods              {array} Modifier classes
-mixin slider(props = {})
+//- params             object ({}) - Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
+//- showPagination     boolean (false) - If true - pagination will be shown
+//- showNavigation     boolean (false) - If true - navigation buttons will be shown
+//- showScrollbar      boolean (false) - If true - scrollbar will be shown
+//- showThumbnails     boolean (false) - If true - show another slider with thumbnails
+//- thumbnailsParams   object ({}) - Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
+mixin slider({slides: [], params: {}, showPagination: false, showNavigation: false, showScrollbar: false, showThumbnails: false, thumbnailsParams: {}} = {})
   -
-    props = Object.assign({
-      slides: [],
-      params: {},
-      showPagination: false,
-      showNavigation: false,
-      showScrollbar: false,
-      showThumbnails: false,
-      thumbnailsParams: {},
-      mods: [],
-    }, props)
-
-    var mods = ['slider'].concat(props.mods)
-
-    if (props.showNavigation) {
-      props.params.navigation = Object.assign(props.params.navigation || {}, {
+    if (showNavigation) {
+      params.navigation = Object.assign(params.navigation || {}, {
         prevEl: '.swiper-button-prev',
         nextEl: '.swiper-button-next'
       })
     }
 
-    if (props.showPagination) {
-      props.params.pagination = Object.assign(props.params.pagination || {}, {
+    if (showPagination) {
+      params.pagination = Object.assign(params.pagination || {}, {
         el: '.swiper-pagination'
       })
     } 
 
-    if (props.showScrollbar) {
-      props.params.scrollbar = Object.assign(props.params.scrollbar || {}, {
+    if (showScrollbar) {
+      params.scrollbar = Object.assign(params.scrollbar || {}, {
         el: '.swiper-scrollbar'
       })
     }
 
-    if (props.showThumbnails) {
-      props.params.showThumbnails = true;
+    if (showThumbnails) {
+      params.showThumbnails = true;
     }
 
-    attributes['data-params'] = props.params
-
-  div(class= mods)
-    .swiper-container&attributes(attributes)
+  .slider
+    .swiper-container('data-params'= params)
       .swiper-wrapper
-        each slide in props.slides
+        each slide in slides
           if 'img' in slide
             a(class= 'swiper-slide', href= `${slide.url || dummyURL}`, style= `background-image: url(${slide.img})`)
 
-      if (props.showPagination)
+      if (showPagination)
         .swiper-pagination
 
-      if (props.showNavigation)
+      if (showNavigation)
         .swiper-button-prev
         .swiper-button-next
 
-      if (props.showScrollbar)
+      if (showScrollbar)
         .swiper-scrollbar
 
-    if (props.showThumbnails)
-      div(class= 'swiper-container-thumbs')&attributes({'data-params': props.thumbnailsParams})
+    if (showThumbnails)
+      .swiper-container-thumbs('data-params'= thumbnailsParams)
         .swiper-wrapper
-          each slide in props.slides
+          each slide in slides
             if 'img' in slide
-              div(class= 'swiper-slide swiper-slide_thumbnail', style= `background-image: url(${slide.img})`)
+              .swiper-slide.swiper-slide_thumbnail(style= `background-image: url(${slide.img})`)
       
       
