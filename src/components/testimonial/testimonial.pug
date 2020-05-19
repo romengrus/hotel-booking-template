@@ -1,27 +1,18 @@
-mixin testimonial(props= {})
+//- userImg     string ('')
+//- userName    string ('')
+//- createdAt   string ('') - when testimonial was created
+//- numLikes    number (0) - number of likes this testimonial has
+//- text        string ('') - testimonial text
+mixin testimonial({userImg: '', userName: '', createdAt: '', numLikes: 0, text: ''} = {})
   include /components/button-like/button-like.pug
 
-  -
-    props = Object.assign({
-      userImg: '',
-      userName: '',
-      createdAt: '',
-      numLikes: 0,
-      text: '',
-      mods: []
-    }, props)
-
-    var mods = ['testimonial'].concat(props.mods)
-    if (props.userName === '') throw new Error('Testimonial: user name is required')
-    if (props.text === '') throw new Error('Testimonial: text is required')
-
-  section(class= mods)&attributes(attributes)
+  section.testimonial
     .testimonial__left-col
-      if (props.userImg)
-        img(class= 'testimonial__user-img', src= props.userImg, title= props.userName)
-      +button-like({value: props.numLikes, mods: ['testimonial__likes']})
+      if (userImg)
+        img.testimonial__user-img(src= userImg, title= userName)
+      +button-like({value: numLikes})
     .testimonial__right-col
-      h3.testimonial__user-name= props.userName
-      if (props.createdAt)
-        span.testimonial__created-at(datetime=props.createdAt)
-      article.testimonial__text= props.text
+      h3.testimonial__user-name= userName
+      if (createdAt)
+        span.testimonial__created-at(datetime= createdAt)
+      article.testimonial__text= text
