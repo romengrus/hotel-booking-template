@@ -1,30 +1,27 @@
-//- Social icons block
-//- icons     {array} Array of icon objects 
-//--- name    {string} Icon name
-//--- href    {string} Link to social account/page 
-//- mods      {array} Modifier classes
-mixin social-icons(props = {})
+//- Social icons
+//-
+//- icons     array ([]) - Array of icon objects 
+//--- icon {
+//---   name    string ('') - Icon name
+//---   href    string ('') - Link to social account/page 
+//--- }
+mixin social-icons({icons: []} = {})
   include /components/icon/icon.pug
 
   - 
-    props = Object.assign({
-      icons: [{
+    icons = icons || [{
         name: 'twitter',
-        href: '#'
+        href: dummyURL,
       }, {
         name: 'facebook',
-        href: '#'
+        href: dummyURL,
       }, {
         name: 'instagram',
-        href: '#'
-      }],
-      mods: []
-    }, props)
+        href: dummyURL,
+    }];
 
-    var mods = ['social-icons'].concat(props.mods)
-
-  div(class= mods)
-    each icon in props.icons
+  .social-icons
+    each icon in icons
       a(class= 'social-icons__link', href= icon.href)
         +icon({name: icon.name})
 
