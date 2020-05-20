@@ -1,6 +1,5 @@
 //- Menu 
 //-
-//- orientation   oneOf ('horizontal' | 'vertical') - Menu items orientation
 //- items         array ([]) - Menu items
 //--- item {
 //---   name      string ('') - Menu item name
@@ -8,25 +7,24 @@
 //---   isActive  boolean (false) - Is this currently selected menu item
 //---   submenu   array ([]) - Array of submenu items 
 //--- }
+//- isVertical    boolean (false) - If true - menu items are positioned vertically
+//- level         number (0) - If greater then 0 - it is submenu
 mixin menu(props = {})
   include /components/icon/icon.pug
 
   -
     const hasSubmenu = menuItem => Array.isArray(menuItem.submenu);
 
-    const { orientation, items, level } = Object.assign({
-      orientation: 'horizontal', 
+    const { items, isVertical, level } = Object.assign({
       items: [], 
+      isVertical: false,
       level: 0
     }, props);
 
-    const classList = [];
+    const classList = ['menu'];
 
-    if (level > 0) {
-      classList.push('menu__submenu');
-    } else {
-      classList.push('menu', `menu_is-${orientation}`);
-    }
+    if (level > 0) classList.push('menu__submenu');
+    if (isVertical) classList.push('menu_is-vertical');
   
   ul(class = classList)
     each item in items

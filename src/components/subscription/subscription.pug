@@ -1,15 +1,13 @@
 //- Subscription 
 //-
 //- url             string ('') - form action url
-//- placeholder     string ('') - input placeholder text
-//- icon            string ('') - icon name
-mixin subscription({url: '', placeholder: '', icon: 'arrow-right'} = {})
+mixin subscription(props = {})
   include /components/form/form.pug
   include /components/form-field/form-field.pug
-  include /components/button/button.pug
+
+  - 
+    const { url } = Object.assign({ url: '' }, props);
 
   .subscription
-    +form(method= 'POST', action: url)
-      input(type= 'email', required, placeholder= placeholder)
-      +button
-        +icon({name: icon})
+    +form(method = 'POST', action: url)
+      +form-field({ icon: 'arrow-right' })(type = 'email', required, placeholder = 'email')

@@ -1,2 +1,12 @@
-mixin form-field
-  input.form-field&attributes(attributes)
+//- icon    string ('') - icon to show inside
+mixin form-field(props = {})
+  include /components/icon/icon.pug
+
+  -
+    const { icon } = Object.assign({ icon: '' }, props);
+
+  .form-field
+    input.form-field__input&attributes(attributes)
+    if icon
+      .form-field__icon
+        +icon({ name: icon })

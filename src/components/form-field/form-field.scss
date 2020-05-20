@@ -10,15 +10,26 @@ $input-label-color: #000 !default;
 $input-label-size: 12px !default;
 
 .form-field {
-  display: flex;
-  width: 100%;
-  height: $input-height;
-  border: $input-border;
-  padding: $input-padding;
-  border-radius: $input-border-radius;
-  font-size: $input-font-size;
-  line-height: $input-line-height;
-  color: $input-font-color;
+  position: relative;
+
+  &__input {
+    display: flex;
+    width: 100%;
+    height: $input-height;
+    border: $input-border;
+    padding: $input-padding;
+    border-radius: $input-border-radius;
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+    color: $input-font-color;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+  }
 
   &__warning-msg {
     color: lighten($red, 10%);
