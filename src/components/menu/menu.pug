@@ -2,31 +2,40 @@
 //-
 //- orientation   oneOf ('horizontal' | 'vertical') - Menu items orientation
 //- items         array ([]) - Menu items
-//--- name      string ('') - Menu item name
-//--- href      string ('') - Menu item href
-//--- isActive  boolean (false) - Is this currently selected menu item
-//--- submenu   array ([]) - Array of submenu items 
-mixin menu({orientation: 'horizontal', items: []} = {})
-  include /components/button/button.pug
+//--- item {
+//---   name      string ('') - Menu item name
+//---   href      string ('') - Menu item href
+//---   isActive  boolean (false) - Is this currently selected menu item
+//---   submenu   array ([]) - Array of submenu items 
+//--- }
+mixin menu(props = {})
+  include /components/icon/icon.pug
 
   -
-    function makeMenu(items, orientation) {
-      const classList = ['menu', `menu_is-${orientation}`]
+    const hasSubmenu = menuItem => Array.isArray(menuItem.submenu);
 
-      return `<ul class="${classList.join(' ')}">${items.map(makeItem).join('')}</ul`;
+    const { orientation, items, level } = Object.assign({
+      orientation: 'horizontal', 
+      items: [], 
+      level: 0
+    }, props);
+
+    const classList = [];
+
+    if (level > 0) {
+      classList.push('menu__submenu');
+    } else {
+      classList.push('menu', `menu_is-${orientation}`);
     }
+  
+  ul(class = classList)
+    each item in items
+      - const itemClassList = ['menu__item'];
+      - if (hasSubmenu(item)) itemClassList.push('menu__item_has-submenu');
+      - if (item.isActive) itemClassList.push('menu__item_is-active');
 
-    function makeItem({name: '', href: '', isActive: false, submenu: []} = {}) {
-      const classList = ['.menu__item'];
-      if (submenu) classList.push('.menu__item_has-submenu');
-      if (isActive) classList.push('.menu__item_is-active');
-
-      return `
-        <li class="${classList.join(' ')}">
-          <a class="menu__link" href="${href}">${name}</a>
-          ${submenu && `<ul class="menu__submenu">${makeMenu(submenu)}</ul>`}
-        </li>
-      `;
-    }
-
-    makeMenu(items, orientation);
+      li(class = itemClassList)
+        a.menu__link(href = item.href)= item.name
+        if (hasSubmenu(item))
+          +icon({name: 'semi-arrow-down'})
+          +menu({orientation, items: item.submenu, level: level + 1})

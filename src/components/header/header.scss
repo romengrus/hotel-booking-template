@@ -37,7 +37,6 @@
       }
 
       .menu > .menu__item {
-        // align-items: flex-start;
         margin-bottom: 10px;
       }
 
@@ -93,8 +92,12 @@
 
   &__auth {
     display: flex;
-    margin-left: 26px;
+    margin-left: 17px;
     align-items: center;
+
+    * + * {
+      margin-left: 20px;
+    }
 
     &_is-logged-in {
       display: flex;

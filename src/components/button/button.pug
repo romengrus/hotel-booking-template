@@ -1,19 +1,30 @@
 //- Button
 //-
-//- type    oneOf ('button' | 'link') - Type of underlying dom element
-//- href    string ('') - Href if type is 'link' 
-//- mods    setOf (
-              'rounded',      // button has rounded corners
-              'outlined',     // button has border, but no background
-              'disabled',     // button is disabled
-              'expanded',     // button is expanded to the width of container
-              'text-only',    // button has no border and background
-            )
-mixin button({type: 'button', href: '' mods: []} = {})
+//- type        oneOf ('button' | 'link') - Type of underlying dom element
+//- href        string ('') - Href if type is 'link' 
+//- isRounded   boolean (false) - button has rounded corners
+//- isOutlined  boolean (false) - button has border, but no background
+//- isDisabled  boolean (false) - button is disabled
+//- isExpanded  boolean (false) - button is expanded to the width of container
+//- isTextOnly  boolean (false) - button has no border and background
+mixin button(props = {})
   -
-    const baseClass = 'button'
-    const classList = mods.map(mod => `${baseClass}_is-${mod}`).concat(baseClass)
-    const isDisabled = mods.includes('disabled')
+    const { type, href, isRounded, isOutlined, isDisabled, isExpanded, isTextOnly } = Object.assign({
+      type: 'button', 
+      href: '',
+      isRounded: true,
+      isOutlined: false,
+      isDisabled: false,
+      isExpanded: false,
+      isTextOnly: false,
+    }, props);
+
+    const classList = ['button']; 
+    if (isRounded) classList.push('button_is-rounded');
+    if (isOutlined) classList.push('button_is-outlined');
+    if (isDisabled) classList.push('button_is-disabled');
+    if (isExpanded) classList.push('button_is-expanded');
+    if (isTextOnly) classList.push('button_is-text-only');
 
   if (type === 'button')
     button(class = classList, disabled = isDisabled)

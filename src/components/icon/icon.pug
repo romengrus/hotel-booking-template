@@ -1,6 +1,11 @@
 //- Icon
 //-
 //- name    string ('hart') - Icon file name (without extension)
-mixin icon({name: 'hart'} = {})
-  svg.icon
+mixin icon(props = {})
+  -
+    const { name } = Object.assign({ name: 'hart' }, props);
+
+    const classList = ['icon', `icon-${name}`];
+
+  svg(class = classList)
     use(href= `#${name}`)

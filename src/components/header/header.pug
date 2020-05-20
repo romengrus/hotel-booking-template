@@ -2,10 +2,16 @@
 //-
 //- isLoggedIn  {boolean} If user is logged in
 //- userName    {string} User name to show in auth block
-mixin header({isLoggedIn: false, userName: 'Cosmin Negoita'})
+mixin header(props = {})
   include /components/menu/menu.pug
   include /components/button/button.pug
-  include /components/hamburger-menu/hamburger-menu.pug
+  //- include /components/hamburger-menu/hamburger-menu.pug
+
+  -
+    const { isLoggedIn, userName } = Object.assign({
+      isLoggedIn: false,
+      userName: 'Cosmin Negoita',
+    }, props);
 
   header.header
     .header__wrapper
@@ -47,12 +53,12 @@ mixin header({isLoggedIn: false, userName: 'Cosmin Negoita'})
             {
               "name": "вакансии",
               "href": "#",
-              "isActive": true
+              "isActive": false
             },
             {
               "name": "новости",
               "href": "#",
-              "isActive": true
+              "isActive": false
             },
             {
               "name": "соглашения",
@@ -80,10 +86,10 @@ mixin header({isLoggedIn: false, userName: 'Cosmin Negoita'})
 
           if (isLoggedIn)
             .header__auth.header__auth_is-logged-in
-              a(class= 'header__profile-link', href= dummyURL)= userName
+              a(class = 'header__profile-link', href = dummyURL) = userName
           else 
             .header__auth
-              +button({type: 'link', mods: 'outlined'})(href= dummyURL) войти
-              +button({type: 'link'})(href= dummyURL) зарегистрироваться 
+              +button({type: 'link', isOutlined: true, href: dummyURL}) войти
+              +button({type: 'link', href: dummyURL}) зарегистрироваться 
 
-        +hamburger-menu
+        //- +hamburger-menu

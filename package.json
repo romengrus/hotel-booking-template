@@ -9,7 +9,7 @@
     "prebuildSprite": "npm run cleanDist && npm run optimizeIcons",
     "buildSprite": "svgstore -o src/assets/sprites/icons-sprite.svg dist/icons/**/*.svg --inline",
     "build": "npm run cleanDist && parcel build src/index.pug",
-    "start": "parcel src/index.pug --no-hmr",
+    "start": "parcel src/index.pug",
     "docs": "npm run cleanDocs && parcel build src/index.pug --out-dir docs --public-url /hotel-booking-template",
     "lint:style": "stylelint 'src/**/*.scss'",
     "lint:style-fix": "stylelint 'src/**/*.scss' --fix",
