@@ -1,27 +1,16 @@
 $hero-text-color: black !default;
+$hero-min-height: 683px;
+$hero-max-height: 830px;
 
 .hero {
+  display: flex;
   position: relative;
   width: 100%;
-  height: 830px;
-
-  &__image {
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+  max-height: $hero-max-height;
+  min-height: $hero-min-height;
+  background-position: center -70px;
 
   &__content {
-    @include to(980px) {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    position: absolute;
-    z-index: 20;
-    top: 70px;
-    left: 140px;
     min-width: 320px;
   }
 

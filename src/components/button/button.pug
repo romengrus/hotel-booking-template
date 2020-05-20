@@ -2,16 +2,22 @@
 //-
 //- type        oneOf ('button' | 'link') - Type of underlying dom element
 //- href        string ('') - Href if type is 'link' 
+//- size        oneOf ('small' | 'big') - Button size
+//- icon        string ('') - icon to show inside button
 //- isRounded   boolean (false) - button has rounded corners
 //- isOutlined  boolean (false) - button has border, but no background
 //- isDisabled  boolean (false) - button is disabled
 //- isExpanded  boolean (false) - button is expanded to the width of container
 //- isTextOnly  boolean (false) - button has no border and background
 mixin button(props = {})
+  include /components/icon/icon.pug
+
   -
-    const { type, href, isRounded, isOutlined, isDisabled, isExpanded, isTextOnly } = Object.assign({
+    const { type, href, size, icon, isRounded, isOutlined, isDisabled, isExpanded, isTextOnly } = Object.assign({
       type: 'button', 
       href: '',
+      size: 'normal',
+      icon: '',
       isRounded: true,
       isOutlined: false,
       isDisabled: false,
@@ -20,6 +26,7 @@ mixin button(props = {})
     }, props);
 
     const classList = ['button']; 
+    if (size !== 'normal') classList.push(`button_is-${size}`);
     if (isRounded) classList.push('button_is-rounded');
     if (isOutlined) classList.push('button_is-outlined');
     if (isDisabled) classList.push('button_is-disabled');
@@ -30,7 +37,13 @@ mixin button(props = {})
     button(class = classList, disabled = isDisabled)
       if block
         block
+      if icon
+        .button__icon
+          +icon({name: icon})
   else
     a(class = classList, href = href)
       if block
         block
+      if icon
+        .button__icon
+          +icon({name: icon})

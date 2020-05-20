@@ -5,7 +5,7 @@
 mixin header(props = {})
   include /components/menu/menu.pug
   include /components/button/button.pug
-  //- include /components/hamburger-menu/hamburger-menu.pug
+  include /components/hamburger-menu/hamburger-menu.pug
 
   -
     const { isLoggedIn, userName } = Object.assign({
@@ -15,81 +15,81 @@ mixin header(props = {})
 
   header.header
     .header__wrapper
-      .row
-        .header__logo
-          a(href= '/')
-            include /assets/img/logo.svg
+      .header__logo
+        a(href= '/')
+          include /assets/img/logo.svg
 
-        .header__menu
-          button.header__menu-close &times;
+      .header__menu
+        button.header__menu-close &times;
 
-          +menu({items: [{
-              "name": "о нас",
-              "href": "#",
-              "isActive": true
-            },
-            {
-              "name": "услуги",
-              "href": "#",
-              "isActive": false,
-              "submenu": [
-                {
-                  "name": "апартаменты",
-                  "href": "#",
-                  "isActive": false
-                },
-                {
-                  "name": "spa",
-                  "href": "#",
-                  "isActive": false
-                },
-                {
-                  "name": "конференц залы",
-                  "href": "#",
-                  "isActive": false
-                }
-              ]
-            },
-            {
-              "name": "вакансии",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "новости",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "соглашения",
-              "href": "#",
-              "isActive": false,
-              "submenu": [
-                {
-                  "name": "соглашение 1",
-                  "href": "#",
-                  "isActive": false
-                },
-                {
-                  "name": "соглашение 2",
-                  "href": "#",
-                  "isActive": false
-                },
-                {
-                  "name": "соглашение 3",
-                  "href": "#",
-                  "isActive": false
-                }
-              ]
-            }]
-          })
+        +menu({items: [{
+            "name": "о нас",
+            "href": "#",
+            "isActive": true
+          },
+          {
+            "name": "услуги",
+            "href": "#",
+            "isActive": false,
+            "submenu": [
+              {
+                "name": "апартаменты",
+                "href": "#",
+                "isActive": false
+              },
+              {
+                "name": "spa",
+                "href": "#",
+                "isActive": false
+              },
+              {
+                "name": "конференц залы",
+                "href": "#",
+                "isActive": false
+              }
+            ]
+          },
+          {
+            "name": "вакансии",
+            "href": "#",
+            "isActive": false
+          },
+          {
+            "name": "новости",
+            "href": "#",
+            "isActive": false
+          },
+          {
+            "name": "соглашения",
+            "href": "#",
+            "isActive": false,
+            "submenu": [
+              {
+                "name": "соглашение 1",
+                "href": "#",
+                "isActive": false
+              },
+              {
+                "name": "соглашение 2",
+                "href": "#",
+                "isActive": false
+              },
+              {
+                "name": "соглашение 3",
+                "href": "#",
+                "isActive": false
+              }
+            ]
+          }]
+        })
 
-          if (isLoggedIn)
-            .header__auth.header__auth_is-logged-in
-              a(class = 'header__profile-link', href = dummyURL) = userName
-          else 
-            .header__auth
-              +button({type: 'link', isOutlined: true, href: dummyURL}) войти
-              +button({type: 'link', href: dummyURL}) зарегистрироваться 
+        if (isLoggedIn)
+          .header__auth.header__auth_is-logged-in
+            a(class = 'header__profile-link', href = dummyURL) = userName
+        else 
+          .header__auth
+            +button({type: 'link', size: 'small', isOutlined: true, href: dummyURL}) войти
+            +button({type: 'link', size: 'small', href: dummyURL}) зарегистрироваться 
 
-        //- +hamburger-menu
+      .header__menu-toggler
+        +hamburger-menu

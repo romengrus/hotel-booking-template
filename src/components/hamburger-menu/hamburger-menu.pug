@@ -1,11 +1,12 @@
 //- Hamburger menu
 //-
 //- bars  number (3) - Number of bars
-mixin hamburger-menu({bars: 3} = {})
+mixin hamburger-menu(props = {})
   -
+    const { bars } = Object.assign({ bars: 3 }, props);
 
   button.hamburger-menu
-    - var i = 0;
-    while i < props.bars
+    - let i = 0;
+    while i < bars
       span
       - i += 1

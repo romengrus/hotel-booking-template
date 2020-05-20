@@ -5,33 +5,15 @@
   border-top: 1px solid $dark-100;
 
   &__wrapper {
-    @include wrapper();
-    @include row();
-    @include md(justify-content, center);
-
     margin: 0 auto;
     padding-left: 5px;
     padding-right: 5px;
   }
 
   &__text {
-    @include col();
-    @include size-sm(10);
-    @include md-block() {
-      margin-right: 15px;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-    @include from(780px) {
-      margin-right: auto;
-    }
   }
 
   &__icons {
-    @include col();
-    @include size-sm(10);
-    @include md(text-align, center);
-
     .icon {
       width: 24px;
       height: 24px;

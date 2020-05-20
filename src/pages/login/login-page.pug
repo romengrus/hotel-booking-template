@@ -8,24 +8,11 @@ block variables
   - var pageTitle = 'Toxin Login'
   - var bodyClass = 'login-page'
 
-//- block append parts
-//-   include /components/hero/hero.pug
-//-   include /components/login/login.pug
+block append parts
+  include /components/hero/hero.pug
+  include /components/login/login.pug
 
-//- block main
-//-   +hero({
-//-     sliderOptions: {
-//-       slides: [{
-//-           img: '/assets/img/hero1.jpg',
-//-           url: '#'
-//-         }, {
-//-           img: '/assets/img/hero2.jpg',
-//-           url: '#'
-//-         }, {
-//-           img: '/assets/img/hero3.jpg', 
-//-           url: '#'
-//-       }]
-//-     }, 
-//-     mods: [`${bodyClass}_hero`],
-//-   })
-//-     +login()
+block main
+  .login-page__hero
+    +hero({ bgImg: '/assets/img/hero4.jpg' })
+      +login

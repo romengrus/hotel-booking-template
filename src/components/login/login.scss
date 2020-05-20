@@ -6,20 +6,21 @@
   padding: 40px 30px 30px;
   background: $white;
 
-  &__title {
-    margin-bottom: 21px;
+  &__email {
+    margin-top: 20px;
   }
 
   &__password {
-    margin-bottom: 8px;
+    margin-top: 10px;
   }
 
   &__submit {
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   &__have-account {
     display: flex;
+    margin-top: 30px;
     align-items: center;
     justify-content: space-between;
     font-size: 14px;

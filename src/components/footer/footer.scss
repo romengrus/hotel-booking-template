@@ -3,50 +3,18 @@
   border-top: 1px solid $dark-100;
 
   .widget-about {
-    @include size(3);
-    @include size-md(10);
-    @include size-sm(12);
-
-    @include md-block() {
-      *:not(input) {
-        text-align: center;
-      }
-    }
   }
 
   .widget-menu {
-    @include size(2);
-    @include size-md(10);
-    @include size-sm(12);
-    @include md-block() {
-      *:not(input) {
-        text-align: center;
-      }
-
-      .menu {
-        align-items: center;
-      }
-    }
   }
 
   &__widget {
-    @include col();
-    @include md-block() {
-      & + .widget {
-        margin-top: 40px;
-      }
-    }
-
     & > .widget__title {
       padding-top: 5px;
     }
   }
 
   &__wrapper {
-    @include wrapper();
-    @include row();
-    @include md(justify-content, center);
-
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;

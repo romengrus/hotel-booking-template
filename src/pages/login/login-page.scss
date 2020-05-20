@@ -1,20 +1,5 @@
 .login-page {
-
-  .main {
-    max-width: 1440px;
-    padding: 0;
-  }
-
-  .main__wrapper {
-    margin: 0;
-  }
-  &_hero {
+  &__hero {
     height: 683px;
-
-    .hero__content {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
   }
 }

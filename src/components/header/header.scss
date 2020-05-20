@@ -2,91 +2,35 @@
   box-shadow: 0 10px 20px $dark-050;
 
   &__wrapper {
-    @include wrapper();
-
+    display: flex;
+    max-width: $content-max-width;
+    margin: 0 auto;
     padding-top: 15px;
     padding-bottom: 15px;
   }
 
   &__logo {
-    @include col();
-
     margin-right: auto;
   }
 
   &__menu {
-    @include col();
-    @include to(960px) {
-      flex-direction: column;
-      align-items: flex-start;
-      position: fixed;
-      z-index: 100;
-      top: 0;
-      right: 0;
-      width: 250px;
-      height: 100vh;
-      margin: 0;
-      padding: 20px;
-      transform: translateX(250px);
-      transition: transform 250ms ease-in;
-      background: $gray-200;
-
-      .menu {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .menu > .menu__item {
-        margin-bottom: 10px;
-      }
-
-      .menu__link {
-        font-size: 15px;
-      }
-
-      .header__auth {
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 0;
-        margin-top: 20px;
-        padding-left: 0;
-        border-left: 0;
-      }
-
-      .header__auth button {
-        margin-bottom: 10px;
-      }
-
-      .header__menu-close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        border: none;
-        font-size: 40px;
-        line-height: 40px;
-        background: none;
-        outline: none;
-      }
-
-      &_is-visible-on-mobile {
-        transform: translateX(0);
-      }
-    }
-
     display: flex;
     align-items: center;
   }
 
   &__menu-toggler {
-    @include col();
-    @include from(960px) {
-      display: none;
+    display: none;
+
+    @media (max-width: $break-lg) {
+      display: block;
     }
   }
 
   &__menu-close {
-    @include from(960px) {
-      display: none;
+    display: none;
+
+    @media (max-width: $break-lg) {
+      display: block;
     }
   }
 

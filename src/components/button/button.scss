@@ -1,4 +1,6 @@
-$button-height: 34px;
+$button-small-height: 34px;
+$button-height: 44px;
+$button-big-height: 54px;
 $button-padding: 0 20px;
 $button-border-width: 2px;
 $button-border-radius: 22px;
@@ -8,7 +10,7 @@ $button-text-color: $white;
 .button {
   $root: &;
 
-  height: $button-height;
+  min-height: $button-height;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -35,6 +37,14 @@ $button-text-color: $white;
     color: $button-text-color;
     text-decoration: none;
     outline: none;
+  }
+
+  &_is-small {
+    min-height: $button-small-height;
+  }
+
+  &_is-big {
+    min-height: $button-big-height;
   }
 
   &_is-rounded {
@@ -77,5 +87,12 @@ $button-text-color: $white;
 
   &_is-expanded {
     width: 100%;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
   }
 }
