@@ -2,4 +2,14 @@
   display: inline-block;
   width: 18px;
   height: 18px;
+
+  &_is-small {
+    width: 14px;
+    height: 14px;
+  }
+
+  &_is-big {
+    width: 24px;
+    height: 24px;
+  }
 }

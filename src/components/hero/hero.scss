@@ -9,6 +9,7 @@ $hero-max-height: 830px;
   max-height: $hero-max-height;
   min-height: $hero-min-height;
   background-position: center -70px;
+  background-repeat: no-repeat;
 
   &__content {
     min-width: 320px;
