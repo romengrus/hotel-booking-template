@@ -1,5 +1,5 @@
-const imagemin = require('imagemin')
-const imageminSvgo = require('imagemin-svgo')
+const imagemin = require('imagemin');
+const imageminSvgo = require('imagemin-svgo');
 
 imagemin(['src/assets/icons/**/*.svg'], 'dist/icons', {
   use: [
@@ -10,10 +10,9 @@ imagemin(['src/assets/icons/**/*.svg'], 'dist/icons', {
         { removeStyleElement: true },
         { removeTitle: true },
         { removeViewBox: false },
-        { removeDimensions: true },
-        { removeAttrs: { attrs: '(fill.*|stroke.*)' } }
+        { removeDimensions: true }
       ],
       multipass: true
     })
   ]
-}).then(() => console.log('SVG-Icons were successfully optimized'))
+}).then(() => console.log('SVG-Icons were successfully optimized'));
