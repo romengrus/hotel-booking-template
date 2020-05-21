@@ -1,8 +1,12 @@
 mixin register
   include /components/button/button.pug
+  include /components/label/label.pug
   include /components/icon/icon.pug
   include /components/form/form.pug
-  include /components/form-field-datetime/form-field-datetime.pug
+  include /components/field/field.pug
+  include /components/radio/radio.pug
+  include /components/datepicker/datepicker.pug
+  include /components/switcher/switcher.pug
 
   -
     const labels = {
@@ -26,30 +30,35 @@ mixin register
       h2.register__title= labels.title
 
       .register__name
-        input(type= 'text', class= 'register__name-input', placeholder= labels.name, required)
-        input(type= 'text', class= 'register__surname-input', placeholder= labels.surname, required)
+        .register__name-input
+          +field(type = 'text', name = 'name', placeholder = labels.name, required)
+        .register__surname-input
+          +field(type = 'text', name = 'surname', placeholder = labels.surname, required)
 
       .register__gender
-        label= labels.man
-          input(type= 'radio', class= 'register__is-man', name= 'gender', checked)
-        label= labels.woman
-          input(type= 'radio', class= 'register__is-woman', name= 'gender')
+        +label({ value: labels.man })
+          +radio({ name: 'gender', isChecked: true })
+        +label({ value: labels.woman })
+          +radio({ name: 'gender' })
 
       .register__birthday
-        label= labels.birthday
-          +form-field-datetime(required= true)
+        +label({ value: labels.birthday, pos: 'top', theme: 'bold' })
+          +datepicker({ isRequired: true })
 
       .register__credentials
-        label= labels.credentials
-          input(type= 'email', class= 'register__email', placeholder= labels.email, required= true)
-          input(type= 'password', class= 'register__password', placeholder= labels.password, required= true)
+        +label({ value: labels.credentials, pos: 'top', theme: 'bold' })
+          .register__email
+            +field(type = 'email', placeholder = labels.email, required = true)
+          .register__password
+            +field(type = 'password', placeholder = labels.password, required = true)
 
-      label= labels.newsletter
-        input(type= 'checkbox', class = ['checkbox_theme-toggle', 'register__newsletter'])
+      .register__newsletter
+        +label({ value: labels.newsletter })
+          +switcher({ name: 'newsletter'})
 
-      +button({iconName: '', mods: ['expanded']})= labels.submit
-        +icon({name: 'arrow-right'})
+      .register__submit
+        +button({ icon: 'arrow-right-light', isExpanded: true })= labels.submit
 
       .register__have-account
         span= labels.haveAccount
-        +button({type: 'link', href: loginLink, mods: ['outlined']})= labels.login 
+        +button({ type: 'link', href: loginLink, isOutlined: true })= labels.login 

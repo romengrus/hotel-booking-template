@@ -3,7 +3,7 @@
 //- registerLink  string ('') - Link to register page
 mixin login(props = {})
   include /components/form/form.pug
-  include /components/form-field/form-field.pug
+  include /components/field/field.pug
   include /components/button/button.pug
 
   -
@@ -21,10 +21,10 @@ mixin login(props = {})
       h2.login__title= labels.title
 
       .login__email
-        +form-field(type= 'email', placeholder= labels.email, required= true)
+        +field(type = 'email', placeholder = labels.email, required = true)
 
       .login__password
-        +form-field(type= 'password', placeholder= labels.password, required= true)
+        +field(type = 'password', placeholder = labels.password, required = true)
 
       .login__submit
         +button({ isExpanded: true, icon: 'arrow-right-light' })= labels.submit

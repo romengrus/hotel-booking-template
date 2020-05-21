@@ -1,0 +1,44 @@
+.label {
+  $root: &;
+
+  display: inline-flex;
+  margin: 0;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__value {
+    font-size: 14px;
+  }
+
+  &__desc {
+    font-size: 12px;
+  }
+
+  &_pos-right {
+    #{$root}__text {
+      margin-left: 10px;
+    }
+  }
+
+  &_pos-top {
+    flex-direction: column-reverse;
+
+    #{$root}__text {
+      margin-bottom: 3px;
+    }
+  }
+
+  &_theme-bold {
+    #{$root}__value {
+      font-size: 12px;
+    }
+
+    #{$root}__value:first-child {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}

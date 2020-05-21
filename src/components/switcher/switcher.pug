@@ -1,0 +1,15 @@
+//- Switcher (on/off toggler)
+//-
+//- name        string ('') - name attribute for underlying input element
+//- isOn        boolean (false) - If true - switcher is turned on
+mixin switcher(props = {})
+  -
+    const { name, isOn  } = Object.assign({ 
+      name: '',
+      isOn: false,
+    }, props);
+
+  .switcher
+    label
+      input(class = 'switcher__input', type = 'checkbox', name = name, checked = isOn)
+      span.switcher__display

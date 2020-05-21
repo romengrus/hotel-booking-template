@@ -5,7 +5,7 @@
 mixin header(props = {})
   include /components/menu/menu.pug
   include /components/button/button.pug
-  include /components/hamburger-menu/hamburger-menu.pug
+  include /components/hamburger/hamburger.pug
 
   -
     const { isLoggedIn, userName } = Object.assign({
@@ -92,4 +92,4 @@ mixin header(props = {})
             +button({type: 'link', size: 'small', href: dummyURL}) зарегистрироваться 
 
       .header__menu-toggler
-        +hamburger-menu
+        +hamburger

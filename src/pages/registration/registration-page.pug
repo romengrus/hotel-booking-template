@@ -13,19 +13,7 @@ block append parts
   include /components/register/register.pug
 
 block main
-  +hero({
-    sliderOptions: {
-      slides: [{
-          img: '/assets/img/hero1.jpg',
-          url: '#'
-        }, {
-          img: '/assets/img/hero2.jpg',
-          url: '#'
-        }, {
-          img: '/assets/img/hero3.jpg', 
-          url: '#'
-      }]
-    }, 
-    mods: ['registration-page_hero'],
-  })
-    +register()
+  .registration-page__hero
+    +hero({ bgImg: '/assets/img/hero4.jpg' })
+      .registration-page__register
+        +register

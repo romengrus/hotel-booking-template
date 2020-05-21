@@ -1,0 +1,29 @@
+//- Label
+//-
+//- value     oneOf (array of strings | string) - If array is provided - each item is rendered on separate line 
+//- pos       oneOf ('top' | 'right') - Position relative to inner block
+//- desc      oneOf (array of strings | string) - If array is provided - each item is rendered on separate line 
+//- theme     oneOf ('light' | 'bold') - label design theme
+mixin label(props = {})
+  -
+    const { value, pos, desc, theme } = Object.assign({
+      value: [],
+      pos: 'right',
+      desc: [],
+      theme: '',
+    }, props)
+
+    const classList = ['label'];
+
+    if (pos)    classList.push(`label_pos-${pos}`);
+    if (theme)  classList.push(`label_theme-${theme}`);
+
+  label(class = classList)
+    .label__block
+      if block
+        block
+    .label__text
+      each v in [].concat(value)
+        span.label__value= v
+      each d in [].concat(desc)
+        span.label__desc= d

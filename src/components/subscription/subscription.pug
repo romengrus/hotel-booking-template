@@ -3,11 +3,11 @@
 //- url             string ('') - form action url
 mixin subscription(props = {})
   include /components/form/form.pug
-  include /components/form-field/form-field.pug
+  include /components/field/field.pug
 
   - 
     const { url } = Object.assign({ url: '' }, props);
 
   .subscription
     +form(method = 'POST', action: url)
-      +form-field({ icon: 'arrow-right' })(type = 'email', required, placeholder = 'email')
+      +field({ icon: 'arrow-right' })(type = 'email', required, placeholder = 'email')

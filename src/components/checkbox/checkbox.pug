@@ -1,0 +1,16 @@
+//- Checkbox
+//-
+//- name        string ('') - name attribute for underlying input element
+//- isChecked   boolean (false) - If true - checkbox is rendered as checked
+mixin checkbox(props = {})
+  -
+    const { name, isChecked  } = Object.assign({ 
+      name: '',
+      isChecked: false,
+    }, props);
+
+  .checkbox
+    label
+      input(class = 'checkbox__input', type = 'checkbox', name = name, checked = isChecked)
+      span.checkbox__custom
+

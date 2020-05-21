@@ -1,0 +1,58 @@
+$radio-width: 20px !default;
+$radio-height: 20px !default;
+$radio-color: rgba(31, 32, 65, 0.5) !default;
+$radio-border: 1px solid rgba(31, 32, 65, 0.25) !default;
+$radio-border-active: 1px solid #bc9cff !default;
+$radio-border-radius: 10px !default;
+$radio-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='6' x2='6' y2='12' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") !default;
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+
+  label {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &__custom {
+    display: block;
+    width: $radio-width;
+    height: $radio-height;
+    padding: 8px;
+    border: $radio-border;
+    border-radius: $radio-border-radius;
+    background: none;
+    cursor: pointer;
+  }
+
+  &__input:hover ~ &__custom {
+    border: $radio-border-active;
+  }
+
+  &__input:focus ~ &__custom {
+    border: $radio-border-active;
+  }
+
+  &__input:checked ~ &__custom {
+    background: $radio-bg-active;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: $radio-border-active;
+  }
+
+  &__label {
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $radio-color;
+    cursor: pointer;
+  }
+}
