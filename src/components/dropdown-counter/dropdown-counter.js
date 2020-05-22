@@ -1,22 +1,18 @@
 import { pluralize } from '../../utils';
 
-export class DropdownCounter {
+class DropdownCounter {
   constructor(el) {
     const cls = DropdownCounter.getBaseCSSClass();
     this.el = el;
-    this.header = el.querySelector(`${cls}__header`);
-    this.body = el.querySelector(`${cls}__body`);
-    this.actionsPanel = el.querySelector(`${cls}__actions-panel`);
     this.input = el.querySelector(`${cls}__value`);
-    this.inputAlt = el.querySelector(`${cls}__value-alt`);
+    this.inputAlt = el.querySelector(`${cls}__value-alt input`);
     this.toggler = el.querySelector(`${cls}__toggler`);
     this.ok = el.querySelector(`${cls}__ok`);
     this.reset = el.querySelector(`${cls}__reset`);
-    this.counters = el.querySelectorAll(`${cls}__counter`);
-    this.countersProps = JSON.parse(el.dataset.countersProps);
-    this.displayType = el.dataset.displayType || 'total';
-    this.plurals = JSON.parse(el.dataset.plurals) || [];
-    this._model = null;
+    this.counters = el.querySelectorAll(`${cls}__content [data-counter]`);
+    this.resultType = el.dataset.resultType;
+    this.plurals = JSON.parse(el.dataset.plurals);
+    this._model = new Map();
     this.hasChanged = false;
     this.init();
     this.updateDOM();
@@ -27,14 +23,14 @@ export class DropdownCounter {
   }
 
   init() {
-    const initialModel = this.countersProps.map(counter => {
-      const { objectId, plurals, value } = counter;
-      const numValue = value ? parseInt(value, 10) : 0;
-      const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
+    // const initialModel = this.countersProps.map(counter => {
+    //   const { id, plurals, value } = counter;
+    //   const numValue = value ? parseInt(value, 10) : 0;
+    //   const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
 
-      return [objectId, { numValue, strValue }];
-    });
-    this._model = new Map(initialModel);
+    //   return [id, { numValue, strValue }];
+    // });
+    // this._model = new Map(initialModel);
 
     this._attachEventHandlers();
   }
@@ -47,31 +43,30 @@ export class DropdownCounter {
     this.input.value = JSON.stringify([...this._model]);
 
     // set value for visible input
-    if (this.displayType === 'total') {
+    if (this.resultType === 'total') {
       if (this.plurals.length === 3) {
         this.inputAlt.value = total === 0 ? '' : `${total} ${pluralize(total, this.plurals)}`;
       } else {
         this.inputAlt.value = total;
       }
-    } else if (this.displayType === 'concat') {
-      const concat = Array.from(this._model)
+    } else {
+      this.inputAlt.value = Array.from(this._model)
         .map(([, v]) => v)
         .filter(v => v.numValue > 0)
         .map(v => v.strValue)
         .join(', ');
-      this.inputAlt.value = concat;
     }
 
     // toggle actions panel visibility
     if (this.hasChanged) {
-      this.actionsPanel.classList.remove('dropdown-counter__actions-panel_hidden');
+      this.el.classList.add('dropdown-counter_visible-actions');
     }
 
     // toggle reset button visibility
-    if (total === 0) {
-      this.reset.classList.add('dropdown-counter__reset_hidden');
+    if (total >= 0) {
+      this.reset.classList.add('dropdown-counter__reset_is-visible');
     } else {
-      this.reset.classList.remove('dropdown-counter__reset_hidden');
+      this.reset.classList.remove('dropdown-counter__reset_is-visible');
     }
   }
 
@@ -86,33 +81,34 @@ export class DropdownCounter {
       $counter.addEventListener('counter:increased', e => this.updateModel(e.detail));
       $counter.addEventListener('counter:decreased', e => this.updateModel(e.detail));
     });
+    // this.el.addEventListener('counter:increased', e => this.updateModel(e.detail));
+    // this.el.addEventListener('counter:decreased', e => this.updateModel(e.detail));
     this.toggler.addEventListener('click', e => this._handleTogglerClick(e));
     this.reset.addEventListener('click', e => this._handleResetClick(e));
     this.ok.addEventListener('click', e => this._handleTogglerClick(e));
     this.inputAlt.addEventListener('focus', e => this._handleTogglerClick(e));
-    this.inputAlt.addEventListener('blur', e => this._handleTogglerClick(e));
+    // this.inputAlt.addEventListener('blur', e => this._handleTogglerClick(e));
   }
 
   _handleTogglerClick(e) {
     e.preventDefault();
 
-    this.toggler.classList.toggle('dropdown-counter__toggler_collapsed');
-    this.header.classList.toggle('dropdown-counter__header_collapsed');
-    this.body.classList.toggle('dropdown-counter__body_collapsed');
+    this.el.classList.toggle('dropdown-counter_is-collapsed');
   }
 
   _handleResetClick(e) {
     e.preventDefault();
 
     // reset model
-    const model = this.countersProps.map(counter => {
-      const { objectId, plurals } = counter;
-      const numValue = 0;
-      const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
+    // const model = this.countersProps.map(counter => {
+    //   const { id, plurals } = counter;
+    //   const numValue = 0;
+    //   const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
 
-      return [objectId, { numValue, strValue }];
-    });
-    this._model = new Map(model);
+    //   return [id, { numValue, strValue }];
+    // });
+    // this._model = new Map(model);
+    this._model = new Map();
 
     // reset counters
     this.counters.forEach($counter => $counter.dispatchEvent(new Event('counter:reset')));
@@ -120,3 +116,5 @@ export class DropdownCounter {
     this.updateDOM();
   }
 }
+
+export { DropdownCounter };

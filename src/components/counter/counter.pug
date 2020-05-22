@@ -1,25 +1,40 @@
 //- Counter 
 //-
-//- label     string ('') - label text
-//- plurals   array ([]) - plural forms of label for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
-//- value     number (0) - initial value
-//- min       number (0) - minimum possible value
-//- max       number (10) - maximum possible value
-//- step      number (1) - step value
-mixin counter({} = {})
+//- id          string ('') - will be passed in event to distinguish between different counters
+//- value       number (0) - initial value
+//- min         number (0) - minimum possible value
+//- max         number (10) - maximum possible value
+//- step        number (1) - step value
+//- plurals     array ([]) - plural forms of label for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
+mixin counter(props = {})
   include /components/button/button.pug
-  include /components/form-field/form-field.pug
+  include /components/field/field.pug
 
-  .counter&attributes({
-    'data-step': step,
-    'data-min': min,
-    'data-max': max,
-    'data-label': label,
-    'data-plurals': plurals,
-  })
-    label.counter__label= label
-      input.counter__input&attributes({hidden: true, type: 'number', value: value})
+  -
+    const { id, value, min, max, step, plurals } = Object.assign({
+      id: createRandomId(),
+      value: 0,
+      min: 0,
+      max: 10,
+      step: 1,
+      plurals: [],
+    }, props);
+
+    const isDisabled = (btnType, val) => 
+      btnType === 'dec'
+      ? val <= min 
+      : val >= max;
+
+  .counter(
+    'data-counter' = true,
+    'data-id' = id,
+    'data-step' = step,
+    'data-min' = min,
+    'data-max' = max,
+    'data-plurals' = plurals
+  )
+    input.counter__input(hidden = true, type = 'number', value = value)
     div.counter__controls
-      button.counter__button-dec&attributes({disabled: value <= parseInt(min, 10)}) -
+      button(class = 'counter__button-dec', disabled = isDisabled('dec', value)) -
       span.counter__display= value
-      button.counter__button-inc&attributes({disabled: value >= parseInt(max, 10)}) +
+      button(class = 'counter__button-inc', disabled = isDisabled('inc', value)) +

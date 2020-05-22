@@ -7,45 +7,24 @@ $dc-body-bg: white !default;
 .dropdown-counter {
   position: relative;
 
-  &__header {
+  $root: &;
+
+  &__value-alt {
     position: relative;
-    border: $dc-border;
     border-radius: $dc-border-radius;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     cursor: pointer;
-
-    &_collapsed {
-      border-bottom-right-radius: $dc-border-radius;
-      border-bottom-left-radius: $dc-border-radius;
-    }
-  }
-
-  &__value-alt {
-    padding-right: 40px;
-    border: 0;
-
-    &:hover,
-    &:focus {
-      border: 0;
-    }
   }
 
   &__toggler {
     position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 12px;
-    right: 12px;
-    transform: rotate(-0.5turn);
-    transition: transform 350ms ease-in-out;
-
-    &_collapsed {
-      transform: none;
-    }
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
   }
 
-  &__body {
+  &__content {
     position: absolute;
     z-index: 100;
     width: 100%;
@@ -59,35 +38,26 @@ $dc-body-bg: white !default;
     border-bottom-left-radius: $dc-border-radius;
     background-color: $dc-body-bg;
 
-    &_collapsed {
-      z-index: -1;
-      visibility: hidden;
-      opacity: 0;
-    }
-
     & > * + * {
       margin-top: 6px;
     }
   }
 
-  &__actions-panel {
-    display: flex;
+  &__actions {
+    display: none;
     align-items: center;
     margin-top: 24px;
-
-    &_hidden {
-      display: none;
-    }
   }
 
   &__reset {
+    display: none;
     height: auto;
     padding: 0;
     color: $dc-btn-reset-color;
     font-weight: bold;
 
-    &_hidden {
-      display: none;
+    &_is-visible {
+      display: block;
     }
   }
 
@@ -97,5 +67,24 @@ $dc-body-bg: white !default;
     color: $dc-btn-ok-color;
     font-weight: bold;
     margin-left: auto;
+  }
+
+  &_is-collapsed {
+    #{$root}__value-alt {
+      border-bottom-right-radius: $dc-border-radius;
+      border-bottom-left-radius: $dc-border-radius;
+    }
+
+    #{$root}__content {
+      z-index: -1;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &_visible-actions {
+    #{$root}__actions {
+      display: flex;
+    }
   }
 }

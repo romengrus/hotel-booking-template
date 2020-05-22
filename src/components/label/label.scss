@@ -18,15 +18,23 @@
   }
 
   &_pos-right {
-    #{$root}__text {
+    & > #{$root}__text {
       margin-left: 10px;
+    }
+  }
+
+  &_pos-left {
+    flex-direction: row-reverse;
+
+    & > #{$root}__text {
+      margin-right: auto;
     }
   }
 
   &_pos-top {
     flex-direction: column-reverse;
 
-    #{$root}__text {
+    & > #{$root}__text {
       margin-bottom: 3px;
     }
   }

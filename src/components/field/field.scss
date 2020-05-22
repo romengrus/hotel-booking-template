@@ -1,13 +1,13 @@
-$input-height: 44px !default;
-$input-border: 1px solid rgba(0, 0, 0, 0.25) !default;
-$input-border-hover: 1px solid rgba(0, 0, 0, 0.5) !default;
-$input-border-radius: 4px !default;
-$input-font-size: 14px !default;
-$input-font-color: rgba(0, 0, 0, 0.75) !default;
-$input-line-height: 24px !default;
-$input-padding: 8px 15px !default;
-$input-label-color: #000 !default;
-$input-label-size: 12px !default;
+$field-height: 44px !default;
+$field-border: 1px solid rgba(0, 0, 0, 0.25) !default;
+$field-border-hover: 1px solid rgba(0, 0, 0, 0.5) !default;
+$field-border-radius: 4px !default;
+$field-font-size: 14px !default;
+$field-font-color: rgba(0, 0, 0, 0.75) !default;
+$field-line-height: 24px !default;
+$field-padding: 7px 14px !default;
+$field-label-color: #000 !default;
+$field-label-size: 12px !default;
 
 .field {
   position: relative;
@@ -15,17 +15,17 @@ $input-label-size: 12px !default;
   &__input {
     display: flex;
     width: 100%;
-    height: $input-height;
-    border: $input-border;
-    padding: $input-padding;
-    border-radius: $input-border-radius;
-    font-size: $input-font-size;
-    line-height: $input-line-height;
-    color: $input-font-color;
+    height: $field-height;
+    border: $field-border;
+    padding: $field-padding;
+    border-radius: $field-border-radius;
+    font-size: $field-font-size;
+    line-height: $field-line-height;
+    color: $field-font-color;
 
     &:hover,
     &:focus {
-      border: $input-border-hover;
+      border: $field-border-hover;
       outline: none;
     }
 

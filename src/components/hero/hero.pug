@@ -1,25 +1,33 @@
 //- Hero
 //-
-//- bgImg                 string ('') - Url to background image (will be used if sliderOptions is empty)
-//- info                  string ('') - Some arbitrary text to show
-//- contentHorizontalPos  string ('center') - position of inner content in horizontal axis
-//- contentVerticalPos    string ('center') - position of inner content in vertical axis
+//- bgImg     string ('') - Url to background image (will be used if sliderOptions is empty)
+//- info      string ('') - Some arbitrary text to show
+//- size      oneOf ('small' | 'big')
+//- hPos      oneOf ('center' | 'start' | 'end') - position of inner content in horizontal axis
+//- vPos      oneOf ('center' | 'start' | 'end') - position of inner content in vertical axis
 mixin hero(props = {})
   -
-    const { bgImg, info, contentHorizontalPos, contentVerticalPos } = Object.assign({ 
+    const { bgImg, info, size, hPos, vPos } = Object.assign({ 
       bgImg: '', 
       info: '',
-      contentHorizontalPos: 'center',
-      contentVerticalPos: 'center' 
+      size: '',
+      hPos: 'center',
+      vPos: 'center' 
     }, props);
+
+    const classList = ['hero'];
+
+    if (size) classList.push(`hero_is-${size}`);
+
+    const getPos = pos => pos === 'center' ? pos : `flex-${pos}`;
 
     const heroStyle = {
       'background-image': `url(${bgImg})`,
-      'align-items': contentVerticalPos,
-      'justify-content': contentHorizontalPos,
+      'align-items': getPos(vPos),
+      'justify-content': getPos(hPos),
     }
 
-  .hero(style = heroStyle)
+  div(class = classList, style = heroStyle)
     if (block)
       .hero__content
         block

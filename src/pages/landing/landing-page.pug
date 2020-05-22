@@ -14,26 +14,10 @@ block append parts
 
 block main
   +hero({
-    sliderOptions: {
-      slides: [{
-          img: '/assets/img/hero1.jpg',
-          url: '#'
-        }, {
-          img: '/assets/img/hero2.jpg',
-          url: '#'
-        }, {
-          img: '/assets/img/hero3.jpg', 
-          url: '#'
-      }]
-    }, 
-    info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
+    bgImg: '/assets/img/hero1.jpg', 
+    info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения',
+    size: 'big',
+    hPos: 'start',
+    vPos: 'start',
   })
-    +room-search({
-      labels: {
-        title: "Найдём номера под ваши пожелания",
-        arrival: "Прибытие",
-        departure: "Выезд",
-        guests: "Гости",
-        submit: "Подобрать номер"
-      }
-    })
+    +room-search

@@ -14,7 +14,7 @@ export class Counter {
     this.step = el.dataset.step || 1;
     this.min = el.dataset.min || 0;
     this.max = el.dataset.max || 100;
-    this.objectId = el.dataset.objectId || '';
+    this.id = el.dataset.id;
     this.init();
   }
 
@@ -63,7 +63,7 @@ export class Counter {
 
     const event = new CustomEvent('counter:increased', {
       detail: {
-        id: this.objectId,
+        id: this.id,
         numValue: newValue,
         strValue: this.toString()
       }
@@ -94,7 +94,7 @@ export class Counter {
 
     const event = new CustomEvent('counter:decreased', {
       detail: {
-        id: this.objectId,
+        id: this.id,
         numValue: newValue,
         strValue: this.toString()
       }

@@ -1,6 +1,7 @@
 mixin room-search
+  include /components/label/label.pug
   include /components/form/form.pug
-  include /components/form-field-datetime/form-field-datetime.pug
+  include /components/datepicker/datepicker.pug
   include /components/dropdown-counter/dropdown-counter.pug
   include /components/button/button.pug
 
@@ -19,31 +20,24 @@ mixin room-search
 
       .room-search__dates
         .room-search__arrival
-          label= labels.arrival
-            +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГГГ')
+          +label({ value: labels.arrival, pos: 'top', theme: 'bold' })
+            +datepicker
         .room-search__departure
-          label= labels.departure
-            +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГГГ')
+          +label({ value: labels.departure, pos: 'top', theme: 'bold' }) 
+            +datepicker
 
       .room-search__guests
-        label= labels.guests
-          +dropdown-counter({
-            counters: [{
-                label: 'взрослые',
-                plurals: ['взрослый', 'взрослых', 'взрослых'],
-              },
-              {
-                label: 'дети',
-                plurals: ['ребенок', 'детей', 'детей'],
-              },
-              {
-                label: 'младенцы',
-                plurals: ['младенец', 'младенца', 'младенцев'],
-            }],
-            displayType: 'concat',
-            plurals: ['гость', 'гостя', 'гостей'],
-          })(placeholder= 'Сколько гостей')
+        +label({ value: labels.guests, pos: 'top', theme: 'bold' })
+          +dropdown-counter({ resultType: 'concat', plurals: ['гость', 'гостя', 'гостей'] })(placeholder = 'Сколько гостей')
+            +label({ value: 'взрослые', theme: 'bold', pos: 'left' })
+              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+            
+            +label({ value: 'дети', theme: 'bold', pos: 'left' })
+              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
 
-      +button({mods: 'expanded'})= labels.submit
-        +icon({name: 'arrow-right'})
+            +label({ value: 'младенцы', theme: 'bold', pos: 'left' })
+              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+
+      .room-search__submit
+        +button({ isExpanded: true, icon: 'arrow-right-light' })= labels.submit
 
