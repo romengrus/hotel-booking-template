@@ -12,11 +12,13 @@ block append scripts
   script(src= '/pages/room-search/room-search-page.js')
 
 block append parts
+  include /components/label/label.pug
   include /components/form/form.pug
-  include /components/form-field-datetime/form-field-datetime.pug
+  include /components/datepicker/datepicker.pug
+  include /components/counter/counter.pug
   include /components/dropdown-counter/dropdown-counter.pug
-  include /components/form-field-range-slider/form-field-range-slider.pug
-  include /components/form-field-checkbox/form-field-checkbox.pug
+  include /components/range-slider/range-slider.pug
+  include /components/checkbox/checkbox.pug
   include /components/panel/panel.pug
   include /components/pagination/pagination.pug
   include /components/room-card/room-card.pug
@@ -26,113 +28,101 @@ block main
   aside.sidebar
     +form(action= '#', method= 'POST', class= 'room-filter js-room-filter')
       .room-filter__dates
-        label.room-filter__label Даты пребывания в отеле
-          +form-field-datetime({
-            useDatepicker: true, 
-            dateFormat: 'd M', 
-            datepickerMode: 'range',
-            mods: ['arrival-date__input']
-          })(placeholder='ДД М - ДД М')
+        +label({ value: 'Даты пребывания в отеле', pos: 'top', theme: ['bold', 'upper'] }) 
+          +datepicker({ mode: 'range' })(placeholder='ДД М - ДД М')
 
       .room-filter__guests
-        label.room-filter__label Гости
-          +dropdown-counter({
-            counters: [{
-                label: 'взрослые',
-                plurals: ['взрослый', 'взрослых', 'взрослых'],
-                objectId: '18+'
-              },
-              {
-                label: 'дети',
-                plurals: ['ребенок', 'детей', 'детей'],
-                objectId: 'child'
-              },
-              {
-                label: 'младенцы',
-                plurals: ['младенец', 'младенца', 'младенцев'],
-                objectId: 'toddler',
-                min: 0,
-                max: 2
-            }],
-            displayType: 'total',
-            plurals: ['гость', 'гостя', 'гостей'],
-            mods: ['counter__input']
-          })(placeholder= 'Сколько гостей')
+        +label({ value: 'Гости', pos: 'top', theme: ['bold', 'upper'] }) 
+          +dropdown-counter({ resultType: 'total', plurals: ['гость', 'гостя', 'гостей'] })(placeholder= 'Сколько гостей')
+            +label({ value: 'взрослые' })
+              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+
+            +label({ value: 'дети' })
+              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+
+            +label({ value: 'младенцы' })
+              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
 
       .room-filter__price
-        +form-field-range-slider({params: {
-          start: [5000, 10000],
-          range: {min: 1000, max: 20000},
-          connect: [false, true, false],
-          format: {
-            decimals: 0,
-            thousand: ' ',
-            suffix: '₽'
-          }
-        },
-          label: 'Диапазон цены',
-          desc: 'Стоимость за сутки пребывания в номере'
-        })
+        .room-filter__price-header
+          .room-filter__price-label
+            +label({ value: 'Диапазон цены', pos: 'left', theme: ['bold', 'upper'] })
+          .room-filter__price-result 5 000₽ - 10 000₽
+        .room-filter__price-range
+          +range-slider({
+            params: {
+              start: [5000, 10000],
+              range: {min: 200, max: 15500},
+              connect: [false, true, false],
+              format: {
+                decimals: 0,
+                thousand: ' ',
+                suffix: '₽'
+              }
+            }
+          })
+        .room-filter__price-desc Стоимость за сутки пребывания в номере
 
-      fieldset.room-filter__permissions 
-        legend.room-filter__label Checkbox Buttons
-        +form-field-checkbox({label: 'Можно курить'})
-        +form-field-checkbox({label: 'Можно с питомцами'})
-        +form-field-checkbox({label: 'Можно пригласить гостей', desc: '(до 10 человек)'})
+      .room-filter__permissions 
+        +panel({ title: 'Checkbox Buttons' })
+          .room-filter__permissions-item
+            +label({ value: 'Можно курить' })
+              +checkbox({ name: 'allow-smoke' })
+          .room-filter__permissions-item
+            +label({ value: 'Можно с питомцами' })
+              +checkbox({ name: 'allow-pets'})
+          .room-filter__permissions-item
+            +label({ value: ['Можно пригласить гостей', '(до 10 человек)'] })
+              +checkbox({ name: 'allow-guests' })
 
-      fieldset.room-filter__accessability 
-        legend.room-filter__label Доступность
-        +form-field-checkbox({
-          label: 'Широкий коридор', 
-          desc: 'Ширина коридора в номере не менее 91 см.', 
-          mods: ['checkbox_rich']
-        })
-        +form-field-checkbox({
-          label: 'Помошник для инвалидов',
-          desc: 'На 1 этаже вас встретит специалист и проводит до номера',
-          mods: ['checkbox_rich']
-        })
+      .room-filter__accessability 
+        +panel({ title: 'Доступность' })
+          .room-filter__accessability-item
+            +label({ value: 'Широкий коридор', desc: 'Ширина коридоров в номере не менее 91 см.', theme: 'bold' })
+              +checkbox({ name: 'wide-hall' })
+          .room-filter__accessability-item
+            +label({ 
+              value: 'Помошник для инвалидов', 
+              desc: 'На 1 этаже вас встретит специалист и проводит до номера', 
+              theme: 'bold' 
+            })
+              +checkbox({ name: 'helper-for-impaired' })
 
       .room-filter__facilities
-        label.room-filter__label Удобства номера
-          +dropdown-counter({
-            counters: [{
-                label: 'спальни',
-                plurals: ['спальня', 'спальни', 'спален'],
-                objectId: 'bedroom'
-              },
-              {
-                label: 'кровати',
-                plurals: ['кровать', 'кровати', 'кроватей'],
-                objectId: 'bed'
-              },
-              {
-                label: 'ванные комнаты',
-                plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-                objectId: 'bathroom'
-            }],
-            displayType: 'concat',
-          })&attributes({placeholder: 'Выберите нужное количество ...'})
+        +label({ value: 'Удобства номера', pos: 'top', theme: ['bold', 'upper'] }) 
+          +dropdown-counter({ resultType: 'concat' })(placeholder = 'Выберите нужное количество ...')
+            +label({ value: 'спальни' })
+              +counter({ plurals: ['спальня', 'спальни', 'спален'] })
+            
+            +label({ value: 'кровати' })
+              +counter({ plurals: ['кровать', 'кровати', 'кроватей'] })
+                
+            +label({ value: 'ванные комнаты' })
+              +counter({ plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'] })
 
-      +panel({title: 'Дополнительные удобства', isCollapsed: true, mods: 'room-filter__additional-facilities'})
-        +form-field-checkbox({label: 'Завтрак'})
-        +form-field-checkbox({label: 'Письменный стол'})(checked= true)
-        +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
-        +form-field-checkbox({label: 'Кроватка'})(checked= true)
-        +form-field-checkbox({label: 'Телевизор'})
-        +form-field-checkbox({label: 'Шампунь'})
-        +form-field-checkbox({label: 'Телевизор'})
-        +form-field-checkbox({label: 'Шампунь'})
+      .room-filter__additional-facilities
+        +panel({ title: 'Дополнительные удобства', isCollapsible: true, isCollapsed: true })
+          +label({ value: 'Завтрак' })
+            +checkbox({ name: 'breakfast' })
+          +label({ value: 'Письменный стол' })
+            +checkbox({ name: 'work-table', isChecked: true })
+          +label({ value: 'Стул для кормления' })
+            +checkbox({ name: 'chair-for-feeding', isChecked: true })
+          +label({ value: 'Кроватка' })
+            +checkbox({ name: 'baby-bed' })
+          +label({ value: 'Телевизор' })
+            +checkbox({ name: 'tv' })
+          +label({ value: 'Шампунь' })
+            +checkbox({ name: 'shampoo' })
+          +label({ value: 'Телевизор' })
+            +checkbox({ name: 'tv'})
+          +label({ value: 'Шампунь' })
+            +checkbox({ name: 'shampoo' })
 
   article.content
     a.room-filter__toggle.js-room-filter__toggle Изменить параметры поиска
     h2.content__header Номера, которые мы для вас подобрали
 
-    +room-cards()
+    +room-cards
 
-    +pagination({
-      totalItems: 170, 
-      perPage: 12, 
-      currentPage: 1, 
-      labelPosition: 'bottom',
-    })
+    +pagination({ total: 170, perPage: 12, current: 1, labelPosition: 'bottom' })

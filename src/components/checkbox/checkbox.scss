@@ -1,5 +1,5 @@
 $checkbox-width: 20px !default;
-$checkbox-height: 20px !default;
+$checkbox-height: 21px !default;
 $checkbox-color: rgba(31, 32, 65, 0.5) !default;
 $checkbox-border: 1px solid rgba(31, 32, 65, 0.25) !default;
 $checkbox-border-active: 1px solid #bc9cff !default;
@@ -10,6 +10,10 @@ $checkbox-border-radius: 4px !default;
   align-items: center;
   user-select: none;
 
+  label {
+    margin: 0;
+  }
+
   &__input {
     position: absolute;
     opacity: 0;
@@ -17,6 +21,7 @@ $checkbox-border-radius: 4px !default;
   }
 
   &__custom {
+    display: inline-block;
     width: $checkbox-width;
     height: $checkbox-height;
     padding: 8px;

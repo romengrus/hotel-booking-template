@@ -1,16 +1,15 @@
-/* eslint-disable prefer-destructuring */
 import { debounce } from '../../utils';
 
 export class Rating {
   constructor(el) {
     this.cls = Rating.getBaseCSSClass();
     this.el = el;
-    this.icons = el.querySelectorAll(`${this.cls}__icon svg > use`);
+    this.icons = el.querySelectorAll(`${this.cls} .icon > use`);
     this.isPartial = 'isPartial' in el.dataset;
     this.value = parseFloat(el.dataset.value || 0);
-    this.iconEmpty = el.dataset.iconEmpty || 'star';
-    this.iconFilled = el.dataset.iconFilled || 'star-active';
-    this.iconHalfFilled = el.dataset.iconHalf || 'star-half';
+    this.iEmpty = el.dataset.iEmpty || 'star';
+    this.iFilled = el.dataset.iFilled || 'star-active';
+    this.iHalf = el.dataset.iHalf || 'star-half';
     this.init();
   }
 
@@ -24,24 +23,24 @@ export class Rating {
   }
 
   updateDOM(ratingValue) {
-    const { icons, iconEmpty, iconFilled, iconHalfFilled } = this;
+    const { icons, iEmpty, iFilled, iHalf } = this;
     const currentValue = this.roundToNearestHalf(ratingValue);
     const activeIconsLength = Math.trunc(currentValue);
     const halfActiveIconsLength = currentValue - activeIconsLength;
 
     // Make all icons empty
     for (let i = 0; i < icons.length; i += 1) {
-      icons[i].setAttribute('href', `#${iconEmpty}`);
+      icons[i].setAttribute('href', `#${iEmpty}`);
     }
 
     // Fill active icons
     for (let i = 0; i < activeIconsLength; i += 1) {
-      icons[i].setAttribute('href', `#${iconFilled}`);
+      icons[i].setAttribute('href', `#${iFilled}`);
     }
 
     // Fill half icons
     if (halfActiveIconsLength) {
-      icons[activeIconsLength].setAttribute('href', `#${iconHalfFilled}`);
+      icons[activeIconsLength].setAttribute('href', `#${iHalf}`);
     }
   }
 
@@ -75,7 +74,7 @@ export class Rating {
     const numIcons = this.icons.length;
     const rect = this.el.getBoundingClientRect();
     const x = mouseClientX - rect.left;
-    const width = rect.width;
+    const { width } = rect;
 
     return this.roundToNearestHalf((x / width) * numIcons);
   }

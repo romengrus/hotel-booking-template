@@ -6,15 +6,25 @@
 //- iHalf             string ('star-half-active') - Name for partially active icon (rating can be partial)
 //- total             number (5) - Number of icons to show
 //- isPartial         boolean (false) - If true - partial rating can be used, false - otherwise
-mixin rating({value: 0, iEmpty: 'star', iFilled: 'star-active', iHalf: 'star-half-active', total: 5, isPartial: false} = {}) 
+mixin rating(props = {}) 
   include /components/icon/icon.pug
 
-  .rating&attributes({
-    'data-value': value,
-    'data-is-partial': isPartial,
-    'data-icon-empty': iEmpty,
-    'data-icon-filled': iFilled,
-    'data-icon-half': iHalf,
-  })
+  -
+    const { value, iEmpty, iFilled, iHalf, total, isPartial } = Object.assign({
+      value: 0, 
+      iEmpty: 'star', 
+      iFilled: 'star-active', 
+      iHalf: 'star-half-active', 
+      total: 5, 
+      isPartial: false
+    }, props);
+
+  .rating(
+    'data-value' = value,
+    'data-is-partial' = isPartial,
+    'data-icon-empty' = iEmpty,
+    'data-icon-filled' = iFilled,
+    'data-icon-half' = iHalf,
+  )
     - for (let i = 0; i < total; i += 1)
-      +icon({name: iEmpty})
+      +icon({ name: iEmpty })

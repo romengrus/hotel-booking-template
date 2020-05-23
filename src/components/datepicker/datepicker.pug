@@ -28,7 +28,7 @@ mixin datepicker(props = {})
         'data-datepicker' = true,
         'data-dates' = dates, 
         'data-mode' = mode, 
-      )
+      )&attributes(attributes)
     .datepicker__toggler
       +icon({ name: 'semi-arrow-up', size: 'small' })
     div(style = "display: none")

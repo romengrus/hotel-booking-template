@@ -1,6 +1,7 @@
 .main {
   &__wrapper {
-    max-width: $site-max-width;
+    display: flex;
+    max-width: $content-max-width;
     margin: 0 auto;
   }
 }

@@ -11,8 +11,18 @@
 //- showScrollbar      boolean (false) - If true - scrollbar will be shown
 //- showThumbnails     boolean (false) - If true - show another slider with thumbnails
 //- thumbnailsParams   object ({}) - Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
-mixin slider({slides: [], params: {}, showPagination: false, showNavigation: false, showScrollbar: false, showThumbnails: false, thumbnailsParams: {}} = {})
+mixin slider(props = {})
   -
+    const { slides, params, showPagination, showNavigation, showScrollbar, showThumbnails, thumbnailsParams } = Object.assign({
+      slides: [], 
+      params: {}, 
+      showPagination: false, 
+      showNavigation: false, 
+      showScrollbar: false, 
+      showThumbnails: false, 
+      thumbnailsParams: {}
+    }, props);
+
     if (showNavigation) {
       params.navigation = Object.assign(params.navigation || {}, {
         prevEl: '.swiper-button-prev',
@@ -37,11 +47,12 @@ mixin slider({slides: [], params: {}, showPagination: false, showNavigation: fal
     }
 
   .slider
-    .swiper-container('data-params'= params)
+    .swiper-container('data-params' = params)
       .swiper-wrapper
         each slide in slides
           if 'img' in slide
-            a(class= 'swiper-slide', href= `${slide.url || dummyURL}`, style= `background-image: url(${slide.img})`)
+            a(class = 'swiper-slide', href = `${slide.url || dummyURL}`)
+              img(src = slide.img)
 
       if (showPagination)
         .swiper-pagination
@@ -54,10 +65,10 @@ mixin slider({slides: [], params: {}, showPagination: false, showNavigation: fal
         .swiper-scrollbar
 
     if (showThumbnails)
-      .swiper-container-thumbs('data-params'= thumbnailsParams)
+      .swiper-container-thumbs('data-params' = thumbnailsParams)
         .swiper-wrapper
           each slide in slides
             if 'img' in slide
-              .swiper-slide.swiper-slide_thumbnail(style= `background-image: url(${slide.img})`)
+              .swiper-slide.swiper-slide_thumbnail(style = `background-image: url(${slide.img})`)
       
       

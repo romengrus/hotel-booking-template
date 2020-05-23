@@ -4,35 +4,18 @@
 //- params    {object} range slider options (https://refreshless.com/nouislider/slider-options/)
 //--- params.format   {object} Formatting options (https://refreshless.com/wnumb/options/)
 mixin range-slider(props = {})
-  include /components/form-field/form-field.pug
+  include /components/field/field.pug
 
   - 
-    props = Object.assign({
-      showValue: true,
-      params: {},
-    }, props)
+    const { showValue, params } = Object.assign({ showValue: true, params: {} }, props)
 
-    var mods = ['form-field-range-slider'].concat(props.mods)
+  .range-slider
+    .range-slider__input
+      +field(
+        id = createRandomId('range-slider'),
+        hidden = true,
+        'data-params' = params,
+        'data-show-value' = showValue,
+      )&attributes(attributes)
 
-    if (attributes.id === undefined) {
-      attributes.id = createRandomId('form-field-range-slider');
-    }
-
-    attributes['data-params'] = props.params
-    attributes['data-show-value'] = props.showValue
-    attributes['hidden'] = true
-
-  div(class= mods)
-    +form-field({mods: ['form-field-range-slider__input']})&attributes(attributes)
-
-    if (props.label || props.showValue)
-      .form-field-range-slider__info
-        if (props.label)
-          label.form-field-range-slider__label(for= attributes.id)= props.label
-        if (props.showValue)
-          span.form-field-range-slider__display
-
-    div(class= 'form-field-range-slider__slider')
-
-    if (props.desc)  
-      span.form-field-range-slider__desc= props.desc
+    .range-slider__slider

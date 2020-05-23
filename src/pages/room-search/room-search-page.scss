@@ -1,55 +1,67 @@
 .room-search-page {
-  .main {
-    margin-bottom: 70px;
-    transition: transform 250ms ease-in;
-  }
-
   .sidebar {
-    padding-top: 30px;
-
-    &_visible-on-mobile {
-      transform: translate(0);
-    }
+    flex: 0;
+    flex-basis: 266px;
+    margin-top: 29px;
   }
 
   .room-filter {
-    &__label {
-      margin-bottom: 9px;
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-
-      & > * {
-        margin-top: 2px;
-      }
+    &__guests {
+      margin-top: 19px;
     }
 
     &__price {
-      margin-top: 20px;
+      margin-top: 30px;
+
+      &-header {
+        display: flex;
+      }
+
+      &-result {
+        margin-left: auto;
+        font-size: 12px;
+      }
+
+      &-range {
+        margin-top: 13px;
+      }
+
+      &-desc {
+        margin-top: 13px;
+        font-size: 12px;
+      }
     }
 
     &__permissions {
-      margin-top: 23px;
+      margin-top: 18px;
 
-      .room-filter__label {
-        margin-bottom: 14px;
+      &-title {
+        margin-bottom: 7px;
+      }
+
+      &-item {
+        margin-bottom: 2px;
       }
     }
 
     &__accessability {
-      margin-top: 34px;
+      margin-top: 8px;
 
-      .room-filter__label {
-        margin-bottom: 14px;
+      &-title {
+        margin-bottom: 7px;
+      }
+
+      &-item {
+        margin-bottom: 9px;
       }
     }
 
     &__facilities {
-      margin-top: 30px;
+      margin-top: 11px;
     }
 
     &__additional-facilities {
-      margin-top: 6px;
+      margin-top: 21px;
     }
 
     &__toggle {
@@ -62,7 +74,8 @@
   }
 
   .content {
-    padding: 30px 0 0 28px;
+    margin-top: 29px;
+    margin-left: 30px;
 
     &__header {
       margin-bottom: 23px;

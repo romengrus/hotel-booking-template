@@ -3,6 +3,8 @@
 
   display: inline-flex;
   margin: 0;
+  user-select: none;
+  cursor: pointer;
 
   &__text {
     display: flex;
@@ -15,6 +17,8 @@
 
   &__desc {
     font-size: 12px;
+    margin-top: 2px;
+    line-height: 15px;
   }
 
   &_pos-right {
@@ -40,12 +44,14 @@
   }
 
   &_theme-bold {
-    #{$root}__value {
-      font-size: 12px;
-    }
-
     #{$root}__value:first-child {
       font-weight: bold;
+    }
+  }
+
+  &_theme-upper {
+    #{$root}__value:first-child {
+      font-size: 12px;
       text-transform: uppercase;
     }
   }

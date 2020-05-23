@@ -1,21 +1,19 @@
-import RangeSlider from 'nouislider';
+import NUIRangeSlider from 'nouislider';
 import wNumb from 'wnumb';
 
-export class FormFieldRangeSlider {
+class RangeSlider {
   constructor(el) {
-    this.cls = FormFieldRangeSlider.getBaseCSSClass();
+    this.cls = RangeSlider.getBaseCSSClass();
     this.el = el;
     this.sliderEl = el.querySelector(`${this.cls}__slider`);
-    this.input = el.querySelector(`${this.cls}__input`);
-    this.display = el.querySelector(`${this.cls}__display`);
+    this.input = el.querySelector(`${this.cls}__input input`);
     this.params = JSON.parse(this.input.dataset.params);
-    this.showValue = 'showValue' in this.input.dataset;
     this.slider = null;
     this.init();
   }
 
   static getBaseCSSClass() {
-    return '.form-field-range-slider';
+    return '.range-slider';
   }
 
   init() {
@@ -27,7 +25,7 @@ export class FormFieldRangeSlider {
     // Change default cssPrefix
     const params = { ...this.params, cssPrefix: 'range-slider-' };
 
-    this.slider = RangeSlider.create(this.sliderEl, params);
+    this.slider = NUIRangeSlider.create(this.sliderEl, params);
 
     this._attachEventHandlers();
   }
@@ -46,10 +44,8 @@ export class FormFieldRangeSlider {
    */
   // eslint-disable-next-line no-unused-vars
   _handleSliderUpdate(values, handle, unencoded, tap, positions) {
-    if (this.showValue) {
-      this.display.innerText = values.join(' - ');
-    }
-
     this.input.value = JSON.stringify(this.slider.get());
   }
 }
+
+export { RangeSlider };
