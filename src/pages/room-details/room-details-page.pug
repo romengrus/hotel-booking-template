@@ -17,14 +17,15 @@ block append parts
   include /components/testimonial/testimonial.pug
 
 block main
-  .room-details-page__showcase
-    +room-showcase({ 
-      first: '/assets/img/hero1.jpg', 
-      second: '/assets/img/hero2.jpg', 
-      third: '/assets/img/hero3.jpg' 
-    })
+  .full-width
+    .room-details-page__showcase
+      +room-showcase({ 
+        first: '/assets/img/room-details-1.jpg', 
+        second: '/assets/img/room-details-2.jpg', 
+        third: '/assets/img/room-details-3.jpg' 
+      })
 
-  .room-details-page__wrapper
+  .bounded-width.room-details-page__wrapper
     article.room-details-page__content
       .room-details-page__info
         .room-details-page__benefits

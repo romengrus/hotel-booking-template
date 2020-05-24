@@ -1,6 +1,12 @@
 .room-details-page {
   &__wrapper {
     display: flex;
+    padding-top: 71px;
+  }
+
+  &__showcase {
+    flex: 0;
+    margin: 0 auto;
   }
 
   &__info {

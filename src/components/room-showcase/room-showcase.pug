@@ -12,7 +12,7 @@ mixin room-showcase(props = {})
     }, props);
 
   .room-showcase
-    .room-showcase__main(style = `background-image: url(${first});`)
-    .room-showcase__other
-      .room-showcase__item(style = `background-image: url(${second});`)
-      .room-showcase__item(style = `background-image: url(${third});`)
+    img.room-showcase__main(src = first)
+    .room-showcase__thumbs
+      img.room-showcase__thumb(src = second)
+      img.room-showcase__thumb(src = third)
