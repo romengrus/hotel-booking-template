@@ -14,12 +14,14 @@
     display: flex;
     flex: 1;
     flex-flow: column nowrap;
-    margin-left: 10px;
+    margin-left: 8px;
   }
 
   &__user-img {
-    width: 48px;
-    height: 48px;
+    width: 54px;
+    height: 54px;
+    margin-top: -7px;
+    margin-left: -4px;
     border-radius: 50%;
     border: 2px solid #fff;
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
@@ -27,15 +29,19 @@
 
   &__likes {
     margin-top: 10px;
+    margin-left: -4px;
   }
 
   &__user-name {
     margin-bottom: 4px;
     font-size: 14px;
+    word-spacing: -2px;
   }
 
   &__created-at {
     font-size: 13px;
+    word-spacing: 1px;
+    letter-spacing: 0.4px;
   }
 
   &__text {

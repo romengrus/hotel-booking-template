@@ -18,10 +18,11 @@ mixin testimonial(props = {})
   section.testimonial
     .testimonial__left-col
       if (userImg)
-        img.testimonial__user-img(src= userImg, title= userName)
-      +like({ value: numLikes })
+        img.testimonial__user-img(src = userImg, title = userName)
+      .testimonial__likes
+        +like({ value: numLikes })
     .testimonial__right-col
       h3.testimonial__user-name= userName
       if (createdAt)
-        span.testimonial__created-at(datetime= createdAt)
+        span.testimonial__created-at= createdAt
       article.testimonial__text= text

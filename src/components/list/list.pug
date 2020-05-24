@@ -11,6 +11,6 @@ mixin list(props = {})
     const content = items.map(item => `<li class="list__item">${item}</li>`)
 
   if (props.isOrdered)
-    ol.list !{content.join('')}
+    ol.list.list_ordered !{content.join('')}
   else
-    ul.list !{content.join('')}
+    ul.list.list_unordered !{content.join('')}

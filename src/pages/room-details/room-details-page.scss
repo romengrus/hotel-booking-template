@@ -7,6 +7,21 @@
     display: flex;
   }
 
+  &__benefits {
+    flex-basis: 280px;
+    margin-right: 76px;
+  }
+
+  &__benefit + &__benefit {
+    margin-top: 11px;
+  }
+
+  &__stats {
+    &-title {
+      margin-bottom: 19px;
+    }
+  }
+
   &__rules {
     display: flex;
   }
@@ -20,29 +35,42 @@
     flex-basis: 380px;
   }
 
-  .testimonials {
-    margin-top: 13px;
+  &__testimonials {
+    margin-top: 17px;
+    padding-right: 70px;
+
+    &-total {
+      margin-top: 5px;
+      font-size: 13px;
+      font-weight: normal;
+      float: right;
+      color: $dark-500;
+    }
 
     .testimonial {
       margin-top: 25px;
     }
   }
 
-  .behavior-rules {
+  &__rules {
     margin-top: 34px;
     padding-left: 20px;
 
-    ul {
-      margin-top: 20px;
+    &-behavior {
+      min-width: 240px;
+    }
+
+    &-list {
+      margin-top: 18px;
       margin-left: -20px;
     }
-  }
 
-  .cancel-rules {
-    margin-top: 34px;
-    padding-left: 30px;
+    &-cancel {
+      margin-left: 102px;
+      padding-right: 80px;
+    }
 
-    p {
+    &-desc {
       margin-top: 20px;
       font-size: 14px;
       line-height: 23px;

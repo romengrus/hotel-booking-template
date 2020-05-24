@@ -14,13 +14,14 @@ mixin like(props = {})
       iDislike: 'hart', 
       hasVoted: false
     }, props);
+
     const icon = hasVoted ? iLike : iDislike
   
-  .button-like(data-iLike)&attributes({
-    'data-value': value, 
-    'data-has-voted': hasVoted,
-    'data-icon-like': iLike,
-    'data-icon-dislike': iDislike,
-  })
-    +icon({name: icon})
-    span.button-like__display= value
+  .like(
+    'data-value' = value, 
+    'data-has-voted' = hasVoted,
+    'data-icon-like' = iLike,
+    'data-icon-dislike' = iDislike,
+  )
+    +icon({ name: icon })
+    span.like__display= value

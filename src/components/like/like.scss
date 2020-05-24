@@ -1,8 +1,12 @@
 .like {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   position: relative;
   min-width: 40px;
   height: 20px;
   border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 10px;
   padding: 0;
   background: none;
   font-size: 10px;
@@ -16,6 +20,8 @@
   .icon {
     width: 10px;
     height: 10px;
+    margin-right: 6px;
+    margin-left: 4px;
     fill-opacity: 1;
   }
 

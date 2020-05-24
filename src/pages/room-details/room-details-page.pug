@@ -29,24 +29,27 @@ block main
       .room-details-page__info
         .room-details-page__benefits
           h3 Сведения о номере
-          +benefit({
-            icon: 'emoticon-happy', 
-            title: 'Комфорт',
-            desc: 'Шумопоглощающие стены',
-          })
-          +benefit({
-            icon: 'location-city', 
-            title: 'Удобство',
-            desc: 'Окно в каждой из спален',
-          })
-          +benefit({
-            icon: 'fire', 
-            title: 'Уют',
-            desc: 'Номер оснащен камином',
-          })
+          .room-details-page__benefit
+            +benefit({
+              icon: 'emoticon-happy', 
+              title: 'Комфорт',
+              desc: 'Шумопоглощающие стены',
+            })
+          .room-details-page__benefit
+            +benefit({
+              icon: 'location-city', 
+              title: 'Удобство',
+              desc: 'Окно в каждой из спален',
+            })
+          .room-details-page__benefit
+            +benefit({
+              icon: 'fire', 
+              title: 'Уют',
+              desc: 'Номер оснащен камином',
+            })
 
         .room-details-page__stats
-          h3 Впечатления от номера
+          h3.room-details-page__stats-title Впечатления от номера
           +doughnut({
             data: [{
               value: 100,
@@ -67,39 +70,43 @@ block main
             }]
           })
       
-      .testimonials
-        h3 Отзывы посетителей номера
-        +testimonial({
-          userName: 'Мурад Сарафанов', 
-          userImg: '/assets/img/testimonial-user.jpg',
-          text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. 
-            И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.`,
-          createdAt: `${Date.now() - 1000 * 60 * 60 * 24 * 5}`,
-          numLikes: 12,
-        })
-        +testimonial({
-          userName: 'Патрисия Стёклышкова', 
-          userImg: '/assets/img/testimonial-user.jpg',
-          text: `Обслуживание на высоте! Все аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое
-            блюдо и десерт как комплимент`,
-          createdAt: `${Date.now() - 1000 * 60 * 60 * 24 * 7}`,
-          numLikes: 2,
-        })
-
-      .room-details-page__rules
-        .behavior-rules
-          h3 Правила
-          +list({items: 
-            [
-              'Нельзя с питомцами', 
-              'Без вечеринок и мероприятий', 
-              'Время прибытия — после 13:00, а выезд до 12:00'
-            ]
+      .room-details-page__testimonials
+        h3.room-details-page__testimonials-title 
+          | Отзывы посетителей номера
+          span.room-details-page__testimonials-total 2 отзыва
+        .room-details-page__testimonial
+          +testimonial({
+            userName: 'Мурад Сарафанов', 
+            userImg: '/assets/img/testimonial-user-1.png',
+            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+            createdAt: '5 дней назад',
+            numLikes: 12,
+          })
+        .room-details-page__testimonial
+          +testimonial({
+            userName: 'Патрисия Стёклышкова', 
+            userImg: '/assets/img/testimonial-user-2.png',
+            text: `Обслуживание на высоте! Все аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое
+              блюдо и десерт как комплимент`,
+            createdAt: 'Неделю назад',
+            numLikes: 2,
           })
 
-        .cancel-rules
-          h3 Отмена
-          p 
+      .room-details-page__rules
+        .room-details-page__rules-behavior
+          h3.room-details-page__rules-title Правила
+          .room-details-page__rules-list
+            +list({items: 
+              [
+                'Нельзя с питомцами', 
+                'Без вечеринок и мероприятий', 
+                'Время прибытия — после 13:00, а выезд до 12:00'
+              ]
+            })
+
+        .room-details-page__rules-cancel
+          h3.room-details-page__title Отмена
+          p.room-details-page__rules-desc 
             | Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. 
             | до прибытия вы получите полный возврат за вычетом сбора за услуги.
 
