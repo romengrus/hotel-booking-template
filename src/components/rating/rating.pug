@@ -27,4 +27,5 @@ mixin rating(props = {})
     'data-icon-half' = iHalf,
   )
     - for (let i = 0; i < total; i += 1)
-      +icon({ name: iEmpty })
+      .rating__icon
+        +icon({ name: iEmpty, size: 'big' })

@@ -45,30 +45,17 @@
 //- perPage         number (10) - Items to show per page
 //- total           number (0) - Total items in listing
 //- delta           number (2) - Number of pages always visible from the left & right side of current page
-//- label           string - Label template text.
-//-                         Can use variables:
-//-                           * idxFrom     {number} Index of first item on page
-//-                           * idxTo       {number} Index of last item on page
-//-                           * total       {number} Total items in listing
-//-                           * perPage     {number} Items shown per page
-//-                         Can use functions:
-//-                           * approximately(num) -> number rounded to nearest 10 downwards, adding '+' if needed
-//-                           * any other js function ... 
-//- showLabel       boolean (true) - If true - label will be shown, false - otherwise
-//- labelPosition   oneOf ('left' | 'right' | 'top' | 'bottom')
 mixin pagination(props = {})
+  include /components/icon/icon.pug
+
   -
-    const { current, perPage, total, delta, label, showLabel, labelPosition } = Object.assign({
+    const { current, perPage, total, delta } = Object.assign({
       current: 1,
       perPage: 10,
       total: 0,
       delta: 2,
-      label: "${idxFrom} - ${idxTo} from ${approximately(total)} variants for rent",
-      showLabel: true,
-      labelPosition: 'bottom'
     }, props);
 
-    const classList = ['pagination', `pagination_label-pos-${labelPosition}`]
     const lastPage = Math.ceil(total / perPage)
     const idxFrom = 1
     const idxTo = 12
@@ -91,12 +78,13 @@ mixin pagination(props = {})
           || (page === current + delta + 1);
     }
   
-  div(class = classList)
+  .pagination
     if (lastPage > 1)
       .pagination__listing
         //- prev arrow
         if (current > 1 && lastPage > 2)
           a(href = dummyURL, class = arrowMods.concat('pagination__prev'))
+            +icon({ name: 'arrow-left-light' })
 
         //- main listing
         - for(let i = 1; i <= lastPage; i += 1)
@@ -114,6 +102,4 @@ mixin pagination(props = {})
         //- next arrow
         if (current < lastPage && lastPage > 2)
           a(href = dummyURL, class = arrowMods.concat('pagination__next'))
-
-      if (showLabel)
-        .pagination__label= eval('`' + label + '`')
+            +icon({ name: 'arrow-right-light' })

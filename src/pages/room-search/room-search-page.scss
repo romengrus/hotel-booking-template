@@ -74,24 +74,33 @@
   }
 
   .content {
-    margin-top: 29px;
-    margin-left: 30px;
+    flex: 1;
+    margin-top: 31px;
+    margin-left: 60px;
 
     &__header {
-      margin-bottom: 23px;
+      margin-bottom: 22px;
     }
   }
 
-  .pagination {
-    margin-top: 10px;
+  &__pagination {
+    margin-top: 9px;
+    margin-left: -14px;
     align-items: center;
     text-align: center;
-  }
 
-  .room-cards {
-    .room-card {
+    &-label {
+      font-size: 14px;
     }
   }
+}
+
+.footer {
+  margin-top: 57px;
+}
+
+.copyright {
+  margin-top: 3px;
 }
 
 .sidebar-visible-on-mobile {
