@@ -9,7 +9,7 @@ $room-reservation-underline: 1px dotted gray;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  padding: 40px 30px 30px;
+  padding: 38px 30px 30px;
   color: $room-reservation-text-color;
 
   &__row {
@@ -26,6 +26,13 @@ $room-reservation-underline: 1px dotted gray;
     color: $room-reservation-title-color;
   }
 
+  &__dates {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
   &__arrival {
     flex: 1 1 50%;
     margin-right: 12px;
@@ -37,20 +44,20 @@ $room-reservation-underline: 1px dotted gray;
   }
 
   &__guests {
-    margin-top: 18px;
+    margin-top: 20px;
   }
 
   &__submit {
-    margin-top: 30px;
+    margin-top: 18px;
   }
 
   &__room-details {
     font-size: 12px;
+    font-weight: bold;
   }
 
   &__room-number {
     font-size: 22px;
-    font-weight: bold;
     margin-left: 6px;
     color: $room-reservation-title-color;
   }
@@ -66,11 +73,17 @@ $room-reservation-underline: 1px dotted gray;
     color: $room-reservation-accent-color;
     font-size: 12px;
     margin-top: 4px;
+    margin-right: -2px;
   }
 
   &__price {
+    display: inline-block;
     font-weight: bold;
     font-size: 14px;
+
+    &::first-letter {
+      margin-right: 4px;
+    }
   }
 
   &__currency {
@@ -79,15 +92,46 @@ $room-reservation-underline: 1px dotted gray;
     margin-right: 5px;
   }
 
+  &__fees {
+    margin-top: 19px;
+
+    &-result {
+      margin-top: 29px;
+      display: flex;
+      font-family: $font-family-accent;
+    }
+
+    &-title {
+      margin-left: 1px;
+      font-size: 19px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    &-separator {
+      flex: 1;
+      border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+      margin: 7px 5px;
+    }
+
+    &-price {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+
   &__fee {
+    $fee-root: &;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 12px;
+    margin-top: 13px;
     font-size: 14px;
 
     &-title {
       flex: 1 1 60%;
+      line-height: 18px;
     }
 
     &-desc {
@@ -95,31 +139,23 @@ $room-reservation-underline: 1px dotted gray;
       position: relative;
     }
 
-    &-amount {
-      flex: 1 1 30%;
+    &-time {
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    &-icon {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      align-self: flex-start;
+    }
+
+    &-total {
+      flex: 1;
+      flex-basis: 49px;
+      align-self: flex-start;
       text-align: right;
-    }
-
-    &-tooltip {
-      position: absolute;
-      bottom: 30px;
-      left: -90px;
-      width: 200px;
-      border: 1px solid gray;
-      padding: 12px;
-      transition: all 0.3s ease-in;
-      visibility: hidden;
-      opacity: 0;
-      border-radius: 4px;
-      box-shadow: 0 5px 10px rgba(31, 32, 65, 0.05);
-      background-color: white;
-      text-align: center;
-    }
-
-    .icon:hover ~ &-tooltip {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(-3px);
     }
   }
 

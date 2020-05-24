@@ -1,40 +1,23 @@
-.details-page {
-  .main {
-    max-width: 1440px;
-    padding: 0;
-  }
-
-  .main__wrapper {
-    margin: 0;
-  }
-
-  .page-wrapper {
-    margin-top: 70px;
-    padding-bottom: 54px;
-  }
-
-  .content {
-  }
-
-  .sidebar {
+.room-details-page {
+  &__wrapper {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
   }
 
-  .main-info {
+  &__info {
+    display: flex;
   }
 
-  .room-info {
+  &__rules {
+    display: flex;
   }
 
-  .room-stats {
-    padding-left: 30px;
+  &__content {
+    flex: 1;
+  }
 
-    .chart {
-      margin-top: 24px;
-      justify-content: flex-start;
-    }
+  &__sidebar {
+    flex: 0;
+    flex-basis: 380px;
   }
 
   .testimonials {
@@ -69,9 +52,5 @@
   .footer {
     border-top: 1px solid $dark-250;
     padding-top: 100px;
-  }
-
-  &_hero {
-    height: 486px;
   }
 }

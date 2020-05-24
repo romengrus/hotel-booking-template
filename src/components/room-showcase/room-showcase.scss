@@ -1,0 +1,16 @@
+.room-showcase {
+  display: flex;
+  height: 485px;
+
+  &__main {
+    flex: 1;
+    height: 100%;
+  }
+
+  &__other {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-basis: 461px;
+  }
+}

@@ -1,0 +1,18 @@
+//- Room images showcase
+//-
+//- first     string ('') - main image url
+//- second    string ('') - second image
+//- third     string ('') - third image    
+mixin room-showcase(props = {})
+  -
+    const { first, second, third } = Object.assign({
+      first: '',
+      second: '',
+      third: ''
+    }, props);
+
+  .room-showcase
+    .room-showcase__main(style = `background-image: url(${first});`)
+    .room-showcase__other
+      .room-showcase__item(style = `background-image: url(${second});`)
+      .room-showcase__item(style = `background-image: url(${third});`)

@@ -9,127 +9,112 @@ block variables
   - var bodyClass = 'details-page'
 
 block append parts
-  include /components/hero/hero.pug
-  include /components/chart-doughnut/chart-doughnut.pug
+  include /components/room-showcase/room-showcase.pug
+  include /components/doughnut/doughnut.pug
   include /components/list/list.pug
   include /components/room-reservation/room-reservation.pug
   include /components/benefit/benefit.pug
   include /components/testimonial/testimonial.pug
 
 block main
-  +hero({
-    sliderOptions: {
-      slides: [{
-          img: '/assets/img/hero1.jpg',
-          url: '#'
-        }, {
-          img: '/assets/img/hero2.jpg',
-          url: '#'
-        }, {
-          img: '/assets/img/hero3.jpg', 
-          url: '#'
-      }],
-      showThumbnails: true,
-      thumbnailsParams: {
-        direction: 'vertical',
-        slidesPerView: 2,
-      }
-    }, 
-    mods: `${bodyClass}_hero`,
-  })
+  .room-details-page__showcase
+    +room-showcase({ 
+      first: '/assets/img/hero1.jpg', 
+      second: '/assets/img/hero2.jpg', 
+      third: '/assets/img/hero3.jpg' 
+    })
 
-  .page-wrapper
-    .row
-      article.content
-        .main-info
-          .room-info
-            h3 Сведения о номере
-            +benefit({
-              iconName: 'emoticon-happy', 
-              title: 'Комфорт',
-              desc: 'Шумопоглощающие стены',
-            })
-            +benefit({
-              iconName: 'location-city', 
-              title: 'Удобство',
-              desc: 'Окно в каждой из спален',
-            })
-            +benefit({
-              iconName: 'fire', 
-              title: 'Уют',
-              desc: 'Номер оснащен камином',
-            })
+  .room-details-page__wrapper
+    article.room-details-page__content
+      .room-details-page__info
+        .room-details-page__benefits
+          h3 Сведения о номере
+          +benefit({
+            icon: 'emoticon-happy', 
+            title: 'Комфорт',
+            desc: 'Шумопоглощающие стены',
+          })
+          +benefit({
+            icon: 'location-city', 
+            title: 'Удобство',
+            desc: 'Окно в каждой из спален',
+          })
+          +benefit({
+            icon: 'fire', 
+            title: 'Уют',
+            desc: 'Номер оснащен камином',
+          })
 
-          .room-stats
-            h3 Впечатления от номера
-            +chart-doughnut({
-              data: [{
-                value: 100,
-                label: 'Великолепно',
-                bg: '#FFE39C'
-              }, {
-                value: 60,
-                label: 'Хорошо',
-                bg: '#6FCF97'
-              }, {
-                value: 60,
-                label: 'Удовлетворительно',
-                bg: '#BC9CFF'
-              }, {
-                value: 40,
-                label: 'Разочарован',
-                bg: '#919191'
-              }]
-            })
-        
-        .row
-          .testimonials
-            h3 Отзывы посетителей номера
-            +testimonial({
-              userName: 'Мурад Сарафанов', 
-              userImg: '/assets/img/testimonial-user.jpg',
-              text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. 
-                И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.`,
-              createdAt: `${Date.now() - 1000 * 60 * 60 * 24 * 5}`,
-              numLikes: 12,
-            })
-            +testimonial({
-              userName: 'Патрисия Стёклышкова', 
-              userImg: '/assets/img/testimonial-user.jpg',
-              text: `Обслуживание на высоте! Все аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое
-                блюдо и десерт как комплимент`,
-              createdAt: `${Date.now() - 1000 * 60 * 60 * 24 * 7}`,
-              numLikes: 2,
-            })
-
-        .row
-          .behavior-rules
-            h3 Правила
-            +list({items: 
-              [
-                'Нельзя с питомцами', 
-                'Без вечеринок и мероприятий', 
-                'Время прибытия — после 13:00, а выезд до 12:00'
-              ]
-            })
-
-          .cancel-rules
-            h3 Отмена
-            p 
-              | Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. 
-              | до прибытия вы получите полный возврат за вычетом сбора за услуги.
-
-      aside.sidebar
-        +room-reservation({
-          roomNumber: 888, 
-          price: 9990,
-          fees: [{
-            title: 'Скидка',
-            desc: 'Скидка постоянному клиенту',
-            amount: -2179
-          }, {
-            title: 'Сбор за дополнительные услуги',
-            desc: 'Боди массаж',
-            amount: 300
-          }]
+        .room-details-page__stats
+          h3 Впечатления от номера
+          +doughnut({
+            data: [{
+              value: 100,
+              label: 'Великолепно',
+              bg: '#FFE39C'
+            }, {
+              value: 60,
+              label: 'Хорошо',
+              bg: '#6FCF97'
+            }, {
+              value: 60,
+              label: 'Удовлетворительно',
+              bg: '#BC9CFF'
+            }, {
+              value: 40,
+              label: 'Разочарован',
+              bg: '#919191'
+            }]
+          })
+      
+      .testimonials
+        h3 Отзывы посетителей номера
+        +testimonial({
+          userName: 'Мурад Сарафанов', 
+          userImg: '/assets/img/testimonial-user.jpg',
+          text: `Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. 
+            И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.`,
+          createdAt: `${Date.now() - 1000 * 60 * 60 * 24 * 5}`,
+          numLikes: 12,
         })
+        +testimonial({
+          userName: 'Патрисия Стёклышкова', 
+          userImg: '/assets/img/testimonial-user.jpg',
+          text: `Обслуживание на высоте! Все аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое
+            блюдо и десерт как комплимент`,
+          createdAt: `${Date.now() - 1000 * 60 * 60 * 24 * 7}`,
+          numLikes: 2,
+        })
+
+      .room-details-page__rules
+        .behavior-rules
+          h3 Правила
+          +list({items: 
+            [
+              'Нельзя с питомцами', 
+              'Без вечеринок и мероприятий', 
+              'Время прибытия — после 13:00, а выезд до 12:00'
+            ]
+          })
+
+        .cancel-rules
+          h3 Отмена
+          p 
+            | Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. 
+            | до прибытия вы получите полный возврат за вычетом сбора за услуги.
+
+    aside.room-details-page__sidebar
+      +room-reservation({
+        room: 888, 
+        price: 9990,
+        isLux: true,
+        fees: [{
+          title: 'Скидка',
+          desc: 'Скидка постоянному клиенту',
+          amount: -2179
+        }, {
+          title: 'Сбор за дополнительные услуги',
+          desc: 'Боди массаж',
+          amount: 300
+        }]
+      })

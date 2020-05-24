@@ -2,8 +2,12 @@
 //-
 //- items       array ([]) - Text strings to show
 //- isOrdered   boolean (false) - If true - shows "ol". If false - shows "ul".
-mixin list({items: [], isOrdered: false} = {})
+mixin list(props = {})
   -
+    const { items, isOrdered } = Object.assign({
+      items: [], 
+      isOrdered: false
+    }, props);
     const content = items.map(item => `<li class="list__item">${item}</li>`)
 
   if (props.isOrdered)
