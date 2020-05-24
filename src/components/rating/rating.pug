@@ -1,23 +1,21 @@
 //- Rating
 //-
 //- value             number (0) - Rating value
-//- iEmpty            string ('star') - Name for not active icon
-//- iFilled           string ('star-active') - Name for active icon
-//- iHalf             string ('star-half-active') - Name for partially active icon (rating can be partial)
 //- total             number (5) - Number of icons to show
 //- isPartial         boolean (false) - If true - partial rating can be used, false - otherwise
 mixin rating(props = {}) 
   include /components/icon/icon.pug
 
   -
-    const { value, iEmpty, iFilled, iHalf, total, isPartial } = Object.assign({
+    const { value, total, isPartial } = Object.assign({
       value: 0, 
-      iEmpty: 'star', 
-      iFilled: 'star-active', 
-      iHalf: 'star-half-active', 
       total: 5, 
       isPartial: false
     }, props);
+
+    const iEmpty = 'star';
+    const iFilled = 'star-active';
+    const iHalf = 'star-half-active';
 
   .rating(
     'data-value' = value,

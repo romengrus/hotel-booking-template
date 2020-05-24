@@ -1,19 +1,18 @@
 //- Like button
 //-
 //- value         number (0) - Number of likes
-//- iLike         string ('hart-active') - Name of icon for "liked" state
-//- iDislike      string ('hart') - Name of icon for "dislike" state
 //- hasVoted      boolean (false) - True if has state "liked", false otherwise
 mixin like(props = {})
   include /components/icon/icon.pug
 
   -
-    const { value, iLike, iDislike, hasVoted } = Object.assign({
+    const { value, hasVoted } = Object.assign({
       value: 0, 
-      iLike: 'hart-active', 
-      iDislike: 'hart', 
       hasVoted: false
     }, props);
+
+    const iLike = 'hart-active';
+    const iDislike = 'hart';
 
     const icon = hasVoted ? iLike : iDislike
   
@@ -21,7 +20,7 @@ mixin like(props = {})
     'data-value' = value, 
     'data-has-voted' = hasVoted,
     'data-icon-like' = iLike,
-    'data-icon-dislike' = iDislike,
+    'data-icon-dislike' = iDislike
   )
     +icon({ name: icon })
     span.like__display= value

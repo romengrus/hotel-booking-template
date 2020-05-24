@@ -3,17 +3,17 @@
 //- title           string ('') - Panel title
 //- isCollapsible   boolean (true) - If true - panel can collapse and expand. Toggle icon will be shown in this case
 //- isCollapsed     boolean (false) - If true - will render in collapsed state
-//- icon            string ('semi-arrow-up') - Name of icon for toggler
 mixin panel(props = {})
   include /components/icon/icon.pug
 
   -
-    const { title, isCollapsible, isCollapsed, icon } = Object.assign({
+    const { title, isCollapsible, isCollapsed } = Object.assign({
       title: '',
       isCollapsible: false,
       isCollapsed: false,
-      icon: 'semi-arrow-up'
     }, props);
+
+    const icon = 'semi-arrow-up';
 
     const classList = ['panel'];
 

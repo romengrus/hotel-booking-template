@@ -1,13 +1,8 @@
 //- Subscription 
-//-
-//- url             string ('') - form action url
-mixin subscription(props = {})
+mixin subscription()
   include /components/form/form.pug
   include /components/field/field.pug
 
-  - 
-    const { url } = Object.assign({ url: '' }, props);
-
   .subscription
-    +form(method = 'POST', action: url)
+    +form(method = 'POST', action: dummyURL)
       +field({ icon: 'arrow-right' })(type = 'email', required, placeholder = 'email')
