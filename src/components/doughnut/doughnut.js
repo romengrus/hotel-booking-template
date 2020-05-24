@@ -11,7 +11,7 @@ export class ChartDoughnut {
   }
 
   static getBaseCSSClass() {
-    return '.chart-doughnut';
+    return '.doughnut';
   }
 
   init() {
@@ -26,8 +26,8 @@ export class ChartDoughnut {
   }
 
   _handleLabelBlur() {
-    this.segments.forEach(segment => segment.classList.remove('chart-doughnut__segment_active'));
-    this.labels.forEach(label => label.classList.remove('chart-doughnut__label_active'));
+    this.segments.forEach(segment => segment.classList.remove('doughnut__segment_active'));
+    this.labels.forEach(label => label.classList.remove('doughnut__label_active'));
     this.header.textContent = this.total;
   }
 
@@ -35,13 +35,13 @@ export class ChartDoughnut {
     const currentLabel = e.target;
     const { segmentIndex } = currentLabel.dataset;
     const numVotes = this.chartData[segmentIndex].value;
-    const activeSegment = document.getElementById(`chart-doughnut__segment-${segmentIndex}`);
+    const activeSegment = document.getElementById(`doughnut__segment-${segmentIndex}`);
 
-    this.segments.forEach(segment => segment.classList.remove('chart-doughnut__segment_active'));
-    this.labels.forEach(label => label.classList.remove('chart-doughnut__label_active'));
+    this.segments.forEach(segment => segment.classList.remove('doughnut__segment_active'));
+    this.labels.forEach(label => label.classList.remove('doughnut__label_active'));
 
-    activeSegment.classList.add('chart-doughnut__segment_active');
-    currentLabel.classList.add('chart-doughnut__label_active');
+    activeSegment.classList.add('doughnut__segment_active');
+    currentLabel.classList.add('doughnut__label_active');
     this.header.textContent = numVotes;
   }
 }

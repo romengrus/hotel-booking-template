@@ -1,6 +1,7 @@
 //- Chart doughnut
 //-
-//- data    {array} Array of objects: {
+//- data    array ([]) - segments data 
+//--- segment {
 //---   value:  {number} numeric value to represent
 //---   label:  {string} label to show in legend 
 //---   bg:  {string} segment background color
@@ -11,22 +12,19 @@ mixin doughnut(props = {})
   -
     const { data } = Object.assign({ data: [] }, props);
 
-    attributes['data-chart-data'] = data;
-
-    var mods = ['chart', 'doughnut'];
     var gap = 0.5
     var circumference = 100
     var radius = circumference / (2 * 3.14159265358)
     var cx = 18
     var cy = 18
-    var strokeWidth = 2
+    var strokeWidth = 1
     var firstSegmentOffset = 25
     var total = data.map(v => v.value).reduce((a, b) => a + b, 0)
 
     var chartStyle = ''
     chartStyle += `--doughnut-stroke-width: ${strokeWidth};`
 
-  figure(class= mods)&attributes(attributes)
+  figure.chart.doughnut('data-chart-data' = data)
     div(class= 'doughnut__display', style= chartStyle)
       svg(width= '100%', height= '100%', viewBox= `0 0 ${cx * 2} ${cy * 2}`)
         circle(

@@ -12,14 +12,11 @@
   }
 
   &__legend {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-end;
     list-style-type: none;
   }
 
   &__labels {
-    margin: 0 0 0 10px;
+    margin: 30px 0 0 3px;
   }
 
   &__label {
@@ -61,7 +58,8 @@
   }
 
   &__header {
-    font-size: 7px;
+    font-size: 6px;
+    letter-spacing: 0.5px;
     font-family: $font-family-accent;
     font-weight: bold;
     line-height: 1;
@@ -73,15 +71,15 @@
   }
 
   &__subheader {
-    font-size: 3.5px;
+    font-size: 3px;
     font-weight: bold;
     font-family: $font-family-main;
     text-transform: uppercase;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
     text-anchor: middle;
-    -moz-transform: translateY(1px);
-    -ms-transform: translateY(1px);
-    -webkit-transform: translateY(1px);
-    transform: translateY(1px);
+    -moz-transform: translateY(0.4px);
+    -ms-transform: translateY(0.4px);
+    -webkit-transform: translateY(0.4px);
+    transform: translateY(0.4px);
   }
 }
