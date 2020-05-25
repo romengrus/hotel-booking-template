@@ -9,8 +9,9 @@ $room-reservation-underline: 1px dotted gray;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  padding: 38px 30px 30px;
+  padding: 38px 29px 30px 30px;
   color: $room-reservation-text-color;
+  background: $white;
 
   &__row {
     display: flex;
@@ -44,7 +45,7 @@ $room-reservation-underline: 1px dotted gray;
   }
 
   &__guests {
-    margin-top: 20px;
+    margin-top: 19px;
   }
 
   &__submit {
@@ -72,8 +73,8 @@ $room-reservation-underline: 1px dotted gray;
   &__price-details {
     color: $room-reservation-accent-color;
     font-size: 12px;
-    margin-top: 4px;
-    margin-right: -2px;
+    margin-top: 7px;
+    margin-right: -1px;
   }
 
   &__price {

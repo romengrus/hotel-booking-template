@@ -8,15 +8,17 @@
 //-                                                         Range - select date range. 
 //-                                                         Multiple - select multiple dates
 //- isRequired    boolean (false) - If true - field will be validated as required
+//- isOpened      boolean (false) - If true - datepicker will be rendered as opened
 mixin datepicker(props = {})
   include /components/icon/icon.pug
   include /components/field/field.pug
 
   -
-    const { dates, mode, isRequired } = Object.assign({ 
+    const { dates, mode, isRequired, isOpened } = Object.assign({ 
       dates: [], 
       mode: 'single', 
-      isRequired: false 
+      isRequired: false,
+      isOpened: false, 
     }, props);
 
   .datepicker
@@ -28,6 +30,7 @@ mixin datepicker(props = {})
         'data-datepicker' = true,
         'data-dates' = dates, 
         'data-mode' = mode, 
+        'data-is-opened' = isOpened,
       )&attributes(attributes)
     .datepicker__toggler
       +icon({ name: 'semi-arrow-up', size: 'small' })

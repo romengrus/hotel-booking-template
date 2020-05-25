@@ -15,61 +15,67 @@ block main
       img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
 
   main.container
-    .cards__col
-      +room-search
-      +register
+    .cards__row
+      .cards__col.cards__col-1
+        +room-search
+        .m-t-23
+          +register
 
-    .cards__col
-      +room-reservation({ room: 888, isLux: true, price: 9990 })
-      +login
+      .cards__col.cards__col-2
+        +room-reservation({ room: 888, isLux: true, price: 9990 })
+        .m-t-39
+          +login
 
-    .cards__col
-      .TODO-datepicker
-      +room-card({
-        room: 888,
-        isLux: true,
-        price: 9990,
-        rating: 5, 
-        numReviews: 145,
-      })
-        +slider({
-          slides: [{
-            img: '/assets/img/room-card-1.jpg'
-          }, {
-            img: '/assets/img/room-card-2.jpg',
-          }, {
-            img: '/assets/img/room-card-3.jpg',
-          }, {
-            img: '/assets/img/room-card-4.jpg'
-          }],
-          showPagination: true,
-          params: {
-            pagination: {
-              clickable: true
-            }
-          }
-        })
+      .cards__col.cards__col-3
+        div(style = 'margin-top: -45px; visibility: hidden;')
+          +datepicker({ isOpened: true })
+        div(style = 'margin-top: 410px;')
+          +room-card({
+            room: 888,
+            isLux: true,
+            price: 9990,
+            rating: 5, 
+            numReviews: 145,
+          })
+            +slider({
+              slides: [{
+                img: '/assets/img/room-cards/room-card-1.png'
+              }, {
+                img: '/assets/img/room-cards/room-card-2.png',
+              }, {
+                img: '/assets/img/room-cards/room-card-3.png',
+              }, {
+                img: '/assets/img/room-cards/room-card-4.png'
+              }],
+              showPagination: true,
+              params: {
+                pagination: {
+                  clickable: true
+                }
+              }
+            })
 
-      +room-card({
-        room: 840,
-        price: 9990,
-        rating: 4, 
-        numReviews: 65,
-      })
-        +slider({
-          slides: [{
-            img: '/assets/img/room-card-1.jpg'
-          }, {
-            img: '/assets/img/room-card-2.jpg',
-          }, {
-            img: '/assets/img/room-card-3.jpg',
-          }, {
-            img: '/assets/img/room-card-4.jpg'
-          }],
-          showPagination: true,
-          params: {
-            pagination: {
-              clickable: true
-            }
-          }
-        })
+          .m-t-40
+            +room-card({
+              room: 840,
+              price: 9990,
+              rating: 4, 
+              numReviews: 65,
+            })
+              +slider({
+                slides: [{
+                  img: '/assets/img/room-cards/room-card-1.png'
+                }, {
+                  img: '/assets/img/room-cards/room-card-2.png',
+                }, {
+                  img: '/assets/img/room-cards/room-card-3.png',
+                }, {
+                  img: '/assets/img/room-cards/room-card-4.png'
+                }],
+                showPagination: true,
+                params: {
+                  pagination: {
+                    clickable: true
+                  }
+                }
+              })

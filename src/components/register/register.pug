@@ -19,7 +19,7 @@ mixin register
       credentials: 'Данные для входа в сервис',
       email: 'Email',
       password: 'Пароль',
-      newsletter: 'Получать спец предложения',
+      newsletter: 'Получать спецпредложения',
       submit: 'Перейти к оплате',
       haveAccount: 'Уже есть аккаунт на Toxin',
       login: 'Войти'
@@ -42,11 +42,11 @@ mixin register
           +radio({ name: 'gender' })
 
       .register__birthday
-        +label({ value: labels.birthday, pos: 'top', theme: 'bold' })
+        +label({ value: labels.birthday, pos: 'top', theme: ['bold', 'upper'] })
           +datepicker({ isRequired: true })
 
       .register__credentials
-        +label({ value: labels.credentials, pos: 'top', theme: 'bold' })
+        +label({ value: labels.credentials, pos: 'top', theme: ['bold', 'upper'] })
           .register__email
             +field(type = 'email', placeholder = labels.email, required = true)
           .register__password

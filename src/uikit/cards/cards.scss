@@ -1,14 +1,19 @@
-.uikit__cards {
-  main.container {
+.cards {
+  &__row {
     margin-top: 42px;
-    padding-left: 139px;
+    margin-left: 140px;
   }
 
-  .col {
-    max-width: 380px;
+  &__col {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-    & > * {
-      margin-bottom: 40px;
-    }
+  &__col-2 {
+    margin-left: 36px;
+  }
+
+  &__col-3 {
+    margin-left: 36px;
   }
 }

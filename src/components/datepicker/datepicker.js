@@ -29,6 +29,7 @@ export class FormFieldDatetime {
 
     const dates = JSON.parse(this.input.dataset.dates) || [];
     const mode = this.input.dataset.mode || 'single';
+    const isOpended = this.input.dataset.isOpened || false;
 
     const datepicker = flatpickr(this.input, {
       locale: Russian,
@@ -55,6 +56,10 @@ export class FormFieldDatetime {
     // move actions panel inside datepicker container
     if (mode !== 'single') {
       datepicker.calendarContainer.appendChild(actions);
+    }
+
+    if (isOpended) {
+      datepicker.open();
     }
   }
 }

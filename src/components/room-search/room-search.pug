@@ -20,14 +20,14 @@ mixin room-search
 
       .room-search__dates
         .room-search__arrival
-          +label({ value: labels.arrival, pos: 'top', theme: 'bold' })
+          +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
             +datepicker
         .room-search__departure
-          +label({ value: labels.departure, pos: 'top', theme: 'bold' }) 
+          +label({ value: labels.departure, pos: 'top', theme: ['bold', 'upper'] }) 
             +datepicker
 
       .room-search__guests
-        +label({ value: labels.guests, pos: 'top', theme: 'bold' })
+        +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] })
           +dropdown-counter({ resultType: 'concat', plurals: ['гость', 'гостя', 'гостей'] })(placeholder = 'Сколько гостей')
             +label({ value: 'взрослые', theme: 'bold', pos: 'left' })
               +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
