@@ -1,17 +1,6 @@
-.uikit__form-elements {
-  main {
-    padding: 13px 0 0 141px;
-  }
-
-  .col_small {
-    max-width: 320px;
-  }
-}
-
 .form-element {
-  & + .form-element {
-    margin-top: 18px;
-  }
+  $root: &;
+  $max-space: 100;
 
   &__meta {
     display: flex;
@@ -25,11 +14,90 @@
   }
 
   &__state {
+    margin-top: -1px;
     font-size: 12px;
     text-transform: uppercase;
   }
 
   &__showcase {
-    margin-top: 4px;
+    margin-top: 3px;
+  }
+}
+
+.form-elements {
+  &__row {
+    padding-left: 141px;
+  }
+
+  &__col {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__row-a {
+    margin-top: 34px;
+  }
+
+  &__row-b {
+    margin-top: 99px;
+  }
+
+  &__row-c {
+    margin-top: 163px;
+  }
+
+  &__row-d {
+    margin-top: 11px;
+  }
+
+  &__col-a1 {
+    width: 320px;
+  }
+
+  &__col-a2 {
+    margin-left: 122px;
+    width: 300px;
+  }
+
+  &__col-a3 {
+    margin-left: 88px;
+    width: 319px;
+  }
+
+  &__col-b1 {
+    width: 265px;
+  }
+
+  &__col-b2 {
+    margin-left: 177px;
+    width: 320px;
+  }
+
+  &__col-b3 {
+    margin-left: 68px;
+    width: 320px;
+  }
+
+  &__col-c1 {
+    width: 280px;
+  }
+
+  &__col-c2 {
+    width: 280px;
+    margin-left: 162px;
+  }
+
+  &__col-c3 {
+    margin-left: 108px;
+    width: 260px;
+  }
+
+  &__col-d1 {
+    width: 280px;
+  }
+
+  &__col-d2 {
+    width: 713px;
+    margin-left: 163px;
   }
 }

@@ -99,3 +99,30 @@ body {
     margin-right: 0;
   }
 }
+
+//=== HELPERS
+
+//= MARGINS
+$sides: (top, bottom, left, right);
+$max-space: 100;
+
+@for $space from 1 through $max-space {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+//= FLEX
+.df {
+  display: flex;
+}
+
+.dif {
+  display: inline-flex;
+}

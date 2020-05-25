@@ -5,21 +5,17 @@
   padding-top: 16px;
   padding-bottom: 16px;
 
-  &:last-child {
-    border-bottom: 0;
-  }
-
   &__aside {
     width: 49px;
     margin-left: 4px;
   }
 
   &__main {
-    margin-left: 6px;
+    margin-left: 5px;
   }
 
   &__title {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     font-size: 15px;
     letter-spacing: 0;
   }
