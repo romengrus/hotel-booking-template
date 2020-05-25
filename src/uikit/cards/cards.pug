@@ -7,11 +7,7 @@ block variables
   - var pageTitle = 'Toxin UIKit | Cards'
   - var bodyClass = 'uikit__cards'
 
-  include /components/room-search/room-search.pug
-  include /components/register/register.pug
-  include /components/login/login.pug
-  include /components/room-reservation/room-reservation.pug
-  include /components/room-card/room-card.pug
+  include /components/index.pug
 
 block main
   header.container.uikit__header
@@ -19,61 +15,24 @@ block main
       img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
 
   main.container
-    .row
-      div(class= 'col')
-        +room-search
-        +register
+    .cards__col
+      +room-search
+      +register
 
-      div(class= 'col', style= 'margin-left: 25px;')
-        +room-reservation({
-          roomNumber: 888,
-          isLux: true,
-          price: 9990,
-          fees: [{
-            title: 'Сбор за услуги: скидка 2 179₽',
-            desc: 'desc',
-            amount: 0
-          }, {
-            title: 'Сбор за дополнительные услуги',
-            desc: 'desc',
-            amount: 300,
-          }]
-        })
+    .cards__col
+      +room-reservation({ room: 888, isLux: true, price: 9990 })
+      +login
 
-        div(style= 'margin-top: 208px;')
-          +login
-
-      div(class= 'col', style= 'margin-left: 25px; padding-top: 409px;')
-        +room-card({
-          roomNumber: 888,
-          isLux: true,
-          price: 9990,
-          rating: 5, 
-          numReviews: 145,
-          slider: {
-            slides: [{
-              img: '/assets/img/room-card-1.jpg'
-            }, {
-              img: '/assets/img/room-card-2.jpg',
-            }, {
-              img: '/assets/img/room-card-3.jpg',
-            }, {
-              img: '/assets/img/room-card-4.jpg'
-            }],
-            params: {
-              pagination: {
-                clickable: true
-              }
-            }
-          },
-        })
-
-        +room-card({
-          roomNumber: 840,
-          price: 9990,
-          rating: 4, 
-          numReviews: 65,
-          slider: {
+    .cards__col
+      .TODO-datepicker
+      +room-card({
+        room: 888,
+        isLux: true,
+        price: 9990,
+        rating: 5, 
+        numReviews: 145,
+      })
+        +slider({
           slides: [{
             img: '/assets/img/room-card-1.jpg'
           }, {
@@ -83,10 +42,34 @@ block main
           }, {
             img: '/assets/img/room-card-4.jpg'
           }],
+          showPagination: true,
           params: {
             pagination: {
               clickable: true
             }
           }
-          },
+        })
+
+      +room-card({
+        room: 840,
+        price: 9990,
+        rating: 4, 
+        numReviews: 65,
+      })
+        +slider({
+          slides: [{
+            img: '/assets/img/room-card-1.jpg'
+          }, {
+            img: '/assets/img/room-card-2.jpg',
+          }, {
+            img: '/assets/img/room-card-3.jpg',
+          }, {
+            img: '/assets/img/room-card-4.jpg'
+          }],
+          showPagination: true,
+          params: {
+            pagination: {
+              clickable: true
+            }
+          }
         })

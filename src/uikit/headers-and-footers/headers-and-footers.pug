@@ -9,27 +9,22 @@ block variables
 
   include /components/header/header.pug
   include /components/footer/footer.pug
-  include /components/copyright-bar/copyright-bar.pug
+  include /components/copyright/copyright.pug
 
 block main
   header.container.uikit__header
     a(href= '/')
       img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
 
-  main.container
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 20px')
-        +header({isLoggedIn: false})
+  .headers-and-footers__row
+    +header({ isLoggedIn: false })
 
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 40px')
-        +header({isLoggedIn: true})
+  .headers-and-footers__row
+    +header({ isLoggedIn: true })
 
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 40px')
-        +footer
-        +copyright-bar
+  .headers-and-footers__row
+    +footer
+    +copyright
 
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 40px')
-        +footer({type: 'creative'})
+  .headers-and-footers__row
+    //- TODO creative footer
