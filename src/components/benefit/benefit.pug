@@ -3,20 +3,18 @@
 //- icon    string ('') Icon name
 //- title   string ('') Header text
 //- desc    string ('') Description text
-mixin benefit(props = {})
+mixin benefit(icon, title, desc)
   include /components/icon/icon.pug
 
-  -
-    const { icon, title, desc } = Object.assign({
-      icon: '', 
-      title: '', 
-      desc: ''
-    }, props);
+  - 
+    icon  = icon  || attributes.icon;
+    title = title || attributes.title;
+    desc  = desc  || attributes.desc;
 
   .benefit('data-benefit')
     if (icon)
       .benefit__aside
-        +icon({name: icon})
+        +icon({ name: icon })
     .benefit__main
       if (title)
         h3.benefit__title= title

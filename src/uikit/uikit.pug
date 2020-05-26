@@ -169,16 +169,16 @@ block main
   section.showcase
     h2.showcase__title benefit
     .showcase__content
-      +benefit({
-        icon: 'emoticon-happy', 
-        title: 'Комфорт',
-        desc: 'Шумопоглощающие стены',
-      })
-      +benefit({
-        icon: 'location-city', 
-        title: 'Удобство',
-        desc: 'Окно в каждой из спален',
-      })
+      +benefit(
+        icon  = 'emoticon-happy'
+        title = 'Комфорт'
+        desc  = 'Шумопоглощающие стены'
+      )
+      +benefit(
+        icon  = 'location-city'
+        title = 'Удобство'
+        desc  = 'Окно в каждой из спален'
+      )
 
   section.showcase
     h2.showcase__title panel
