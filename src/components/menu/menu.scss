@@ -5,6 +5,8 @@ $menu-link-color: rgba(31, 32, 65, 0.75) !default;
 $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
 
 .menu {
+  $root: &;
+
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -78,7 +80,7 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
     align-items: center;
     justify-content: left;
 
-    & + .menu__item {
+    & + & {
       margin-left: $menu-horizontal-spacing;
     }
 
@@ -118,6 +120,24 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
 
     &_is-active {
       color: $dark-750;
+      font-weight: bold;
+    }
+  }
+
+  &_is-wide {
+    padding: 0 10px;
+
+    #{$root}__item_has-submenu {
+      margin-right: -16px;
+    }
+
+    #{$root}__item > .icon {
+      margin-right: 10px;
+      margin-left: 4px;
+    }
+
+    #{$root}__item + #{$root}__item {
+      margin-left: 30px;
     }
   }
 }

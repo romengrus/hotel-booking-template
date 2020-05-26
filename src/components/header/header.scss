@@ -1,5 +1,6 @@
 .header {
   box-shadow: 0 10px 20px $dark-050;
+  background: $white;
 
   &__wrapper {
     display: flex;
@@ -47,7 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 35px;
+      margin-left: 21px;
       padding-left: 30px;
       border-left: 1px solid $dark-100;
       min-height: 30px;

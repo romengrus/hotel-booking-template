@@ -1,90 +1,80 @@
 mixin footer
+  include /components/footer-about/footer-about.pug
+  include /components/footer-menu/footer-menu.pug
+  include /components/footer-subscription/footer-subscription.pug
   include /components/menu/menu.pug
-  include /components/social-icons/social-icons.pug
-  include /components/subscription/subscription.pug
 
   footer.footer
     .footer__wrapper
-      .footer__col.footer__about
-        .footer__about-logo
-          include /assets/img/logo.svg
-        .footer__about-text 
-          | Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды» 
-
-      .footer__col.footer__menu
-        h2.footer__menu-title навигация
-        +menu({
-          isVertical: true,
-          items: [{
-              "name": "О нас",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Новости",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Служба поддержки",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Услуги",
-              "href": "#",
-              "isActive": false
-          }],
-        })
-
-      .footer__col.footer__menu
-        h2.footer__menu-title о нас
-        +menu({
-          isVertical: true,
-          items: [{
-              "name": "О сервисе",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Наша команда",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Вакансии",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Инвесторы",
-              "href": "#",
-              "isActive": false
-          }],
-        })
-
-      .footer__col.footer__menu
-        h2.footer__menu-title служба поддержки
-        +menu({
-          isVertical: true,
-          items: [{
-              "name": "Соглашения",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Сообщества",
-              "href": "#",
-              "isActive": false
-            },
-            {
-              "name": "Связь с нами",
-              "href": "#",
-              "isActive": false
-          }],
-        })
-
-      .footer__col.footer__subscription
-        h2.footer__subscription-title подписка
-        p.footer__subscription-text Получайте специальные предложения и новости сервиса
-        +subscription
+      if block
+        block
+      else
+        +footer-about('Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»')
+        +footer-menu('навигация')
+          +menu({
+            isVertical: true,
+            items: [{
+                "name": "О нас",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Новости",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Служба поддержки",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Услуги",
+                "href": dummyURL,
+                "isActive": false
+            }],
+          })
+        +footer-menu('о нас')
+          +menu({
+            isVertical: true,
+            items: [{
+                "name": "О сервисе",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Наша команда",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Вакансии",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Инвесторы",
+                "href": dummyURL,
+                "isActive": false
+            }],
+          })
+        +footer-menu('служба поддержки')
+          +menu({
+            isVertical: true,
+            items: [{
+                "name": "Соглашения",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Сообщества",
+                "href": dummyURL,
+                "isActive": false
+              },
+              {
+                "name": "Связь с нами",
+                "href": dummyURL,
+                "isActive": false
+            }],
+          })
+        +footer-subscription

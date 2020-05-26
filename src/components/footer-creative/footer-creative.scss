@@ -1,0 +1,30 @@
+.footer-creative {
+  background: $white;
+  padding: 100px 0 110px;
+  border-top: 1px solid $dark-100;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: $content-max-width;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  &__logo {
+    text-align: center;
+  }
+
+  &__text {
+    max-width: 550px;
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  &__social {
+    margin-top: 27px;
+    text-align: center;
+  }
+}

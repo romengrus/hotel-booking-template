@@ -1,0 +1,10 @@
+mixin footer-creative(text = '')
+  include /components/social-icons/social-icons.pug
+
+  footer.footer-creative
+    .footer-creative__wrapper
+      .footer-creative__logo
+        include /assets/img/logo.svg
+      .footer-creative__text= text 
+      .footer-creative__social
+        +social-icons

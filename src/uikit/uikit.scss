@@ -1,4 +1,7 @@
-@import '../styles/app.scss';
+@import '../styles/variables';
+@import '../styles/reboot';
+@import '../styles/base';
+@import '../components';
 
 body {
   background-color: #f4f4f6;
