@@ -2,4 +2,19 @@
   display: inline-block;
   width: 18px;
   height: 18px;
+
+  &_is-small {
+    width: 13px;
+    height: 13px;
+  }
+
+  &_is-big {
+    width: 23px;
+    height: 23px;
+  }
+
+  &_is-auto {
+    width: auto;
+    height: auto;
+  }
 }

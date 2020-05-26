@@ -5,11 +5,11 @@
 //---   name    string ('') - Icon name
 //---   href    string ('') - Link to social account/page 
 //--- }
-mixin social-icons({icons: []} = {})
+mixin social-icons(props = {})
   include /components/icon/icon.pug
 
   - 
-    icons = icons || [{
+    const defaultIcons = [{
         name: 'twitter',
         href: dummyURL,
       }, {
@@ -20,9 +20,11 @@ mixin social-icons({icons: []} = {})
         href: dummyURL,
     }];
 
-  .social-icons
+    const { icons } = Object.assign({ icons: defaultIcons }, props);
+
+  .social-icons('data-social-icons' = true)
     each icon in icons
       a(class= 'social-icons__link', href= icon.href)
-        +icon({name: icon.name})
+        +icon({name: icon.name, size: 'big'})
 
   

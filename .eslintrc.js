@@ -11,6 +11,7 @@ module.exports = {
       'error',
       { devDependencies: true, optionalDependencies: false, peerDependencies: false }
     ],
-    'no-underscore-dangle': 'off'
+    'no-underscore-dangle': 'off',
+    'class-methods-use-this': 'off'
   }
 };

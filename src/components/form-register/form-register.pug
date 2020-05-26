@@ -1,0 +1,64 @@
+mixin form-register
+  include /components/button/button.pug
+  include /components/label/label.pug
+  include /components/icon/icon.pug
+  include /components/form/form.pug
+  include /components/field/field.pug
+  include /components/radio/radio.pug
+  include /components/datepicker/datepicker.pug
+  include /components/switcher/switcher.pug
+
+  -
+    const labels = {
+      title: 'Регистрация аккаунта',
+      man: 'Мужчина',
+      woman: 'Женщина',
+      name: 'Имя',
+      surname: 'Фамилия',
+      birthday: 'Дата рождения',
+      credentials: 'Данные для входа в сервис',
+      email: 'Email',
+      password: 'Пароль',
+      newsletter: 'Получать спецпредложения',
+      submit: 'Перейти к оплате',
+      haveAccount: 'Уже есть аккаунт на Toxin',
+      login: 'Войти'
+    }
+
+  .form-register('data-form-register' = true)
+    +form
+      h2.form-register__title= labels.title
+
+      .form-register__name
+        .form-register__name-input
+          +field(type = 'text', name = 'name', placeholder = labels.name, required)
+        .form-register__surname-input
+          +field(type = 'text', name = 'surname', placeholder = labels.surname, required)
+
+      .form-register__gender
+        +label({ value: labels.man })
+          +radio({ name: 'gender', isChecked: true })
+        +label({ value: labels.woman })
+          +radio({ name: 'gender' })
+
+      .form-register__birthday
+        +label({ value: labels.birthday, pos: 'top', theme: ['bold', 'upper'] })
+          +datepicker({ isRequired: true })
+
+      .form-register__credentials
+        +label({ value: labels.credentials, pos: 'top', theme: ['bold', 'upper'] })
+          .form-register__email
+            +field(type = 'email', placeholder = labels.email, required = true)
+          .form-register__password
+            +field(type = 'password', placeholder = labels.password, required = true)
+
+      .form-register__newsletter
+        +label({ value: labels.newsletter })
+          +switcher({ name: 'newsletter'})
+
+      .form-register__submit
+        +button({ icon: 'arrow-right-light', isExpanded: true })= labels.submit
+
+      .form-register__have-account
+        span= labels.haveAccount
+        +button({ type: 'link', href: loginLink, isOutlined: true })= labels.login 

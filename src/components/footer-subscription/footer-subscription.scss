@@ -1,0 +1,18 @@
+.footer-subscription {
+  flex: 2 0 300px;
+  padding-top: 5px;
+  padding-right: 40px;
+
+  &__title {
+    margin-bottom: 18px;
+    font-size: 11px;
+    font-family: $font-family-main;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 22px;
+  }
+}

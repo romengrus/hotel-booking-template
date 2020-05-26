@@ -1,0 +1,70 @@
+$datepicker-width: 320px;
+$datepicker-icon-color: #393939 !default;
+$datepicker-weekday-color: rgba(0, 0, 0, 0.54) !default;
+$datepicker-day-width: 40px !default;
+$datepicker-day-height: 40px !default;
+$datepicker-day-color: #393939 !default;
+$datepicker-day-today-bg: none !default;
+$datepicker-day-today-border: 1px solid #959ea9 !default;
+$datepicker-day-active-bg: #e6e6e6 !default;
+$datepicker-day-active-color: #393939 !default;
+$datepicker-range-bg: #e6e6e6 !default;
+$datepicker-range-other-month-bg: #e6e6e6 !default;
+
+@import './vendor/flatpickr';
+
+.datepicker {
+  $root: &;
+
+  position: relative;
+  width: 100%;
+
+  &__input input {
+    padding-right: 40px !important;
+  }
+
+  &__toggler {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) rotate(0.5turn);
+    transition: transform 300ms ease-out;
+  }
+
+  &__icon-prev,
+  &__icon-next {
+    fill: $datepicker-icon-color;
+  }
+
+  &__actions-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__reset {
+    padding-left: 0;
+  }
+
+  &__ok {
+    padding-right: 0;
+  }
+
+  &__reset,
+  &__ok {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $datepicker-day-color;
+
+    &:hover {
+      color: $datepicker-weekday-color;
+      opacity: 1;
+    }
+  }
+
+  &_is-opened {
+    #{$root}__toggler {
+      transform: translateY(-50%) rotate(0);
+    }
+  }
+}

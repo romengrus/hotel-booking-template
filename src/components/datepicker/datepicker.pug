@@ -1,0 +1,48 @@
+//- Datepicker
+//-
+//- dates         array ([]) - selected dates to show. 
+//-                            If mode is 'single' - take first one
+//-                            If mode is 'range' - take first and second
+//-                            If mode is 'multiple' - take all
+//- mode          oneOf ('single' | 'range' | 'multiple') - Single - select only 1 date at a time. 
+//-                                                         Range - select date range. 
+//-                                                         Multiple - select multiple dates
+//- isRequired    boolean (false) - If true - field will be validated as required
+//- isOpened      boolean (false) - If true - datepicker will be rendered as opened
+mixin datepicker(props = {})
+  include /components/icon/icon.pug
+  include /components/field/field.pug
+
+  -
+    const { dates, mode, isRequired, isOpened } = Object.assign({ 
+      dates: [], 
+      mode: 'single', 
+      isRequired: false,
+      isOpened: false, 
+    }, props);
+
+    const classList = ['datepicker'];
+
+    if (isOpened) classList.push('datepicker_is-opened');
+
+  div(class = classList, 'data-datepicker' = true)
+    .datepicker__input
+      +field( 
+        type = 'text', 
+        required = isRequired,
+        placeholder = 'ДД.ММ.ГГГГ',
+        'data-datepicker' = true,
+        'data-dates' = dates, 
+        'data-mode' = mode, 
+        'data-is-opened' = isOpened,
+      )&attributes(attributes)
+    .datepicker__toggler
+      +icon({ name: 'semi-arrow-up', size: 'small' })
+    div(style = "display: none")
+      button.datepicker__prev
+        +icon({ name: 'arrow-left' })
+      button.datepicker__next
+        +icon({ name: 'arrow-right' })
+      .datepicker__actions
+        button.datepicker__reset Очистить
+        button.datepicker__ok Применить

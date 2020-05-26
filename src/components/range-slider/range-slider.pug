@@ -1,0 +1,21 @@
+//- Range Slider
+//-
+//- showValue {boolean} If true - selected value will be shown to the user, false - otherwise
+//- params    {object} range slider options (https://refreshless.com/nouislider/slider-options/)
+//--- params.format   {object} Formatting options (https://refreshless.com/wnumb/options/)
+mixin range-slider(props = {})
+  include /components/field/field.pug
+
+  - 
+    const { showValue, params } = Object.assign({ showValue: true, params: {} }, props)
+
+  .range-slider('data-range-slider' = true)
+    .range-slider__input
+      +field(
+        id = createRandomId('range-slider'),
+        hidden = true,
+        'data-params' = params,
+        'data-show-value' = showValue,
+      )&attributes(attributes)
+
+    .range-slider__slider

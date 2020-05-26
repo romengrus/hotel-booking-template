@@ -1,0 +1,98 @@
+//- Room Reservation
+//-
+//- room          string ('') - room number
+//- isLux         boolean (false) - If true - number is of lux quality, false - otherwise
+//- price         number (0) - price per day
+mixin form-room-reservation(props = {})
+  include /components/form/form.pug
+  include /components/label/label.pug
+  include /components/datepicker/datepicker.pug
+  include /components/dropdown-counter/dropdown-counter.pug
+  include /components/counter/counter.pug
+  include /components/button/button.pug
+
+  -
+    const { room, isLux, price, currency } = Object.assign({
+      room: '',
+      isLux: false,
+      price: 0,
+    }, props);
+
+    const labels = {
+      submit: 'Забронировать',
+      arrival: 'Прибытие',
+      departure: 'Выезд',
+      guests: 'Гости',
+      lux: 'люкс',
+    };
+
+    const classList = ['form-room-reservation']
+    if (isLux) classList.push('form-room-reservation_is-lux')
+
+  div(class = classList, 'data-form-room-reservation' = true)
+    +form
+      .form-room-reservation__row
+        .form-room-reservation__room-details №
+          span.form-room-reservation__room-number= room
+          if (isLux)
+            span.form-room-reservation__lux-indicator= labels.lux
+        .form-room-reservation__price-details
+          span.form-room-reservation__price= price
+          span.form-room-reservation__currency ₽
+          | в сутки
+
+      .form-room-reservation__dates
+        .form-room-reservation__arrival
+          +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
+            +datepicker(placeholder = 'ДД.ММ.ГГ')
+        .form-room-reservation__departure
+          +label({ value: labels.departure, pos: 'top', theme: ['bold', 'upper'] })
+            +datepicker(placeholder = 'ДД.ММ.ГГ')
+
+      .form-room-reservation__guests
+        +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] }) 
+          +dropdown-counter({ resultType: 'concat', plurals: ['гость', 'гостя', 'гостей'] })(placeholder = 'Сколько гостей')
+            +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper'] })
+              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+
+            +label({ value: 'дети', pos: 'left', theme: ['bold', 'upper'] })
+              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+
+            +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper'] })
+              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+
+      .form-room-reservation__fees
+        .form-room-reservation__fee
+          .form-room-reservation__fee-title 
+            span.form-room-reservation__fee-price 9 990
+            span.form-room-reservation__fee-currency ₽
+            span.form-room-reservation__fee-time х 4 суток  
+          .form-room-reservation__fee-total 
+            span.form-room-reservation__fee-price 39 960
+            span.form-room-reservation__fee-currency ₽
+        .form-room-reservation__fee
+          .form-room-reservation__fee-title 
+            | Сбор за услуги: скидка 
+            span.form-room-reservation__fee-price 2 179
+            span.form-room-reservation__fee-currency ₽
+          .form-room-reservation__fee-icon
+            +icon({ name: 'info', size: 'auto' })
+          .form-room-reservation__fee-total 
+            span.form-room-reservation__fee-price 0
+            span.form-room-reservation__fee-currency ₽
+        .form-room-reservation__fee
+          .form-room-reservation__fee-title Сбор за дополнительные услуги
+          .form-room-reservation__fee-icon
+            +icon({ name: 'info', size: 'auto' })
+          .form-room-reservation__fee-total 
+            span.form-room-reservation__fee-price 300
+            span.form-room-reservation__fee-currency ₽
+        .form-room-reservation__fees-result
+          .form-room-reservation__fees-title Итого
+          .form-room-reservation__fees-separator
+          .form-room-reservation__fees-total
+            span.form-room-reservation__fees-price 38 081
+            span.form-room-reservation__fees-currency ₽
+
+      .form-room-reservation__submit
+        +button({ isExpanded: true, icon: 'arrow-right-light' })= labels.submit

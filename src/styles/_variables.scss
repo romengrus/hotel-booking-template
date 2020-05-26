@@ -37,7 +37,6 @@ $dark-100: rgba(31, 32, 65, 0.1);
 $dark-050: rgba(31, 32, 65, 0.05);
 
 // Dimensions
-$site-max-width: 1440px;
 $content-max-width: 1160px;
 $break-lg: 960px;
 
@@ -105,21 +104,21 @@ $button-text-color: $white;
 // Menu
 $menu-font-size: 14px;
 $menu-horizontal-spacing: 20px;
-$menu-vertical-spacing: 14px;
+$menu-vertical-spacing: 17px;
 $menu-link-color: $dark-750;
 $menu-link-hover-color: $dark-750;
 
-// Input
-$input-height: 44px;
-$input-padding: 8px 15px;
-$input-border: 1px solid $dark-250;
-$input-border-hover: 1px solid $dark-500;
-$input-border-radius: 4px;
-$input-font-size: 14px;
-$input-font-color: $dark-750;
-$input-line-height: 24px;
-$input-label-color: $black;
-$input-label-size: 12px;
+// Field
+$field-height: 44px;
+$field-padding: 7px 14px;
+$field-border: 1px solid $dark-250;
+$field-border-hover: 1px solid $dark-500;
+$field-border-radius: 4px;
+$field-font-size: 14px;
+$field-font-color: $dark-750;
+$field-line-height: 24px;
+$field-label-color: $black;
+$field-label-size: 12px;
 
 // Datepicker
 $datepicker-width: 320px;
@@ -140,7 +139,7 @@ $datepicker-range-bg: linear-gradient(
 $datepicker-range-other-month-bg: $gray-400;
 
 // Checkbox
-$checkbox-width: 21px;
+$checkbox-width: 20px;
 $checkbox-height: 21px;
 $checkbox-color: $dark-500;
 $checkbox-border: 1px solid $dark-250;
@@ -169,12 +168,9 @@ $pagination-arrow-bg: $secondary-gradient;
 $list-color: $dark-750;
 $list-bullet-color: $dark-250;
 
-// Benefit
-$benefit-border: 1px solid $dark-100;
-
 // Dropdown Counter
 $dc-border: 1px solid $dark-250;
-$dc-border-radius: $input-border-radius;
+$dc-border-radius: $field-border-radius;
 $dc-btn-reset-color: $dark-500;
 $dc-btn-ok-color: $primary;
 $dc-body-bg: $white;
@@ -182,7 +178,7 @@ $dc-body-bg: $white;
 // Hero
 $hero-text-color: $dark-750;
 
-// Form Field Range Slider
+// Range Slider
 $range-slider-color: $dark-500;
 $range-slider-border: 1px solid $dark-250;
 $range-slider-connect-bg: $secondary-gradient;

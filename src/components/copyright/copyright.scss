@@ -1,0 +1,19 @@
+.copyright {
+  background: $white;
+  min-height: 74px;
+  font-size: 14px;
+  border-top: 1px solid $dark-100;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  &__wrapper {
+    display: flex;
+    max-width: $content-max-width;
+    margin: 0 auto;
+  }
+
+  &__icons {
+    margin-top: -2px;
+    margin-left: auto;
+  }
+}

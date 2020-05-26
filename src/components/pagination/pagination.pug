@@ -41,33 +41,22 @@
 //- Selected page 20: [<-, 1, "...", 18, 19, (20)]
 //- ====================
 //- 
-//- currentPage     number (1) - Current page number
+//- current         number (1) - Current page number
 //- perPage         number (10) - Items to show per page
-//- totalItems      number (0) - Total items in listing
+//- total           number (0) - Total items in listing
 //- delta           number (2) - Number of pages always visible from the left & right side of current page
-//- label           string - Label template text.
-//-                         Can use variables:
-//-                           * idxFrom     {number} Index of first item on page
-//-                           * idxTo       {number} Index of last item on page
-//-                           * totalItems  {number} Total items in listing
-//-                           * perPage     {number} Items shown per page
-//-                         Can use functions:
-//-                           * approximately(num) -> number rounded to nearest 10 downwards, adding '+' if needed
-//-                           * any other js function ... 
-//- showLabel       boolean (true) - If true - label will be shown, false - otherwise
-//- labelPosition   oneOf ('left' | 'right' | 'top' | 'bottom')
-mixin pagination(
-  currentPage = 1,
-  perPage = 10,
-  totalItems = 0,
-  delta = 2,
-  label = "${idxFrom} - ${idxTo} from ${approximately(totalItems)} variants for rent",
-  showLabel = true,
-  labelPosition = 'bottom'
-)
+mixin pagination(props = {})
+  include /components/icon/icon.pug
+
   -
-    const classList = ['pagination', `pagination_label-pos-${labelPosition}`]
-    const lastPage = Math.ceil(props.totalItems / props.perPage)
+    const { current, perPage, total, delta } = Object.assign({
+      current: 1,
+      perPage: 10,
+      total: 0,
+      delta: 2,
+    }, props);
+
+    const lastPage = Math.ceil(total / perPage)
     const idxFrom = 1
     const idxTo = 12
     const arrowMods = ['pagination__arrow']
@@ -79,39 +68,38 @@ mixin pagination(
       return `${x}`   
     }
 
-    function inScope(page, currentPage, delta) {
-      return (page >= currentPage - delta) 
-          && (page <= currentPage + delta);
+    function inScope(page, current, delta) {
+      return (page >= current - delta) 
+          && (page <= current + delta);
     }
 
-    function atScopeBoundary(page, currentPage, delta) {
-      return (page === currentPage - delta - 1) 
-          || (page === currentPage + delta + 1);
+    function atScopeBoundary(page, current, delta) {
+      return (page === current - delta - 1) 
+          || (page === current + delta + 1);
     }
   
-  div(class = classList)
+  .pagination('data-pagination' = true)
     if (lastPage > 1)
       .pagination__listing
         //- prev arrow
-        if (currentPage > 1 && lastPage > 2)
+        if (current > 1 && lastPage > 2)
           a(href = dummyURL, class = arrowMods.concat('pagination__prev'))
+            +icon({ name: 'arrow-left-light' })
 
         //- main listing
         - for(let i = 1; i <= lastPage; i += 1)
-          if (i === currentPage)
+          if (i === current)
             a(href = dummyURL, class = pageMods.concat('pagination__page-current'))= i
           else if (i === 1)
             a(href = dummyURL, class = pageMods.concat('pagination__page-first'))= i
           else if (i === lastPage)
-            a(href = dummyURL, class = pageMods.concat('pagination__page-last')})= i
-          else if (inScope(i, currentPage, delta))
-            a(href = dummyURL, class = pageMods.concat('pagination__page-delta')})= i
-          else if (atScopeBoundary(i, currentPage, delta))
+            a(href = dummyURL, class = pageMods.concat('pagination__page-last'))= i
+          else if (inScope(i, current, delta))
+            a(href = dummyURL, class = pageMods.concat('pagination__page-delta'))= i
+          else if (atScopeBoundary(i, current, delta))
             span(class= pageMods.concat('pagination__dots')) ...
 
         //- next arrow
-        if (currentPage < lastPage && lastPage > 2)
+        if (current < lastPage && lastPage > 2)
           a(href = dummyURL, class = arrowMods.concat('pagination__next'))
-
-      if (props.showLabel)
-        .pagination__label= eval('`' + label + '`')
+            +icon({ name: 'arrow-right-light' })

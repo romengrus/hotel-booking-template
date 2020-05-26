@@ -34,16 +34,16 @@ mixin button(props = {})
     if (isTextOnly) classList.push('button_is-text-only');
 
   if (type === 'button')
-    button(class = classList, disabled = isDisabled)
+    button(class = classList, disabled = isDisabled, 'data-button' = true)
       if block
         block
       if icon
         .button__icon
-          +icon({name: icon})
+          +icon({ name: icon })
   else
-    a(class = classList, href = href)
+    a(class = classList, href = href, 'data-button' = true)
       if block
         block
       if icon
         .button__icon
-          +icon({name: icon})
+          +icon({ name: icon })

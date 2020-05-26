@@ -1,9 +1,14 @@
 //- Icon
 //-
 //- name    string ('hart') - Icon file name (without extension)
+//- size    oneOf ('small' | 'normal' | 'big') 
 mixin icon(props = {})
   -
-    const { name } = Object.assign({ name: 'hart' }, props);
+    const { name, size } = Object.assign({ name: 'hart', size: 'normal' }, props);
 
-  svg.icon
+    const classList = ['icon'];
+
+    if (size !== 'normal') classList.push(`icon_is-${size}`)
+
+  svg(class = classList, 'data-icon' = true)
     use(href= `#${name}`)

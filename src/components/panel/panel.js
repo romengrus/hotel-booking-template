@@ -1,4 +1,4 @@
-export class Panel {
+class Panel {
   constructor(el) {
     this.cls = Panel.getBaseCSSClass();
     this.el = el;
@@ -24,8 +24,8 @@ export class Panel {
   }
 
   _handleHeaderClick() {
-    const { body, toggler } = this;
-    body.classList.toggle('panel__body_collapsed');
-    toggler.classList.toggle('panel__toggler_collapsed');
+    this.el.classList.toggle('panel_is-collapsed');
   }
 }
+
+export { Panel };

@@ -1,14 +1,13 @@
 $hero-text-color: black !default;
-$hero-min-height: 683px;
-$hero-max-height: 830px;
 
 .hero {
   display: flex;
   position: relative;
+  padding: 40px 80px;
   width: 100%;
-  max-height: $hero-max-height;
-  min-height: $hero-min-height;
+  min-height: 683px;
   background-position: center -70px;
+  background-repeat: no-repeat;
 
   &__content {
     min-width: 320px;
@@ -17,13 +16,23 @@ $hero-max-height: 830px;
   &__info {
     position: absolute;
     z-index: 30;
-    right: 130px;
-    bottom: 3px;
-    width: 300px;
-    height: 50px;
+    right: 134px;
+    bottom: 1px;
+    max-width: 300px;
+    min-height: 50px;
     color: $hero-text-color;
     font-size: 14px;
     line-height: 1.7;
     text-align: right;
+  }
+
+  &_is-small {
+    min-height: 460px;
+    padding: 30px 60px;
+  }
+
+  &_is-big {
+    min-height: 830px;
+    padding: 70px 140px;
   }
 }

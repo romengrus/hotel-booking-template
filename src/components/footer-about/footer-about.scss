@@ -1,0 +1,12 @@
+.footer-about {
+  flex: 2 0 280px;
+  margin-right: 20px;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 1.4px;
+  word-spacing: -0.5px;
+
+  &__text {
+    margin-top: 17px;
+  }
+}

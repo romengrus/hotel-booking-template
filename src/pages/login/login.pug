@@ -1,0 +1,18 @@
+extends /layout/base.pug
+
+block append meta
+  meta(name= "keywords", content= "toxin-hotel, login")
+  meta(name= "description", content= "Toxin-hotel login page")
+
+block variables
+  - var pageTitle = 'Toxin Login'
+  - var bodyClass = 'login'
+
+block append parts
+  include /components/hero/hero.pug
+  include /components/form-login/form-login.pug
+
+block main
+  .login__hero
+    +hero({ bgImg: '/assets/img/hero4.jpg' })
+      +form-login

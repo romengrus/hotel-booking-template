@@ -7,38 +7,20 @@ block main
     h2.showcase__title icons
     .showcase__content
       .ui-icons
-        each iconName in iconNames
+        each icon in icons
           .ui-icons__icon-info
-            .ui-icons__name= iconName
+            .ui-icons__name= icon
             .ui-icons__icon
-              +icon({name: iconName})
+              +icon({ name: icon, size: 'big' })
 
   section.showcase
     h2.showcase__title header
     .showcase__content
-      +header({isLoggedIn: false})
-      +header({isLoggedIn: true})
+      +header({ isLoggedIn: false })
+      +header({ isLoggedIn: true })
 
   section.showcase
-    h2.showcase__title hero with slider
-    +hero({
-      sliderOptions: {
-        slides: [{
-            img: '/assets/img/hero1.jpg',
-            url: '#'
-          }, {
-            img: '/assets/img/hero2.jpg',
-            url: '#'
-          }, {
-            img: '/assets/img/hero3.jpg', 
-            url: '#'
-        }]
-      }, 
-      info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
-    })
-
-  section.showcase
-    h2.showcase__title hero with static image
+    h2.showcase__title hero
     +hero({
       bgImg: '/assets/img/hero1.jpg',
       info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
@@ -48,155 +30,125 @@ block main
     h2.showcase__title footer
     .showcase__content
       +footer
-      +footer({type: 'creative'})
 
   section.showcase
     h2.showcase__title copyright bar
     .showcase__content
-      +copyright-bar
+      +copyright
 
   section.showcase
     h2.showcase__title subscription
     .showcase__content
-      +subscription()
-      br
-      +subscription({iconName: 'emoticon-happy', url: '/subscribe'})
-      br
-      +subscription({iconName: 'hart-active', iconPosition: 'left'})
+      +subscription
 
   section.showcase
     h2.showcase__title counter
     .showcase__content
-      +counter({label: 'Default counter'})
-      br
-      +counter({label: 'Counter with min & max', min: 5, max: 10, value: 7})
-      br
-      +counter({label: 'Counter with step', step: 10})
+      +counter({ min: 5, max: 10, value: 7 })
 
   section.showcase
-    h2.showcase__title button like
+    h2.showcase__title like button 
     .showcase__content
-      +button-like()
-      +button-like({value: 100, iconPosition: 'right'})
-      +button-like({value: 500, hasVoted: true, iconLike: 'star-active', iconDislike: 'star'})
-      +button-like({value: 700, iconLike: 'star-active', iconDislike: 'star', iconPosition: 'right'})
+      +like()
+      +like({ value: 100, hasVoted: true })
+      +like({ value: 543, hasVoted: false })
 
   section.showcase
     h2.showcase__title form elements
     .showcase__content
       h3.showcase__subtitle buttons
       .ui-buttons
-        +button({value: 'click me', isRounded: false, hasRipple: true})
-        +button({value: 'click me', isRounded: false, isOutlined: true})
-        +button({type: 'link', value: 'click me'})(title= 'External link', href= 'https://google.com')
-        +button({value: 'click me', isOutlined: true})
-        +button({value: 'click me', isText: true})
-        +button({value: 'перейти к оплате', isDisabled: true})
-        +button({value: 'перейти к оплате', isExpanded: true, hasRipple: true})
-        +button({value: 'перейти к оплате', isExpanded: true, isOutlined: true, iconName: 'arrow-right', iconPosition: 'right'})
-        +button({value: 'перейти к оплате', iconName: 'arrow-right'})
-        +button({value: 'перейти к оплате', isOutlined: true, iconName: 'arrow-left', iconPosition: 'left'})
+        +button({ isRounded: false }) click me
+        +button({ isRounded: false, isOutlined: true }) click me
+        +button({ type: 'link' })(title = 'External link', href = 'https://google.com') click me
+        +button({ isOutlined: true }) click me
+        +button({ isText: true }) click me
+        +button({ isDisabled: true }) перейти к оплате
+        +button({ isExpanded: true }) перейти к оплате
+        +button({ isExpanded: true, isOutlined: true, icon: 'arrow-right-light' }) перейти к оплате
+        +button({ icon: 'arrow-right-light' }) перейти к оплате
+        +button({ isOutlined: true, icon: 'arrow-right' }) перейти к оплате
 
       h3.showcase__subtitle input text
       .ui-inputs
-        +form(action='#', method='POST')
-          +form-field(placeholder='default text input', type='text')
-          +form-field(placeholder='disabled text input', disabled=true, type='text')
-          +form-field(placeholder='required text input', required=true, type='text')
-          +form-field(placeholder='with min lenght = 3', minlength=3, required=true, type='text')
-          +form-field(placeholder='with max lenght = 7', maxlength=7, required=true, type='text')
+        +form
+          +field(placeholder = 'default text input', type = 'text')
+          +field(placeholder = 'disabled text input', disabled = true, type = 'text')
+          +field(placeholder = 'required text input', required = true, type = 'text')
+          +field(placeholder = 'with min lenght = 3', minlength = 3, required = true, type = 'text')
+          +field(placeholder = 'with max lenght = 7', maxlength = 7, required = true, type = 'text')
 
-      h3.showcase__subtitle input datetime
+      h3.showcase__subtitle datepicker
       .ui-inputs
-        +form(action='#', method='POST')
-          h4 default
-          +form-field-datetime
-          +form-field-datetime(disabled=true)
-          +form-field-datetime(required=true)
-          h4 with datepicker
-          +form-field-datetime({useDatepicker: true})(placeholder='ДД.ММ.ГГ')
-          +form-field-datetime({useDatepicker: true, datepickerMode: 'range'})(placeholder='ДД.ММ.ГГ - ДД.ММ.ГГ')
-          +form-field-datetime({useDatepicker: true, datepickerMode: 'multiple'})(placeholder='ДД.ММ.ГГ, ДД.ММ.ГГ, ...')
-          +form-field-datetime({useDatepicker: true, dateFormat: 'm.Y'})(placeholder='ММ.ГГ')
-          +form-field-datetime({useDatepicker: true, dateFormat: 'd M', datepickerMode: 'range'})(placeholder='ДД М - ДД М')
-          h4 with date mask
-          +form-field-datetime({dateFormat: 'Y'})
-          +form-field-datetime({dateFormat: 'm.Y'})
-          +form-field-datetime({dateFormat: 'd.m.Y'})
+        +form
+          +datepicker
+          +datepicker(disabled = true)
+          +datepicker(required = true)
+          +datepicker(placeholder = 'ДД.ММ.ГГ')
+          +datepicker({ mode: 'range' })(placeholder='ДД.ММ.ГГ - ДД.ММ.ГГ')
+          +datepicker({ mode: 'multiple' })(placeholder='ДД.ММ.ГГ, ДД.ММ.ГГ, ...')
 
       h3.showcase__subtitle checkbox
       .ui-inputs
-        +form(action='#', method='POST')
-          +form-field-checkbox({label: 'Label text'})
+        +form
+          +checkbox({ name: 'check-test' })
           br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description'})
-          br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich']})
+          +checkbox({ name: 'check-test', isChecked: true })
 
       h3.showcase__subtitle radio
       .ui-inputs
-        +form(action='#', method='POST')
-          +form-field-radio({label: 'Label text'})(name= 'radio1')
+        +form
+          +radio({ name: 'radio-test' })
           br
-          +form-field-radio({label: 'Label text', desc: 'Label description'})(name= 'radio1')
-          br
-          +form-field-radio({label: 'Label text', desc: 'Label description', mods: ['radio_rich']})(name= 'radio1')
+          +radio({ name: 'radio-test', isChecked: true })
 
-      h3.showcase__subtitle toggle
+      h3.showcase__subtitle switcher button
       .ui-inputs
-        +form(action='#', method='POST')
-          +form-field-checkbox({label: 'Label text', mods: ['checkbox_theme-toggle']})
+        +form
+          +switcher
           br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_theme-toggle']})
-          br
-          +form-field-checkbox({label: 'Label text', desc: 'Label description', mods: ['checkbox_rich', 'checkbox_theme-toggle']})
+          +switcher({ isOn: true })
 
       h3.showcase__subtitle range slider
       .ui-inputs
-        +form-field-range-slider({params: {
-          start: [20, 80],
-          range: {min: 0, max: 100},
-          connect: [false, true, false],
-          format: {
-            decimals: 0,
-            thousand: ' ',
-            suffix: ' ₽'
-          }
-        },
-          label: 'Price range',
-          desc: 'How much is the fish?'
+        +range-slider({
+          params: {
+            start: [20, 80],
+            range: {min: 0, max: 100},
+            connect: [false, true, false],
+            format: {
+              decimals: 0,
+              thousand: ' ',
+              suffix: ' ₽'
+            }
+          },
         })
 
       h3.showcase__subtitle rating
       .ui-inputs
-        +form(action='#', method='POST')
-          +rating({value: 2.7})
+        +form
+          +rating({ value: 2.7, isPartial: true })
           br
-          +rating({value: 4.3, isPartial: true})
+          +rating({ value: 4.3 })
           br
-          +rating({value: 7.2, isPartial: true, numIcons: 10})
+          +rating({ value: 7.2, isPartial: true, total: 10 })
 
       h3.showcase__subtitle pagination
-        +pagination({totalItems: 10, perPage: 5, currentPage: 1})
-        +pagination({totalItems: 10, perPage: 5, currentPage: 2})
-        +pagination({totalItems: 30, perPage: 10, currentPage: 1})
-        +pagination({totalItems: 30, perPage: 10, currentPage: 2})
-        +pagination({totalItems: 43, perPage: 10, currentPage: 3})
-        +pagination({totalItems: 97, perPage: 5, currentPage: 1, labelPosition: 'right'})
-        +pagination({totalItems: 125, perPage: 5, currentPage: 5, labelPosition: 'left'})
-        +pagination({totalItems: 107, perPage: 5, currentPage: 16, labelPosition: 'top'})
+        +pagination({ total: 10, perPage: 5, current: 1 })
+        +pagination({ total: 56, perPage: 7, current: 2 })
 
       h3.showcase__subtitle list
-        +list({items: 
-          [
+        +list({
+          items: [
             'Нельзя с питомцами', 
             'Без вечеринок и мероприятий', 
             'Время прибытия — после 13:00, а выезд до 12:00'
           ]
         })
         br
-        +list({isOrdered: true, items: 
-          [
+        +list({
+          isOrdered: true, 
+          items: [
             'Нельзя с питомцами', 
             'Без вечеринок и мероприятий', 
             'Время прибытия — после 13:00, а выезд до 12:00'
@@ -208,9 +160,9 @@ block main
     .showcase__content
       +testimonial({
         userName: 'Мурад Сарафанов', 
-        userImg: '/assets/img/testimonial-user.jpg',
+        userImg: '/assets/img/testimonial-user-1.png',
         text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-        createdAt: `${Date.now() - 1000 * 60 * 60 * 7}`,
+        createdAt: 'На прошлой неделе',
         numLikes: 12,
       })
 
@@ -218,12 +170,12 @@ block main
     h2.showcase__title benefit
     .showcase__content
       +benefit({
-        iconName: 'emoticon-happy', 
+        icon: 'emoticon-happy', 
         title: 'Комфорт',
         desc: 'Шумопоглощающие стены',
       })
       +benefit({
-        iconName: 'location-city', 
+        icon: 'location-city', 
         title: 'Удобство',
         desc: 'Окно в каждой из спален',
       })
@@ -231,72 +183,51 @@ block main
   section.showcase
     h2.showcase__title panel
     .showcase__content
-      +panel({title: 'Expandable checkbox list'})
-        +form(action='#', method='POST')
-          +form-field-checkbox({label: 'Завтрак'})
-          +form-field-checkbox({label: 'Письменный стол'})(checked= true)
-          +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
-          +form-field-checkbox({label: 'Кроватка'})(checked= true)
-          +form-field-checkbox({label: 'Телевизор'})
-          +form-field-checkbox({label: 'Шампунь'})
-
-      +panel({title: 'Expandable checkbox list', isCollapsed: true})
-        +form(action='#', method='POST')
-          +form-field-checkbox({label: 'Завтрак', desc: 'Прямиком в постель'})
-          +form-field-checkbox({label: 'Письменный стол', desc: 'У окна'})(checked= true)
-          +form-field-checkbox({label: 'Стул для кормления'})(checked= true)
-          +form-field-checkbox({label: 'Кроватка'})(checked= true)
-          +form-field-checkbox({label: 'Телевизор'})
-          +form-field-checkbox({label: 'Шампунь'})
+      +panel({ title: 'Expandable checkbox list', isCollapsible: true })
+        +form
+          +label({ value: 'Завтрак' })
+            +checkbox
+          +label({ value: 'Письменный стол' })
+            +checkbox({ isChecked: true })
+          +label({ value: 'Стул для кормления' })
+            +checkbox({ isChecked: true })
+          +label({ value: 'Кроватка' })
+            +checkbox
+          +label({ value: 'Телевизор' })
+            +checkbox
+          +label({ value: 'Шампунь' })
+            +checkbox
 
   section.showcase
     h2.showcase__title dropdown counter
     .showcase__content
-      +dropdown-counter({
-        counters: [{
-            label: 'спальни',
-            plurals: ['спальня', 'спальни', 'спален'],
-            objectId: 'bedroom'
-          },
-          {
-            label: 'кровати',
-            plurals: ['кровать', 'кровати', 'кроватей'],
-            objectId: 'bed'
-          },
-          {
-            label: 'ванные комнаты',
-            plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-            objectId: 'bathroom'
-        }],
-        displayType: 'concat',
-      })&attributes({placeholder: 'Выберите нужное количество ...'})
+      +dropdown-counter({ resultType: 'concat' })(placeholder = 'Выберите нужное количество ...')
+        +label({ value: 'спальни', pos: 'left', theme: ['bold', 'upper'] })
+          +counter({ plurals: ['спальня', 'спальни', 'спален'] })
+
+        +label({ value: 'кровати', pos: 'left', theme: ['bold', 'upper'] })
+          +counter({ plurals: ['кровать', 'кровати', 'кроватей'] })
+
+        +label({ value: 'ванные комнаты', pos: 'left', theme: ['bold', 'upper'] })
+          +counter({ plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'] })
       br
       +dropdown-counter({
-        counters: [{
-            label: 'взрослые',
-            plurals: ['взрослый', 'взрослых', 'взрослых'],
-            objectId: '18+'
-          },
-          {
-            label: 'дети',
-            plurals: ['ребенок', 'детей', 'детей'],
-            objectId: 'child'
-          },
-          {
-            label: 'младенцы',
-            plurals: ['младенец', 'младенца', 'младенцев'],
-            objectId: 'toddler',
-            min: 0,
-            max: 2
-        }],
         displayType: 'total',
         plurals: ['гость', 'гостя', 'гостей']
       })&attributes({placeholder: 'Сколько гостей'})
+        +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper'] })
+          +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+
+        +label({ value: 'дети', pos: 'left', theme: ['bold', 'upper'] })
+          +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+
+        +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper'] })
+          +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
 
   section.showcase
-    h2.showcase__title chart
+    h2.showcase__title doughnut chart
     .showcase__content
-      +chart-doughnut({
+      +doughnut({
         data: [{
           value: 556,
           label: 'Великолепно',
@@ -319,76 +250,34 @@ block main
   section.showcase
     h2.showcase__title Room Search
     .showcase__content
-      +room-search({
-        labels: {
-          title: "Найдём номера под ваши пожелания",
-          arrival: "Прибытие",
-          departure: "Выезд",
-          guests: "Гости",
-          submit: "Подобрать номер"
-        }
-      })
+      +form-room-search
 
   section.showcase
     h2.showcase__title Room Reservation
     .showcase__content
-      +room-reservation({roomNumber: 666, price: 9900, isLux: true})
-      +room-reservation({
-        roomNumber: 888, 
-        price: 5900,
-        fees: [{
-          title: 'fee 1',
-          amount: 300
-        }, {
-          title: 'fee 2',
-          desc: 'fee 2 desc',
-          amount: -1500
-        }, {
-          title: 'fee 3',
-          desc: 'fee 3 desc some random text ... maybe a longer string of text ... more',
-          amount: 500
-        }]
-      })
+      +form-room-reservation({ room: 666, price: 9900, isLux: true })
 
   section.showcase
-    h2.showcase__title Register
+    h2.showcase__title Register Form
     .showcase__content
-      +register()
+      +form-register
 
   section.showcase
-    h2.showcase__title Login
+    h2.showcase__title Login Form
     .showcase__content
-      +login()
+      +form-login
 
   section.showcase
     h2.showcase__title Room Card
     .showcase__content
       +room-card({
-        slider: {
-          slides: [{
-            img: '/assets/img/room-card-1.jpg'
-          }, {
-            img: '/assets/img/room-card-2.jpg',
-          }, {
-            img: '/assets/img/room-card-3.jpg',
-          }, {
-            img: '/assets/img/room-card-4.jpg'
-          }],
-          params: {
-            pagination: {
-              clickable: true
-            }
-          }
-        },
-        roomNumber: 888,
+        room: 888,
         isLux: true,
         price: 5900,
         rating: 4,
         numReviews: 148,
       })
-      br
-      +room-card({
-        slider: {
+        +slider({
           slides: [{
             img: '/assets/img/room-card-1.jpg'
           }, {
@@ -402,10 +291,6 @@ block main
             pagination: {
               clickable: true
             }
-          }
-        },
-        roomNumber: 345,
-        price: 3400,
-        rating: 5,
-        numReviews: 64,
-      })
+          },
+          showPagination: true,
+        })

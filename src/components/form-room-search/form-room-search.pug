@@ -1,0 +1,43 @@
+mixin form-room-search
+  include /components/label/label.pug
+  include /components/form/form.pug
+  include /components/datepicker/datepicker.pug
+  include /components/dropdown-counter/dropdown-counter.pug
+  include /components/button/button.pug
+
+  -
+    const labels = {
+      title: 'Найдем номера под ваши пожелания',
+      submit: 'Подобрать номер',
+      arrival: 'Прибытие',
+      departure: 'Выезд',
+      guests: 'Гости',
+    };
+
+  .form-room-search('data-form-room-search' = true)
+    +form
+      h2.form-room-search__title= labels.title
+
+      .form-room-search__dates
+        .form-room-search__arrival
+          +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
+            +datepicker
+        .form-room-search__departure
+          +label({ value: labels.departure, pos: 'top', theme: ['bold', 'upper'] }) 
+            +datepicker
+
+      .form-room-search__guests
+        +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] })
+          +dropdown-counter({ resultType: 'concat', plurals: ['гость', 'гостя', 'гостей'] })(placeholder = 'Сколько гостей')
+            +label({ value: 'взрослые', theme: 'bold', pos: 'left' })
+              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+            
+            +label({ value: 'дети', theme: 'bold', pos: 'left' })
+              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+
+            +label({ value: 'младенцы', theme: 'bold', pos: 'left' })
+              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+
+      .form-room-search__submit
+        +button({ isExpanded: true, icon: 'arrow-right-light' })= labels.submit
+

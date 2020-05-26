@@ -1,0 +1,55 @@
+$switcher-border: 1px solid rgba(31, 32, 65, 0.25) !default;
+$switcher-border-active: 1px solid #bc9cff !default;
+$switcher-border-radius: 10px !default;
+$switcher-bg: rgba(31, 32, 65, 0.25) !default;
+$switcher-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='12' height='12' rx='6' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='6' x2='6' y2='12' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") !default;
+
+.switcher {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+
+  label {
+    margin: 0;
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &__display {
+    display: inline-block;
+    position: relative;
+    border: $switcher-border;
+    border-radius: $switcher-border-radius;
+    width: 39px;
+    height: 21px;
+    cursor: pointer;
+  }
+
+  &__display::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: $switcher-bg;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+
+  &__input:checked ~ &__display {
+    background-image: none;
+  }
+
+  &__input:checked ~ &__display::before {
+    left: 63%;
+    background: $switcher-bg-active;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}

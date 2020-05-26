@@ -1,7 +1,7 @@
 -
   var defaultRooms = [
     {
-      "roomNumber": 888,
+      "room": 888,
       "price": 9990,
       "currency": "₽",
       "rating": 5,
@@ -36,7 +36,7 @@
       }
     },
     {
-      "roomNumber": 840,
+      "room": 840,
       "price": 9900,
       "currency": "₽",
       "rating": 4,
@@ -71,7 +71,7 @@
       }
     },
     {
-      "roomNumber": 980,
+      "room": 980,
       "price": 8500,
       "currency": "₽",
       "rating": 3,
@@ -106,7 +106,7 @@
       }
     },
     {
-      "roomNumber": 856,
+      "room": 856,
       "price": 7300,
       "currency": "₽",
       "rating": 5,
@@ -141,7 +141,7 @@
       }
     },
     {
-      "roomNumber": 740,
+      "room": 740,
       "price": 6000,
       "currency": "₽",
       "rating": 4,
@@ -176,7 +176,7 @@
       }
     },
     {
-      "roomNumber": 982,
+      "room": 982,
       "price": 5800,
       "currency": "₽",
       "rating": 3,
@@ -211,7 +211,7 @@
       }
     },
     {
-      "roomNumber": 678,
+      "room": 678,
       "price": 5500,
       "currency": "₽",
       "rating": 5,
@@ -246,7 +246,7 @@
       }
     },
     {
-      "roomNumber": 450,
+      "room": 450,
       "price": 5300,
       "currency": "₽",
       "rating": 4,
@@ -281,7 +281,7 @@
       }
     },
     {
-      "roomNumber": 350,
+      "room": 350,
       "price": 5000,
       "currency": "₽",
       "rating": 3,
@@ -316,7 +316,7 @@
       }
     },
     {
-      "roomNumber": 666,
+      "room": 666,
       "price": 5000,
       "currency": "₽",
       "rating": 5,
@@ -351,7 +351,7 @@
       }
     },
     {
-      "roomNumber": 444,
+      "room": 444,
       "price": 5000,
       "currency": "₽",
       "rating": 3,
@@ -386,7 +386,7 @@
       }
     },
     {
-      "roomNumber": 352,
+      "room": 352,
       "price": 5000,
       "currency": "₽",
       "rating": 3,
@@ -424,7 +424,9 @@
 
 mixin room-cards(rooms = defaultRooms)
   include /components/room-card/room-card.pug
+  include /components/slider/slider.pug
 
-  ul.room-cards
+  .room-cards('data-room-cards' = true)
     each room in rooms
       +room-card(room)
+        +slider(room.slider)

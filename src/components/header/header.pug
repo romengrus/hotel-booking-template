@@ -1,19 +1,23 @@
 //- Main header
 //-
-//- isLoggedIn  {boolean} If user is logged in
-//- userName    {string} User name to show in auth block
+//- isLoggedIn    boolean (false) - If user is logged in
+//- userName      string ('Cosmin Negoita') - User name to show in auth block
+//- lblLogin      string ('Login') - login button text
+//- lblRegister   string ('Register') - register button text
 mixin header(props = {})
   include /components/menu/menu.pug
   include /components/button/button.pug
-  include /components/hamburger-menu/hamburger-menu.pug
+  include /components/hamburger/hamburger.pug
 
   -
-    const { isLoggedIn, userName } = Object.assign({
+    const { isLoggedIn, userName, lblLogin, lblRegister } = Object.assign({
       isLoggedIn: false,
       userName: 'Cosmin Negoita',
+      lblLogin: 'войти',
+      lblRegister: 'зарегистрироваться'
     }, props);
 
-  header.header
+  header.header('data-header' = true)
     .header__wrapper
       .header__logo
         a(href= '/')
@@ -22,74 +26,77 @@ mixin header(props = {})
       .header__menu
         button.header__menu-close &times;
 
-        +menu({items: [{
-            "name": "о нас",
-            "href": "#",
-            "isActive": true
-          },
-          {
-            "name": "услуги",
-            "href": "#",
-            "isActive": false,
-            "submenu": [
-              {
-                "name": "апартаменты",
-                "href": "#",
-                "isActive": false
-              },
-              {
-                "name": "spa",
-                "href": "#",
-                "isActive": false
-              },
-              {
-                "name": "конференц залы",
-                "href": "#",
-                "isActive": false
-              }
-            ]
-          },
-          {
-            "name": "вакансии",
-            "href": "#",
-            "isActive": false
-          },
-          {
-            "name": "новости",
-            "href": "#",
-            "isActive": false
-          },
-          {
-            "name": "соглашения",
-            "href": "#",
-            "isActive": false,
-            "submenu": [
-              {
-                "name": "соглашение 1",
-                "href": "#",
-                "isActive": false
-              },
-              {
-                "name": "соглашение 2",
-                "href": "#",
-                "isActive": false
-              },
-              {
-                "name": "соглашение 3",
-                "href": "#",
-                "isActive": false
-              }
-            ]
-          }]
-        })
+        if block
+          block
+        else 
+          +menu({items: [{
+              "name": "о нас",
+              "href": dummyURL,
+              "isActive": true
+            },
+            {
+              "name": "услуги",
+              "href": dummyURL,
+              "isActive": false,
+              "submenu": [
+                {
+                  "name": "апартаменты",
+                  "href": dummyURL,
+                  "isActive": false
+                },
+                {
+                  "name": "spa",
+                  "href": dummyURL,
+                  "isActive": false
+                },
+                {
+                  "name": "конференц залы",
+                  "href": dummyURL,
+                  "isActive": false
+                }
+              ]
+            },
+            {
+              "name": "вакансии",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "новости",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "соглашения",
+              "href": dummyURL,
+              "isActive": false,
+              "submenu": [
+                {
+                  "name": "соглашение 1",
+                  "href": dummyURL,
+                  "isActive": false
+                },
+                {
+                  "name": "соглашение 2",
+                  "href": dummyURL,
+                  "isActive": false
+                },
+                {
+                  "name": "соглашение 3",
+                  "href": dummyURL,
+                  "isActive": false
+                }
+              ]
+            }]
+          })
 
         if (isLoggedIn)
           .header__auth.header__auth_is-logged-in
-            a(class = 'header__profile-link', href = dummyURL) = userName
+            a(class = 'header__profile-link', href = dummyURL)= userName
         else 
           .header__auth
-            +button({type: 'link', size: 'small', isOutlined: true, href: dummyURL}) войти
-            +button({type: 'link', size: 'small', href: dummyURL}) зарегистрироваться 
+            +button({ type: 'link', size: 'small', isOutlined: true, href: dummyURL })= lblLogin
+            +button({ type: 'link', size: 'small', href: dummyURL })= lblRegister 
 
       .header__menu-toggler
-        +hamburger-menu
+        +hamburger

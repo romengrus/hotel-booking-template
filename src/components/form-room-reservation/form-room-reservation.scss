@@ -1,0 +1,181 @@
+$room-reservation-primary-color: gray !default;
+$room-reservation-accent-color: coral !default;
+$room-reservation-text-color: black !default;
+$room-reservation-title-color: black !default;
+$room-reservation-underline: 1px dotted gray;
+
+.form-room-reservation {
+  max-width: 380px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  padding: 38px 29px 30px 30px;
+  color: $room-reservation-text-color;
+  background: $white;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__label {
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $room-reservation-title-color;
+  }
+
+  &__dates {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  &__arrival {
+    flex: 1 1 50%;
+    margin-right: 12px;
+  }
+
+  &__departure {
+    flex: 1 1 50%;
+    margin-left: 0.5em;
+  }
+
+  &__guests {
+    margin-top: 19px;
+  }
+
+  &__submit {
+    margin-top: 18px;
+  }
+
+  &__room-details {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  &__room-number {
+    font-size: 22px;
+    margin-left: 6px;
+    color: $room-reservation-title-color;
+  }
+
+  &__lux-indicator {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 4px;
+    color: $room-reservation-primary-color;
+  }
+
+  &__price-details {
+    color: $room-reservation-accent-color;
+    font-size: 12px;
+    margin-top: 7px;
+    margin-right: -1px;
+  }
+
+  &__price {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+
+    &::first-letter {
+      margin-right: 4px;
+    }
+  }
+
+  &__currency {
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+
+  &__fees {
+    margin-top: 19px;
+
+    &-result {
+      margin-top: 29px;
+      display: flex;
+      font-family: $font-family-accent;
+    }
+
+    &-title {
+      margin-left: 1px;
+      font-size: 19px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    &-separator {
+      flex: 1;
+      border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+      margin: 7px 5px;
+    }
+
+    &-price {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+
+  &__fee {
+    $fee-root: &;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 13px;
+    font-size: 14px;
+
+    &-title {
+      flex: 1 1 60%;
+      line-height: 18px;
+    }
+
+    &-desc {
+      flex: 0 1 auto;
+      position: relative;
+    }
+
+    &-time {
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    &-icon {
+      display: flex;
+      width: 20px;
+      height: 20px;
+      align-self: flex-start;
+    }
+
+    &-total {
+      flex: 1;
+      flex-basis: 49px;
+      align-self: flex-start;
+      text-align: right;
+    }
+  }
+
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 19px;
+    font-weight: bold;
+    color: $room-reservation-title-color;
+    margin-top: 24px;
+
+    &-underline {
+      flex: 1 1 auto;
+      align-self: flex-end;
+      position: relative;
+      top: -8px;
+      margin: 0 5px;
+      border-bottom: $room-reservation-underline;
+    }
+  }
+}

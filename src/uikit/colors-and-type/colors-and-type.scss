@@ -1,3 +1,5 @@
+@import '../../styles/app.scss';
+
 .colors-and-type {
   display: flex;
   padding: 17px;
@@ -11,6 +13,7 @@
 .color-block {
   display: flex;
   flex-wrap: nowrap;
+  font-family: $font-family-accent;
 
   & + .color-block {
     margin-top: 20px;
@@ -32,6 +35,7 @@
   &__title {
     font-weight: bold;
     font-size: 18px;
+    word-spacing: 3px;
   }
 
   &__value {
@@ -57,11 +61,12 @@
   }
 
   &__showcase {
-    margin-left: 30px;
+    margin-left: 32px;
   }
 
   &__label-h1 {
     font-size: 22px;
+    word-spacing: -1px;
     line-height: 31px;
   }
 
@@ -104,5 +109,7 @@
   &__showcase-body {
     font-size: 14px;
     line-height: 24px;
+    max-width: 305px;
+    margin-top: -2px;
   }
 }

@@ -1,4 +1,6 @@
 .panel {
+  $root: &;
+
   padding: 8px 0;
 
   &__header {
@@ -14,32 +16,29 @@
     font-weight: bold;
   }
 
-  &__icon {
-    width: 12px;
-    height: 12px;
-  }
-
   &__body {
     display: block;
     height: auto;
-    margin-top: 14px;
+    margin-top: 15px;
     transition: height 350ms ease-in-out;
-
-    &_collapsed {
-      display: none;
-      height: 0;
-      overflow: hidden;
-    }
   }
 
   &__toggler {
     position: absolute;
-    top: 0;
-    right: 17px;
-    transform: rotate(0turn);
+    top: -3px;
+    right: 15px;
+    transform: rotate(0.25turn);
     transition: transform 350ms ease-in-out;
+  }
 
-    &_collapsed {
+  &_is-collapsed {
+    #{$root}__body {
+      display: none;
+      height: 0;
+      overflow: hidden;
+    }
+
+    #{$root}__toggler {
       transform: rotate(0.5turn);
     }
   }

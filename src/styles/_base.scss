@@ -1,6 +1,10 @@
-.main {
-  &__wrapper {
-    max-width: $site-max-width;
-    margin: 0 auto;
-  }
+.bounded-width {
+  display: flex;
+  max-width: $content-max-width;
+  margin: 0 auto;
+}
+
+.full-width {
+  display: flex;
+  width: 100%;
 }

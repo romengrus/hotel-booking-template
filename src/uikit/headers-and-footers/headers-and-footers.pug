@@ -1,35 +1,195 @@
 extends /uikit/_layout.pug
 
 block append styles
-  link(rel="stylesheet", href="./headers-and-footers.scss")
+  link(rel = "stylesheet", href = "./headers-and-footers.scss")
 
 block variables
   - var pageTitle = 'Toxin UIKit | Headers & Footers'
   - var bodyClass = 'uikit__headers-and-footers'
 
-  include /components/header/header.pug
-  include /components/footer/footer.pug
-  include /components/copyright-bar/copyright-bar.pug
+  include /components/index.pug
 
 block main
   header.container.uikit__header
     a(href= '/')
       img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
 
-  main.container
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 20px')
-        +header({isLoggedIn: false})
+  .m-t-42
+    +header({ isLoggedIn: false, lblLogin: 'Login', lblRegister: 'Register' })
+      +menu({ theme: 'wide', items: [{
+          "name": "Home",
+          "href": dummyURL,
+          "isActive": true
+        },
+        {
+          "name": "About Us",
+          "href": dummyURL,
+          "isActive": false
+        },
+        {
+          "name": "Services",
+          "href": dummyURL,
+          "isActive": false,
+          "submenu": [
+            {
+              "name": "Apartments",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "SPA",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Conference room",
+              "href": dummyURL,
+              "isActive": false
+            }
+          ]
+        },
+        {
+          "name": "Careers",
+          "href": dummyURL,
+          "isActive": false
+        },
+        {
+          "name": "News",
+          "href": dummyURL,
+          "isActive": false
+        },
+        {
+          "name": "Documentation",
+          "href": dummyURL,
+          "isActive": false,
+        }]
+      })
 
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 40px')
-        +header({isLoggedIn: true})
+  .m-t-40
+    +header({ isLoggedIn: true })
+      +menu({ theme: 'wide', items: [{
+          "name": "Home",
+          "href": dummyURL,
+          "isActive": true
+        },
+        {
+          "name": "About Us",
+          "href": dummyURL,
+          "isActive": false
+        },
+        {
+          "name": "Services",
+          "href": dummyURL,
+          "isActive": false,
+          "submenu": [
+            {
+              "name": "Apartments",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "SPA",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Conference room",
+              "href": dummyURL,
+              "isActive": false
+            }
+          ]
+        },
+        {
+          "name": "Careers",
+          "href": dummyURL,
+          "isActive": false
+        },
+        {
+          "name": "News",
+          "href": dummyURL,
+          "isActive": false
+        },
+        {
+          "name": "Documentation",
+          "href": dummyURL,
+          "isActive": false,
+        }]
+      })
 
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 40px')
-        +footer
-        +copyright-bar
+  .m-t-39
+    +footer
+      +footer-about('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.')
+      +footer-menu('Navigation')
+        +menu({
+          isVertical: true,
+          items: [{
+              "name": "About Us",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "News",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Support",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Products",
+              "href": dummyURL,
+              "isActive": false
+          }],
+        })
+      +footer-menu('About us')
+        +menu({
+          isVertical: true,
+          items: [{
+              "name": "Who we are",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Our team",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Careers",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Investors",
+              "href": dummyURL,
+              "isActive": false
+          }],
+        })
+      +footer-menu('Support')
+        +menu({
+          isVertical: true,
+          items: [{
+              "name": "Documentation",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Community",
+              "href": dummyURL,
+              "isActive": false
+            },
+            {
+              "name": "Get in Touch",
+              "href": dummyURL,
+              "isActive": false
+          }],
+        })
+      +footer-subscription('Subscribe to our newsletter', 'Receive our latest news and promotions in your inbox!')
 
-    .row
-      div(class= 'col col_full-width', style= 'margin-top: 40px')
-        +footer({type: 'creative'})
+  .m-t-3
+    +copyright('Copyright © 2018 Toxin UI Kit. All rights reserved.')
+
+  .m-t-36
+    +footer-creative('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.')

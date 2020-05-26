@@ -1,58 +1,47 @@
 //- Dropdown Counter
 //-
-//- counters      {array} Array of counter props (Will be used to create counters inside)
-//- displayType   {'concat' | 'total'} 'total' -> sum of counter numValues; 'concat' -> concatenate counters strValues
-//- plurals       {array} Plural forms of 'total' for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
-//- iconName      {string} Icon name for toggler (in header)
-//- isCollapsed   {boolean} If false - will render expanded. Default - true 
-//- mods          {array} Modifier classes
+//- resultType    oneOf ('concat' | 'total') - 'total' -> sum of counter numValues; 
+//-                                            'concat' -> concatenate counters strValues
+//- plurals       array ([]) - Plural forms of 'total' for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
+//- icon          string ('semi-arrow-down') - Icon name for toggler (in header)
+//- isCollapsed   boolean (true) - If true - will render collapsed, false - expanded.
 mixin dropdown-counter(props = {})
+  include /components/icon/icon.pug
   include /components/button/button.pug
-  include /components/form-field/form-field.pug
+  include /components/field/field.pug
   include /components/counter/counter.pug
 
   -
-    props = Object.assign({
-      counters: [],
-      displayType: 'total',
+    const { resultType, plurals, icon, isCollapsed } = Object.assign({
+      resultType: 'total',
       plurals: [],
-      iconName: 'semi-arrow-down',
+      icon: 'semi-arrow-down',
       isCollapsed: true,
-      mods: []
-    }, props)
+    }, props);
 
-    attributes.type = 'text';
+    const classList = ['dropdown-counter'];
 
-    var wrapperAttributes = {
-      'data-display-type': props.displayType,
-      'data-plurals': props.plurals,
-      'data-counters-props': props.counters
-    }
-
-    var mods = ['dropdown-counter'].concat(props.mods)
-    var togglerMods = ['dropdown-counter__toggler']
-    var headerMods = ['dropdown-counter__header']
-    var bodyMods = ['dropdown-counter__body']
-    var actionsPanelMods = ['dropdown-counter__actions-panel', 'dropdown-counter__actions-panel_hidden']
-    var resetBtnMods = ['dropdown-counter__reset']
-    var okBtnMods = ['dropdown-counter__ok']
-
-    if (props.isCollapsed) {
-      togglerMods.push('dropdown-counter__toggler_collapsed')
-      headerMods.push('dropdown-counter__header_collapsed')
-      bodyMods.push('dropdown-counter__body_collapsed')
-    }
+    if (isCollapsed) classList.push('dropdown-counter_is-collapsed');
   
-  div(class= mods)&attributes(wrapperAttributes)
-    +form-field({mods: ['dropdown-counter__value']})&attributes({type: 'text', hidden: true})
-    div(class= headerMods)
-      +form-field({mods: ['dropdown-counter__value-alt']})&attributes(attributes)
-      +button({iconName: 'semi-arrow-down', showIconOnly: true, mods: togglerMods})
-    div(class= bodyMods)
-      each cProps in props.counters
-        - cProps = Object.assign({}, cProps, {mods: ['dropdown-counter__counter']})
-        +counter(cProps)
-      div(class= actionsPanelMods)
-        +button({value: 'Очистить', isText: true, mods: resetBtnMods})
-        +button({value: 'Применить', isText: true, mods: okBtnMods})
+  div(
+    class = classList, 
+    'data-dropdown-counter' = true,
+    'data-counters' = counters, 
+    'data-result-type' = resultType, 
+    'data-plurals' = plurals
+  )
+    .dropdown-counter__value
+      +field(type = 'text', hidden = true)
+    .dropdown-counter__value-alt
+      +field(type = 'text')&attributes(attributes)
+      .dropdown-counter__toggler
+        +icon({ name: 'semi-arrow-up', size: 'small' })
+    .dropdown-counter__content
+      if block
+        block
+      .dropdown-counter__actions
+        .dropdown-counter__reset
+          +button({ isText: true })= Очистить
+        .dropdown-counter__ok
+          +button({ isText: true })= Применить
 

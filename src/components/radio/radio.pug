@@ -1,0 +1,15 @@
+//- Radio
+//-
+//- name        string ('') - name attribute for underlying input element
+//- isChecked   boolean (false) - If true - radio is rendered as checked
+mixin radio(props = {})
+  -
+    const { name, isChecked } = Object.assign({ 
+      name: '',
+      isChecked: false,
+    }, props);
+
+  .radio('data-radio' = true)
+    label
+      input(class = 'radio__input', type = 'radio', name = name, checked = isChecked)
+      span.radio__custom

@@ -1,36 +1,46 @@
 //- Room Card
 //-
 //- room          string ('') - Room number/id
-//- price         number (0) - Room price
+//- price         string ('') - Room price
 //- currency      string ('₽') - Currency symbol
 //- rating        number (5) - Rating value
 //- numReviews    number (0) - Number of votes in rating
 //- isLux         boolean (false) - If true - room is indicated as lux
-mixin room-card({room: '', price: 0, currency: '₽', rating: 5, numReviews: 0, isLux: false} = {})
+mixin room-card(props = {})
   include /components/rating/rating.pug
 
   -
+    const { room, price, currency, rating, numReviews, isLux } = Object.assign({
+      room: '', 
+      price: '', 
+      currency: '₽', 
+      rating: 5, 
+      numReviews: 0, 
+      isLux: false
+    }, props);
+
     const classList = ['room-card']
     if (isLux) classList.push('room-card_is-lux')
 
-  li(class= classList)
+  div(class = classList, 'data-room-card' = true)
     if (block)
-      block
+      .room-card__media
+        block
 
     .room-card__row
       .room-card__room-details
-        span.room-card__number= roomNumber
+        span.room-card__number= room
         if (isLux)
           span.room-card__lux-indicator люкс
-      if (price > 0)
-        .room-card__price-details 
-          span.room-card__price= price
-          span.room-card__currency= currency
-          | в сутки
+      .room-card__price-details 
+        span.room-card__price= price
+        span.room-card__currency= currency
+        | в сутки
 
     .room-card__row
-      +rating({value: rating})
-      if (numReviews > 0)
+      .room-card__rating
+        +rating({ value: rating })
+      if (numReviews)
         .room-card__reviews 
           span.room-card__reviews-amount= numReviews 
           | #{pluralize(numReviews, ['Отзыв', 'Отзыва', 'Отзывов'])}

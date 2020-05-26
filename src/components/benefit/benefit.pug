@@ -3,10 +3,17 @@
 //- icon    string ('') Icon name
 //- title   string ('') Header text
 //- desc    string ('') Description text
-mixin benefit({icon: '', title: '', desc: ''} = {})
+mixin benefit(props = {})
   include /components/icon/icon.pug
 
-  .benefit
+  -
+    const { icon, title, desc } = Object.assign({
+      icon: '', 
+      title: '', 
+      desc: ''
+    }, props);
+
+  .benefit('data-benefit')
     if (icon)
       .benefit__aside
         +icon({name: icon})

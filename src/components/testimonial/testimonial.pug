@@ -3,16 +3,26 @@
 //- createdAt   string ('') - when testimonial was created
 //- numLikes    number (0) - number of likes this testimonial has
 //- text        string ('') - testimonial text
-mixin testimonial({userImg: '', userName: '', createdAt: '', numLikes: 0, text: ''} = {})
-  include /components/button-like/button-like.pug
+mixin testimonial(props = {})
+  include /components/like/like.pug
 
-  section.testimonial
+  -
+    const { userImg, userName, createdAt, numLikes, text } = Object.assign({
+      userImg: '', 
+      userName: '', 
+      createdAt: '', 
+      numLikes: 0, 
+      text: ''
+    }, props);
+
+  section.testimonial('data-testimonial' = true)
     .testimonial__left-col
       if (userImg)
-        img.testimonial__user-img(src= userImg, title= userName)
-      +button-like({value: numLikes})
+        img.testimonial__user-img(src = userImg, title = userName)
+      .testimonial__likes
+        +like({ value: numLikes })
     .testimonial__right-col
       h3.testimonial__user-name= userName
       if (createdAt)
-        span.testimonial__created-at(datetime= createdAt)
+        span.testimonial__created-at= createdAt
       article.testimonial__text= text

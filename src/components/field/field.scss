@@ -1,0 +1,56 @@
+$field-height: 44px !default;
+$field-border: 1px solid rgba(0, 0, 0, 0.25) !default;
+$field-border-hover: 1px solid rgba(0, 0, 0, 0.5) !default;
+$field-border-radius: 4px !default;
+$field-font-size: 14px !default;
+$field-font-color: rgba(0, 0, 0, 0.75) !default;
+$field-line-height: 24px !default;
+$field-padding: 7px 14px !default;
+$field-label-color: #000 !default;
+$field-label-size: 12px !default;
+
+.field {
+  position: relative;
+
+  &__input {
+    display: flex;
+    width: 100%;
+    height: $field-height;
+    border: $field-border;
+    padding: $field-padding;
+    border-radius: $field-border-radius;
+    font-size: $field-font-size;
+    line-height: $field-line-height;
+    color: $field-font-color;
+
+    &:hover,
+    &:focus {
+      border: $field-border-hover;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $dark-500;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+  }
+
+  &__warning-msg {
+    color: lighten($red, 10%);
+    font-size: 14px;
+  }
+
+  &_invalid {
+    background: lighten($red, 37%);
+  }
+
+  &_valid {
+    background: lighten($green, 20%);
+  }
+}

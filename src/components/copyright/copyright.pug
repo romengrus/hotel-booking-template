@@ -1,0 +1,8 @@
+mixin copyright(text = 'Copyright © 2018 Toxin отель. Все права зачищены.')
+  include /components/social-icons/social-icons.pug
+
+  .copyright('data-copyright' = true)
+    .copyright__wrapper
+      .copyright__text= text 
+      .copyright__icons
+        +social-icons

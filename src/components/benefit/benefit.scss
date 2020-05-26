@@ -1,33 +1,27 @@
-$benefit-border: 1px solid #eee !default;
-
 .benefit {
   display: flex;
   font-size: 14px;
   line-height: 24px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: $benefit-border;
-
-  &:last-child {
-    border-bottom: 0;
-  }
+  padding-top: 16px;
+  padding-bottom: 16px;
 
   &__aside {
-    width: 48px;
+    width: 49px;
+    margin-left: 4px;
   }
 
   &__main {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 
   &__title {
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     font-size: 15px;
     letter-spacing: 0;
   }
 
-  &.icon {
-    width: 46px;
-    height: 42px;
+  & .icon {
+    width: 40px;
+    height: 40px;
   }
 }

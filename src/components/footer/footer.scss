@@ -1,40 +1,11 @@
 .footer {
-  padding: 100px 0 83px;
+  background: $white;
+  padding: 100px 0 96px;
   border-top: 1px solid $dark-100;
 
-  .widget-about {
-  }
-
-  .widget-menu {
-  }
-
-  &__widget {
-    & > .widget__title {
-      padding-top: 5px;
-    }
-  }
-
   &__wrapper {
+    display: flex;
+    max-width: $content-max-width;
     margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  &_creative {
-    .footer__wrapper {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .footer__widget {
-      max-width: 600px;
-      margin: 0 0 15px 0;
-    }
-
-    .social-icons {
-      margin-top: 10px;
-    }
   }
 }

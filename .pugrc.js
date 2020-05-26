@@ -5,7 +5,7 @@ const { pluralize } = require('./src/utils');
 const basedir = path.join(__dirname, 'src');
 
 // get icon names
-const iconNames = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'));
+const icons = glob.sync('src/assets/icons/**/*.svg').map(icon => path.basename(icon, '.svg'));
 
 function createRandomId(prefix = '') {
   const randomHash = Math.random()
@@ -30,5 +30,5 @@ const dummyURL = '/please-change-this-url-is-source-files';
 
 module.exports = {
   basedir,
-  locals: { iconNames, pluralize, createRandomId, hexToRGBA, dummyURL }
+  locals: { icons, pluralize, createRandomId, hexToRGBA, dummyURL }
 };

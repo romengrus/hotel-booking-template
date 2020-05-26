@@ -9,6 +9,9 @@ $pagination-arrow-bg: #eee !default;
   flex-flow: column nowrap;
 
   &__listing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 0;
   }
 
@@ -20,6 +23,7 @@ $pagination-arrow-bg: #eee !default;
     height: $pagination-item-height;
     padding: 0;
     background: $pagination-arrow-bg;
+    border-radius: 50%;
 
     .button__icon {
       position: static;
@@ -39,6 +43,12 @@ $pagination-arrow-bg: #eee !default;
 
     &-current {
       color: $pagination-current-page-color;
+      background: linear-gradient(180deg, #bc9cff, #8ba4f9);
+      border-radius: 50%;
+
+      &:visited {
+        color: $pagination-current-page-color;
+      }
     }
   }
 
@@ -49,42 +59,5 @@ $pagination-arrow-bg: #eee !default;
     width: $pagination-item-width;
     height: $pagination-item-height;
     color: $pagination-color;
-  }
-
-  &__label {
-    font-size: 14px;
-    line-height: 24px;
-    padding-left: 8px;
-    text-transform: lowercase;
-    font-weight: normal;
-  }
-
-  &_label-pos {
-    &-top {
-      .pagination__label {
-        order: -1;
-      }
-    }
-
-    &-left {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-
-      .pagination__label {
-        order: -1;
-        margin-right: 32px;
-      }
-    }
-
-    &-right {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-
-      .pagination__label {
-        margin-left: 32px;
-      }
-    }
   }
 }
