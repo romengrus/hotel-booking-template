@@ -47,7 +47,7 @@
     "parcel": "^1.12.4",
     "postcss-plugin-px2rem": "^0.8.1",
     "prettier": "^1.19.1",
-    "pug": "^2.0.4",
+    "pug": "^3.0.0",
     "pug-lint": "^2.6.0",
     "rimraf": "^2.7.1",
     "sass": "^1.25.0",
