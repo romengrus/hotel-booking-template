@@ -13,10 +13,7 @@ mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
 
     if (isCollapsed) classList.push('panel_is-collapsed');
 
-  div(
-    class = classList, 
-    data-panel,
-    data-is-collapsible = isCollapsible)
+  div(class = classList, data-panel, data-is-collapsible = isCollapsible)
     .panel__header(data-panel-header)
       .panel__title= title 
 

@@ -3,6 +3,7 @@ mixin form-room-filter
   include /components/filter-guests/filter-guests.pug
   include /components/filter-price/filter-price.pug
   include /components/filter-choices/filter-choices.pug
+  include /components/filter-facilities/filter-facilities.pug
 
   .form-room-filter
     +form
@@ -46,16 +47,7 @@ mixin form-room-filter
           })
 
       .form-room-filter__facilities
-        +label({ value: 'Удобства номера', pos: 'top', theme: ['bold', 'upper'] }) 
-          +dropdown-counter({ resultType: 'concat' })(placeholder = 'Выберите нужное количество ...')
-            +label({ value: 'спальни' })
-              +counter({ plurals: ['спальня', 'спальни', 'спален'] })
-            
-            +label({ value: 'кровати' })
-              +counter({ plurals: ['кровать', 'кровати', 'кроватей'] })
-                
-            +label({ value: 'ванные комнаты' })
-              +counter({ plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'] })
+        +filter-facilities
 
       .form-room-filter__additional-facilities
         +panel({ title: 'Дополнительные удобства', isCollapsible: true, isCollapsed: true })

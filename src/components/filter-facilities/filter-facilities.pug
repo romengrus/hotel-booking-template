@@ -1,0 +1,12 @@
+mixin filter-facilities
+  .filter-facilities
+    +label({ value: 'Удобства номера', pos: 'top', theme: ['bold', 'upper'] }) 
+      +dropdown-counter({ resultType: 'concat' })(placeholder = 'Выберите нужное количество ...')
+        +label({ value: 'спальни' })
+          +counter({ plurals: ['спальня', 'спальни', 'спален'] })
+        
+        +label({ value: 'кровати' })
+          +counter({ plurals: ['кровать', 'кровати', 'кроватей'] })
+            
+        +label({ value: 'ванные комнаты' })
+          +counter({ plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'] })
