@@ -1,0 +1,33 @@
+mixin fees()
+  .room-reservation__fees
+    .room-reservation__fee
+      .room-reservation__fee-title 
+        span.room-reservation__fee-price 9 990
+        span.room-reservation__fee-currency ₽
+        span.room-reservation__fee-time х 4 суток  
+      .room-reservation__fee-total 
+        span.room-reservation__fee-price 39 960
+        span.room-reservation__fee-currency ₽
+    .room-reservation__fee
+      .room-reservation__fee-title 
+        | Сбор за услуги: скидка 
+        span.room-reservation__fee-price 2 179
+        span.room-reservation__fee-currency ₽
+      .room-reservation__fee-icon
+        +icon({ name: 'info', size: 'auto' })
+      .room-reservation__fee-total 
+        span.room-reservation__fee-price 0
+        span.room-reservation__fee-currency ₽
+    .room-reservation__fee
+      .room-reservation__fee-title Сбор за дополнительные услуги
+      .room-reservation__fee-icon
+        +icon({ name: 'info', size: 'auto' })
+      .room-reservation__fee-total 
+        span.room-reservation__fee-price 300
+        span.room-reservation__fee-currency ₽
+    .room-reservation__fees-result
+      .room-reservation__fees-title Итого
+      .room-reservation__fees-separator
+      .room-reservation__fees-total
+        span.room-reservation__fees-price 38 081
+        span.room-reservation__fees-currency ₽

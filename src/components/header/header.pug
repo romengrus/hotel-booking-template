@@ -85,7 +85,7 @@ mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''
 
         if (isLoggedIn)
           .header__auth.header__auth_is-logged-in
-            a(class = 'header__profile-link', href = dummyURL)= userName
+            a.header__profile-link(href = dummyURL)= userName
         else 
           .header__auth
             +button({type: 'link', size: 'small', isOutlined: true})= lblLogin

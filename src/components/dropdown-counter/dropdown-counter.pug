@@ -21,8 +21,7 @@ mixin dropdown-counter({resultType = 'total', plurals = [], icon = 'semi-arrow-d
     data-dropdown-counter,
     data-counters = counters, 
     data-result-type = resultType, 
-    data-plurals = plurals
-  )
+    data-plurals = plurals)
     .dropdown-counter__value(data-dropdown-counter-value)
       +field(type = 'text', hidden = true)
     .dropdown-counter__value-alt
@@ -37,4 +36,3 @@ mixin dropdown-counter({resultType = 'total', plurals = [], icon = 'semi-arrow-d
           +button({ isTextOnly: true })(data-dropdown-counter-reset) Очистить
         .dropdown-counter__ok
           +button({ isTextOnly: true })(data-dropdown-counter-ok) Применить
-

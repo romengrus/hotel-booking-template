@@ -16,7 +16,6 @@ mixin like({value = 0, hasVoted = false} = {})
     data-value = value, 
     data-has-voted = hasVoted,
     data-icon-like = iLike,
-    data-icon-dislike = iDislike
-  )
+    data-icon-dislike = iDislike)
     +icon({ name: icon })(data-like-icon)
     span.like__display(data-like-display)= value

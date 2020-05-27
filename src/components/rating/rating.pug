@@ -17,8 +17,7 @@ mixin rating({value = 0, total = 5, isPartial = false} = {})
     data-is-partial = isPartial,
     data-icon-empty = iEmpty,
     data-icon-filled = iFilled,
-    data-icon-half = iHalf,
-  )
+    data-icon-half = iHalf)
     - for (let i = 0; i < total; i += 1)
       .rating__icon(data-rating-icon)
         +icon({ name: iEmpty, size: 'big' })

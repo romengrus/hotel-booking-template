@@ -5,5 +5,5 @@
 mixin switcher({name = '', isOn = false} = {})
   .switcher(data-switcher)
     label
-      input(class = 'switcher__input', type = 'checkbox', name = name, checked = isOn)
+      input.switcher__input(type = 'checkbox', name = name, checked = isOn)
       span.switcher__display

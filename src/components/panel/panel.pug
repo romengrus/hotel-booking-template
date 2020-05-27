@@ -16,8 +16,7 @@ mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
   div(
     class = classList, 
     data-panel,
-    data-is-collapsible = isCollapsible
-  )
+    data-is-collapsible = isCollapsible)
     .panel__header(data-panel-header)
       .panel__title= title 
 
@@ -28,5 +27,3 @@ mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
     .panel__body(data-panel-body)
       if block
         block
-
-

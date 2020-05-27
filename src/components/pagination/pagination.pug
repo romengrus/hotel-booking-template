@@ -62,8 +62,7 @@ mixin pagination({current = 1, perPage = 10, total = 0, delta = 2} = {})
     }
 
     function inScope(page, current, delta) {
-      return (page >= current - delta) 
-          && (page <= current + delta);
+      return (page >= current - delta) && (page <= current + delta);
     }
 
     function atScopeBoundary(page, current, delta) {

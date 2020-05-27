@@ -22,23 +22,17 @@ mixin counter({id = createRandomId(), value = 0, min = 0, max = 10, step = 1, pl
     data-step = step,
     data-min = min,
     data-max = max,
-    data-plurals = plurals
-  )
+    data-plurals = plurals)
     input.counter__input(
       hidden = true, 
       type = 'number', 
       value = value,
-      data-counter-input
-    )
-    div.counter__controls
-      button(
-        class = 'counter__button-dec', 
+      data-counter-input)
+    .counter__controls
+      button.counter__button-dec(
         disabled = isDisabled('dec', value),
-        data-counter-dec
-      ) -
+        data-counter-dec) -
       span.counter__display(data-counter-display)= value
-      button(
-        class = 'counter__button-inc', 
+      button.counter__button-inc(
         disabled = isDisabled('inc', value),
-        data-counter-inc
-      ) +
+        data-counter-inc) +

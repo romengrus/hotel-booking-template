@@ -28,7 +28,10 @@ mixin form-room-search
 
       .form-room-search__guests
         +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] })
-          +dropdown-counter({ resultType: 'concat', plurals: ['гость', 'гостя', 'гостей'] })(placeholder = 'Сколько гостей')
+          +dropdown-counter({ 
+            resultType: 'concat', 
+            plurals: ['гость', 'гостя', 'гостей'] 
+          })(placeholder = 'Сколько гостей')
             +label({ value: 'взрослые', theme: 'bold', pos: 'left' })
               +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
             
@@ -40,4 +43,3 @@ mixin form-room-search
 
       .form-room-search__submit
         +button({icon: 'arrow-right-light', isExpanded: true})= labels.submit
-

@@ -28,8 +28,8 @@ mixin slider({slides = [], params = {}, showPagination = false, showNavigation =
       .swiper-wrapper
         each slide in slides
           if 'img' in slide
-            a(class = 'swiper-slide', href = `${slide.url || dummyURL}`)
-              img(src = slide.img)
+            a.swiper-slide(href = slide.url || dummyURL)
+              img(src = slide.img, alt = 'slider image')
 
       .swiper-pan-left
       .swiper-pan-right

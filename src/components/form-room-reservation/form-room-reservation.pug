@@ -45,7 +45,10 @@ mixin form-room-reservation({room = '', isLux = false, price = 0} = {})
 
       .form-room-reservation__guests
         +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] }) 
-          +dropdown-counter({ resultType: 'concat', plurals: ['гость', 'гостя', 'гостей'] })(placeholder = 'Сколько гостей')
+          +dropdown-counter({ 
+            resultType: 'concat', 
+            plurals: ['гость', 'гостя', 'гостей'] 
+          })(placeholder = 'Сколько гостей')
             +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper'] })
               +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
 

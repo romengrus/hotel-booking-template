@@ -5,5 +5,5 @@
 mixin radio({name = '', isChecked = false} = {})
   .radio(data-radio)
     label
-      input(class = 'radio__input', type = 'radio', name = name, checked = isChecked)
+      input.radio__input(type = 'radio', name = name, checked = isChecked)
       span.radio__custom

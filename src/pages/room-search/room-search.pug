@@ -32,7 +32,10 @@ block main
 
           .room-filter__guests
             +label({ value: 'Гости', pos: 'top', theme: ['bold', 'upper'] }) 
-              +dropdown-counter({ resultType: 'total', plurals: ['гость', 'гостя', 'гостей'] })(placeholder= 'Сколько гостей')
+              +dropdown-counter({ 
+                resultType: 'total', 
+                plurals: ['гость', 'гостя', 'гостей'] 
+              })(placeholder= 'Сколько гостей')
                 +label({ value: 'взрослые' })
                   +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
 

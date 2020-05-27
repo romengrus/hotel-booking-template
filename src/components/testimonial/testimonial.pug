@@ -9,7 +9,7 @@ mixin testimonial({userImg = '', userName = '', createdAt = '', numLikes = 0, te
   section.testimonial(data-testimonial)
     .testimonial__left-col
       if (userImg)
-        img.testimonial__user-img(src = userImg, title = userName)
+        img.testimonial__user-img(src = userImg, alt = 'user image', title = userName)
       .testimonial__likes
         +like({ value: numLikes })
     .testimonial__right-col

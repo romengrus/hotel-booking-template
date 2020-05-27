@@ -20,18 +20,16 @@ mixin datepicker({dates = [], mode = 'single', isRequired, isOpened} = {})
 
   div(class = classList, data-datepicker)
     .datepicker__input
-      +field( 
-        type = 'text', 
+      +field(type = 'text', 
         required = isRequired,
         placeholder = 'ДД.ММ.ГГГГ',
         data-datepicker-input,
         data-dates = dates, 
         data-mode = mode, 
-        data-is-opened = isOpened,
-      )&attributes(attributes)
+        data-is-opened = isOpened)&attributes(attributes)
     .datepicker__toggler(data-datepicker-toggler)
       +icon({ name: 'semi-arrow-up', size: 'small' })
-    div(style = "display: none")
+    div(style = 'display: none')
       button.datepicker__prev(data-datepicker-prev)
         +icon({ name: 'arrow-left' })
       button.datepicker__next(data-datepicker-next)
