@@ -23,9 +23,9 @@ mixin dropdown-counter({resultType = 'total', plurals = [], icon = 'semi-arrow-d
     data-result-type = resultType, 
     data-plurals = plurals)
     .dropdown-counter__value(data-dropdown-counter-value)
-      +field(type = 'text', hidden = true)
+      +field(hidden = true)
     .dropdown-counter__value-alt
-      +field(type = 'text', data-dropdown-counter-alt)&attributes(attributes)
+      +field(data-dropdown-counter-alt)&attributes(attributes)
       .dropdown-counter__toggler(data-dropdown-counter-toggler)
         +icon({ name: 'semi-arrow-up', size: 'small' })
     .dropdown-counter__content

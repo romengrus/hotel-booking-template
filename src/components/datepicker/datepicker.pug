@@ -20,8 +20,7 @@ mixin datepicker({dates = [], mode = 'single', isRequired, isOpened} = {})
 
   div(class = classList, data-datepicker)
     .datepicker__input
-      +field(type = 'text', 
-        required = isRequired,
+      +field(required = isRequired,
         placeholder = 'ДД.ММ.ГГГГ',
         data-datepicker-input,
         data-dates = dates, 

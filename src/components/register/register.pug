@@ -31,9 +31,9 @@ mixin register
 
       .register__name
         .register__name-input
-          +field(type = 'text', name = 'name', placeholder = labels.name, required)
+          +field(name = 'name', placeholder = labels.name, required)
         .register__surname-input
-          +field(type = 'text', name = 'surname', placeholder = labels.surname, required)
+          +field(name = 'surname', placeholder = labels.surname, required)
 
       .register__gender
         +label({ value: labels.man })
