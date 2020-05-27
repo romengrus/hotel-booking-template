@@ -1,9 +1,9 @@
 import { Russian } from 'flatpickr/dist/l10n/ru';
 import flatpickr from 'flatpickr';
 
-export class FormFieldDatetime {
+class Datepicker {
   constructor(el) {
-    this.cls = FormFieldDatetime.getBaseCSSClass();
+    this.cls = Datepicker.getBaseCSSClass();
     this.el = el;
     this.input = el.querySelector(`${this.cls}__input input[type="text"]`);
     this.toggler = el.querySelector(`${this.cls}__toggler`);
@@ -25,7 +25,6 @@ export class FormFieldDatetime {
     const actions = this.el.querySelector(`${this.cls}__actions`);
     const reset = actions.querySelector(`${this.cls}__reset`);
     const ok = actions.querySelector(`${this.cls}__ok`);
-    const toggler = this.el.querySelector(`${this.cls}__toggler`);
 
     const dates = JSON.parse(this.input.dataset.dates) || [];
     const mode = this.input.dataset.mode || 'single';
@@ -42,12 +41,8 @@ export class FormFieldDatetime {
 
     datepicker.$buttonReset = reset;
     datepicker.$buttonOk = ok;
-    datepicker.config.onOpen.push(() =>
-      toggler.classList.remove('form-field-datetime__icon-toggle_collapsed')
-    );
-    datepicker.config.onClose.push(() =>
-      toggler.classList.add('form-field-datetime__icon-toggle_collapsed')
-    );
+    datepicker.config.onOpen.push(() => this.el.classList.add('datepicker_is-opened'));
+    datepicker.config.onClose.push(() => this.el.classList.remove('datepicker_is-opened'));
 
     // handle action buttons click event
     reset.addEventListener('click', () => datepicker.clear());
@@ -63,3 +58,5 @@ export class FormFieldDatetime {
     }
   }
 }
+
+export { Datepicker };

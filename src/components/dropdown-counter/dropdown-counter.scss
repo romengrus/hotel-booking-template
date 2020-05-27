@@ -22,6 +22,7 @@ $dc-body-bg: white !default;
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
+    transition: transform 300ms ease-out;
   }
 
   &__content {
@@ -79,6 +80,10 @@ $dc-body-bg: white !default;
       z-index: -1;
       visibility: hidden;
       opacity: 0;
+    }
+
+    #{$root}__toggler {
+      transform: translateY(-50%) rotate(0.5turn);
     }
   }
 

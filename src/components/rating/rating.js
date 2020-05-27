@@ -1,6 +1,6 @@
 import { debounce } from '../../utils';
 
-export class Rating {
+class Rating {
   constructor(el) {
     this.cls = Rating.getBaseCSSClass();
     this.el = el;
@@ -112,3 +112,5 @@ export class Rating {
     this.dispatchVotedEvent();
   }
 }
+
+export { Rating };

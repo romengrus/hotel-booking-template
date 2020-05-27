@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 
-export class Slider {
+class Slider {
   constructor(el) {
     this.el = el;
     this.slider = null;
@@ -29,3 +29,5 @@ export class Slider {
     this.slider = new Swiper(sliderContainer, params);
   }
 }
+
+export { Slider };

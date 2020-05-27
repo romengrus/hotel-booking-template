@@ -45,17 +45,10 @@
 //- perPage         number (10) - Items to show per page
 //- total           number (0) - Total items in listing
 //- delta           number (2) - Number of pages always visible from the left & right side of current page
-mixin pagination(props = {})
+mixin pagination({current = 1, perPage = 10, total = 0, delta = 2} = {})
   include /components/icon/icon.pug
 
   -
-    const { current, perPage, total, delta } = Object.assign({
-      current: 1,
-      perPage: 10,
-      total: 0,
-      delta: 2,
-    }, props);
-
     const lastPage = Math.ceil(total / perPage)
     const idxFrom = 1
     const idxTo = 12
@@ -78,7 +71,7 @@ mixin pagination(props = {})
           || (page === current + delta + 1);
     }
   
-  .pagination
+  .pagination('data-pagination' = true)
     if (lastPage > 1)
       .pagination__listing
         //- prev arrow

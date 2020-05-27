@@ -1,0 +1,24 @@
+extends /layout/base.pug
+
+block append meta
+  meta(name= "keywords", content= "toxin-hotel, landing")
+  meta(name= "description", content= "Toxin-hotel landing page")
+
+block variables
+  - var pageTitle = 'Toxin Landing Page 1'
+  - var bodyClass = 'landing'
+
+block append parts
+  include /components/hero/hero.pug
+  include /components/form-room-search/form-room-search.pug
+
+block main
+  +hero({
+    bgImg: '/assets/img/hero1.jpg', 
+    info: 'Лучшие номера для вашей работы, отдыха и просто вдохновения',
+    size: 'big',
+    hPos: 'start',
+    vPos: 'start',
+  })
+    +form-room-search
+

@@ -8,15 +8,8 @@
 //- params             object ({}) - Swiper slider parameters [http://idangero.us/swiper/api/#parameters]
 //- showPagination     boolean (false) - If true - pagination will be shown
 //- showNavigation     boolean (false) - If true - navigation buttons will be shown
-mixin slider(props = {})
+mixin slider({slides = [], params = {}, showPagination = false, showNavigation = false} = {})
   -
-    const { slides, params, showPagination, showNavigation, showScrollbar, showThumbnails, thumbnailsParams } = Object.assign({
-      slides: [], 
-      params: {}, 
-      showPagination: false, 
-      showNavigation: false, 
-    }, props);
-
     if (showNavigation) {
       params.navigation = Object.assign(params.navigation || {}, {
         prevEl: '.swiper-button-prev',
@@ -30,7 +23,7 @@ mixin slider(props = {})
       })
     } 
 
-  .slider
+  .slider('data-slider' = true)
     .swiper-container('data-params' = params)
       .swiper-wrapper
         each slide in slides

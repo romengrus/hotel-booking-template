@@ -7,6 +7,8 @@ block variables
   - var pageTitle = 'Toxin UIKit | Colors & Type'
   - var bodyClass = 'uikit__colors-and-type'
 
+  include /components/logo/logo.pug
+
   mixin color-block(title, hex, alpha)
     .color-block
       div(class= "color-block__showcase", style= `background-color: ${hexToRGBA(hex, alpha)};`)
@@ -21,8 +23,7 @@ block variables
 
 block main
   header.container.uikit__header
-    a(href= '/')
-      img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
+    +logo
 
   main.container
     .colors-and-type

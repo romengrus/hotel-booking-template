@@ -1,5 +1,5 @@
-mixin footer-menu(title = '')
-  .footer-menu
+mixin footer-menu({title = ''} = {})
+  .footer-menu('data-footer-menu' = true)
     h2.footer-menu__title= title 
     if block
       block

@@ -5,37 +5,36 @@
 //- plurals       array ([]) - Plural forms of 'total' for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
 //- icon          string ('semi-arrow-down') - Icon name for toggler (in header)
 //- isCollapsed   boolean (true) - If true - will render collapsed, false - expanded.
-mixin dropdown-counter(props = {})
+mixin dropdown-counter({resultType = 'total', plurals = [], icon = 'semi-arrow-down', isCollapsed = true} = {})
   include /components/icon/icon.pug
   include /components/button/button.pug
   include /components/field/field.pug
   include /components/counter/counter.pug
 
   -
-    const { resultType, plurals, icon, isCollapsed } = Object.assign({
-      resultType: 'total',
-      plurals: [],
-      icon: 'semi-arrow-down',
-      isCollapsed: true,
-    }, props);
-
     const classList = ['dropdown-counter'];
 
     if (isCollapsed) classList.push('dropdown-counter_is-collapsed');
   
-  div(class = classList, 'data-counters' = counters, 'data-result-type' = resultType, 'data-plurals' = plurals)
+  div(
+    class = classList, 
+    'data-dropdown-counter' = true,
+    'data-counters' = counters, 
+    'data-result-type' = resultType, 
+    'data-plurals' = plurals
+  )
     .dropdown-counter__value
       +field(type = 'text', hidden = true)
     .dropdown-counter__value-alt
       +field(type = 'text')&attributes(attributes)
       .dropdown-counter__toggler
-        +icon({ name: 'semi-arrow-down', size: 'small' })
+        +icon({ name: 'semi-arrow-up', size: 'small' })
     .dropdown-counter__content
       if block
         block
       .dropdown-counter__actions
         .dropdown-counter__reset
-          +button({ isText: true })= Очистить
+          +button({ isTextOnly: true }) Очистить
         .dropdown-counter__ok
-          +button({ isText: true })= Применить
+          +button({ isTextOnly: true }) Применить
 

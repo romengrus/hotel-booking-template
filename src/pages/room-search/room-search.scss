@@ -1,0 +1,110 @@
+.room-search {
+  .sidebar {
+    flex: 0;
+    flex-basis: 266px;
+    margin-top: 29px;
+  }
+
+  .room-filter {
+    &__guests {
+      margin-top: 19px;
+    }
+
+    &__price {
+      margin-top: 30px;
+
+      &-header {
+        display: flex;
+      }
+
+      &-result {
+        margin-left: auto;
+        font-size: 12px;
+      }
+
+      &-range {
+        margin-top: 13px;
+      }
+
+      &-desc {
+        margin-top: 13px;
+        font-size: 12px;
+      }
+    }
+
+    &__permissions {
+      margin-top: 18px;
+
+      &-title {
+        margin-bottom: 7px;
+      }
+
+      &-item {
+        margin-bottom: 2px;
+      }
+    }
+
+    &__accessability {
+      margin-top: 8px;
+
+      &-title {
+        margin-bottom: 7px;
+      }
+
+      &-item {
+        margin-bottom: 9px;
+      }
+    }
+
+    &__facilities {
+      margin-top: 11px;
+    }
+
+    &__additional-facilities {
+      margin-top: 21px;
+    }
+
+    &__toggle {
+      display: none;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: $black;
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    flex: 1;
+    margin-top: 31px;
+    margin-left: 60px;
+
+    &__header {
+      margin-bottom: 22px;
+    }
+  }
+
+  &__pagination {
+    margin-top: 9px;
+    margin-left: -14px;
+    align-items: center;
+    text-align: center;
+
+    &-label {
+      font-size: 14px;
+    }
+  }
+}
+
+.footer {
+  margin-top: 57px;
+}
+
+.copyright {
+  margin-top: 3px;
+}
+
+.sidebar-visible-on-mobile {
+  .main {
+    transform: translate(270px);
+  }
+}

@@ -6,13 +6,13 @@ block append meta
 
 block variables
   - var pageTitle = 'Toxin Login'
-  - var bodyClass = 'login-page'
+  - var bodyClass = 'login'
 
 block append parts
   include /components/hero/hero.pug
-  include /components/login/login.pug
+  include /components/form-login/form-login.pug
 
 block main
-  .login-page__hero
+  .login__hero
     +hero({ bgImg: '/assets/img/hero4.jpg' })
-      +login
+      +form-login

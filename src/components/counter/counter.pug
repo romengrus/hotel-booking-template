@@ -6,20 +6,11 @@
 //- max         number (10) - maximum possible value
 //- step        number (1) - step value
 //- plurals     array ([]) - plural forms of label for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
-mixin counter(props = {})
+mixin counter({id = createRandomId(), value = 0, min = 0, max = 10, step = 1, plurals = []} = {})
   include /components/button/button.pug
   include /components/field/field.pug
 
   -
-    const { id, value, min, max, step, plurals } = Object.assign({
-      id: createRandomId(),
-      value: 0,
-      min: 0,
-      max: 10,
-      step: 1,
-      plurals: [],
-    }, props);
-
     const isDisabled = (btnType, val) => 
       btnType === 'dec'
       ? val <= min 

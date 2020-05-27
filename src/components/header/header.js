@@ -1,4 +1,4 @@
-export class Header {
+class Header {
   constructor(el) {
     this.cls = Header.getBaseCSSClass();
     this.el = el;
@@ -30,3 +30,5 @@ export class Header {
     this.menu.classList.toggle('header__menu_is-visible-on-mobile');
   }
 }
+
+export { Header };

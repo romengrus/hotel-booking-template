@@ -1,4 +1,8 @@
-mixin form
-  form.form&attributes(attributes)
+mixin form({method = 'POST', action = dummyURL} = {})
+  form.form(
+    method = method,
+    action = action,
+    'data-form' = true
+  )
     block
 

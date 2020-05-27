@@ -426,7 +426,7 @@ mixin room-cards(rooms = defaultRooms)
   include /components/room-card/room-card.pug
   include /components/slider/slider.pug
 
-  .room-cards
+  .room-cards('data-room-cards' = true)
     each room in rooms
       +room-card(room)
         +slider(room.slider)

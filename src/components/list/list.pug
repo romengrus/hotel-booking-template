@@ -2,15 +2,10 @@
 //-
 //- items       array ([]) - Text strings to show
 //- isOrdered   boolean (false) - If true - shows "ol". If false - shows "ul".
-mixin list(props = {})
+mixin list({items = [], isOrdered = false} = {})
   -
-    const { items, isOrdered } = Object.assign({
-      items: [], 
-      isOrdered: false
-    }, props);
-    const content = items.map(item => `<li class="list__item">${item}</li>`)
+    const tag = isOrdered ? 'ol' : 'ul'
 
-  if (props.isOrdered)
-    ol.list.list_ordered !{content.join('')}
-  else
-    ul.list.list_unordered !{content.join('')}
+  #{tag}.list('data-list' = true)
+    each item in items
+      li.list__item= item

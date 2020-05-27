@@ -1,15 +1,11 @@
 //- Range Slider
 //-
-//- showValue {boolean} If true - selected value will be shown to the user, false - otherwise
-//- params    {object} range slider options (https://refreshless.com/nouislider/slider-options/)
-//--- params.format   {object} Formatting options (https://refreshless.com/wnumb/options/)
-mixin range-slider(props = {})
+//- showValue   boolean (true) - If true - selected value will be shown to the user, false - otherwise
+//- params      object ({}) - range slider options (https://refreshless.com/nouislider/slider-options/)
+mixin range-slider({showValue = true, params = {}} = {})
   include /components/field/field.pug
 
-  - 
-    const { showValue, params } = Object.assign({ showValue: true, params: {} }, props)
-
-  .range-slider
+  .range-slider('data-range-slider' = true)
     .range-slider__input
       +field(
         id = createRandomId('range-slider'),

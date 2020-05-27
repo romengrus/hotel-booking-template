@@ -1,6 +1,6 @@
-export class ButtonLike {
+class Like {
   constructor(el) {
-    const cls = ButtonLike.getBaseCSSClass();
+    const cls = Like.getBaseCSSClass();
     this.el = el;
     this.display = el.querySelector(`${cls}__display`);
     this.icon = el.querySelector('.icon > use');
@@ -54,3 +54,5 @@ export class ButtonLike {
     this.el.dispatchEvent(event);
   }
 }
+
+export { Like };

@@ -11,20 +11,19 @@ block variables
 
 block main
   header.container.uikit__header
-    a(href= '/')
-      img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
+    +logo
 
   main.container
     .cards__row
       .cards__col.cards__col-1
-        +room-search
+        +form-room-search
         .m-t-23
-          +register
+          +form-register
 
       .cards__col.cards__col-2
-        +room-reservation({ room: 888, isLux: true, price: 9990 })
+        +form-room-reservation({room: 888, isLux: true, price: 9990})
         .m-t-39
-          +login
+          +form-login
 
       .cards__col.cards__col-3
         div(style = 'margin-top: -45px; visibility: hidden;')

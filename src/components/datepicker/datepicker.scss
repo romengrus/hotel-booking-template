@@ -14,6 +14,8 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
 @import './vendor/flatpickr';
 
 .datepicker {
+  $root: &;
+
   position: relative;
   width: 100%;
 
@@ -23,16 +25,10 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
 
   &__toggler {
     position: absolute;
-    top: 22px;
+    top: 50%;
     right: 15px;
-    width: 13px;
-    height: 13px;
-    transform: rotate(-0.5turn);
-    transition: transform 350ms ease-in-out;
-
-    &_collapsed {
-      transform: none;
-    }
+    transform: translateY(-50%) rotate(0.5turn);
+    transition: transform 300ms ease-out;
   }
 
   &__icon-prev,
@@ -63,6 +59,12 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
     &:hover {
       color: $datepicker-weekday-color;
       opacity: 1;
+    }
+  }
+
+  &_is-opened {
+    #{$root}__toggler {
+      transform: translateY(-50%) rotate(0);
     }
   }
 }

@@ -6,23 +6,14 @@
 //- rating        number (5) - Rating value
 //- numReviews    number (0) - Number of votes in rating
 //- isLux         boolean (false) - If true - room is indicated as lux
-mixin room-card(props = {})
+mixin room-card({room = '', price = '', currency = '₽', rating = 5, numReviews = 0, isLux = false} = {})
   include /components/rating/rating.pug
 
   -
-    const { room, price, currency, rating, numReviews, isLux } = Object.assign({
-      room: '', 
-      price: '', 
-      currency: '₽', 
-      rating: 5, 
-      numReviews: 0, 
-      isLux: false
-    }, props);
-
     const classList = ['room-card']
     if (isLux) classList.push('room-card_is-lux')
 
-  div(class = classList)
+  div(class = classList, 'data-room-card' = true)
     if (block)
       .room-card__media
         block

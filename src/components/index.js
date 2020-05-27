@@ -11,7 +11,8 @@ export * from './dropdown-counter/dropdown-counter';
 export * from './doughnut/doughnut';
 
 // compound components
+export * from './room-card/room-card';
 export * from './subscription/subscription';
-export * from './room-search/room-search';
-export * from './room-reservation/room-reservation';
+export * from './form-room-search/form-room-search';
+export * from './form-room-reservation/form-room-reservation';
 export * from './header/header';

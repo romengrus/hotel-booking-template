@@ -1,6 +1,6 @@
-export class ChartDoughnut {
+class Doughnut {
   constructor(el) {
-    const cls = ChartDoughnut.getBaseCSSClass();
+    const cls = Doughnut.getBaseCSSClass();
     this.el = el;
     this.chartData = JSON.parse(this.el.getAttribute('data-chart-data'));
     this.segments = el.querySelectorAll(`${cls}__segment`);
@@ -45,3 +45,5 @@ export class ChartDoughnut {
     this.header.textContent = numVotes;
   }
 }
+
+export { Doughnut };

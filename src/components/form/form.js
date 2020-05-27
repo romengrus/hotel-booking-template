@@ -41,7 +41,7 @@ const formValidationI18n = {
   }
 };
 
-export class Form {
+class Form {
   constructor(el) {
     this.lang = 'ru';
     this.el = el;
@@ -68,3 +68,5 @@ export class Form {
     hyperform.setLanguage(this.lang);
   }
 }
+
+export { Form };

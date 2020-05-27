@@ -1,0 +1,32 @@
+//- Login Form
+mixin form-login
+  include /components/form/form.pug
+  include /components/field/field.pug
+  include /components/button/button.pug
+
+  -
+    const labels = {
+      title: 'Войти',
+      email: 'Email',
+      password: 'Пароль',
+      submit: 'Войти',
+      haveAccount: 'Нет аккаунта на Toxin?',
+      createAccount: 'Создать'
+    }
+
+  .form-login('data-form-login' = true)
+    +form
+      h2.form-login__title= labels.title
+
+      .form-login__email
+        +field(type = 'email', placeholder = labels.email, required = true)
+
+      .form-login__password
+        +field(type = 'password', placeholder = labels.password, required = true)
+
+      .form-login__submit
+        +button({ isExpanded: true, icon: 'arrow-right-light' })= labels.submit
+
+      .form-login__have-account
+        span= labels.haveAccount
+        +button({ type: 'link', isOutlined: true})= labels.createAccount

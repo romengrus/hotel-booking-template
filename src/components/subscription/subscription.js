@@ -1,4 +1,4 @@
-export class Subscription {
+class Subscription {
   constructor(el) {
     this.el = el;
     this.form = el.querySelector('.form');
@@ -18,3 +18,5 @@ export class Subscription {
     this.icon.addEventListener('click', () => this.form.submit());
   }
 }
+
+export { Subscription };

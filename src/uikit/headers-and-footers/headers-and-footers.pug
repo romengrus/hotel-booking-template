@@ -11,12 +11,13 @@ block variables
 
 block main
   header.container.uikit__header
-    a(href= '/')
-      img(src= '/assets/icons/png/logo.png', width= 48, height= 48)
+    +logo
 
   .m-t-42
     +header({ isLoggedIn: false, lblLogin: 'Login', lblRegister: 'Register' })
-      +menu({ theme: 'wide', items: [{
+      +menu({
+        theme: 'wide', 
+        items: [{
           "name": "Home",
           "href": dummyURL,
           "isActive": true
@@ -67,7 +68,9 @@ block main
 
   .m-t-40
     +header({ isLoggedIn: true })
-      +menu({ theme: 'wide', items: [{
+      +menu({
+        theme: 'wide', 
+        items: [{
           "name": "Home",
           "href": dummyURL,
           "isActive": true
@@ -118,8 +121,10 @@ block main
 
   .m-t-39
     +footer
-      +footer-about('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.')
-      +footer-menu('Navigation')
+      +footer-about({
+        text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'
+      })
+      +footer-menu({title: 'Navigation'})
         +menu({
           isVertical: true,
           items: [{
@@ -143,7 +148,7 @@ block main
               "isActive": false
           }],
         })
-      +footer-menu('About us')
+      +footer-menu({title: 'About us'})
         +menu({
           isVertical: true,
           items: [{
@@ -167,7 +172,7 @@ block main
               "isActive": false
           }],
         })
-      +footer-menu('Support')
+      +footer-menu({title: 'Support'})
         +menu({
           isVertical: true,
           items: [{
@@ -186,10 +191,15 @@ block main
               "isActive": false
           }],
         })
-      +footer-subscription('Subscribe to our newsletter', 'Receive our latest news and promotions in your inbox!')
+      +footer-subscription({
+        title: 'Subscribe to our newsletter', 
+        text: 'Receive our latest news and promotions in your inbox!'
+      })
 
   .m-t-3
-    +copyright('Copyright © 2018 Toxin UI Kit. All rights reserved.')
+    +copyright({text: 'Copyright © 2018 Toxin UI Kit. All rights reserved.'})
 
   .m-t-36
-    +footer-creative('Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.')
+    +footer-creative({
+      text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'
+    })

@@ -1,7 +1,7 @@
-mixin footer-creative(text = '')
+mixin footer-creative({text = ''} = {})
   include /components/social-icons/social-icons.pug
 
-  footer.footer-creative
+  footer.footer-creative('data-footer-creative' = true)
     .footer-creative__wrapper
       .footer-creative__logo
         include /assets/img/logo.svg

@@ -1,6 +1,6 @@
 import { pluralize } from '../../utils';
 
-export class Counter {
+class Counter {
   constructor(el) {
     const cls = Counter.getBaseCSSClass();
     this.el = el;
@@ -109,3 +109,5 @@ export class Counter {
     this.btnInc.removeAttribute('disabled');
   }
 }
+
+export { Counter };

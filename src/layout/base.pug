@@ -1,3 +1,5 @@
+doctype html
+
 block variables
   - var pageTitle = 'toxin'
   - var bodyClass = ''
@@ -7,7 +9,6 @@ block parts
   include /components/footer/footer.pug
   include /components/copyright/copyright.pug
 
-doctype html
 html
   head
     block head
@@ -39,11 +40,11 @@ html
       include /assets/sprites/icons-sprite.svg
     
     block header
-      +header
+      //- +header
 
     main.main
       block main
 
     block footer
-      +footer
-      +copyright
+      //- +footer
+      //- +copyright
