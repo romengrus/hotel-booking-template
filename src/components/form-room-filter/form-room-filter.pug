@@ -1,9 +1,10 @@
 mixin form-room-filter
+  include /components/filter-dates/filter-dates.pug
+
   .form-room-filter
     +form
       .form-room-filter__dates
-        +label({ value: 'Даты пребывания в отеле', pos: 'top', theme: ['bold', 'upper'] }) 
-          +datepicker({ mode: 'range' })(placeholder='ДД М - ДД М')
+        +filter-dates
 
       .form-room-filter__guests
         +label({ value: 'Гости', pos: 'top', theme: ['bold', 'upper'] }) 

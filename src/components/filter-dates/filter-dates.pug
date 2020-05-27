@@ -1,0 +1,7 @@
+mixin filter-dates
+  include /components/label/label.pug
+  include /components/datepicker/datepicker.pug
+
+  .filter-dates
+    +label({ value: 'Даты пребывания в отеле', pos: 'top', theme: ['bold', 'upper'] }) 
+      +datepicker({ mode: 'range' })(placeholder='ДД М - ДД М')
