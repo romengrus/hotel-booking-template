@@ -2,14 +2,14 @@ import { pluralize } from '../../utils';
 
 class DropdownCounter {
   constructor(el) {
-    const cls = DropdownCounter.getBaseCSSClass();
+    const id = DropdownCounter.getID();
     this.el = el;
-    this.input = el.querySelector(`${cls}__value`);
-    this.inputAlt = el.querySelector(`${cls}__value-alt input`);
-    this.toggler = el.querySelector(`${cls}__toggler`);
-    this.ok = el.querySelector(`${cls}__ok`);
-    this.reset = el.querySelector(`${cls}__reset`);
-    this.counters = el.querySelectorAll(`${cls}__content [data-counter]`);
+    this.input = el.querySelector(`[data-${id}-value]`);
+    this.inputAlt = el.querySelector(`[data-${id}-alt]`);
+    this.toggler = el.querySelector(`[data-${id}-toggler]`);
+    this.ok = el.querySelector(`[data-${id}-ok]`);
+    this.reset = el.querySelector(`[data-${id}-reset]`);
+    this.counters = el.querySelectorAll(`[data-${id}-ok]`);
     this.resultType = el.dataset.resultType;
     this.plurals = JSON.parse(el.dataset.plurals);
     this._model = new Map();
@@ -18,20 +18,11 @@ class DropdownCounter {
     this.updateDOM();
   }
 
-  static getBaseCSSClass() {
-    return '.dropdown-counter';
+  static getID() {
+    return 'dropdown-counter';
   }
 
   init() {
-    // const initialModel = this.countersProps.map(counter => {
-    //   const { id, plurals, value } = counter;
-    //   const numValue = value ? parseInt(value, 10) : 0;
-    //   const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
-
-    //   return [id, { numValue, strValue }];
-    // });
-    // this._model = new Map(initialModel);
-
     this._attachEventHandlers();
   }
 
@@ -99,15 +90,6 @@ class DropdownCounter {
   _handleResetClick(e) {
     e.preventDefault();
 
-    // reset model
-    // const model = this.countersProps.map(counter => {
-    //   const { id, plurals } = counter;
-    //   const numValue = 0;
-    //   const strValue = `${numValue} ${pluralize(numValue, plurals)}`;
-
-    //   return [id, { numValue, strValue }];
-    // });
-    // this._model = new Map(model);
     this._model = new Map();
 
     // reset counters

@@ -18,23 +18,23 @@ mixin dropdown-counter({resultType = 'total', plurals = [], icon = 'semi-arrow-d
   
   div(
     class = classList, 
-    'data-dropdown-counter' = true,
-    'data-counters' = counters, 
-    'data-result-type' = resultType, 
-    'data-plurals' = plurals
+    data-dropdown-counter,
+    data-counters = counters, 
+    data-result-type = resultType, 
+    data-plurals = plurals
   )
-    .dropdown-counter__value
+    .dropdown-counter__value(data-dropdown-counter-value)
       +field(type = 'text', hidden = true)
     .dropdown-counter__value-alt
-      +field(type = 'text')&attributes(attributes)
-      .dropdown-counter__toggler
+      +field(type = 'text', data-dropdown-counter-alt)&attributes(attributes)
+      .dropdown-counter__toggler(data-dropdown-counter-toggler)
         +icon({ name: 'semi-arrow-up', size: 'small' })
     .dropdown-counter__content
       if block
         block
       .dropdown-counter__actions
         .dropdown-counter__reset
-          +button({ isTextOnly: true }) Очистить
+          +button({ isTextOnly: true })(data-dropdown-counter-reset) Очистить
         .dropdown-counter__ok
-          +button({ isTextOnly: true }) Применить
+          +button({ isTextOnly: true })(data-dropdown-counter-ok) Применить
 

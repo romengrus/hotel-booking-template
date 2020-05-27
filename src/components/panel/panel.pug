@@ -15,17 +15,17 @@ mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
 
   div(
     class = classList, 
-    'data-panel' = true,
-    'data-is-collapsible' = isCollapsible
+    data-panel,
+    data-is-collapsible = isCollapsible
   )
-    .panel__header
+    .panel__header(data-panel-header)
       .panel__title= title 
 
       if (isCollapsible)
-        .panel__toggler
+        .panel__toggler(data-panel-toggler)
           +icon({ name: icon, size: 'small' })
 
-    .panel__body
+    .panel__body(data-panel-body)
       if block
         block
 

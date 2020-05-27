@@ -18,24 +18,24 @@ mixin datepicker({dates = [], mode = 'single', isRequired, isOpened} = {})
 
     if (isOpened) classList.push('datepicker_is-opened');
 
-  div(class = classList, 'data-datepicker' = true)
+  div(class = classList, data-datepicker)
     .datepicker__input
       +field( 
         type = 'text', 
         required = isRequired,
         placeholder = 'ДД.ММ.ГГГГ',
-        'data-datepicker' = true,
-        'data-dates' = dates, 
-        'data-mode' = mode, 
-        'data-is-opened' = isOpened,
+        data-datepicker-input,
+        data-dates = dates, 
+        data-mode = mode, 
+        data-is-opened = isOpened,
       )&attributes(attributes)
-    .datepicker__toggler
+    .datepicker__toggler(data-datepicker-toggler)
       +icon({ name: 'semi-arrow-up', size: 'small' })
     div(style = "display: none")
-      button.datepicker__prev
+      button.datepicker__prev(data-datepicker-prev)
         +icon({ name: 'arrow-left' })
-      button.datepicker__next
+      button.datepicker__next(data-datepicker-next)
         +icon({ name: 'arrow-right' })
-      .datepicker__actions
-        button.datepicker__reset Очистить
-        button.datepicker__ok Применить
+      .datepicker__actions(data-datepicker-actions)
+        button.datepicker__reset(data-datepicker-reset) Очистить
+        button.datepicker__ok(data-datepicker-ok) Применить

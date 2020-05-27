@@ -1,16 +1,16 @@
 class Panel {
   constructor(el) {
-    this.cls = Panel.getBaseCSSClass();
+    const id = Panel.getID();
     this.el = el;
-    this.toggler = el.querySelector(`${this.cls}__toggler`);
-    this.header = el.querySelector(`${this.cls}__header`);
-    this.body = el.querySelector(`${this.cls}__body`);
+    this.toggler = el.querySelector(`[data-${id}-toggler]`);
+    this.header = el.querySelector(`[data-${id}-header]`);
+    this.body = el.querySelector(`[data-${id}-body]`);
     this.isCollapsible = 'isCollapsible' in el.dataset;
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.panel';
+  static getID() {
+    return 'panel';
   }
 
   init() {

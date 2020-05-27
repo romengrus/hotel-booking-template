@@ -13,7 +13,7 @@ mixin room-card({room = '', price = '', currency = '₽', rating = 5, numReviews
     const classList = ['room-card']
     if (isLux) classList.push('room-card_is-lux')
 
-  div(class = classList, 'data-room-card' = true)
+  div(class = classList, data-room-card)
     if (block)
       .room-card__media
         block
@@ -24,7 +24,7 @@ mixin room-card({room = '', price = '', currency = '₽', rating = 5, numReviews
         if (isLux)
           span.room-card__lux-indicator люкс
       .room-card__price-details 
-        span.room-card__price= price
+        span.room-card__price(data-room-card-price)= price
         span.room-card__currency= currency
         | в сутки
 

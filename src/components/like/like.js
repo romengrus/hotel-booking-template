@@ -1,9 +1,9 @@
 class Like {
   constructor(el) {
-    const cls = Like.getBaseCSSClass();
+    const id = Like.getID();
     this.el = el;
-    this.display = el.querySelector(`${cls}__display`);
-    this.icon = el.querySelector('.icon > use');
+    this.display = el.querySelector(`[data-${id}-display]`);
+    this.icon = el.querySelector(`[data-${id}-icon] > use`);
     this.value = parseInt(el.dataset.value, 10);
     this.objectId = el.dataset.objectId;
     this.hasVoted = !!el.dataset.hasVoted;
@@ -12,8 +12,8 @@ class Like {
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.button-like';
+  static getID() {
+    return 'like';
   }
 
   init() {

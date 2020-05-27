@@ -2,12 +2,12 @@ import { pluralize } from '../../utils';
 
 class Counter {
   constructor(el) {
-    const cls = Counter.getBaseCSSClass();
+    const id = Counter.getID();
     this.el = el;
-    this.input = el.querySelector(`${cls}__input`);
-    this.display = el.querySelector(`${cls}__display`);
-    this.btnInc = el.querySelector(`${cls}__button-inc`);
-    this.btnDec = el.querySelector(`${cls}__button-dec`);
+    this.input = el.querySelector(`[data-${id}-input]`);
+    this.display = el.querySelector(`[data-${id}-display]`);
+    this.btnInc = el.querySelector(`[data-${id}-inc]`);
+    this.btnDec = el.querySelector(`[data-${id}-dec]`);
     this.value = this.input.value || 0;
     this.label = el.dataset.label || '';
     this.plurals = JSON.parse(el.dataset.plurals) || [];
@@ -18,8 +18,8 @@ class Counter {
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.counter';
+  static getID() {
+    return 'counter';
   }
 
   init() {

@@ -4,5 +4,9 @@ mixin subscription
   include /components/form/form.pug
   include /components/field/field.pug
 
-  .subscription('data-subscription' = true)
-    +field({ icon: 'arrow-right' })(type = 'email', required, placeholder = 'email')
+  .subscription(data-subscription)
+    +field({ icon: 'arrow-right' })(
+      type = 'email', 
+      required, 
+      placeholder = 'email'
+    )

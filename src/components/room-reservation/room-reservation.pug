@@ -29,7 +29,7 @@ mixin room-reservation(props = {})
     const classList = ['room-reservation']
     if (isLux) classList.push('room-reservation_is-lux')
 
-  div(class = classList)
+  div(class = classList, data-room-reservation)
     +form
       .room-reservation__row
         .room-reservation__room-details №
@@ -42,10 +42,10 @@ mixin room-reservation(props = {})
           | в сутки
 
       .room-reservation__dates
-        .room-reservation__arrival
+        .room-reservation__arrival(data-room-reservation-arrival)
           +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
             +datepicker(placeholder = 'ДД.ММ.ГГ')
-        .room-reservation__departure
+        .room-reservation__departure(data-room-reservation-departure)
           +label({ value: labels.departure, pos: 'top', theme: ['bold', 'upper'] })
             +datepicker(placeholder = 'ДД.ММ.ГГ')
 

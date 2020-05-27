@@ -2,19 +2,20 @@ import { debounce } from '../../utils';
 
 class Rating {
   constructor(el) {
-    this.cls = Rating.getBaseCSSClass();
+    const id = Rating.getID();
     this.el = el;
-    this.icons = el.querySelectorAll(`${this.cls} .icon > use`);
+    this.icons = el.querySelectorAll(`[data-${id}-icon] [data-icon-img]`);
     this.isPartial = 'isPartial' in el.dataset;
     this.value = parseFloat(el.dataset.value || 0);
     this.iEmpty = el.dataset.iEmpty || 'star';
     this.iFilled = el.dataset.iFilled || 'star-active';
     this.iHalf = el.dataset.iHalf || 'star-half';
+    console.log(this.icons);
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.rating';
+  static getID() {
+    return 'rating';
   }
 
   init() {

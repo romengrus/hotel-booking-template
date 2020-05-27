@@ -54,8 +54,8 @@ class Form {
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.form';
+  static getID() {
+    return 'form';
   }
 
   init() {

@@ -22,14 +22,14 @@ mixin button({type='button', href=dummyURL, size='', icon='', isRounded=true, is
     if (isTextOnly) classList.push('button_is-text-only')
 
   if (type === 'button')
-    button(class = classList, disabled = isDisabled, 'data-button' = true)
+    button(class = classList, disabled = isDisabled, data-button)&attributes(attributes)
       if block
         block
       if icon
         .button__icon
           +icon({ name: icon })
   else
-    a(class = classList, href = href, 'data-button' = true)
+    a(class = classList, href = href, data-button)&attributes(attributes)
       if block
         block
       if icon

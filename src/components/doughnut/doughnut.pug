@@ -22,7 +22,7 @@ mixin doughnut({data = []} = {})
     var chartStyle = ''
     chartStyle += `--doughnut-stroke-width: ${strokeWidth};`
 
-  figure.doughnut('data-doughnut' = true, 'data-chart-data' = data)
+  figure.doughnut(data-doughnut, data-chart-data = data)
     div(class= 'doughnut__display', style= chartStyle)
       svg(width= '100%', height= '100%', viewBox= `0 0 ${cx * 2} ${cy * 2}`)
         circle(
@@ -46,6 +46,7 @@ mixin doughnut({data = []} = {})
           circle(
             class= "doughnut__segment" 
             id= `doughnut__segment-${index}` 
+            data-doughnut-segment,
             data-segment-index= index,
             cx= cx
             cy= cy
@@ -58,8 +59,8 @@ mixin doughnut({data = []} = {})
           - prevSegmentsLength += segmentLength
 
         g.doughnut__text
-          text(x="50%" y="50%" class="doughnut__header")= total
-          text(x="50%" y="50%" class="doughnut__subheader") голосов
+          text(x="50%", y="50%", class="doughnut__header", data-doughnut-header)= total
+          text(x="50%", y="50%", class="doughnut__subheader", data-doughnut-subheader) голосов
 
     figcaption.doughnut__legend
       ul.doughnut__labels
@@ -70,5 +71,6 @@ mixin doughnut({data = []} = {})
           li(
             class= 'doughnut__label', 
             id= `doughnut__label-${index}`, 
+            data-doughnut-label,
             data-segment-index= index, 
             style= labelStyle)= segment.label

@@ -6,6 +6,6 @@ mixin list({items = [], isOrdered = false} = {})
   -
     const tag = isOrdered ? 'ol' : 'ul'
 
-  #{tag}.list('data-list' = true)
+  #{tag}.list(data-list)
     each item in items
       li.list__item= item

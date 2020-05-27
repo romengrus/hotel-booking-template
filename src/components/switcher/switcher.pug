@@ -3,7 +3,7 @@
 //- name        string ('') - name attribute for underlying input element
 //- isOn        boolean (false) - If true - switcher is turned on
 mixin switcher({name = '', isOn = false} = {})
-  .switcher('data-switcher' = true)
+  .switcher(data-switcher)
     label
       input(class = 'switcher__input', type = 'checkbox', name = name, checked = isOn)
       span.switcher__display

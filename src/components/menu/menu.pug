@@ -23,7 +23,7 @@ mixin menu({items = [], isVertical = false, level = 0, theme = []} = {})
     if (isVertical) classList.push('menu_is-vertical');
     if (themes)     classList.push(themes.map(t => `menu_is-${t}`));
   
-  ul(class = classList, 'data-menu' = level === 0 ? true : false)
+  ul(class = classList, data-menu = level === 0 ? true : false)
     each item in items
       - const itemClassList = ['menu__item'];
       - const linkClassList = ['menu__link'];

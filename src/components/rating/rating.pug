@@ -12,13 +12,13 @@ mixin rating({value = 0, total = 5, isPartial = false} = {})
     const iHalf = 'star-half-active';
 
   .rating(
-    'data-rating' = true,
-    'data-value' = value,
-    'data-is-partial' = isPartial,
-    'data-icon-empty' = iEmpty,
-    'data-icon-filled' = iFilled,
-    'data-icon-half' = iHalf,
+    data-rating,
+    data-value = value,
+    data-is-partial = isPartial,
+    data-icon-empty = iEmpty,
+    data-icon-filled = iFilled,
+    data-icon-half = iHalf,
   )
     - for (let i = 0; i < total; i += 1)
-      .rating__icon
+      .rating__icon(data-rating-icon)
         +icon({ name: iEmpty, size: 'big' })

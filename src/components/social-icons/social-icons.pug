@@ -4,7 +4,7 @@
 mixin social-icons({icons = ['twitter', 'facebook', 'instagram']} = {})
   include /components/icon/icon.pug
 
-  .social-icons('data-social-icons' = true)
+  .social-icons(data-social-icons)
     each icon in icons
       a(class= 'social-icons__link', href= dummyURL)
         +icon({name: icon, size: 'big'})

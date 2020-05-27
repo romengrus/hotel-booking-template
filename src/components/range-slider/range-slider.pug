@@ -5,13 +5,14 @@
 mixin range-slider({showValue = true, params = {}} = {})
   include /components/field/field.pug
 
-  .range-slider('data-range-slider' = true)
+  .range-slider(data-range-slider)
     .range-slider__input
       +field(
         id = createRandomId('range-slider'),
         hidden = true,
-        'data-params' = params,
-        'data-show-value' = showValue,
+        data-range-slider-input,
+        data-params = params,
+        data-show-value = showValue,
       )&attributes(attributes)
 
-    .range-slider__slider
+    .range-slider__slider(data-range-slider-slider)

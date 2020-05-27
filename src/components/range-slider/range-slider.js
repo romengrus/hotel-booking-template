@@ -3,17 +3,17 @@ import wNumb from 'wnumb';
 
 class RangeSlider {
   constructor(el) {
-    this.cls = RangeSlider.getBaseCSSClass();
+    const id = RangeSlider.getID();
     this.el = el;
-    this.sliderEl = el.querySelector(`${this.cls}__slider`);
-    this.input = el.querySelector(`${this.cls}__input input`);
+    this.sliderEl = el.querySelector(`[data-${id}-slider]`);
+    this.input = el.querySelector(`[data-${id}-input]`);
     this.params = JSON.parse(this.input.dataset.params);
     this.slider = null;
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.range-slider';
+  static getID() {
+    return 'range-slider';
   }
 
   init() {

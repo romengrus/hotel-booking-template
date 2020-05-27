@@ -4,7 +4,7 @@ mixin footer
   include /components/footer-subscription/footer-subscription.pug
   include /components/menu/menu.pug
 
-  footer.footer('data-footer' = true)
+  footer.footer(data-footer)
     .footer__wrapper
       if block
         block

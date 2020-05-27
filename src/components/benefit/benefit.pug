@@ -6,7 +6,7 @@
 mixin benefit({icon = '', title = '', desc = ''} = {})
   include /components/icon/icon.pug
 
-  .benefit('data-benefit')
+  .benefit(data-benefit)
     if (icon)
       .benefit__aside
         +icon({ name: icon })

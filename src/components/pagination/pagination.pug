@@ -71,7 +71,7 @@ mixin pagination({current = 1, perPage = 10, total = 0, delta = 2} = {})
           || (page === current + delta + 1);
     }
   
-  .pagination('data-pagination' = true)
+  .pagination(data-pagination)
     if (lastPage > 1)
       .pagination__listing
         //- prev arrow

@@ -3,18 +3,18 @@ import RangePlugin from 'flatpickr/dist/plugins/rangePlugin';
 
 class FormRoomSearch {
   constructor(el) {
-    this.cls = FormRoomSearch.getBaseCSSClass();
+    this.id = FormRoomSearch.getID();
     this.el = el;
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.form-room-search';
+  static getID() {
+    return 'room-search';
   }
 
   init() {
-    const arrival = this.el.querySelector(`${this.cls}__arrival [data-datepicker]`);
-    const departure = this.el.querySelector(`${this.cls}__departure [data-datepicker]`);
+    const arrival = this.el.querySelector(`[data-${this.id}-arrival] [data-datepicker]`);
+    const departure = this.el.querySelector(`[data-${this.id}-departure] [data-datepicker]`);
 
     arrival._flatpickr.destroy();
     departure._flatpickr.destroy();

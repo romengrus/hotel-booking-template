@@ -14,15 +14,15 @@ mixin room-search
       guests: 'Гости',
     };
 
-  .room-search
+  .room-search(data-room-search)
     +form
       h2.room-search__title= labels.title
 
       .room-search__dates
-        .room-search__arrival
+        .room-search__arrival(data-room-search-arrival)
           +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
             +datepicker
-        .room-search__departure
+        .room-search__departure(data-room-search-departure)
           +label({ value: labels.departure, pos: 'top', theme: ['bold', 'upper'] }) 
             +datepicker
 

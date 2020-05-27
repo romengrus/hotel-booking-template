@@ -19,7 +19,7 @@ mixin hero({bgImg = '', info = '', size = '', hPos = 'center', vPos = 'center'} 
       'justify-content': getPos(hPos),
     }
 
-  div(class = classList, style = heroStyle, 'data-hero' = true)
+  div(class = classList, style = heroStyle, data-hero)
     if (block)
       .hero__content
         block

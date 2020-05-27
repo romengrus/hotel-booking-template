@@ -1,17 +1,17 @@
 class Doughnut {
   constructor(el) {
-    const cls = Doughnut.getBaseCSSClass();
+    const id = Doughnut.getID();
     this.el = el;
-    this.chartData = JSON.parse(this.el.getAttribute('data-chart-data'));
-    this.segments = el.querySelectorAll(`${cls}__segment`);
-    this.labels = el.querySelectorAll(`${cls}__label`);
-    this.header = el.querySelector(`${cls}__header`);
+    this.chartData = JSON.parse(this.el.getAttribute(`data-chart-data`));
+    this.segments = el.querySelectorAll(`[data-${id}-segment]`);
+    this.labels = el.querySelectorAll(`[data-${id}-label]`);
+    this.header = el.querySelector(`[data-${id}-header]`);
     this.total = this.chartData.map(v => v.value).reduce((a, b) => a + b, 0);
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.doughnut';
+  static getID() {
+    return 'doughnut';
   }
 
   init() {

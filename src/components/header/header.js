@@ -1,15 +1,15 @@
 class Header {
   constructor(el) {
-    this.cls = Header.getBaseCSSClass();
+    const id = Header.getID();
     this.el = el;
-    this.menu = el.querySelector(`${this.cls}__menu`);
-    this.menuToggler = el.querySelector(`${this.cls}__menu-toggler`);
-    this.menuClose = el.querySelector(`${this.cls}__menu-close`);
+    this.menu = el.querySelector(`[data-${id}-menu]`);
+    this.menuToggler = el.querySelector(`[data-${id}-menu-toggler]`);
+    this.menuClose = el.querySelector(`[data-${id}-menu-close]`);
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.header';
+  static getID() {
+    return 'header';
   }
 
   init() {

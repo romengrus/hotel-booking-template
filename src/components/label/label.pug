@@ -15,7 +15,7 @@ mixin label({value = [], desc = [], pos = 'right', theme = []} = {})
     if (pos)    classList.push(`label_pos-${pos}`);
     if (theme)  classList.push(themes.map(t => `label_theme-${t}`));
 
-  label(class = classList, 'data-label' = true)
+  label(class = classList, data-label)
     .label__block
       if block
         block

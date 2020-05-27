@@ -10,7 +10,7 @@ export * from './panel/panel';
 export * from './dropdown-counter/dropdown-counter';
 export * from './doughnut/doughnut';
 
-// compound components
+// // compound components
 export * from './room-card/room-card';
 export * from './subscription/subscription';
 export * from './form-room-search/form-room-search';

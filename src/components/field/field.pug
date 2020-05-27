@@ -4,7 +4,7 @@
 mixin field({icon = ''} = {})
   include /components/icon/icon.pug
 
-  .field('data-field' = true)
+  .field(data-field)
     input.field__input&attributes(attributes)
     if icon
       .field__icon

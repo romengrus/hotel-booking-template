@@ -23,8 +23,8 @@ mixin slider({slides = [], params = {}, showPagination = false, showNavigation =
       })
     } 
 
-  .slider('data-slider' = true)
-    .swiper-container('data-params' = params)
+  .slider(data-slider)
+    .swiper-container(data-params = params, data-slider-container)
       .swiper-wrapper
         each slide in slides
           if 'img' in slide

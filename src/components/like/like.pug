@@ -12,11 +12,11 @@ mixin like({value = 0, hasVoted = false} = {})
     const icon = hasVoted ? iLike : iDislike
   
   .like(
-    'data-like' = true,
-    'data-value' = value, 
-    'data-has-voted' = hasVoted,
-    'data-icon-like' = iLike,
-    'data-icon-dislike' = iDislike
+    data-like,
+    data-value = value, 
+    data-has-voted = hasVoted,
+    data-icon-like = iLike,
+    data-icon-dislike = iDislike
   )
-    +icon({ name: icon })
-    span.like__display= value
+    +icon({ name: icon })(data-like-icon)
+    span.like__display(data-like-display)= value

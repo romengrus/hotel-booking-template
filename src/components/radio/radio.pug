@@ -3,7 +3,7 @@
 //- name        string ('') - name attribute for underlying input element
 //- isChecked   boolean (false) - If true - radio is rendered as checked
 mixin radio({name = '', isChecked = false} = {})
-  .radio('data-radio' = true)
+  .radio(data-radio)
     label
       input(class = 'radio__input', type = 'radio', name = name, checked = isChecked)
       span.radio__custom

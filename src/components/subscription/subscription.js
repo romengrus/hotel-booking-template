@@ -1,13 +1,13 @@
 class Subscription {
   constructor(el) {
     this.el = el;
-    this.form = el.querySelector('.form');
-    this.icon = el.querySelector('.icon');
+    this.form = el.querySelector(`[data-form]`);
+    this.icon = el.querySelector(`[data-icon]`);
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.subscription';
+  static getID() {
+    return 'subscription';
   }
 
   init() {

@@ -1,13 +1,13 @@
 class RoomCard {
   constructor(el) {
     this.el = el;
-    this.cls = RoomCard.getBaseCSSClass();
+    this.id = RoomCard.getID();
 
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.room-card';
+  static getID() {
+    return 'room-card';
   }
 
   init() {
@@ -15,8 +15,7 @@ class RoomCard {
   }
 
   _formatRoomPrice() {
-    const priceSelector = `${this.cls}__price`;
-    const priceEl = this.el.querySelector(priceSelector);
+    const priceEl = this.el.querySelector(`[data-${this.id}-price]`);
     const price = priceEl.textContent;
 
     priceEl.textContent = parseFloat(price).toLocaleString('ru');

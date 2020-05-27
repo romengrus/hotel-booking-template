@@ -3,16 +3,16 @@ import flatpickr from 'flatpickr';
 
 class Datepicker {
   constructor(el) {
-    this.cls = Datepicker.getBaseCSSClass();
+    this.id = Datepicker.getID();
     this.el = el;
-    this.input = el.querySelector(`${this.cls}__input input[type="text"]`);
-    this.toggler = el.querySelector(`${this.cls}__toggler`);
+    this.input = el.querySelector(`[data-${this.id}-input]`);
+    this.toggler = el.querySelector(`[data-${this.id}-toggler]`);
     this.datepicker = null;
     this.init();
   }
 
-  static getBaseCSSClass() {
-    return '.datepicker';
+  static getID() {
+    return 'datepicker';
   }
 
   init() {
@@ -20,11 +20,11 @@ class Datepicker {
   }
 
   _createDatepicker() {
-    const next = this.el.querySelector(`${this.cls}__next`);
-    const prev = this.el.querySelector(`${this.cls}__prev`);
-    const actions = this.el.querySelector(`${this.cls}__actions`);
-    const reset = actions.querySelector(`${this.cls}__reset`);
-    const ok = actions.querySelector(`${this.cls}__ok`);
+    const next = this.el.querySelector(`[data-${this.id}-next]`);
+    const prev = this.el.querySelector(`[data-${this.id}-prev]`);
+    const actions = this.el.querySelector(`[data-${this.id}-actions]`);
+    const reset = actions.querySelector(`[data-${this.id}-reset]`);
+    const ok = actions.querySelector(`[data-${this.id}-ok]`);
 
     const dates = JSON.parse(this.input.dataset.dates) || [];
     const mode = this.input.dataset.mode || 'single';
