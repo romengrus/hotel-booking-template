@@ -127,29 +127,24 @@ block main
         .m-t-43
           +form-element('buttons')
             .df.m-t-14
-              +button({ isRounded: true }) click me
+              +button click me
               .m-l-18
-                +button({ isRounded: true, isDisabled: true }) click me
+                +button({isDisabled: true}) click me
             .df.m-t-30
-              +button({ isOutlined: true }) click me
+              +button({isOutlined: true}) click me
               .m-l-18
-                +button({ isOutlined: true, isDisabled: true }) click me
+                +button({isOutlined: true, isDisabled: true}) click me
             .df.m-t-18(style = 'margin-left: -19px;')
-              +button({ isTextOnly: true }) click me
+              +button({isTextOnly: true}) click me
               div(style = 'margin-left: -19px;')
-                +button({ isTextOnly: true, isDisabled: true }) click me
+                +button({isTextOnly: true, isDisabled: true}) click me
             .m-t-14
-              +button({ icon: 'arrow-right-light', isRounded: true, isExpanded: true }) Перейти к оплате
+              +button({icon: 'arrow-right-light', isRounded: true, isExpanded: true}) Перейти к оплате
 
         .m-t-39
           +form-element('pagination')
             .m-t-4.p-r-78
-              +pagination({
-                total: 150, 
-                perPage: 10, 
-                current: 1, 
-                label: '${idxFrom} - ${idxTo} из ${approximately(totalItems)} вариантов аренды'
-              })
+              +pagination({ total: 150, perPage: 10, current: 1 })
 
     .form-elements__row.form-elements__row-b
       .form-elements__col.form-elements__col-b1
@@ -286,17 +281,9 @@ block main
 
     .form-elements__row.form-elements__row-d
       .form-elements__col.form-elements__col-d1
-        +benefit(
-          icon  = 'emoticon-happy'
-          title = 'Комфорт'
-          desc  = 'Шумопоглощающие стены'
-        )
+        +benefit({icon: 'emoticon-happy', title: 'Комфорт', desc: 'Шумопоглощающие стены'})
         .m-t-12
-          +benefit(
-            icon  = 'location-city'
-            title = 'Удобство'
-            desc  = 'Окно в каждой из спален'
-          )
+          +benefit({icon: 'location-city', title: 'Удобство', desc: 'Окно в каждой из спален'})
 
       .form-elements__col.form-elements__col-d2
         .m-t-27

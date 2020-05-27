@@ -8,10 +8,8 @@
 //--- }
 //-
 //- Was build with the help of this article: https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72
-mixin doughnut(props = {})
+mixin doughnut({data = []} = {})
   -
-    const { data } = Object.assign({ data: [] }, props);
-
     var gap = 0.5
     var circumference = 100
     var radius = circumference / (2 * 3.14159265358)

@@ -9,8 +9,8 @@ mixin footer
       if block
         block
       else
-        +footer-about('Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»')
-        +footer-menu('навигация')
+        +footer-about({text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'})
+        +footer-menu({title: 'навигация'})
           +menu({
             isVertical: true,
             items: [{
@@ -34,7 +34,7 @@ mixin footer
                 "isActive": false
             }],
           })
-        +footer-menu('о нас')
+        +footer-menu({title: 'о нас'})
           +menu({
             isVertical: true,
             items: [{
@@ -58,7 +58,7 @@ mixin footer
                 "isActive": false
             }],
           })
-        +footer-menu('служба поддержки')
+        +footer-menu({title: 'служба поддержки'})
           +menu({
             isVertical: true,
             items: [{

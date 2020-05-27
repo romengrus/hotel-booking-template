@@ -1,10 +1,7 @@
 //- Hamburger menu
 //-
 //- bars  number (3) - Number of bars
-mixin hamburger(props = {})
-  -
-    const { bars } = Object.assign({ bars: 3 }, props);
-
+mixin hamburger({bars = 3} = {})
   button.hamburger('data-hamburger' = true)
     - let i = 0;
     while i < bars

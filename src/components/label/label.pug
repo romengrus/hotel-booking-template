@@ -4,15 +4,8 @@
 //- desc      oneOf (array of strings | string) - If array is provided - each item is rendered on separate line 
 //- pos       oneOf ('top' | 'right' | 'left') - Position relative to inner block
 //- theme     setOf ('bold' | 'upper') - label design theme
-mixin label(props = {})
+mixin label({value = [], desc = [], pos = 'right', theme = []} = {})
   -
-    const { value, desc, pos, theme } = Object.assign({
-      value: [],
-      desc: [],
-      pos: 'right',
-      theme: [],
-    }, props);
-
     const classList = ['label'];
 
     const themes = [].concat(theme);

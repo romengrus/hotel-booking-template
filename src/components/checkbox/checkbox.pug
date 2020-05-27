@@ -2,13 +2,7 @@
 //-
 //- name        string ('') - name attribute for underlying input element
 //- isChecked   boolean (false) - If true - checkbox is rendered as checked
-mixin checkbox(props = {})
-  -
-    const { name, isChecked  } = Object.assign({ 
-      name: '',
-      isChecked: false,
-    }, props);
-
+mixin checkbox({name = '', isChecked = false} = {})
   .checkbox('data-checkbox' = true)
     label
       input(class = 'checkbox__input', type = 'checkbox', name = name, checked = isChecked)

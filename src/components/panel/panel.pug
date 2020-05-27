@@ -3,16 +3,10 @@
 //- title           string ('') - Panel title
 //- isCollapsible   boolean (true) - If true - panel can collapse and expand. Toggle icon will be shown in this case
 //- isCollapsed     boolean (false) - If true - will render in collapsed state
-mixin panel(props = {})
+mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
   include /components/icon/icon.pug
 
   -
-    const { title, isCollapsible, isCollapsed } = Object.assign({
-      title: '',
-      isCollapsible: false,
-      isCollapsed: false,
-    }, props);
-
     const icon = 'semi-arrow-up';
 
     const classList = ['panel'];

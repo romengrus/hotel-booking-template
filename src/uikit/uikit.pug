@@ -49,7 +49,7 @@ block main
   section.showcase
     h2.showcase__title like button 
     .showcase__content
-      +like()
+      +like
       +like({ value: 100, hasVoted: true })
       +like({ value: 543, hasVoted: false })
 
@@ -58,16 +58,16 @@ block main
     .showcase__content
       h3.showcase__subtitle buttons
       .ui-buttons
-        +button({ isRounded: false }) click me
-        +button({ isRounded: false, isOutlined: true }) click me
-        +button({ type: 'link' })(title = 'External link', href = 'https://google.com') click me
-        +button({ isOutlined: true }) click me
-        +button({ isText: true }) click me
-        +button({ isDisabled: true }) перейти к оплате
-        +button({ isExpanded: true }) перейти к оплате
-        +button({ isExpanded: true, isOutlined: true, icon: 'arrow-right-light' }) перейти к оплате
-        +button({ icon: 'arrow-right-light' }) перейти к оплате
-        +button({ isOutlined: true, icon: 'arrow-right' }) перейти к оплате
+        +button click me
+        +button({isOutlined: true}) click me
+        +button({type: 'link', href: 'https://google.com'}) click me
+        +button({isOutlined: true}) click me
+        +button({isTextOnly: true}) click me
+        +button({isDisabled: true}) перейти к оплате
+        +button({isExpanded: true}) перейти к оплате
+        +button({isExpanded: true, isOutlined: true, icon: 'arrow-right-light'}) перейти к оплате
+        +button({icon: 'arrow-right-light'}) перейти к оплате
+        +button({isOutlined: true, icon: 'arrow-right'}) перейти к оплате
 
       h3.showcase__subtitle input text
       .ui-inputs
@@ -169,16 +169,8 @@ block main
   section.showcase
     h2.showcase__title benefit
     .showcase__content
-      +benefit(
-        icon  = 'emoticon-happy'
-        title = 'Комфорт'
-        desc  = 'Шумопоглощающие стены'
-      )
-      +benefit(
-        icon  = 'location-city'
-        title = 'Удобство'
-        desc  = 'Окно в каждой из спален'
-      )
+      +benefit({icon: 'emoticon-happy', title: 'Комфорт', desc: 'Шумопоглощающие стены'})
+      +benefit({icon: 'location-city', title: 'Удобство', desc: 'Окно в каждой из спален'})
 
   section.showcase
     h2.showcase__title panel
@@ -255,7 +247,7 @@ block main
   section.showcase
     h2.showcase__title Room Reservation
     .showcase__content
-      +form-room-reservation({ room: 666, price: 9900, isLux: true })
+      +form-room-reservation({room: 666, price: 9900, isLux: true})
 
   section.showcase
     h2.showcase__title Register Form

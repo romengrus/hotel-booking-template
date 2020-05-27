@@ -9,19 +9,20 @@ $list-bullet-color: #eee !default;
   text-align: left;
   text-transform: none;
   color: $list-color;
+  list-style: none;
 
   &__item {
     position: relative;
 
-    & + .list__item {
+    & + & {
       margin-top: 10px;
     }
   }
+}
 
-  &_unordered {
-    list-style: none;
-
-    .list__item::before {
+ul.list {
+  &__item {
+    &::before {
       content: '';
       position: absolute;
       top: 7px;
@@ -32,12 +33,13 @@ $list-bullet-color: #eee !default;
       background: $list-bullet-color;
     }
   }
+}
 
-  &_ordered {
-    list-style: none;
-    counter-reset: custom-ordered-list;
+ol.list {
+  counter-reset: custom-ordered-list;
 
-    .list__item::before {
+  &__item {
+    &::before {
       content: counter(custom-ordered-list) + '.';
       position: absolute;
       top: 0;

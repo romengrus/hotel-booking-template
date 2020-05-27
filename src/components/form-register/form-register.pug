@@ -53,12 +53,12 @@ mixin form-register
             +field(type = 'password', placeholder = labels.password, required = true)
 
       .form-register__newsletter
-        +label({ value: labels.newsletter })
-          +switcher({ name: 'newsletter'})
+        +label({value: labels.newsletter})
+          +switcher({name: 'newsletter'})
 
       .form-register__submit
-        +button({ icon: 'arrow-right-light', isExpanded: true })= labels.submit
+        +button({icon: 'arrow-right-light', isExpanded: true})= labels.submit
 
       .form-register__have-account
         span= labels.haveAccount
-        +button({ type: 'link', href: loginLink, isOutlined: true })= labels.login 
+        +button({type: 'link', isOutlined: true})= labels.login 

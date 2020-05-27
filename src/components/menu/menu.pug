@@ -3,33 +3,25 @@
 //- items         array ([]) - Menu items
 //--- item {
 //---   name      string ('') - Menu item name
-//---   href      string ('') - Menu item href
 //---   isActive  boolean (false) - Is this currently selected menu item
 //---   submenu   array ([]) - Array of submenu items 
 //--- }
 //- isVertical    boolean (false) - If true - menu items are positioned vertically
 //- level         number (0) - If greater then 0 - it is submenu
 //- theme         setOf ('wide') - theme to be applied 
-mixin menu(props = {})
+mixin menu({items = [], isVertical = false, level = 0, theme = []} = {})
   include /components/icon/icon.pug
 
   -
     const hasSubmenu = menuItem => Array.isArray(menuItem.submenu);
 
-    const { items, isVertical, level, theme } = Object.assign({
-      items: [], 
-      isVertical: false,
-      level: 0,
-      theme: []
-    }, props);
-
     const classList = ['menu'];
 
     const themes = [].concat(theme);
 
-    if (level > 0) classList.push('menu__submenu');
+    if (level > 0)  classList.push('menu__submenu');
     if (isVertical) classList.push('menu_is-vertical');
-    if (themes) classList.push(themes.map(t => `menu_is-${t}`));
+    if (themes)     classList.push(themes.map(t => `menu_is-${t}`));
   
   ul(class = classList, 'data-menu' = level === 0 ? true : false)
     each item in items
@@ -39,7 +31,7 @@ mixin menu(props = {})
       - if (item.isActive) linkClassList.push('menu__link_is-active');
 
       li(class = itemClassList)
-        a(class = linkClassList, href = item.href)= item.name
+        a(class = linkClassList, href = dummyURL)= item.name
         if (hasSubmenu(item))
           +icon({name: 'semi-arrow-down'})
-          +menu({orientation, items: item.submenu, level: level + 1})
+          +menu({items: item.submenu, isVertical, level: level + 1})

@@ -5,16 +5,8 @@
 //- size      oneOf ('small' | 'big')
 //- hPos      oneOf ('center' | 'start' | 'end') - position of inner content in horizontal axis
 //- vPos      oneOf ('center' | 'start' | 'end') - position of inner content in vertical axis
-mixin hero(props = {})
+mixin hero({bgImg = '', info = '', size = '', hPos = 'center', vPos = 'center'} = {})
   -
-    const { bgImg, info, size, hPos, vPos } = Object.assign({ 
-      bgImg: '', 
-      info: '',
-      size: '',
-      hPos: 'center',
-      vPos: 'center' 
-    }, props);
-
     const classList = ['hero'];
 
     if (size) classList.push(`hero_is-${size}`);

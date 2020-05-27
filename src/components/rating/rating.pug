@@ -3,16 +3,10 @@
 //- value             number (0) - Rating value
 //- total             number (5) - Number of icons to show
 //- isPartial         boolean (false) - If true - partial rating can be used, false - otherwise
-mixin rating(props = {}) 
+mixin rating({value = 0, total = 5, isPartial = false} = {}) 
   include /components/icon/icon.pug
 
   -
-    const { value, total, isPartial } = Object.assign({
-      value: 0, 
-      total: 5, 
-      isPartial: false
-    }, props);
-
     const iEmpty = 'star';
     const iFilled = 'star-active';
     const iHalf = 'star-half-active';

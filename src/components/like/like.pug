@@ -2,15 +2,10 @@
 //-
 //- value         number (0) - Number of likes
 //- hasVoted      boolean (false) - True if has state "liked", false otherwise
-mixin like(props = {})
+mixin like({value = 0, hasVoted = false} = {})
   include /components/icon/icon.pug
 
   -
-    const { value, hasVoted } = Object.assign({
-      value: 0, 
-      hasVoted: false
-    }, props);
-
     const iLike = 'hart-active';
     const iDislike = 'hart';
 

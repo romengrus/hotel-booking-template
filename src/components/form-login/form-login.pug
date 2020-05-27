@@ -1,7 +1,5 @@
 //- Login Form
-//-
-//- registerLink  string ('') - Link to register page
-mixin form-login(props = {})
+mixin form-login
   include /components/form/form.pug
   include /components/field/field.pug
   include /components/button/button.pug
@@ -31,8 +29,4 @@ mixin form-login(props = {})
 
       .form-login__have-account
         span= labels.haveAccount
-        +button({
-          type: 'link',
-          href: registerLink,
-          isOutlined: true,
-        })= labels.createAccount
+        +button({ type: 'link', isOutlined: true})= labels.createAccount

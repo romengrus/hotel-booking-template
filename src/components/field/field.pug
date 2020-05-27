@@ -1,11 +1,8 @@
 //- Form field
 //-
 //- icon    string ('') - icon to show inside
-mixin field(props = {})
+mixin field({icon = ''} = {})
   include /components/icon/icon.pug
-
-  -
-    const { icon } = Object.assign({ icon: '' }, props);
 
   .field('data-field' = true)
     input.field__input&attributes(attributes)

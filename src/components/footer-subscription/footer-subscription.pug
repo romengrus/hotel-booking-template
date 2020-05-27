@@ -1,4 +1,4 @@
-mixin footer-subscription(title = 'подписка', text = 'Получайте специальные предложения и новости сервиса')
+mixin footer-subscription({title = 'подписка', text = 'Получайте специальные предложения и новости сервиса'} = {})
   include /components/subscription/subscription.pug
 
   .footer-subscription('data-footer-subscription' = true)

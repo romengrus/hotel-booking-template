@@ -3,17 +3,8 @@
 //- createdAt   string ('') - when testimonial was created
 //- numLikes    number (0) - number of likes this testimonial has
 //- text        string ('') - testimonial text
-mixin testimonial(props = {})
+mixin testimonial({userImg = '', userName = '', createdAt = '', numLikes = 0, text = ''} = {})
   include /components/like/like.pug
-
-  -
-    const { userImg, userName, createdAt, numLikes, text } = Object.assign({
-      userImg: '', 
-      userName: '', 
-      createdAt: '', 
-      numLikes: 0, 
-      text: ''
-    }, props);
 
   section.testimonial('data-testimonial' = true)
     .testimonial__left-col

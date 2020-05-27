@@ -3,13 +3,8 @@
 //- icon    string ('') Icon name
 //- title   string ('') Header text
 //- desc    string ('') Description text
-mixin benefit(icon, title, desc)
+mixin benefit({icon = '', title = '', desc = ''} = {})
   include /components/icon/icon.pug
-
-  - 
-    icon  = icon  || attributes.icon;
-    title = title || attributes.title;
-    desc  = desc  || attributes.desc;
 
   .benefit('data-benefit')
     if (icon)

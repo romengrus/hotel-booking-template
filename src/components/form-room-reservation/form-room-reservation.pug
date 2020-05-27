@@ -3,7 +3,7 @@
 //- room          string ('') - room number
 //- isLux         boolean (false) - If true - number is of lux quality, false - otherwise
 //- price         number (0) - price per day
-mixin form-room-reservation(props = {})
+mixin form-room-reservation({room = '', isLux = false, price = 0} = {})
   include /components/form/form.pug
   include /components/label/label.pug
   include /components/datepicker/datepicker.pug
@@ -12,12 +12,6 @@ mixin form-room-reservation(props = {})
   include /components/button/button.pug
 
   -
-    const { room, isLux, price, currency } = Object.assign({
-      room: '',
-      isLux: false,
-      price: 0,
-    }, props);
-
     const labels = {
       submit: 'Забронировать',
       arrival: 'Прибытие',
@@ -95,4 +89,4 @@ mixin form-room-reservation(props = {})
             span.form-room-reservation__fees-currency ₽
 
       .form-room-reservation__submit
-        +button({ isExpanded: true, icon: 'arrow-right-light' })= labels.submit
+        +button({icon: 'arrow-right-light', isExpanded: true})= labels.submit
