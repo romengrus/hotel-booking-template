@@ -95,69 +95,6 @@ $room-reservation-underline: 1px dotted gray;
 
   &__fees {
     margin-top: 19px;
-
-    &-result {
-      margin-top: 29px;
-      display: flex;
-      font-family: $font-family-accent;
-    }
-
-    &-title {
-      margin-left: 1px;
-      font-size: 19px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    &-separator {
-      flex: 1;
-      border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
-      margin: 7px 5px;
-    }
-
-    &-price {
-      font-weight: bold;
-      font-size: 18px;
-    }
-  }
-
-  &__fee {
-    $fee-root: &;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 13px;
-    font-size: 14px;
-
-    &-title {
-      flex: 1 1 60%;
-      line-height: 18px;
-    }
-
-    &-desc {
-      flex: 0 1 auto;
-      position: relative;
-    }
-
-    &-time {
-      display: inline-block;
-      margin-left: 5px;
-    }
-
-    &-icon {
-      display: flex;
-      align-self: flex-start;
-      width: 20px;
-      height: 20px;
-    }
-
-    &-total {
-      flex: 1;
-      flex-basis: 49px;
-      align-self: flex-start;
-      text-align: right;
-    }
   }
 
   &__total {

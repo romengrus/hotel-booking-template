@@ -10,6 +10,7 @@ mixin form-room-reservation({room = '', isLux = false, price = 0} = {})
   include /components/dropdown-counter/dropdown-counter.pug
   include /components/counter/counter.pug
   include /components/button/button.pug
+  include /components/fees/fees.pug
 
   -
     const labels = {
@@ -59,37 +60,21 @@ mixin form-room-reservation({room = '', isLux = false, price = 0} = {})
               +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
 
       .form-room-reservation__fees
-        .form-room-reservation__fee
-          .form-room-reservation__fee-title 
-            span.form-room-reservation__fee-price 9 990
-            span.form-room-reservation__fee-currency ₽
-            span.form-room-reservation__fee-time х 4 суток  
-          .form-room-reservation__fee-total 
-            span.form-room-reservation__fee-price 39 960
-            span.form-room-reservation__fee-currency ₽
-        .form-room-reservation__fee
-          .form-room-reservation__fee-title 
-            | Сбор за услуги: скидка 
-            span.form-room-reservation__fee-price 2 179
-            span.form-room-reservation__fee-currency ₽
-          .form-room-reservation__fee-icon
-            +icon({ name: 'info', size: 'auto' })
-          .form-room-reservation__fee-total 
-            span.form-room-reservation__fee-price 0
-            span.form-room-reservation__fee-currency ₽
-        .form-room-reservation__fee
-          .form-room-reservation__fee-title Сбор за дополнительные услуги
-          .form-room-reservation__fee-icon
-            +icon({ name: 'info', size: 'auto' })
-          .form-room-reservation__fee-total 
-            span.form-room-reservation__fee-price 300
-            span.form-room-reservation__fee-currency ₽
-        .form-room-reservation__fees-result
-          .form-room-reservation__fees-title Итого
-          .form-room-reservation__fees-separator
-          .form-room-reservation__fees-total
-            span.form-room-reservation__fees-price 38 081
-            span.form-room-reservation__fees-currency ₽
+        +fees({
+          items: [{
+            title: '9 990₽ х 4 суток',
+            total: 39960,
+          }, {
+            title: 'Сбор за услуги: скидка 2 179₽',
+            desc: 'Просто повезло!',
+            total: 0,
+          }, {
+            title: 'Сбор за дополнительные услуги',
+            desc: 'Облом',
+            total: 300,
+          }],
+          total: 38081
+        })
 
       .form-room-reservation__submit
         +button({icon: 'arrow-right-light', isExpanded: true})= labels.submit

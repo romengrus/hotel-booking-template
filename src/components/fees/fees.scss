@@ -1,0 +1,54 @@
+.fee {
+  $fee-root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 13px;
+  font-size: 14px;
+
+  &__title {
+    flex: 1 1 60%;
+    line-height: 18px;
+  }
+
+  &__desc {
+    display: flex;
+    align-self: flex-start;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__total {
+    flex: 1;
+    flex-basis: 49px;
+    align-self: flex-start;
+    text-align: right;
+  }
+}
+
+.fees {
+  &__result {
+    margin-top: 29px;
+    display: flex;
+    font-family: $font-family-accent;
+  }
+
+  &__title {
+    margin-left: 1px;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  &__separator {
+    flex: 1;
+    border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+    margin: 7px 5px;
+  }
+
+  &__total {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
