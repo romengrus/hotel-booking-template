@@ -10,7 +10,6 @@ class Rating {
     this.iEmpty = el.dataset.iEmpty || 'star';
     this.iFilled = el.dataset.iFilled || 'star-active';
     this.iHalf = el.dataset.iHalf || 'star-half';
-    console.log(this.icons);
     this.init();
   }
 

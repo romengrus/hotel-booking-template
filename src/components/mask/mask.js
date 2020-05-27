@@ -1,6 +1,14 @@
 import IMask from 'imask';
-  _createMask() {
-    return IMask(this.input, {
+
+class Mask {
+  constructor(el) {
+    this.el = el;
+
+    this.init();
+  }
+
+  init() {
+    this.mask = IMask(this.input, {
       mask: Date,
       pattern: this.input.dataset.dateFormat || 'd.m.Y',
       lazy: false,
@@ -13,3 +21,6 @@ import IMask from 'imask';
       }
     });
   }
+}
+
+export { Mask };
