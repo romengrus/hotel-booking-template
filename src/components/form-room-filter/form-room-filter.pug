@@ -1,0 +1,98 @@
+mixin form-room-filter
+  .form-room-filter
+    +form
+      .form-room-filter__dates
+        +label({ value: 'Даты пребывания в отеле', pos: 'top', theme: ['bold', 'upper'] }) 
+          +datepicker({ mode: 'range' })(placeholder='ДД М - ДД М')
+
+      .form-room-filter__guests
+        +label({ value: 'Гости', pos: 'top', theme: ['bold', 'upper'] }) 
+          +dropdown-counter({ 
+            resultType: 'total', 
+            plurals: ['гость', 'гостя', 'гостей'] 
+          })(placeholder= 'Сколько гостей')
+            +label({ value: 'взрослые' })
+              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+
+            +label({ value: 'дети' })
+              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+
+            +label({ value: 'младенцы' })
+              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+
+      .form-room-filter__price
+        .form-room-filter__price-header
+          .form-room-filter__price-label
+            +label({ value: 'Диапазон цены', pos: 'left', theme: ['bold', 'upper'] })
+          .form-room-filter__price-result 5 000₽ - 10 000₽
+        .form-room-filter__price-range
+          +range-slider({
+            params: {
+              start: [5000, 10000],
+              range: {min: 200, max: 15500},
+              connect: [false, true, false],
+              format: {
+                decimals: 0,
+                thousand: ' ',
+                suffix: '₽'
+              }
+            }
+          })
+        .form-room-filter__price-desc Стоимость за сутки пребывания в номере
+
+      .form-room-filter__permissions 
+        +panel({ title: 'Checkbox Buttons' })
+          .form-room-filter__permissions-item
+            +label({ value: 'Можно курить' })
+              +checkbox({ name: 'allow-smoke' })
+          .form-room-filter__permissions-item
+            +label({ value: 'Можно с питомцами' })
+              +checkbox({ name: 'allow-pets'})
+          .form-room-filter__permissions-item
+            +label({ value: ['Можно пригласить гостей', '(до 10 человек)'] })
+              +checkbox({ name: 'allow-guests' })
+
+      .form-room-filter__accessability 
+        +panel({ title: 'Доступность' })
+          .form-room-filter__accessability-item
+            +label({ value: 'Широкий коридор', desc: 'Ширина коридоров в номере не менее 91 см.', theme: 'bold' })
+              +checkbox({ name: 'wide-hall' })
+          .form-room-filter__accessability-item
+            +label({ 
+              value: 'Помошник для инвалидов', 
+              desc: 'На 1 этаже вас встретит специалист и проводит до номера', 
+              theme: 'bold' 
+            })
+              +checkbox({ name: 'helper-for-impaired' })
+
+      .form-room-filter__facilities
+        +label({ value: 'Удобства номера', pos: 'top', theme: ['bold', 'upper'] }) 
+          +dropdown-counter({ resultType: 'concat' })(placeholder = 'Выберите нужное количество ...')
+            +label({ value: 'спальни' })
+              +counter({ plurals: ['спальня', 'спальни', 'спален'] })
+            
+            +label({ value: 'кровати' })
+              +counter({ plurals: ['кровать', 'кровати', 'кроватей'] })
+                
+            +label({ value: 'ванные комнаты' })
+              +counter({ plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'] })
+
+      .form-room-filter__additional-facilities
+        +panel({ title: 'Дополнительные удобства', isCollapsible: true, isCollapsed: true })
+          +label({ value: 'Завтрак' })
+            +checkbox({ name: 'breakfast' })
+          +label({ value: 'Письменный стол' })
+            +checkbox({ name: 'work-table', isChecked: true })
+          +label({ value: 'Стул для кормления' })
+            +checkbox({ name: 'chair-for-feeding', isChecked: true })
+          +label({ value: 'Кроватка' })
+            +checkbox({ name: 'baby-bed' })
+          +label({ value: 'Телевизор' })
+            +checkbox({ name: 'tv' })
+          +label({ value: 'Шампунь' })
+            +checkbox({ name: 'shampoo' })
+          +label({ value: 'Телевизор' })
+            +checkbox({ name: 'tv'})
+          +label({ value: 'Шампунь' })
+            +checkbox({ name: 'shampoo' })
+            
