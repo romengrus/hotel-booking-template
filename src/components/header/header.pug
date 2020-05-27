@@ -23,64 +23,38 @@ mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''
         else 
           +menu({
             items: [{
-              "name": "о нас",
-              "href": dummyURL,
-              "isActive": true
+              name: "о нас",
+              isActive: true
             },
             {
-              "name": "услуги",
-              "href": dummyURL,
-              "isActive": false,
-              "submenu": [
-                {
-                  "name": "апартаменты",
-                  "href": dummyURL,
-                  "isActive": false
+              name: "услуги",
+              submenu: [{
+                  name: "апартаменты",
+                }, {
+                  name: "spa",
                 },
                 {
-                  "name": "spa",
-                  "href": dummyURL,
-                  "isActive": false
-                },
-                {
-                  "name": "конференц залы",
-                  "href": dummyURL,
-                  "isActive": false
-                }
-              ]
+                  name: "конференц залы",
+              }]
             },
             {
-              "name": "вакансии",
-              "href": dummyURL,
-              "isActive": false
+              name: "вакансии",
             },
             {
-              "name": "новости",
-              "href": dummyURL,
-              "isActive": false
+              name: "новости",
             },
             {
-              "name": "соглашения",
-              "href": dummyURL,
-              "isActive": false,
-              "submenu": [
-                {
-                  "name": "соглашение 1",
-                  "href": dummyURL,
-                  "isActive": false
+              name: "соглашения",
+              submenu: [{
+                  name: "соглашение 1",
                 },
                 {
-                  "name": "соглашение 2",
-                  "href": dummyURL,
-                  "isActive": false
+                  name: "соглашение 2",
                 },
                 {
-                  "name": "соглашение 3",
-                  "href": dummyURL,
-                  "isActive": false
-                }
-              ]
-            }]
+                  name: "соглашение 3",
+                }] 
+             }]
           })
 
         if (isLoggedIn)
