@@ -9,76 +9,20 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
 
   display: flex;
   flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   margin: 0;
   padding: 0;
   list-style: none;
-  flex-direction: row;
-  align-items: center;
-
-  &_is-vertical {
-    flex-direction: column;
-    align-items: flex-start;
-
-    .menu__item + .menu__item {
-      margin-left: 0;
-      margin-top: $menu-vertical-spacing;
-    }
-  }
-
-  &__submenu {
-    display: none;
-    position: absolute;
-    z-index: 100;
-    top: 100%;
-    margin: 0;
-    padding: 0;
-    transition: all 0.5s ease;
-    visibility: hidden;
-    opacity: 0;
-    background: $white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-
-    & > .menu__item {
-      padding: 5px 13px;
-      margin-right: 0;
-    }
-
-    .menu__item + .menu__item {
-      margin-left: 0;
-    }
-
-    & > .menu__item:hover {
-      text-decoration: underline;
-    }
-
-    &:hover {
-      display: block;
-      visibility: visible;
-      opacity: 1;
-    }
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: -20px;
-      width: 100%;
-      height: 20px;
-    }
-
-    &_is-active {
-      display: block;
-      visibility: visible;
-      opacity: 1;
-    }
-  }
 
   &__item {
     display: flex;
     align-items: center;
     justify-content: left;
+
+    &_has-submenu {
+      position: relative;
+    }
 
     & + & {
       margin-left: $menu-horizontal-spacing;
@@ -91,11 +35,7 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
       margin-right: 7px;
     }
 
-    &_has-submenu {
-      position: relative;
-    }
-
-    &:hover > .menu__submenu {
+    &:hover > #{$root}__submenu {
       display: block;
       visibility: visible;
       opacity: 1;
@@ -114,13 +54,73 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
       cursor: pointer;
     }
 
-    &::first-letter {
-      text-transform: uppercase;
-    }
-
     &_is-active {
       color: $dark-750;
       font-weight: bold;
+    }
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__submenu {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+    visibility: hidden;
+    opacity: 0;
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+
+    &:hover {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    & > #{$root}__item {
+      padding: 5px 13px;
+      margin-right: 0;
+    }
+
+    & > #{$root}__item:hover {
+      text-decoration: underline;
+    }
+
+    #{$root}__item + #{$root}__item {
+      margin-left: 0;
+    }
+
+    &_is-active {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -20px;
+      width: 100%;
+      height: 20px;
+    }
+  }
+
+  &_is-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+
+    #{$root}__item + #{$root}__item {
+      margin-left: 0;
+      margin-top: $menu-vertical-spacing;
     }
   }
 

@@ -22,10 +22,10 @@ $switcher-bg-active: url("data:image/svg+xml,%3Csvg width='12' height='12' fill=
   &__display {
     display: inline-block;
     position: relative;
-    border: $switcher-border;
-    border-radius: $switcher-border-radius;
     width: 39px;
     height: 21px;
+    border: $switcher-border;
+    border-radius: $switcher-border-radius;
     cursor: pointer;
   }
 

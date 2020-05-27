@@ -1,4 +1,8 @@
 .room-details {
+  .footer {
+    border-top: 1px solid $dark-250;
+    padding-top: 100px;
+  }
   &__wrapper {
     display: flex;
     padding-top: 71px;
@@ -29,10 +33,6 @@
     }
   }
 
-  &__rules {
-    display: flex;
-  }
-
   &__content {
     flex: 1;
   }
@@ -46,6 +46,10 @@
     margin-top: 17px;
     padding-right: 70px;
 
+    .testimonial {
+      margin-top: 25px;
+    }
+
     &-total {
       margin-top: 5px;
       font-size: 13px;
@@ -53,13 +57,10 @@
       float: right;
       color: $dark-500;
     }
-
-    .testimonial {
-      margin-top: 25px;
-    }
   }
 
   &__rules {
+    display: flex;
     margin-top: 34px;
     padding-left: 20px;
 
@@ -82,10 +83,5 @@
       font-size: 14px;
       line-height: 23px;
     }
-  }
-
-  .footer {
-    border-top: 1px solid $dark-250;
-    padding-top: 100px;
   }
 }

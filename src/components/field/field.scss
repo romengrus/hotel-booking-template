@@ -37,8 +37,8 @@ $field-label-size: 12px !default;
   &__icon {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     right: 12px;
+    transform: translateY(-50%);
   }
 
   &__warning-msg {

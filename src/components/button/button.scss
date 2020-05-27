@@ -10,11 +10,11 @@ $button-text-color: $white;
 .button {
   $root: &;
 
-  min-height: $button-height;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  min-height: $button-height;
   padding: $button-padding;
   overflow: hidden;
   vertical-align: middle;
@@ -31,12 +31,11 @@ $button-text-color: $white;
     outline: none;
   }
 
-  &:hover,
-  &:active {
-    opacity: 0.5;
-    color: $button-text-color;
-    text-decoration: none;
-    outline: none;
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
   }
 
   &_is-small {
@@ -89,10 +88,11 @@ $button-text-color: $white;
     width: 100%;
   }
 
-  &__icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 12px;
+  &:hover,
+  &:active {
+    opacity: 0.5;
+    color: $button-text-color;
+    text-decoration: none;
+    outline: none;
   }
 }

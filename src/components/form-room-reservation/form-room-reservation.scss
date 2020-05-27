@@ -147,9 +147,9 @@ $room-reservation-underline: 1px dotted gray;
 
     &-icon {
       display: flex;
+      align-self: flex-start;
       width: 20px;
       height: 20px;
-      align-self: flex-start;
     }
 
     &-total {

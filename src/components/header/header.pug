@@ -2,8 +2,8 @@
 //-
 //- isLoggedIn    boolean (false) - If user is logged in
 //- userName      string ('Cosmin Negoita') - User name to show in auth block
-//- lblLogin      string ('Login') - login button text
-//- lblRegister   string ('Register') - register button text
+//- lblLogin      string ('') - login button text
+//- lblRegister   string ('') - register button text
 mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''} = {})
   include /components/logo/logo.pug
   include /components/menu/menu.pug

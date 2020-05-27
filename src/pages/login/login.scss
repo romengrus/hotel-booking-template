@@ -1,7 +1,4 @@
 .login {
-  &__hero {
-    height: 683px;
-  }
 
   .footer {
     padding-bottom: 98px;
@@ -13,5 +10,8 @@
     &__subscription-title {
       margin-bottom: 19px;
     }
+  }
+  &__hero {
+    height: 683px;
   }
 }

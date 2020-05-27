@@ -5,9 +5,10 @@ $dc-btn-ok-color: #000 !default;
 $dc-body-bg: white !default;
 
 .dropdown-counter {
-  position: relative;
 
   $root: &;
+
+  position: relative;
 
   &__value-alt {
     position: relative;
