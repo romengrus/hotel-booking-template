@@ -1,5 +1,6 @@
 mixin form-room-filter
   include /components/filter-dates/filter-dates.pug
+  include /components/filter-guests/filter-guests.pug
 
   .form-room-filter
     +form
@@ -7,19 +8,7 @@ mixin form-room-filter
         +filter-dates
 
       .form-room-filter__guests
-        +label({ value: 'Гости', pos: 'top', theme: ['bold', 'upper'] }) 
-          +dropdown-counter({ 
-            resultType: 'total', 
-            plurals: ['гость', 'гостя', 'гостей'] 
-          })(placeholder= 'Сколько гостей')
-            +label({ value: 'взрослые' })
-              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
-
-            +label({ value: 'дети' })
-              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
-
-            +label({ value: 'младенцы' })
-              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+        +filter-guests
 
       .form-room-filter__price
         .form-room-filter__price-header
