@@ -1,0 +1,19 @@
+.filter-price {
+  &__header {
+    display: flex;
+  }
+
+  &__result {
+    margin-left: auto;
+    font-size: 12px;
+  }
+
+  &__range {
+    margin-top: 13px;
+  }
+
+  &__desc {
+    margin-top: 13px;
+    font-size: 12px;
+  }
+}

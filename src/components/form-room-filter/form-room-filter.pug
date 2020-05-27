@@ -1,6 +1,7 @@
 mixin form-room-filter
   include /components/filter-dates/filter-dates.pug
   include /components/filter-guests/filter-guests.pug
+  include /components/filter-price/filter-price.pug
 
   .form-room-filter
     +form
@@ -11,24 +12,7 @@ mixin form-room-filter
         +filter-guests
 
       .form-room-filter__price
-        .form-room-filter__price-header
-          .form-room-filter__price-label
-            +label({ value: 'Диапазон цены', pos: 'left', theme: ['bold', 'upper'] })
-          .form-room-filter__price-result 5 000₽ - 10 000₽
-        .form-room-filter__price-range
-          +range-slider({
-            params: {
-              start: [5000, 10000],
-              range: {min: 200, max: 15500},
-              connect: [false, true, false],
-              format: {
-                decimals: 0,
-                thousand: ' ',
-                suffix: '₽'
-              }
-            }
-          })
-        .form-room-filter__price-desc Стоимость за сутки пребывания в номере
+        +filter-price
 
       .form-room-filter__permissions 
         +panel({ title: 'Checkbox Buttons' })
