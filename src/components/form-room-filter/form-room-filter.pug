@@ -2,6 +2,7 @@ mixin form-room-filter
   include /components/filter-dates/filter-dates.pug
   include /components/filter-guests/filter-guests.pug
   include /components/filter-price/filter-price.pug
+  include /components/filter-choices/filter-choices.pug
 
   .form-room-filter
     +form
@@ -16,28 +17,33 @@ mixin form-room-filter
 
       .form-room-filter__permissions 
         +panel({ title: 'Checkbox Buttons' })
-          .form-room-filter__permissions-item
-            +label({ value: 'Можно курить' })
-              +checkbox({ name: 'allow-smoke' })
-          .form-room-filter__permissions-item
-            +label({ value: 'Можно с питомцами' })
-              +checkbox({ name: 'allow-pets'})
-          .form-room-filter__permissions-item
-            +label({ value: ['Можно пригласить гостей', '(до 10 человек)'] })
-              +checkbox({ name: 'allow-guests' })
+          +filter-choices({
+            choices: [{
+              name: 'allow-smoke',
+              label: 'Можно курить',
+            }, {
+              name: 'allow-pets',
+              label: 'Можно с питомцами',
+            }, {
+              name: 'allow-guests',
+              label: ['Можно пригласить гостей', '(до 10 человек)'],
+            }]
+          })
 
       .form-room-filter__accessability 
         +panel({ title: 'Доступность' })
-          .form-room-filter__accessability-item
-            +label({ value: 'Широкий коридор', desc: 'Ширина коридоров в номере не менее 91 см.', theme: 'bold' })
-              +checkbox({ name: 'wide-hall' })
-          .form-room-filter__accessability-item
-            +label({ 
-              value: 'Помошник для инвалидов', 
-              desc: 'На 1 этаже вас встретит специалист и проводит до номера', 
-              theme: 'bold' 
-            })
-              +checkbox({ name: 'helper-for-impaired' })
+          +filter-choices({
+            choices: [{
+              name: 'wide-hall',
+              label: 'Широкий коридор',
+              desc: 'Ширина коридоров в номере не менее 91 см.',
+            }, {
+              name: 'helper-for-impaired',
+              label: 'Помошник для инвалидов',
+              desc: 'На 1 этаже вас встретит специалист и проводит до номера',
+            }],
+            theme: 'bold',
+          })
 
       .form-room-filter__facilities
         +label({ value: 'Удобства номера', pos: 'top', theme: ['bold', 'upper'] }) 
@@ -53,20 +59,33 @@ mixin form-room-filter
 
       .form-room-filter__additional-facilities
         +panel({ title: 'Дополнительные удобства', isCollapsible: true, isCollapsed: true })
-          +label({ value: 'Завтрак' })
-            +checkbox({ name: 'breakfast' })
-          +label({ value: 'Письменный стол' })
-            +checkbox({ name: 'work-table', isChecked: true })
-          +label({ value: 'Стул для кормления' })
-            +checkbox({ name: 'chair-for-feeding', isChecked: true })
-          +label({ value: 'Кроватка' })
-            +checkbox({ name: 'baby-bed' })
-          +label({ value: 'Телевизор' })
-            +checkbox({ name: 'tv' })
-          +label({ value: 'Шампунь' })
-            +checkbox({ name: 'shampoo' })
-          +label({ value: 'Телевизор' })
-            +checkbox({ name: 'tv'})
-          +label({ value: 'Шампунь' })
-            +checkbox({ name: 'shampoo' })
+          +filter-choices({
+            choices: [{
+              name: 'breakfast',
+              label: 'Завтрак',
+            }, {
+              name: 'work-table',
+              label: 'Письменный стол',
+              isChecked: true,
+            }, {
+              name: 'chair-for-feeding',
+              label: 'Стул для кормления',
+              isChecked: true,
+            }, {
+              name: 'baby-bed',
+              label: 'Кроватка',
+            }, {
+              name: 'tv',
+              label: 'Телевизор'
+            }, {
+              name: 'shampoo',
+              label: 'Шампунь'
+            }, {
+              name: 'tv',
+              label: 'Телевизор'
+            }, {
+              name: 'shampoo',
+              label: 'Шампунь'
+            }]
+          })
             
