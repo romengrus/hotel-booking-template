@@ -11,10 +11,10 @@ class Subscription {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.attachEventHandlers();
   }
 
-  _attachEventHandlers() {
+  attachEventHandlers() {
     this.icon.addEventListener('click', () => this.form.submit());
   }
 }

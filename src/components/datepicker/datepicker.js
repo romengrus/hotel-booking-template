@@ -16,10 +16,10 @@ class Datepicker {
   }
 
   init() {
-    this._createDatepicker();
+    this.createDatepicker();
   }
 
-  _createDatepicker() {
+  createDatepicker() {
     const next = this.el.querySelector(`[data-${this.id}-next]`);
     const prev = this.el.querySelector(`[data-${this.id}-prev]`);
     const actions = this.el.querySelector(`[data-${this.id}-actions]`);

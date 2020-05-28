@@ -15,23 +15,23 @@ class Doughnut {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.attachEventHandlers();
   }
 
-  _attachEventHandlers() {
+  attachEventHandlers() {
     this.labels.forEach(label => {
-      label.addEventListener('mouseover', e => this._handleLabelHover(e));
-      label.addEventListener('mouseout', e => this._handleLabelBlur(e));
+      label.addEventListener('mouseover', e => this.handleLabelHover(e));
+      label.addEventListener('mouseout', e => this.handleLabelBlur(e));
     });
   }
 
-  _handleLabelBlur() {
+  handleLabelBlur() {
     this.segments.forEach(segment => segment.classList.remove('doughnut__segment_active'));
     this.labels.forEach(label => label.classList.remove('doughnut__label_active'));
     this.header.textContent = this.total;
   }
 
-  _handleLabelHover(e) {
+  handleLabelHover(e) {
     const currentLabel = e.target;
     const { segmentIndex } = currentLabel.dataset;
     const numVotes = this.chartData[segmentIndex].value;

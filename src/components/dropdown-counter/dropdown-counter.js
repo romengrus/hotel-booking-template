@@ -23,7 +23,7 @@ class DropdownCounter {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.attachEventHandlers();
   }
 
   updateDOM() {
@@ -67,27 +67,27 @@ class DropdownCounter {
     this.updateDOM();
   }
 
-  _attachEventHandlers() {
+  attachEventHandlers() {
     this.counters.forEach($counter => {
       $counter.addEventListener('counter:increased', e => this.updateModel(e.detail));
       $counter.addEventListener('counter:decreased', e => this.updateModel(e.detail));
     });
     // this.el.addEventListener('counter:increased', e => this.updateModel(e.detail));
     // this.el.addEventListener('counter:decreased', e => this.updateModel(e.detail));
-    this.toggler.addEventListener('click', e => this._handleTogglerClick(e));
-    this.reset.addEventListener('click', e => this._handleResetClick(e));
-    this.ok.addEventListener('click', e => this._handleTogglerClick(e));
-    this.inputAlt.addEventListener('focus', e => this._handleTogglerClick(e));
+    this.toggler.addEventListener('click', e => this.handleTogglerClick(e));
+    this.reset.addEventListener('click', e => this.handleResetClick(e));
+    this.ok.addEventListener('click', e => this.handleTogglerClick(e));
+    this.inputAlt.addEventListener('focus', e => this.handleTogglerClick(e));
     // this.inputAlt.addEventListener('blur', e => this._handleTogglerClick(e));
   }
 
-  _handleTogglerClick(e) {
+  handleTogglerClick(e) {
     e.preventDefault();
 
     this.el.classList.toggle('dropdown-counter_is-collapsed');
   }
 
-  _handleResetClick(e) {
+  handleResetClick(e) {
     e.preventDefault();
 
     this._model = new Map();

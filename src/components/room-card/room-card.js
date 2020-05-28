@@ -11,10 +11,10 @@ class RoomCard {
   }
 
   init() {
-    this._formatRoomPrice();
+    this.formatRoomPrice();
   }
 
-  _formatRoomPrice() {
+  formatRoomPrice() {
     const priceEl = this.el.querySelector(`[data-${this.id}-price]`);
     const price = priceEl.textContent;
 

@@ -18,7 +18,7 @@ class Rating {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.attachEventHandlers();
     this.updateDOM(this.value);
   }
 
@@ -89,24 +89,24 @@ class Rating {
     this.el.dispatchEvent(event);
   }
 
-  _attachEventHandlers() {
-    const onMouseMoveDebounced = debounce(this._onMouseMove, 5, { leading: true });
+  attachEventHandlers() {
+    const onMouseMoveDebounced = debounce(this.onMouseMove, 5, { leading: true });
     const onMouseMoveDebouncedBinded = onMouseMoveDebounced.bind(this);
 
     this.el.addEventListener('mousemove', e => onMouseMoveDebouncedBinded(e));
-    this.el.addEventListener('mouseleave', e => this._onMouseLeave(e));
-    this.el.addEventListener('click', e => this._onClick(e));
+    this.el.addEventListener('mouseleave', e => this.onMouseLeave(e));
+    this.el.addEventListener('click', e => this.onClick(e));
   }
 
-  _onMouseMove(e) {
+  onMouseMove(e) {
     this.updateDOM(this.valueFromMousePos(e.clientX));
   }
 
-  _onMouseLeave() {
+  onMouseLeave() {
     this.updateDOM(this.value);
   }
 
-  _onClick(e) {
+  onClick(e) {
     this.value = this.valueFromMousePos(e.clientX);
     this.updateDOM(this.value);
     this.dispatchVotedEvent();

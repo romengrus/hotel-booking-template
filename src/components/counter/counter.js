@@ -23,7 +23,7 @@ class Counter {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.attachEventHandlers();
   }
 
   toString() {
@@ -34,13 +34,13 @@ class Counter {
     return `${this.value} ${this.label}`;
   }
 
-  _attachEventHandlers() {
-    this.btnInc.addEventListener('click', e => this._handleIncButtonClick(e));
-    this.btnDec.addEventListener('click', e => this._handleDecButtonClick(e));
-    this.el.addEventListener('counter:reset', () => this._handleReset());
+  attachEventHandlers() {
+    this.btnInc.addEventListener('click', e => this.handleIncButtonClick(e));
+    this.btnDec.addEventListener('click', e => this.handleDecButtonClick(e));
+    this.el.addEventListener('counter:reset', () => this.handleReset());
   }
 
-  _handleIncButtonClick(e) {
+  handleIncButtonClick(e) {
     e.preventDefault();
 
     if (this.btnInc.disabled) return;
@@ -71,7 +71,7 @@ class Counter {
     this.el.dispatchEvent(event);
   }
 
-  _handleDecButtonClick(e) {
+  handleDecButtonClick(e) {
     e.preventDefault();
 
     if (this.btnDec.disabled) return;
@@ -102,7 +102,7 @@ class Counter {
     this.el.dispatchEvent(event);
   }
 
-  _handleReset() {
+  handleReset() {
     this.value = this.min;
     this.display.textContent = this.min;
     this.btnDec.setAttribute('disabled', true);

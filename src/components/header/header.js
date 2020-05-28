@@ -13,20 +13,20 @@ class Header {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.attachEventHandlers();
   }
 
-  _attachEventHandlers() {
+  attachEventHandlers() {
     if (this.menuToggler) {
-      this.menuToggler.addEventListener('click', () => this._toggleMenu());
+      this.menuToggler.addEventListener('click', () => this.toggleMenu());
     }
 
     if (this.menuClose) {
-      this.menuClose.addEventListener('click', () => this._toggleMenu());
+      this.menuClose.addEventListener('click', () => this.toggleMenu());
     }
   }
 
-  _toggleMenu() {
+  toggleMenu() {
     this.menu.classList.toggle('header__menu_is-visible-on-mobile');
   }
 }

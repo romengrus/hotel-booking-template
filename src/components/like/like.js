@@ -17,14 +17,14 @@ class Like {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.attachEventHandlers();
   }
 
-  _attachEventHandlers() {
-    this.el.addEventListener('click', () => this._handleButtonClick());
+  attachEventHandlers() {
+    this.el.addEventListener('click', () => this.handleButtonClick());
   }
 
-  _handleButtonClick() {
+  handleButtonClick() {
     if (this.hasVoted) {
       this.value -= 1;
     } else {
