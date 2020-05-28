@@ -1,5 +1,6 @@
 // base components
 export * from './form/form';
+export * from './field-mask/field-mask';
 export * from './datepicker/datepicker';
 export * from './range-slider/range-slider';
 export * from './slider/slider';

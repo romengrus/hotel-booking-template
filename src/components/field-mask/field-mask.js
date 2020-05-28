@@ -1,16 +1,21 @@
 import IMask from 'imask';
 
-class Mask {
+class FieldMask {
   constructor(el) {
+    const id = FieldMask.getID();
     this.el = el;
+    this.input = this.el.querySelector(`[data-${id}-input]`);
 
     this.init();
+  }
+
+  static getID() {
+    return 'field-mask';
   }
 
   init() {
     this.mask = IMask(this.input, {
       mask: Date,
-      pattern: this.input.dataset.dateFormat || 'd.m.Y',
       lazy: false,
       overwrite: true,
       autofix: true,
@@ -23,4 +28,4 @@ class Mask {
   }
 }
 
-export { Mask };
+export { FieldMask };

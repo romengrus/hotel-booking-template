@@ -1,0 +1,7 @@
+//- Masked text field
+//-
+mixin field-mask
+  include /components/field/field.pug
+
+  .field-mask(data-field-mask)
+    +field()(data-field-mask-input)
