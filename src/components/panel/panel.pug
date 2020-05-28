@@ -7,8 +7,6 @@ mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
   include /components/icon/icon.pug
 
   -
-    const icon = 'semi-arrow-up';
-
     const classList = ['panel'];
 
     if (isCollapsed) classList.push('panel_is-collapsed');
@@ -19,7 +17,7 @@ mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
 
       if (isCollapsible)
         .panel__toggler(data-panel-toggler)
-          +icon({ name: icon, size: 'small' })
+          +icon({ name: 'semi-arrow-up', size: 'small' })
 
     .panel__body(data-panel-body)
       if block

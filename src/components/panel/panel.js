@@ -14,16 +14,21 @@ class Panel {
   }
 
   init() {
-    this._attachEventHandlers();
+    this.bindEventHandlers();
+    this.attachEventHandlers();
   }
 
-  _attachEventHandlers() {
+  bindEventHandlers() {
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
+  }
+
+  attachEventHandlers() {
     if (this.isCollapsible) {
-      this.header.addEventListener('click', e => this._handleHeaderClick(e));
+      this.header.addEventListener('click', this.handleHeaderClick);
     }
   }
 
-  _handleHeaderClick() {
+  handleHeaderClick() {
     this.el.classList.toggle('panel_is-collapsed');
   }
 }
