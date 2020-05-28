@@ -14,8 +14,8 @@ class DropdownCounter {
     this.plurals = JSON.parse(el.dataset.plurals);
     this._model = new Map();
     this.hasChanged = false;
-    this.init();
-    this.updateDOM();
+    // this.init();
+    // this.updateDOM();
   }
 
   static getID() {

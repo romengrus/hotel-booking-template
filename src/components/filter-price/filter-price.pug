@@ -3,8 +3,8 @@ mixin filter-price
     .filter-price__header
       .filter-price__label
         +label({ value: 'Диапазон цены', pos: 'left', theme: ['bold', 'upper'] })
-      .filter-price__result 5 000₽ - 10 000₽
-    .filter-price__range
+      .filter-price__result(data-filter-price-result) 5 000₽ - 10 000₽
+    .filter-price__range(data-filter-price-slider)
       +range-slider({
         params: {
           start: [5000, 10000],

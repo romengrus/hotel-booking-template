@@ -45,6 +45,7 @@ class RangeSlider {
   // eslint-disable-next-line no-unused-vars
   _handleSliderUpdate(values, handle, unencoded, tap, positions) {
     this.input.value = JSON.stringify(this.slider.get());
+    this.el.dispatchEvent(new CustomEvent('range-slider-update', { detail: this.slider.get() }));
   }
 }
 
