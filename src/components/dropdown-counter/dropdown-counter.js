@@ -1,4 +1,4 @@
-import { pluralize, not } from '../../utils';
+import { pluralize, not } from '../../scripts/utils';
 
 class DropdownCounter {
   constructor(el) {

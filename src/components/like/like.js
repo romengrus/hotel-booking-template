@@ -1,4 +1,4 @@
-import { inc, dec, not, toBool } from '../../utils';
+import { inc, dec, not, toBool } from '../../scripts/utils';
 
 class Like {
   constructor(el) {
