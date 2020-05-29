@@ -31,7 +31,18 @@ function pluralize(count, words) {
   return word;
 }
 
+const inc = v => v + 1;
+const dec = v => v - 1;
+const not = v => !v;
+const toBool = v => !!v;
+const oneByOne = (...fns) => args => fns.forEach(fn => fn.apply(args));
+
 module.exports = {
   debounce,
-  pluralize
+  pluralize,
+  inc,
+  dec,
+  not,
+  toBool,
+  oneByOne
 };

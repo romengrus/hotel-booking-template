@@ -1,15 +1,13 @@
-import { debounce } from '../../utils';
-
 class Rating {
   constructor(el) {
     const id = Rating.getID();
     this.el = el;
-    this.icons = el.querySelectorAll(`[data-${id}-icon] [data-icon-img]`);
+    this.iconEls = el.querySelectorAll(`[data-${id}-icon] [data-icon-img]`);
     this.isPartial = 'isPartial' in el.dataset;
-    this.value = parseFloat(el.dataset.value || 0);
-    this.iEmpty = el.dataset.iEmpty || 'star';
-    this.iFilled = el.dataset.iFilled || 'star-active';
-    this.iHalf = el.dataset.iHalf || 'star-half';
+    this.value = parseFloat(el.dataset.value);
+    this.iEmpty = el.dataset.iEmpty;
+    this.iFilled = el.dataset.iFilled;
+    this.iHalf = el.dataset.iHalf;
     this.init();
   }
 
@@ -18,20 +16,31 @@ class Rating {
   }
 
   init() {
+    this.bindEventHandlers();
     this.attachEventHandlers();
     this.updateDOM(this.value);
   }
 
-  updateDOM(ratingValue) {
-    const { icons, iEmpty, iFilled, iHalf } = this;
-    const currentValue = this.roundToNearestHalf(ratingValue);
-    const activeIconsLength = Math.trunc(currentValue);
-    const halfActiveIconsLength = currentValue - activeIconsLength;
+  bindEventHandlers() {
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  attachEventHandlers() {
+    this.el.addEventListener('mousemove', this.onMouseMove);
+    this.el.addEventListener('mouseleave', this.onMouseLeave);
+    this.el.addEventListener('click', this.onClick);
+  }
+
+  updateDOM(val) {
+    const { iconEls: icons, iEmpty, iFilled, iHalf } = this;
+    const current = this.roundToNearestHalf(val);
+    const activeIconsLength = Math.trunc(current);
+    const halfActiveIconsLength = current - activeIconsLength;
 
     // Make all icons empty
-    for (let i = 0; i < icons.length; i += 1) {
-      icons[i].setAttribute('href', `#${iEmpty}`);
-    }
+    icons.forEach(icon => icon.setAttribute('href', `#${iEmpty}`));
 
     // Fill active icons
     for (let i = 0; i < activeIconsLength; i += 1) {
@@ -71,31 +80,12 @@ class Rating {
    * @param {number} mouseClientX Position of mouse pointer on x axis
    */
   valueFromMousePos(mouseClientX) {
-    const numIcons = this.icons.length;
+    const numIcons = this.iconEls.length;
     const rect = this.el.getBoundingClientRect();
     const x = mouseClientX - rect.left;
     const { width } = rect;
 
     return this.roundToNearestHalf((x / width) * numIcons);
-  }
-
-  dispatchVotedEvent() {
-    const event = new CustomEvent('rating:voted', {
-      detail: {
-        value: this.value,
-        objectId: this.objectId
-      }
-    });
-    this.el.dispatchEvent(event);
-  }
-
-  attachEventHandlers() {
-    const onMouseMoveDebounced = debounce(this.onMouseMove, 5, { leading: true });
-    const onMouseMoveDebouncedBinded = onMouseMoveDebounced.bind(this);
-
-    this.el.addEventListener('mousemove', e => onMouseMoveDebouncedBinded(e));
-    this.el.addEventListener('mouseleave', e => this.onMouseLeave(e));
-    this.el.addEventListener('click', e => this.onClick(e));
   }
 
   onMouseMove(e) {
@@ -110,6 +100,16 @@ class Rating {
     this.value = this.valueFromMousePos(e.clientX);
     this.updateDOM(this.value);
     this.dispatchVotedEvent();
+  }
+
+  dispatchVotedEvent() {
+    const event = new CustomEvent('rating:voted', {
+      detail: {
+        value: this.value
+      }
+    });
+
+    this.el.dispatchEvent(event);
   }
 }
 

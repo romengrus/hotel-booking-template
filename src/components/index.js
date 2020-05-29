@@ -14,7 +14,6 @@ export * from './doughnut/doughnut';
 // // compound components
 export * from './filter-price/filter-price';
 export * from './room-card/room-card';
-export * from './subscription/subscription';
 export * from './form-room-search/form-room-search';
 export * from './form-room-reservation/form-room-reservation';
 export * from './header/header';

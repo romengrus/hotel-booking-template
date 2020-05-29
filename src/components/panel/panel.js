@@ -2,9 +2,9 @@ class Panel {
   constructor(el) {
     const id = Panel.getID();
     this.el = el;
-    this.toggler = el.querySelector(`[data-${id}-toggler]`);
-    this.header = el.querySelector(`[data-${id}-header]`);
-    this.body = el.querySelector(`[data-${id}-body]`);
+    this.togglerEl = el.querySelector(`[data-${id}-toggler]`);
+    this.headerEl = el.querySelector(`[data-${id}-header]`);
+    this.bodyEl = el.querySelector(`[data-${id}-body]`);
     this.isCollapsible = 'isCollapsible' in el.dataset;
     this.init();
   }
@@ -24,7 +24,7 @@ class Panel {
 
   attachEventHandlers() {
     if (this.isCollapsible) {
-      this.header.addEventListener('click', this.handleHeaderClick);
+      this.headerEl.addEventListener('click', this.handleHeaderClick);
     }
   }
 

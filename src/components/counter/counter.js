@@ -4,11 +4,11 @@ class Counter {
   constructor(el) {
     const id = Counter.getID();
     this.el = el;
-    this.input = el.querySelector(`[data-${id}-input]`);
-    this.display = el.querySelector(`[data-${id}-display]`);
-    this.btnInc = el.querySelector(`[data-${id}-inc]`);
-    this.btnDec = el.querySelector(`[data-${id}-dec]`);
-    this.value = this.input.value || 0;
+    this.inputEl = el.querySelector(`[data-${id}-input]`);
+    this.displayEl = el.querySelector(`[data-${id}-display]`);
+    this.btnIncEl = el.querySelector(`[data-${id}-inc]`);
+    this.btnDecEl = el.querySelector(`[data-${id}-dec]`);
+    this.value = this.inputEl.value || 0;
     this.label = el.dataset.label || '';
     this.plurals = JSON.parse(el.dataset.plurals) || [];
     this.step = el.dataset.step || 1;
@@ -23,7 +23,20 @@ class Counter {
   }
 
   init() {
+    this.bindEventHandlers();
     this.attachEventHandlers();
+  }
+
+  bindEventHandlers() {
+    this.handleButtonDecClick = this.handleButtonDecClick.bind(this);
+    this.handleButtonIncClick = this.handleButtonIncClick.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+  }
+
+  attachEventHandlers() {
+    this.btnIncEl.addEventListener('click', this.handleButtonIncClick);
+    this.btnDecEl.addEventListener('click', this.handleButtonDecClick);
+    this.el.addEventListener('counter:reset', this.handleReset);
   }
 
   toString() {
@@ -34,16 +47,10 @@ class Counter {
     return `${this.value} ${this.label}`;
   }
 
-  attachEventHandlers() {
-    this.btnInc.addEventListener('click', e => this.handleIncButtonClick(e));
-    this.btnDec.addEventListener('click', e => this.handleDecButtonClick(e));
-    this.el.addEventListener('counter:reset', () => this.handleReset());
-  }
-
-  handleIncButtonClick(e) {
+  handleButtonIncClick(e) {
     e.preventDefault();
 
-    if (this.btnInc.disabled) return;
+    if (this.btnIncEl.disabled) return;
 
     const value = parseInt(this.value, 10);
     const step = parseInt(this.step, 10);
@@ -53,15 +60,16 @@ class Counter {
 
     if (newValue >= max) {
       newValue = max;
-      this.btnInc.setAttribute('disabled', true);
+      this.btnIncEl.setAttribute('disabled', true);
     }
 
     this.value = newValue;
-    this.input.value = newValue;
-    this.display.textContent = newValue;
-    this.btnDec.disabled = false;
+    this.inputEl.value = newValue;
+    this.displayEl.textContent = newValue;
+    this.btnDecEl.disabled = false;
 
     const event = new CustomEvent('counter:increased', {
+      bubbles: true,
       detail: {
         id: this.id,
         numValue: newValue,
@@ -71,10 +79,10 @@ class Counter {
     this.el.dispatchEvent(event);
   }
 
-  handleDecButtonClick(e) {
+  handleButtonDecClick(e) {
     e.preventDefault();
 
-    if (this.btnDec.disabled) return;
+    if (this.btnDecEl.disabled) return;
 
     const value = parseInt(this.value, 10);
     const step = parseInt(this.step, 10);
@@ -84,15 +92,16 @@ class Counter {
 
     if (newValue <= min) {
       newValue = min;
-      this.btnDec.setAttribute('disabled', true);
+      this.btnDecEl.setAttribute('disabled', true);
     }
 
     this.value = newValue;
-    this.input.value = newValue;
-    this.display.textContent = newValue;
-    this.btnInc.disabled = false;
+    this.inputEl.value = newValue;
+    this.displayEl.textContent = newValue;
+    this.btnIncEl.disabled = false;
 
     const event = new CustomEvent('counter:decreased', {
+      bubbles: true,
       detail: {
         id: this.id,
         numValue: newValue,
@@ -104,9 +113,9 @@ class Counter {
 
   handleReset() {
     this.value = this.min;
-    this.display.textContent = this.min;
-    this.btnDec.setAttribute('disabled', true);
-    this.btnInc.removeAttribute('disabled');
+    this.displayEl.textContent = this.min;
+    this.btnDecEl.setAttribute('disabled', true);
+    this.btnIncEl.removeAttribute('disabled');
   }
 }
 

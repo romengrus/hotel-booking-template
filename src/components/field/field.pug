@@ -1,11 +1,12 @@
 //- Form field
 //-
-//- icon    string ('') - icon to show inside
-mixin field({icon = ''} = {})
+//- icon        string ('') - icon to show inside
+//- isReadonly  boolean (false) - if true input will not be editable
+mixin field({icon = '', isReadonly} = {})
   include /components/icon/icon.pug
 
   .field(data-field)
-    input.field__input(type = 'text')&attributes(attributes)
+    input.field__input(type = 'text', readonly = isReadonly)&attributes(attributes)
     if icon
       .field__icon
         +icon({name: icon})

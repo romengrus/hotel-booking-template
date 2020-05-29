@@ -1,23 +1,21 @@
 //- Rating
 //-
-//- value             number (0) - Rating value
-//- total             number (5) - Number of icons to show
-//- isPartial         boolean (false) - If true - partial rating can be used, false - otherwise
-mixin rating({value = 0, total = 5, isPartial = false} = {}) 
+//- value         number (0) - Rating value
+//- total         number (5) - Number of icons to show
+//- isPartial     boolean (false) - If true - partial rating can be used, false - otherwise
+//- iEmpty        string ('star') - icon for empty state
+//- iFilled       string ('star-active') - icon for filled state
+//- iHalf         string ('star-half-active') icon for half filled state
+mixin rating({value=0, total=5, isPartial=false, iEmpty='star', iFilled='star-active', iHalf='star-half-active'} = {}) 
   include /components/icon/icon.pug
-
-  -
-    const iEmpty = 'star';
-    const iFilled = 'star-active';
-    const iHalf = 'star-half-active';
 
   .rating(
     data-rating,
     data-value = value,
     data-is-partial = isPartial,
-    data-icon-empty = iEmpty,
-    data-icon-filled = iFilled,
-    data-icon-half = iHalf)
+    data-i-empty = iEmpty,
+    data-i-filled = iFilled,
+    data-i-half = iHalf)
     - for (let i = 0; i < total; i += 1)
       .rating__icon(data-rating-icon)
         +icon({ name: iEmpty, size: 'big' })

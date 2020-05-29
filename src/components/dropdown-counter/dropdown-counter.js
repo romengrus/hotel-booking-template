@@ -1,21 +1,21 @@
-import { pluralize } from '../../utils';
+import { pluralize, not } from '../../utils';
 
 class DropdownCounter {
   constructor(el) {
     const id = DropdownCounter.getID();
     this.el = el;
-    this.input = el.querySelector(`[data-${id}-value]`);
-    this.inputAlt = el.querySelector(`[data-${id}-alt]`);
-    this.toggler = el.querySelector(`[data-${id}-toggler]`);
-    this.ok = el.querySelector(`[data-${id}-ok]`);
-    this.reset = el.querySelector(`[data-${id}-reset]`);
-    this.counters = el.querySelectorAll(`[data-${id}-ok]`);
+    this.inputEl = el.querySelector(`[data-${id}-value]`);
+    this.inputAltEl = el.querySelector(`[data-${id}-alt]`);
+    this.togglerEl = el.querySelector(`[data-${id}-toggler]`);
+    this.okEl = el.querySelector(`[data-${id}-ok]`);
+    this.resetEl = el.querySelector(`[data-${id}-reset]`);
+    this.counterEls = el.querySelectorAll(`[data-counter]`);
+    this.actionsEl = el.querySelector(`[data-${id}-actions]`);
     this.resultType = el.dataset.resultType;
     this.plurals = JSON.parse(el.dataset.plurals);
-    this._model = new Map();
-    this.hasChanged = false;
-    // this.init();
-    // this.updateDOM();
+    this.model = new Map();
+    this.init();
+    this.updateDOM();
   }
 
   static getID() {
@@ -23,25 +23,48 @@ class DropdownCounter {
   }
 
   init() {
+    this.bindEventHandlers();
     this.attachEventHandlers();
+  }
+
+  bindEventHandlers() {
+    this.updateModel = this.updateModel.bind(this);
+    this.handleValueAltClick = this.handleValueAltClick.bind(this);
+    this.handleFocusOut = this.handleFocusOut.bind(this);
+    this.handleCounterUpdate = this.handleCounterUpdate.bind(this);
+    this.handleResetClick = this.handleResetClick.bind(this);
+    this.handleOkClick = this.handleOkClick.bind(this);
+    this.toggleCounters = this.toggleCounters.bind(this);
+    this.showCounters = this.showCounters.bind(this);
+    this.hideCounters = this.hideCounters.bind(this);
+  }
+
+  attachEventHandlers() {
+    this.el.addEventListener('counter:increased', this.handleCounterUpdate);
+    this.el.addEventListener('counter:decreased', this.handleCounterUpdate);
+    this.resetEl.addEventListener('click', this.handleResetClick);
+    this.okEl.addEventListener('click', this.handleOkClick);
+    this.inputAltEl.addEventListener('click', this.handleValueAltClick);
+    this.inputAltEl.addEventListener('focusout', this.handleFocusOut);
+    this.togglerEl.addEventListener('click', this.handleValueAltClick);
   }
 
   updateDOM() {
     // sum of counters numValues
-    const total = Array.from(this._model, ([, v]) => v.numValue).reduce((a, b) => a + b, 0);
+    const total = Array.from(this.model, ([, v]) => v.numValue).reduce((a, b) => a + b, 0);
 
     // set value for hidden input
-    this.input.value = JSON.stringify([...this._model]);
+    this.inputEl.value = JSON.stringify([...this.model]);
 
     // set value for visible input
     if (this.resultType === 'total') {
       if (this.plurals.length === 3) {
-        this.inputAlt.value = total === 0 ? '' : `${total} ${pluralize(total, this.plurals)}`;
+        this.inputAltEl.value = total === 0 ? '' : `${total} ${pluralize(total, this.plurals)}`;
       } else {
-        this.inputAlt.value = total;
+        this.inputAltEl.value = total;
       }
     } else {
-      this.inputAlt.value = Array.from(this._model)
+      this.inputAltEl.value = Array.from(this.model)
         .map(([, v]) => v)
         .filter(v => v.numValue > 0)
         .map(v => v.strValue)
@@ -49,53 +72,59 @@ class DropdownCounter {
     }
 
     // toggle actions panel visibility
-    if (this.hasChanged) {
-      this.el.classList.add('dropdown-counter_visible-actions');
-    }
+    this.el.classList.add('dropdown-counter_visible-actions');
 
     // toggle reset button visibility
-    if (total >= 0) {
-      this.reset.classList.add('dropdown-counter__reset_is-visible');
+    if (total > 0) {
+      this.resetEl.classList.add('dropdown-counter__reset_is-visible');
     } else {
-      this.reset.classList.remove('dropdown-counter__reset_is-visible');
+      this.resetEl.classList.remove('dropdown-counter__reset_is-visible');
     }
   }
 
   updateModel({ id, numValue, strValue }) {
-    this._model.set(id, { numValue, strValue });
-    this.hasChanged = true;
+    this.model.set(id, { numValue, strValue });
     this.updateDOM();
   }
 
-  attachEventHandlers() {
-    this.counters.forEach($counter => {
-      $counter.addEventListener('counter:increased', e => this.updateModel(e.detail));
-      $counter.addEventListener('counter:decreased', e => this.updateModel(e.detail));
-    });
-    // this.el.addEventListener('counter:increased', e => this.updateModel(e.detail));
-    // this.el.addEventListener('counter:decreased', e => this.updateModel(e.detail));
-    this.toggler.addEventListener('click', e => this.handleTogglerClick(e));
-    this.reset.addEventListener('click', e => this.handleResetClick(e));
-    this.ok.addEventListener('click', e => this.handleTogglerClick(e));
-    this.inputAlt.addEventListener('focus', e => this.handleTogglerClick(e));
-    // this.inputAlt.addEventListener('blur', e => this._handleTogglerClick(e));
+  showCounters() {
+    this.el.classList.remove('dropdown-counter_is-collapsed');
   }
 
-  handleTogglerClick(e) {
-    e.preventDefault();
+  hideCounters() {
+    this.el.classList.add('dropdown-counter_is-collapsed');
+  }
 
+  toggleCounters() {
     this.el.classList.toggle('dropdown-counter_is-collapsed');
   }
 
-  handleResetClick(e) {
-    e.preventDefault();
+  handleValueAltClick() {
+    this.toggleCounters();
+  }
 
-    this._model = new Map();
+  handleFocusOut(e) {
+    const isInside = this.el.contains(e.relatedTarget);
+    if (not(isInside)) {
+      this.hideCounters();
+    }
+  }
+
+  handleCounterUpdate(e) {
+    this.updateModel(e.detail);
+  }
+
+  handleResetClick() {
+    this.model = new Map();
 
     // reset counters
-    this.counters.forEach($counter => $counter.dispatchEvent(new Event('counter:reset')));
+    this.counterEls.forEach(c => c.dispatchEvent(new Event('counter:reset')));
 
     this.updateDOM();
+  }
+
+  handleOkClick() {
+    this.hideCounters();
   }
 }
 

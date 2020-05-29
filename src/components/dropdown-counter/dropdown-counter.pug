@@ -22,16 +22,17 @@ mixin dropdown-counter({resultType = 'total', plurals = [], icon = 'semi-arrow-d
     data-counters = counters, 
     data-result-type = resultType, 
     data-plurals = plurals)
+
     .dropdown-counter__value(data-dropdown-counter-value)
       +field(hidden = true)
     .dropdown-counter__value-alt
-      +field(data-dropdown-counter-alt)&attributes(attributes)
+      +field({isReadonly: true})(data-dropdown-counter-alt)&attributes(attributes)
       .dropdown-counter__toggler(data-dropdown-counter-toggler)
         +icon({ name: 'semi-arrow-up', size: 'small' })
     .dropdown-counter__content
       if block
         block
-      .dropdown-counter__actions
+      .dropdown-counter__actions(data-dropdown-counter-actions)
         .dropdown-counter__reset
           +button({ isTextOnly: true })(data-dropdown-counter-reset) Очистить
         .dropdown-counter__ok

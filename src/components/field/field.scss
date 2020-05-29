@@ -29,6 +29,10 @@ $field-label-size: 12px !default;
       outline: none;
     }
 
+    &:read-only {
+      cursor: pointer;
+    }
+
     &::placeholder {
       color: $dark-500;
     }

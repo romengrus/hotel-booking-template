@@ -17,14 +17,14 @@ class FilterPrice {
   }
 
   bindEventListeners() {
-    this.changePrice = this.changePrice.bind(this);
+    this.handleSliderUpdate = this.handleSliderUpdate.bind(this);
   }
 
   attachEventListeners() {
-    this.sliderEl.addEventListener('range-slider-update', e => this.changePrice(e.detail));
+    this.sliderEl.addEventListener('range-slider-update', e => this.handleSliderUpdate(e.detail));
   }
 
-  changePrice(newPrice) {
+  handleSliderUpdate(newPrice) {
     this.resultEl.textContent = [].concat(newPrice).join(' - ');
   }
 }

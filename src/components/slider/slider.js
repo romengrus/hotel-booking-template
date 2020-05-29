@@ -5,7 +5,6 @@ class Slider {
     this.el = el;
     this.id = Slider.getID();
     this.slider = null;
-    this.thumbs = null;
     this.init();
   }
 

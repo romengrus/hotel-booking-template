@@ -3,9 +3,9 @@ class Doughnut {
     const id = Doughnut.getID();
     this.el = el;
     this.chartData = JSON.parse(this.el.getAttribute(`data-chart-data`));
-    this.segments = el.querySelectorAll(`[data-${id}-segment]`);
-    this.labels = el.querySelectorAll(`[data-${id}-label]`);
-    this.header = el.querySelector(`[data-${id}-header]`);
+    this.segmentEls = el.querySelectorAll(`[data-${id}-segment]`);
+    this.labelEls = el.querySelectorAll(`[data-${id}-label]`);
+    this.headerEl = el.querySelector(`[data-${id}-header]`);
     this.total = this.chartData.map(v => v.value).reduce((a, b) => a + b, 0);
     this.init();
   }
@@ -15,20 +15,26 @@ class Doughnut {
   }
 
   init() {
+    this.bindEventHandlers();
     this.attachEventHandlers();
   }
 
+  bindEventHandlers() {
+    this.handleLabelHover = this.handleLabelHover.bind(this);
+    this.handleLabelBlur = this.handleLabelBlur.bind(this);
+  }
+
   attachEventHandlers() {
-    this.labels.forEach(label => {
-      label.addEventListener('mouseover', e => this.handleLabelHover(e));
-      label.addEventListener('mouseout', e => this.handleLabelBlur(e));
+    this.labelEls.forEach(label => {
+      label.addEventListener('mouseover', this.handleLabelHover);
+      label.addEventListener('mouseout', this.handleLabelBlur);
     });
   }
 
   handleLabelBlur() {
-    this.segments.forEach(segment => segment.classList.remove('doughnut__segment_active'));
-    this.labels.forEach(label => label.classList.remove('doughnut__label_active'));
-    this.header.textContent = this.total;
+    this.segmentEls.forEach(segment => segment.classList.remove('doughnut__segment_active'));
+    this.labelEls.forEach(label => label.classList.remove('doughnut__label_active'));
+    this.headerEl.textContent = this.total;
   }
 
   handleLabelHover(e) {
@@ -37,12 +43,12 @@ class Doughnut {
     const numVotes = this.chartData[segmentIndex].value;
     const activeSegment = document.getElementById(`doughnut__segment-${segmentIndex}`);
 
-    this.segments.forEach(segment => segment.classList.remove('doughnut__segment_active'));
-    this.labels.forEach(label => label.classList.remove('doughnut__label_active'));
+    this.segmentEls.forEach(segment => segment.classList.remove('doughnut__segment_active'));
+    this.labelEls.forEach(label => label.classList.remove('doughnut__label_active'));
 
     activeSegment.classList.add('doughnut__segment_active');
     currentLabel.classList.add('doughnut__label_active');
-    this.header.textContent = numVotes;
+    this.headerEl.textContent = numVotes;
   }
 }
 

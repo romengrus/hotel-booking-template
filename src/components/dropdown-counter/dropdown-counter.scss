@@ -5,7 +5,6 @@ $dc-btn-ok-color: #000 !default;
 $dc-body-bg: white !default;
 
 .dropdown-counter {
-
   $root: &;
 
   position: relative;
@@ -52,14 +51,14 @@ $dc-body-bg: white !default;
   }
 
   &__reset {
-    display: none;
+    visibility: hidden;
     height: auto;
     padding: 0;
     color: $dc-btn-reset-color;
     font-weight: bold;
 
     &_is-visible {
-      display: block;
+      visibility: visible;
     }
   }
 

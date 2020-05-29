@@ -31,6 +31,14 @@ $button-text-color: $white;
     outline: none;
   }
 
+  &:hover,
+  &:active {
+    opacity: 0.5;
+    color: $button-text-color;
+    text-decoration: none;
+    outline: none;
+  }
+
   &__icon {
     position: absolute;
     top: 50%;
@@ -69,7 +77,8 @@ $button-text-color: $white;
     background: none;
     color: $primary;
 
-    &:hover {
+    &:hover,
+    &:active {
       color: rgba(31, 32, 65, 0.5);
     }
   }
@@ -86,13 +95,5 @@ $button-text-color: $white;
 
   &_is-expanded {
     width: 100%;
-  }
-
-  &:hover,
-  &:active {
-    opacity: 0.5;
-    color: $button-text-color;
-    text-decoration: none;
-    outline: none;
   }
 }

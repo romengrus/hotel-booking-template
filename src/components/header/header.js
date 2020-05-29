@@ -13,20 +13,20 @@ class Header {
   }
 
   init() {
+    this.bindEventHandlers();
     this.attachEventHandlers();
   }
 
-  attachEventHandlers() {
-    if (this.menuToggler) {
-      this.menuToggler.addEventListener('click', () => this.toggleMenu());
-    }
-
-    if (this.menuClose) {
-      this.menuClose.addEventListener('click', () => this.toggleMenu());
-    }
+  bindEventHandlers() {
+    this.handleMenuToggle = this.handleMenuToggle.bind(this);
   }
 
-  toggleMenu() {
+  attachEventHandlers() {
+    this.menuToggler.addEventListener('click', this.handleMenuToggle);
+    this.menuClose.addEventListener('click', this.handleMenuToggle);
+  }
+
+  handleMenuToggle() {
     this.menu.classList.toggle('header__menu_is-visible-on-mobile');
   }
 }
