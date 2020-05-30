@@ -16,9 +16,6 @@ class FormRoomReservation {
     const arrival = this.el.querySelector(`[data-${this.id}-arrival] [data-datepicker]`);
     const departure = this.el.querySelector(`[data-${this.id}-departure] [data-datepicker]`);
 
-    arrival._flatpickr.destroy();
-    departure._flatpickr.destroy();
-
     flatpickr(arrival, {
       altInput: true,
       altFormat: 'F j, Y',

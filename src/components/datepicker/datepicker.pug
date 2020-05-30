@@ -8,15 +8,15 @@
 //-                                                         Range - select date range. 
 //-                                                         Multiple - select multiple dates
 //- isRequired    boolean (false) - If true - field will be validated as required
-//- isOpened      boolean (false) - If true - datepicker will be rendered as opened
-mixin datepicker({dates = [], mode = 'single', isRequired, isOpened} = {})
+//- isInline      boolean (false) - If true - will display datepicker inline
+mixin datepicker({dates = [], mode = 'single', isRequired, isOpened, isInline} = {})
   include /components/icon/icon.pug
   include /components/field/field.pug
 
   -
     const classList = ['datepicker'];
 
-    if (isOpened) classList.push('datepicker_is-opened');
+    if (isInline) classList.push('datepicker_is-opened');
 
   div(class = classList, data-datepicker)
     .datepicker__input
@@ -25,7 +25,7 @@ mixin datepicker({dates = [], mode = 'single', isRequired, isOpened} = {})
         data-datepicker-input,
         data-dates = dates, 
         data-mode = mode, 
-        data-is-opened = isOpened)&attributes(attributes)
+        data-is-inline = isInline)&attributes(attributes)
     .datepicker__toggler(data-datepicker-toggler)
       +icon({ name: 'semi-arrow-up', size: 'small' })
     div(style = 'display: none')

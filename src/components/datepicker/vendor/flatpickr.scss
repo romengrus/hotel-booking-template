@@ -5,7 +5,7 @@
   position: absolute;
   width: $datepicker-width;
   border: 0;
-  padding: 20px;
+  padding: 14px 20px 12px;
   -webkit-animation: none;
   animation: none;
   background: transparent;
@@ -138,7 +138,7 @@
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  margin-bottom: 38px;
+  margin-bottom: 29px;
 }
 .flatpickr-months .flatpickr-month {
   -webkit-flex: 1;
@@ -311,13 +311,15 @@
   left: 12.5%;
   width: 75%;
   height: 28px;
-  padding: 6.16px 0 0 0;
+  padding: 8px 0 0 0;
   -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
-  font-size: 135%;
+  font-size: 19px;
+  font-weight: bold !important;
+  font-family: $font-family-accent;
   line-height: inherit;
   font-weight: 300;
-  color: inherit;
+  color: $dark-1000;
   line-height: 1;
   text-align: center;
 }
@@ -447,6 +449,7 @@ span.flatpickr-weekday {
   -webkit-justify-content: space-around;
   justify-content: inherit;
   width: 100%;
+  margin-top: 4px;
   min-width: 100%;
   max-width: 100%;
   padding: 0;
@@ -481,7 +484,7 @@ span.flatpickr-weekday {
   cursor: pointer;
   font-weight: 400;
   -ms-flex-preferred-size: 14.2857143%;
-  color: $datepicker-day-color;
+  color: $dark-500;
   line-height: 39px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -539,7 +542,7 @@ span.flatpickr-weekday {
 .flatpickr-day.prevMonthDay.inRange,
 .flatpickr-day.nextMonthDay.inRange {
   background: $datepicker-range-other-month-bg;
-  color: $datepicker-day-color;
+  color: $dark-500;
 }
 .flatpickr-day.today {
   border: none;
@@ -628,7 +631,7 @@ span.flatpickr-weekday {
   -webkit-box-shadow: none;
   box-shadow: none;
   background: $datepicker-range-bg;
-  color: $datepicker-day-color;
+  color: $dark-500;
 }
 .flatpickr-day.disabled,
 .flatpickr-day.disabled:hover,
@@ -637,7 +640,7 @@ span.flatpickr-weekday {
 .flatpickr-day.notAllowed,
 .flatpickr-day.notAllowed.prevMonthDay,
 .flatpickr-day.notAllowed.nextMonthDay {
-  color: $datepicker-day-color;
+  color: $dark-250;
   background: transparent;
   border-color: transparent;
   cursor: default;
@@ -656,7 +659,7 @@ span.flatpickr-weekday {
   visibility: hidden;
 }
 .rangeMode .flatpickr-day {
-  margin-top: 1px;
+  margin-top: 0;
 }
 .flatpickr-weekwrapper {
   display: inline-block;
@@ -804,6 +807,13 @@ span.flatpickr-weekday {
 .flatpickr-input[readonly] {
   cursor: pointer;
 }
+
+.nextMonthDay {
+  &:nth-last-child(-n + 7) {
+    display: none;
+  }
+}
+
 @-webkit-keyframes fpFadeInDown {
   from {
     opacity: 0;

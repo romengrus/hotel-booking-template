@@ -31,15 +31,43 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
     transition: transform 300ms ease-out;
   }
 
-  &__icon-prev,
-  &__icon-next {
+  &__prev,
+  &__next {
+    background: none;
+    border: none;
+    outline: none;
     fill: $datepicker-icon-color;
   }
 
-  &__actions-panel {
+  &__prev {
+    transform: translateX(-9px);
+  }
+
+  &__next {
+    transform: translateX(9px);
+  }
+
+  &__actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__reset,
+  &__ok {
+    background: none;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    color: $datepicker-day-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $datepicker-weekday-color;
+      opacity: 1;
+    }
   }
 
   &__reset {
@@ -48,18 +76,7 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
 
   &__ok {
     padding-right: 0;
-  }
-
-  &__reset,
-  &__ok {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $datepicker-day-color;
-
-    &:hover {
-      color: $datepicker-weekday-color;
-      opacity: 1;
-    }
+    color: $primary;
   }
 
   &_is-opened {

@@ -1,6 +1,22 @@
 import { Russian } from 'flatpickr/dist/l10n/ru';
 import flatpickr from 'flatpickr';
 
+const monthNumberToName = n =>
+  [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ][n];
+
 class Datepicker {
   constructor(el) {
     this.id = Datepicker.getID();
@@ -19,6 +35,15 @@ class Datepicker {
     this.createDatepicker();
   }
 
+  setCurrentMonthView(calendar) {
+    const monthName = monthNumberToName(calendar.currentMonth);
+    const currentDate = `${monthName} ${calendar.currentYear}`;
+    const currentDateContainer = calendar.calendarContainer.querySelector(
+      '.flatpickr-current-month'
+    );
+    currentDateContainer.innerHTML = currentDate;
+  }
+
   createDatepicker() {
     const next = this.el.querySelector(`[data-${this.id}-next]`);
     const prev = this.el.querySelector(`[data-${this.id}-prev]`);
@@ -27,16 +52,19 @@ class Datepicker {
     const ok = actions.querySelector(`[data-${this.id}-ok]`);
 
     const dates = JSON.parse(this.inputEl.dataset.dates) || [];
-    const mode = this.inputEl.dataset.mode || 'single';
-    const isOpended = this.inputEl.dataset.isOpened || false;
+    const { mode } = this.inputEl.dataset;
+    const isInline = 'isInline' in this.inputEl.dataset;
 
     const datepicker = flatpickr(this.inputEl, {
       locale: Russian,
       dateFormat: 'd.m.Y',
-      defaultDate: dates.map(Date),
+      defaultDate: dates,
       mode,
+      inline: isInline,
       nextArrow: next ? next.outerHTML : '>',
-      prevArrow: prev ? prev.outerHTML : '<'
+      prevArrow: prev ? prev.outerHTML : '<',
+      onReady: (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance),
+      onMonthChange: (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance)
     });
 
     datepicker.$buttonReset = reset;
@@ -51,10 +79,6 @@ class Datepicker {
     // move actions panel inside datepicker container
     if (mode !== 'single') {
       datepicker.calendarContainer.appendChild(actions);
-    }
-
-    if (isOpended) {
-      datepicker.open();
     }
   }
 }
