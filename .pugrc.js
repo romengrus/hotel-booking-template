@@ -26,7 +26,7 @@ function hexToRGBA(hex, alpha) {
   }
 }
 
-const dummyURL = '/please-change-this-url-is-source-files';
+const dummyURL = '/change-this-url-in-source-files';
 
 module.exports = {
   basedir,
