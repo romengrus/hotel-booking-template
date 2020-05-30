@@ -9,8 +9,12 @@
   }
 
   &__showcase {
-    flex: 0;
+    display: flex;
+    flex: 1;
+    max-width: 1440px;
+    min-height: 485px;
     margin: 0 auto;
+    align-items: stretch;
   }
 
   &__info {

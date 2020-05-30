@@ -5,7 +5,7 @@
 //- third     string ('') - third image    
 mixin room-showcase({first = '', second = '', third = ''} = {})
   .room-showcase(data-room-showcase)
-    img.room-showcase__main(src = first, alt = 'room image')
+    .room-showcase__main(style=`background: url(${first});`)
     .room-showcase__thumbs
-      img.room-showcase__thumb(src = second, alt = 'room image')
-      img.room-showcase__thumb(src = third, alt = 'room image')
+      .room-showcase__thumb(style=`background: url(${second});`)
+      .room-showcase__thumb(style=`background: url(${third});`)
