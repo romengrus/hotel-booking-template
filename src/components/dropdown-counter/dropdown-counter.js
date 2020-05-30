@@ -13,6 +13,7 @@ class DropdownCounter {
     this.actionsEl = el.querySelector(`[data-${id}-actions]`);
     this.resultType = el.dataset.resultType;
     this.plurals = JSON.parse(el.dataset.plurals);
+    this.showActions = 'showActions' in el.dataset;
     this.model = new Map();
     this.init();
     this.updateDOM();
@@ -84,7 +85,7 @@ class DropdownCounter {
     this.updateDOM();
   }
 
-  showActions() {
+  showActionsPanel() {
     this.el.classList.add('dropdown-counter_visible-actions');
   }
 
@@ -113,7 +114,10 @@ class DropdownCounter {
 
   handleCounterUpdate(e) {
     this.updateModel(e.detail);
-    this.showActions();
+
+    if (this.showActions) {
+      this.showActionsPanel();
+    }
   }
 
   handleResetClick() {

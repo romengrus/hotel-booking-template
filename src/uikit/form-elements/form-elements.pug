@@ -57,11 +57,15 @@ block main
               +datepicker(placeholder = 'ДД.ММ.ГГГГ')
           .p-l-10
             +form-element('date dropdown')
-              +datepicker({ defaultDate: '2019.08.19' })
+              +datepicker({ dates: ['19.08.2019'] })
 
         .m-t-40.p-r-54
           +form-element('filter date dropdown')
-            +datepicker({ mode: 'range' })(placeholder='ДД.ММ - ДД.ММ')
+            +datepicker({ 
+              mode: 'range', 
+              dates: ['19.08.2019', '23.08.2019'],
+              format: 'j M', 
+            })(placeholder='ДД.ММ - ДД.ММ')
 
         .m-t-40.p-r-54
           +form-element('subscription text field')

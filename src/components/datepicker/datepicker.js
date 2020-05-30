@@ -44,6 +44,12 @@ class Datepicker {
     currentDateContainer.innerHTML = currentDate;
   }
 
+  formatValue(calendar) {
+    const { altInput } = calendar;
+    const { value } = calendar.altInput;
+    altInput.value = value.toLocaleLowerCase().replace(/\u2013|\u2014/g, '-');
+  }
+
   createDatepicker() {
     const next = this.el.querySelector(`[data-${this.id}-next]`);
     const prev = this.el.querySelector(`[data-${this.id}-prev]`);
@@ -52,19 +58,25 @@ class Datepicker {
     const ok = actions.querySelector(`[data-${this.id}-ok]`);
 
     const dates = JSON.parse(this.inputEl.dataset.dates) || [];
-    const { mode } = this.inputEl.dataset;
+    const { mode, format } = this.inputEl.dataset;
     const isInline = 'isInline' in this.inputEl.dataset;
 
     const datepicker = flatpickr(this.inputEl, {
       locale: Russian,
       dateFormat: 'd.m.Y',
+      altFormat: format,
+      altInput: true,
       defaultDate: dates,
       mode,
       inline: isInline,
       nextArrow: next ? next.outerHTML : '>',
       prevArrow: prev ? prev.outerHTML : '<',
-      onReady: (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance),
-      onMonthChange: (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance)
+      onReady: [
+        (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance),
+        (selectedDates, dateStr, instance) => this.formatValue(instance)
+      ],
+      onMonthChange: (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance),
+      onChange: (selectedDates, dateStr, instance) => this.formatValue(instance)
     });
 
     datepicker.$buttonReset = reset;

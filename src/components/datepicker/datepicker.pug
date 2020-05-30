@@ -7,9 +7,10 @@
 //- mode          oneOf ('single' | 'range' | 'multiple') - Single - select only 1 date at a time. 
 //-                                                         Range - select date range. 
 //-                                                         Multiple - select multiple dates
+//- format        string (d.m.Y) - date format
 //- isRequired    boolean (false) - If true - field will be validated as required
 //- isInline      boolean (false) - If true - will display datepicker inline
-mixin datepicker({dates = [], mode = 'single', isRequired, isOpened, isInline} = {})
+mixin datepicker({dates=[], mode='single', format='d.m.Y', isRequired, isOpened, isInline} = {})
   include /components/icon/icon.pug
   include /components/field/field.pug
 
@@ -24,6 +25,7 @@ mixin datepicker({dates = [], mode = 'single', isRequired, isOpened, isInline} =
         placeholder = 'ДД.ММ.ГГГГ',
         data-datepicker-input,
         data-dates = dates, 
+        data-format = format,
         data-mode = mode, 
         data-is-inline = isInline)&attributes(attributes)
     .datepicker__toggler(data-datepicker-toggler)
