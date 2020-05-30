@@ -2,12 +2,20 @@ $hero-text-color: black !default;
 
 .hero {
   display: flex;
-  position: relative;
   width: 100%;
   min-height: 683px;
   padding: 40px 80px;
   background-position: center -70px;
   background-repeat: no-repeat;
+  justify-content: center;
+  align-items: stretch;
+
+  &__wrapper {
+    display: flex;
+    position: relative;
+    max-width: $content-max-width;
+    flex: 1;
+  }
 
   &__content {
     min-width: 320px;
@@ -16,8 +24,8 @@ $hero-text-color: black !default;
   &__info {
     position: absolute;
     z-index: 30;
-    right: 134px;
-    bottom: 1px;
+    right: -7px;
+    bottom: -70px;
     max-width: 300px;
     min-height: 50px;
     color: $hero-text-color;

@@ -15,14 +15,18 @@ mixin hero({bgImg = '', info = '', size = '', hPos = 'center', vPos = 'center'} 
 
     const heroStyle = {
       'background-image': `url(${bgImg})`,
+    }
+
+    const wrapperStyle = {
       'align-items': getPos(vPos),
       'justify-content': getPos(hPos),
     }
 
-  div(class = classList, style = heroStyle, data-hero)
-    if (block)
-      .hero__content
-        block
+  div(class=classList, style=heroStyle, data-hero)
+    .hero__wrapper(style=wrapperStyle)
+      if (block)
+        .hero__content
+          block
 
-    if (info)
-      p.hero__info= info
+      if (info)
+        p.hero__info= info
