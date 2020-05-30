@@ -112,19 +112,19 @@ block main
                 +rating({ value: 5 })
 
       .form-elements__col.form-elements__col-a3
-        +form-element('Range Slider')
-          .m-t-21.p-r-53
+        .p-r-53
+          +filter-price({title: 'range slider'})
             +range-slider({
               params: {
-                start: [6300, 12800],
-                range: {min: 0, max: 20000},
+                start: [5000, 10000],
+                range: {min: 200, max: 15500},
                 connect: [false, true, false],
                 format: {
                   decimals: 0,
                   thousand: ' ',
-                  suffix: ' ₽'
+                  suffix: '₽'
                 }
-              },
+              }
             })
 
         .m-t-43

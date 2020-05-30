@@ -14,7 +14,19 @@ mixin form-room-filter
         +filter-guests
 
       .form-room-filter__price
-        +filter-price
+        +filter-price({title: 'диапазон цены', desc: 'Стоимость за сутки пребывания в номере'})
+          +range-slider({
+            params: {
+              start: [5000, 10000],
+              range: {min: 200, max: 15500},
+              connect: [false, true, false],
+              format: {
+                decimals: 0,
+                thousand: ' ',
+                suffix: '₽'
+              }
+            }
+          })
 
       .form-room-filter__permissions 
         +panel({ title: 'Checkbox Buttons' })
