@@ -71,9 +71,6 @@ class DropdownCounter {
         .join(', ');
     }
 
-    // toggle actions panel visibility
-    this.el.classList.add('dropdown-counter_visible-actions');
-
     // toggle reset button visibility
     if (total > 0) {
       this.resetEl.classList.add('dropdown-counter__reset_is-visible');
@@ -85,6 +82,10 @@ class DropdownCounter {
   updateModel({ id, numValue, strValue }) {
     this.model.set(id, { numValue, strValue });
     this.updateDOM();
+  }
+
+  showActions() {
+    this.el.classList.add('dropdown-counter_visible-actions');
   }
 
   showCounters() {
@@ -112,6 +113,7 @@ class DropdownCounter {
 
   handleCounterUpdate(e) {
     this.updateModel(e.detail);
+    this.showActions();
   }
 
   handleResetClick() {

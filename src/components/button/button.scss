@@ -73,6 +73,7 @@ $button-text-color: $white;
   }
 
   &_is-text-only {
+    padding: 0;
     border: none;
     background: none;
     color: $primary;

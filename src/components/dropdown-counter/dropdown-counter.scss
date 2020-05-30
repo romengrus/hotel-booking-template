@@ -30,7 +30,7 @@ $dc-body-bg: white !default;
     z-index: 100;
     width: 100%;
     border: $dc-border;
-    padding: 3px 8px 8px 14px;
+    padding: 4px 5px 6px 14px;
     transition: all 0.3s ease-in-out 0s;
     visibility: visible;
     opacity: 1;
@@ -40,14 +40,31 @@ $dc-body-bg: white !default;
     background-color: $dc-body-bg;
 
     & > * + * {
-      margin-top: 6px;
+      margin-top: 5px;
     }
   }
 
   &__actions {
     display: none;
+    margin-top: 13px;
     align-items: center;
-    margin-top: 24px;
+  }
+
+  &__reset,
+  &__ok {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+    padding: 5px;
+    color: $primary;
+    background: none;
+    border-style: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
   }
 
   &__reset {

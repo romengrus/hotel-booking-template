@@ -34,7 +34,10 @@ block main
 
         .m-t-19
           +form-element('dropdown', 'default')
-            +dropdown-counter({ resultType: 'total', plurals: ['гость', 'гостя', 'гостей'] })(placeholder = 'Сколько гостей')
+            +dropdown-counter({ 
+              resultType: 'total', 
+              plurals: ['гость', 'гостя', 'гостей'] 
+            })(placeholder = 'Сколько гостей')
               +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper'] })
                 +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
 
@@ -134,9 +137,9 @@ block main
               +button({isOutlined: true}) click me
               .m-l-18
                 +button({isOutlined: true, isDisabled: true}) click me
-            .df.m-t-18(style = 'margin-left: -19px;')
+            .df.m-t-18
               +button({isTextOnly: true}) click me
-              div(style = 'margin-left: -19px;')
+              .m-l-21
                 +button({isTextOnly: true, isDisabled: true}) click me
             .m-t-14
               +button({icon: 'arrow-right-light', isRounded: true, isExpanded: true}) Перейти к оплате
@@ -150,25 +153,28 @@ block main
       .form-elements__col.form-elements__col-b1
         +form-element('dropdown', 'default')
           +dropdown-counter({ resultType: 'concat' })(placeholder = 'Выберите нужное количество ...')
-            +label({ value: 'спальни', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'спальни', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['спальня', 'спальни', 'спален'] })
 
-            +label({ value: 'кровати', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'кровати', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['кровать', 'кровати', 'кроватей'] })
 
-            +label({ value: 'ванные комнаты', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'ванные комнаты', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'] })
 
         .m-t-19
           +form-element('dropdown', 'expanded')
-            +dropdown-counter({ resultType: 'concat', isCollapsed: false })(placeholder = 'Выберите нужное количество ...')
-              +label({ value: 'спальни', pos: 'left', theme: ['bold', 'upper'] })
+            +dropdown-counter({ 
+              resultType: 'concat', 
+              isCollapsed: false 
+            })(placeholder = 'Выберите нужное количество ...')
+              +label({ value: 'спальни', pos: 'left', theme: ['bold', 'upper', 'centered'] })
                 +counter({ plurals: ['спальня', 'спальни', 'спален'] })
 
-              +label({ value: 'кровати', pos: 'left', theme: ['bold', 'upper'] })
+              +label({ value: 'кровати', pos: 'left', theme: ['bold', 'upper', 'centered'] })
                 +counter({ plurals: ['кровать', 'кровати', 'кроватей'] })
 
-              +label({ value: 'ванные комнаты', pos: 'left', theme: ['bold', 'upper'] })
+              +label({ value: 'ванные комнаты', pos: 'left', theme: ['bold', 'upper', 'centered'] })
                 +counter({ plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат'] })
 
       .form-elements__col.form-elements__col-b2
@@ -176,15 +182,16 @@ block main
           +dropdown-counter({ 
             resultType: 'total', 
             plurals: ['гость', 'гостя', 'гостей'], 
-            isCollapsed: false 
+            isCollapsed: false,
+            showActions: true,
           })(placeholder = 'Сколько гостей')
-            +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
 
-            +label({ value: 'дети', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'дети', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['ребенок', 'детей', 'детей'] })
 
-            +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
 
       .form-elements__col.form-elements__col-b3
@@ -193,14 +200,15 @@ block main
             resultType: 'total',
             plurals: ['гость', 'гостя', 'гостей'],
             isCollapsed: false,
+            showActions: true,
           })(placeholder = 'Сколько гостей')
-            +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
 
-            +label({ value: 'дети', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'дети', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['ребенок', 'детей', 'детей'] })
 
-            +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper'] })
+            +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper', 'centered'] })
               +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
 
     .form-elements__row.form-elements__row-c

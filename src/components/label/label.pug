@@ -3,7 +3,7 @@
 //- value     oneOf (array of strings | string) - If array is provided - each item is rendered on separate line 
 //- desc      oneOf (array of strings | string) - If array is provided - each item is rendered on separate line 
 //- pos       oneOf ('top' | 'right' | 'left') - Position relative to inner block
-//- theme     setOf ('bold' | 'upper') - label design theme
+//- theme     setOf ('bold' | 'upper' | 'centered') - label design theme
 mixin label({value = [], desc = [], pos = 'right', theme = []} = {})
   -
     const classList = ['label'];
