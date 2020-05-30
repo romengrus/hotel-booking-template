@@ -1,6 +1,6 @@
 const glob = require('glob');
 const path = require('path');
-const { pluralize } = require('./src/utils');
+const { pluralize } = require('./src/scripts/utils');
 
 const basedir = path.join(__dirname, 'src');
 
@@ -20,10 +20,9 @@ function hexToRGBA(hex, alpha) {
   const b = parseInt(hex.slice(5, 7), 16);
 
   if (alpha) {
-    return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
-  } else {
-    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   }
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 const dummyURL = '/change-this-url-in-source-files';
