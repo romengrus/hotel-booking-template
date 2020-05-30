@@ -1,4 +1,8 @@
 .social-icons {
+  &__link:hover {
+    text-decoration: none;
+  }
+
   &__link + &__link {
     margin-left: 17px;
   }
