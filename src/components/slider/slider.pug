@@ -10,7 +10,11 @@
 //- showNavigation     boolean (false) - If true - navigation buttons will be shown
 mixin slider({slides = [], params = {}, showPagination = false, showNavigation = false} = {})
   -
+    const classList = ['slider'];
+
     if (showNavigation) {
+      classList.push('slider_with-navigation');
+
       params.navigation = Object.assign(params.navigation || {}, {
         prevEl: '.swiper-button-prev',
         nextEl: '.swiper-button-next'
@@ -18,12 +22,14 @@ mixin slider({slides = [], params = {}, showPagination = false, showNavigation =
     }
 
     if (showPagination) {
+      classList.push('slider_with-pagination');
+
       params.pagination = Object.assign(params.pagination || {}, {
         el: '.swiper-pagination'
       })
     } 
 
-  .slider(data-slider)
+  div(class = classList, data-slider)
     .swiper-container(data-params = params, data-slider-container)
       .swiper-wrapper
         each slide in slides
@@ -31,8 +37,8 @@ mixin slider({slides = [], params = {}, showPagination = false, showNavigation =
             a.swiper-slide(href = slide.url || dummyURL)
               img(src = slide.img, alt = 'slider image')
 
-      .swiper-pan-left
-      .swiper-pan-right
+      .slider__pan-left
+      .slider__pan-right
 
       if (showPagination)
         .swiper-pagination

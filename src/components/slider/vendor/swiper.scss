@@ -1,0 +1,65 @@
+@import 'swiper/dist/css/swiper.css';
+
+.swiper-container {
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.swiper-slide {
+  height: 100%;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0.45;
+  cursor: auto;
+  pointer-events: all;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  right: 11px;
+  bottom: 9px;
+  left: auto;
+  width: auto;
+}
+
+.swiper-pagination-bullet {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  box-shadow: 0 5px 5px rgba(31, 32, 65, 0.3);
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff;
+  box-shadow: 0 5px 5px rgba(31, 32, 65, 0.3);
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 2px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 86px;
+  width: 21px;
+  height: 21px;
+  background-position: center;
+  background-size: contain;
+  background-image: none;
+}
+
+.slider:hover .swiper-button-next {
+  right: 11px;
+  background-image: url('/assets/icons/semi-arrow-right.svg');
+}
+
+.slider:hover .swiper-button-prev {
+  left: 11px;
+  background-image: url('/assets/icons/semi-arrow-left.svg');
+}

@@ -1,99 +1,39 @@
-@import 'swiper/dist/css/swiper.css';
+@import './vendor/swiper.scss';
 
 .slider {
+  $root: &;
+
   position: relative;
-}
 
-.swiper-container {
-  height: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
+  &__pan-left,
+  &__pan-right {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    width: 42px;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 99.99%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
 
-.swiper-slide {
-  height: 100%;
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-}
+  &__pan-left {
+    left: 0;
+  }
 
-.swiper-button-prev.swiper-button-disabled,
-.swiper-button-next.swiper-button-disabled {
-  opacity: 0.45;
-  cursor: auto;
-  pointer-events: all;
-}
+  &__pan-right {
+    right: 0;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
 
-.swiper-pagination-fraction,
-.swiper-pagination-custom,
-.swiper-container-horizontal > .swiper-pagination-bullets {
-  right: 11px;
-  bottom: 9px;
-  left: auto;
-  width: auto;
-}
-
-.swiper-pagination-bullet {
-  box-sizing: border-box;
-  border: 1px solid #fff;
-  box-shadow: 0 5px 5px rgba(31, 32, 65, 0.3);
-}
-
-.swiper-pagination-bullet-active {
-  background: #fff;
-  box-shadow: 0 5px 5px rgba(31, 32, 65, 0.3);
-}
-
-.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 2px;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  top: 86px;
-  width: 21px;
-  height: 21px;
-  background-position: center;
-  background-size: contain;
-  background-image: none;
-}
-
-.slider:hover .swiper-button-next {
-  right: 11px;
-  background-image: url('/assets/icons/semi-arrow-right.svg');
-}
-
-.slider:hover .swiper-button-prev {
-  left: 11px;
-  background-image: url('/assets/icons/semi-arrow-left.svg');
-}
-
-.swiper-pan-left,
-.swiper-pan-right {
-  display: none;
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  width: 42px;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0) 99.99%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
-
-.slider .swiper-pan-left {
-  left: 0;
-}
-
-.slider .swiper-pan-right {
-  right: 0;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
-}
-
-.slider:hover .swiper-pan-left,
-.slider:hover .swiper-pan-right {
-  display: block;
+  &_with-navigation:hover {
+    #{$root}__pan-left,
+    #{$root}__pan-right {
+      display: block;
+    }
+  }
 }
