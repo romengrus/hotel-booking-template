@@ -1,10 +1,8 @@
-.bounded-width {
-  display: flex;
-  max-width: $content-max-width;
-  margin: 0 auto;
+body {
+  background: $dark-050;
 }
 
-.full-width {
-  display: flex;
-  width: 100%;
+.main {
+  max-width: $site-max-width;
+  margin: 0 auto;
 }

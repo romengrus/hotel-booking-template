@@ -1,4 +1,6 @@
 .header {
+  max-width: $site-max-width;
+  margin: 0 auto;
   box-shadow: 0 10px 20px $dark-050;
   background: $white;
 
@@ -37,7 +39,7 @@
 
   &__auth {
     display: flex;
-    margin-left: 17px;
+    margin-left: 20px;
     align-items: center;
 
     * + * {
