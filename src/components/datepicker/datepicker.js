@@ -1,5 +1,6 @@
 import { Russian } from 'flatpickr/dist/l10n/ru';
 import flatpickr from 'flatpickr';
+import RangePlugin from 'flatpickr/dist/plugins/rangePlugin';
 
 const monthNumberToName = n =>
   [
@@ -50,18 +51,14 @@ class Datepicker {
     altInput.value = value.toLocaleLowerCase().replace(/\u2013|\u2014/g, '-');
   }
 
-  createDatepicker() {
+  createConfig() {
     const next = this.el.querySelector(`[data-${this.id}-next]`);
     const prev = this.el.querySelector(`[data-${this.id}-prev]`);
-    const actions = this.el.querySelector(`[data-${this.id}-actions]`);
-    const reset = actions.querySelector(`[data-${this.id}-reset]`);
-    const ok = actions.querySelector(`[data-${this.id}-ok]`);
+    const dates = JSON.parse(this.el.dataset.dates) || [];
+    const { mode, format, connectedWith } = this.el.dataset;
+    const isInline = 'isInline' in this.el.dataset;
 
-    const dates = JSON.parse(this.inputEl.dataset.dates) || [];
-    const { mode, format } = this.inputEl.dataset;
-    const isInline = 'isInline' in this.inputEl.dataset;
-
-    const datepicker = flatpickr(this.inputEl, {
+    const config = {
       locale: Russian,
       dateFormat: 'd.m.Y',
       altFormat: format,
@@ -71,18 +68,39 @@ class Datepicker {
       inline: isInline,
       nextArrow: next ? next.outerHTML : '>',
       prevArrow: prev ? prev.outerHTML : '<',
+      onOpen: () => this.el.classList.add('datepicker_is-opened'),
+      onClose: () => this.el.classList.remove('datepicker_is-opened'),
       onReady: [
         (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance),
         (selectedDates, dateStr, instance) => this.formatValue(instance)
       ],
       onMonthChange: (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance),
       onChange: (selectedDates, dateStr, instance) => this.formatValue(instance)
-    });
+    };
+
+    if (connectedWith) {
+      config.plugins = [
+        new RangePlugin({
+          input: connectedWith,
+          position: 'left'
+        })
+      ];
+    }
+
+    return config;
+  }
+
+  createDatepicker() {
+    const actions = this.el.querySelector(`[data-${this.id}-actions]`);
+    const reset = actions.querySelector(`[data-${this.id}-reset]`);
+    const ok = actions.querySelector(`[data-${this.id}-ok]`);
+    const { mode } = this.el.dataset;
+    const config = this.createConfig();
+
+    const datepicker = flatpickr(this.inputEl, config);
 
     datepicker.$buttonReset = reset;
     datepicker.$buttonOk = ok;
-    datepicker.config.onOpen.push(() => this.el.classList.add('datepicker_is-opened'));
-    datepicker.config.onClose.push(() => this.el.classList.remove('datepicker_is-opened'));
 
     // handle action buttons click event
     reset.addEventListener('click', datepicker.clear);

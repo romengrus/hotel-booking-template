@@ -39,41 +39,46 @@ mixin form-room-reservation({room = '', isLux = false, price = 0} = {})
       .form-room-reservation__dates
         .form-room-reservation__arrival(data-room-reservation-arrival)
           +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
-            +datepicker(placeholder = 'ДД.ММ.ГГ')
+            +datepicker({
+              dates: ['19.08.2019', '23.08.2019'],
+              mode: 'range',
+              connectedWith: '#room-reservation-departure'
+            })(placeholder = 'ДД.ММ.ГГ')
+
         .form-room-reservation__departure(data-room-reservation-departure)
           +label({ value: labels.departure, pos: 'top', theme: ['bold', 'upper'] })
-            +datepicker(placeholder = 'ДД.ММ.ГГ')
+            +datepicker#room-reservation-departure(placeholder = 'ДД.ММ.ГГ')
 
       .form-room-reservation__guests
         +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] }) 
           +dropdown-counter({ 
-            resultType: 'concat', 
+            resultType: 'total', 
             plurals: ['гость', 'гостя', 'гостей'] 
           })(placeholder = 'Сколько гостей')
-            +label({ value: 'взрослые', pos: 'left', theme: ['bold', 'upper'] })
-              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+            +label({value: 'взрослые', pos: 'left', theme: ['bold', 'upper']})
+              +counter({plurals: ['взрослый', 'взрослых', 'взрослых'], value: 2})
 
-            +label({ value: 'дети', pos: 'left', theme: ['bold', 'upper'] })
-              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+            +label({value: 'дети', pos: 'left', theme: ['bold', 'upper']})
+              +counter({plurals: ['ребенок', 'детей', 'детей'], value: 1})
 
-            +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper'] })
-              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+            +label({value: 'младенцы', pos: 'left', theme: ['bold', 'upper']})
+              +counter({plurals: ['младенец', 'младенца', 'младенцев']})
 
       .form-room-reservation__fees
         +fees({
           items: [{
             title: '9 990₽ х 4 суток',
-            total: 39960,
+            total: '39 960₽',
           }, {
             title: 'Сбор за услуги: скидка 2 179₽',
             desc: 'Просто повезло!',
-            total: 0,
+            total: '0₽',
           }, {
             title: 'Сбор за дополнительные услуги',
             desc: 'Облом',
-            total: 300,
+            total: '300₽',
           }],
-          total: 38081
+          total: '38 081₽'
         })
 
       .form-room-reservation__submit

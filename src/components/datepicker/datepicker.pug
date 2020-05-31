@@ -8,33 +8,51 @@
 //-                                                         Range - select date range. 
 //-                                                         Multiple - select multiple dates
 //- format        string (d.m.Y) - date format
+//- connectedWith string ('') - id of other datepicker to create airbnb style range input
 //- isRequired    boolean (false) - If true - field will be validated as required
 //- isInline      boolean (false) - If true - will display datepicker inline
-mixin datepicker({dates=[], mode='single', format='d.m.Y', isRequired, isOpened, isInline} = {})
+mixin datepicker(props = {})
   include /components/icon/icon.pug
   include /components/field/field.pug
 
   -
+    const {
+      dates = [], 
+      mode = 'single', 
+      format = 'd.m.Y', 
+      connectedWith = '',
+      isRequired = false, 
+      isOpened = false, 
+      isInline = false, 
+    } = props;
+
     const classList = ['datepicker'];
 
     if (isInline) classList.push('datepicker_is-opened');
 
-  div(class = classList, data-datepicker)
+  div(class = classList, 
+      data-datepicker,
+      data-dates = dates, 
+      data-format = format,
+      data-connected-with = connectedWith,
+      data-mode = mode, 
+      data-is-inline = isInline)
+
     .datepicker__input
       +field(required = isRequired,
         placeholder = 'ДД.ММ.ГГГГ',
-        data-datepicker-input,
-        data-dates = dates, 
-        data-format = format,
-        data-mode = mode, 
-        data-is-inline = isInline)&attributes(attributes)
+        data-datepicker-input)&attributes(attributes)
+
     .datepicker__toggler(data-datepicker-toggler)
       +icon({ name: 'semi-arrow-up', size: 'small' })
+
     div(style = 'display: none')
       button.datepicker__prev(data-datepicker-prev)
         +icon({ name: 'arrow-left' })
+
       button.datepicker__next(data-datepicker-next)
         +icon({ name: 'arrow-right' })
+
       .datepicker__actions(data-datepicker-actions)
         button.datepicker__reset(data-datepicker-reset) Очистить
         button.datepicker__ok(data-datepicker-ok) Применить
