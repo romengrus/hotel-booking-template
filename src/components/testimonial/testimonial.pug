@@ -1,9 +1,10 @@
 //- userImg     string ('')
 //- userName    string ('')
 //- createdAt   string ('') - when testimonial was created
-//- numLikes    number (0) - number of likes this testimonial has
 //- text        string ('') - testimonial text
-mixin testimonial({userImg = '', userName = '', createdAt = '', numLikes = 0, text = ''} = {})
+//- numLikes    number (0) - number of likes this testimonial has
+//- hasVoted    boolean (false) - if true - like button is rendered as "voted"
+mixin testimonial({userImg='', userName='', createdAt='', text='', numLikes=0, hasVoted} = {})
   include /components/like/like.pug
 
   section.testimonial(data-testimonial)
@@ -11,7 +12,7 @@ mixin testimonial({userImg = '', userName = '', createdAt = '', numLikes = 0, te
       if (userImg)
         img.testimonial__user-img(src = userImg, alt = 'user image', title = userName)
       .testimonial__likes
-        +like({ value: numLikes })
+        +like({value: numLikes, hasVoted: hasVoted})
     .testimonial__right-col
       h3.testimonial__user-name= userName
       if (createdAt)
