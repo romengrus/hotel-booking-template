@@ -21,10 +21,14 @@ mixin form-room-search
       .form-room-search__dates
         .form-room-search__arrival(data-room-search-arrival)
           +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
-            +datepicker
+            +datepicker({
+              mode: 'range',
+              connectedWith: '#room-search-departure'
+            })
+
         .form-room-search__departure(data-room-search-departure)
           +label({ value: labels.departure, pos: 'top', theme: ['bold', 'upper'] }) 
-            +datepicker
+            +datepicker#room-search-departure
 
       .form-room-search__guests
         +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] })
