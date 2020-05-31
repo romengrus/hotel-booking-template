@@ -2,6 +2,8 @@ $list-color: #000 !default;
 $list-bullet-color: #eee !default;
 
 .list {
+  $root: &;
+
   padding-left: 21px;
   font-size: 14px;
   line-height: 24px;
@@ -18,35 +20,35 @@ $list-bullet-color: #eee !default;
       margin-top: 10px;
     }
   }
-}
 
-ul.list {
-  &__item {
-    &::before {
-      content: '';
-      position: absolute;
-      top: 7px;
-      left: -22px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: $list-bullet-color;
+  &_is-unordered {
+    #{$root}__item {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 7px;
+        left: -22px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $list-bullet-color;
+      }
     }
   }
-}
 
-ol.list {
-  counter-reset: custom-ordered-list;
+  &_is-ordered {
+    counter-reset: custom-ordered-list;
 
-  &__item {
-    &::before {
-      content: counter(custom-ordered-list) + '.';
-      position: absolute;
-      top: 0;
-      left: -22px;
-      width: 10px;
-      height: 10px;
-      counter-increment: custom-ordered-list;
+    #{$root}__item {
+      &::before {
+        content: counter(custom-ordered-list) + '.';
+        position: absolute;
+        top: 0;
+        left: -22px;
+        width: 10px;
+        height: 10px;
+        counter-increment: custom-ordered-list;
+      }
     }
   }
 }
