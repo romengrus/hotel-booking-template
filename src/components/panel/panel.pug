@@ -3,7 +3,7 @@
 //- title           string ('') - Panel title
 //- isCollapsible   boolean (true) - If true - panel can collapse and expand. Toggle icon will be shown in this case
 //- isCollapsed     boolean (false) - If true - will render in collapsed state
-mixin panel({title = '', isCollapsible = false, isCollapsed = false} = {})
+mixin panel({title = '', isCollapsible = true, isCollapsed} = {})
   include /components/icon/icon.pug
 
   -
