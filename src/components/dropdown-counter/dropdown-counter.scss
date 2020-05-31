@@ -9,15 +9,37 @@ $dc-body-bg: white !default;
 
   position: relative;
 
-  &__value-alt {
+  &__alt-wrapper {
     position: relative;
-    border-radius: $dc-border-radius;
+    cursor: pointer;
+  }
+
+  &__alt {
+    display: flex;
+    width: 100%;
+    height: $field-height;
+    border: $field-border;
+    padding: $field-padding;
+    padding-right: 36px;
+    border-radius: $field-border-radius;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    cursor: pointer;
+    font-size: $field-font-size;
+    line-height: $field-line-height;
+    color: $field-font-color;
 
-    input {
-      padding-right: 36px;
+    &:hover,
+    &:focus {
+      border: $field-border-hover;
+      outline: none;
+    }
+
+    &:read-only {
+      cursor: pointer;
+    }
+
+    &::placeholder {
+      color: $dark-500;
     }
   }
 
@@ -92,7 +114,7 @@ $dc-body-bg: white !default;
   }
 
   &_is-collapsed {
-    #{$root}__value-alt {
+    #{$root}__alt {
       border-bottom-right-radius: $dc-border-radius;
       border-bottom-left-radius: $dc-border-radius;
     }
