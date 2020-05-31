@@ -1,11 +1,8 @@
 .room-details {
-  .footer {
-    border-top: 1px solid $dark-250;
-    padding-top: 100px;
-  }
   &__wrapper {
     display: flex;
     padding-top: 71px;
+    padding-bottom: 56px;
   }
 
   &__showcase {
@@ -27,7 +24,7 @@
   }
 
   &__benefit + &__benefit {
-    margin-top: 11px;
+    margin-top: 12px;
   }
 
   &__stats {
@@ -51,11 +48,11 @@
     padding-right: 70px;
 
     .testimonial {
-      margin-top: 25px;
+      margin-top: 26px;
     }
 
     &-total {
-      margin-top: 5px;
+      margin-top: 7px;
       font-size: 13px;
       font-weight: normal;
       float: right;
