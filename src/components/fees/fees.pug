@@ -15,7 +15,7 @@ mixin fees({items = [], currency = '₽', total = 0} = {})
       .fee
         .fee__title= item.title
         if (item.desc)
-          .fee__desc(data-fee-desc = item.desc)
+          .fee__desc(title = item.desc)
             +icon({ name: 'info', size: 'auto' })
         .fee__total= item.total
     .fees__result
