@@ -1,0 +1,13 @@
+.filter-choices {
+  $root: &;
+
+  &__item + &__item {
+    margin-top: 3px;
+  }
+
+  &_is-rich {
+    #{$root}__item + #{$root}__item {
+      margin-top: 10px;
+    }
+  }
+}

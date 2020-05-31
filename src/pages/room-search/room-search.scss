@@ -1,4 +1,8 @@
 .room-search {
+  .main {
+    padding-bottom: 59px;
+  }
+
   .sidebar {
     flex: 0;
     flex-basis: 266px;
@@ -11,7 +15,7 @@
     margin-left: 60px;
 
     &__header {
-      margin-bottom: 22px;
+      margin-bottom: 21px;
     }
   }
 

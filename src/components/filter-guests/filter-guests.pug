@@ -4,16 +4,16 @@ mixin filter-guests
   include /components/counter/counter.pug
 
   .filter-guests
-    +label({ value: 'Гости', pos: 'top', theme: ['bold', 'upper'] }) 
+    +label({value: 'Гости', pos: 'top', theme: ['bold', 'upper']}) 
       +dropdown-counter({ 
         resultType: 'total', 
         plurals: ['гость', 'гостя', 'гостей'] 
       })(placeholder= 'Сколько гостей')
-        +label({ value: 'взрослые' })
-          +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+        +label({value: 'взрослые'})
+          +counter({plurals: ['взрослый', 'взрослых', 'взрослых'], value: 2})
 
-        +label({ value: 'дети' })
-          +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+        +label({value: 'дети'})
+          +counter({plurals: ['ребенок', 'детей', 'детей'], value: 1})
 
-        +label({ value: 'младенцы' })
-          +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+        +label({value: 'младенцы'})
+          +counter({plurals: ['младенец', 'младенца', 'младенцев'], value: 1})

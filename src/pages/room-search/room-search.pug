@@ -23,15 +23,16 @@ block append parts
   include /components/form-room-filter/form-room-filter.pug
 
 block main
-  aside.sidebar
-    +form-room-filter
+  .main__content
+    aside.sidebar
+      +form-room-filter
 
-  article.content
-    h2.content__header Номера, которые мы для вас подобрали
+    article.content
+      h2.content__header Номера, которые мы для вас подобрали
 
-    .room-search__cards
-      +room-cards
+      .room-search__cards
+        +room-cards
 
-    .room-search__pagination
-      +pagination({total: 170, perPage: 12, current: 1})
-      p.room-search__pagination-label 1 – 12 из 100+ вариантов аренды
+      .room-search__pagination
+        +pagination({total: 170, perPage: 12, current: 1})
+        p.room-search__pagination-label 1 – 12 из 100+ вариантов аренды

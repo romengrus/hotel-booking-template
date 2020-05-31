@@ -5,4 +5,11 @@ body {
 .main {
   max-width: $site-max-width;
   margin: 0 auto;
+  background: $white;
+
+  &__content {
+    display: flex;
+    max-width: $content-max-width;
+    margin: 0 auto;
+  }
 }

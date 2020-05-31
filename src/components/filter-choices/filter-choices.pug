@@ -8,16 +8,23 @@
 //---   name        string ('')
 //---   isChecked   boolean (false)
 //--- }
-//- theme     setOf ('bold' | 'upper')
+//- theme     setOf ('rich') 
 mixin filter-choices({type = 'multiple', choices = [], theme = []} = {})
   include /components/label/label.pug
   include /components/checkbox/checkbox.pug
   include /components/radio/radio.pug
 
-  - const choiceMixin = type === 'multiple' ? 'checkbox' : 'radio';
+  - 
+    let classList = ['filter-choices']
+    const themeList = [].concat(theme).map(t => `filter-choices_is-${t}`)
+    classList = classList.concat(themeList)
 
-  .filter-choices
+    const choiceMixin = type === 'multiple' ? 'checkbox' : 'radio'
+
+    const labelTheme = theme.includes('rich') ? 'bold' : '';
+
+  div(class=classList)
     each choice in choices
       .filter-choices__item
-        +label({value: choice.label, desc: choice.desc, theme: theme})
+        +label({value: choice.label, desc: choice.desc, theme: labelTheme})
           +#{choiceMixin}({name: choice.name, isChecked: choice.isChecked})

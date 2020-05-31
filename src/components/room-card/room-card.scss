@@ -1,6 +1,5 @@
 .room-card {
   max-width: 270px;
-  margin-bottom: 21px;
   padding-bottom: 10px;
   background: $white;
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
@@ -32,7 +31,7 @@
     font-family: $font-family-accent;
     font-size: 16px;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     color: black;
 
     &::before {

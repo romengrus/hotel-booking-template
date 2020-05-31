@@ -18,7 +18,11 @@ class RoomCard {
     const priceEl = this.el.querySelector(`[data-${this.id}-price]`);
     const price = priceEl.textContent;
 
-    priceEl.textContent = parseFloat(price).toLocaleString('ru');
+    priceEl.innerHTML = parseFloat(price)
+      .toLocaleString('ru')
+      .split(/\s/)
+      .map(p => `<span class="room-card__price-part">${p}</span>`)
+      .join('');
   }
 }
 
