@@ -13,7 +13,7 @@ mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''
   header.header(data-header)
     .header__wrapper
       .header__logo
-        +logo
+        +logo({type: 'with-text'})
 
       .header__menu(data-header-menu)
         button.header__menu-close(data-header-menu-close) &times;
