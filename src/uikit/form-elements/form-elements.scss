@@ -100,4 +100,10 @@
     width: 713px;
     margin-left: 163px;
   }
+
+  &__expandable-list {
+    & > * {
+      margin-bottom: 3px;
+    }
+  }
 }

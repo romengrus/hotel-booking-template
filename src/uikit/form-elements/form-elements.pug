@@ -83,7 +83,7 @@ block main
             +label({ value: ['Можно пригласить гостей', '(до 10 человек)'], pos: 'right'})
               +checkbox({ isChecked: true })
 
-        .m-t-39
+        .m-t-41
           +form-element('radio buttons')
             .df.p-r-63.m-t-14
               +label({ value: 'Мужчина' })
@@ -238,27 +238,21 @@ block main
         .m-t-30.p-r-15
           +panel({ title: 'Expandable checkbox list' })
             +form
-              +label({ value: 'Завтрак', pos: 'right' })
-                +checkbox
-              .m-t-3
+              .form-elements__expandable-list
+                +label({ value: 'Завтрак', pos: 'right' })
+                  +checkbox
                 +label({ value: 'Письменный стол', pos: 'right' })
                   +checkbox({ isChecked: true })
-              .m-t-2
                 +label({ value: 'Стул для кормления', pos: 'right' })
                   +checkbox({ isChecked: true })
-              .m-t-2
                 +label({ value: 'Кроватка', pos: 'right' })
                   +checkbox({ isChecked: true })
-              .m-t-2
                 +label({ value: 'Телевизор', pos: 'right' })
                   +checkbox({ isChecked: true })
-              .m-t-2
                 +label({ value: 'Шампунь', pos: 'right' })
                   +checkbox
-              .m-t-2
                 +label({ value: 'Телевизор', pos: 'right' })
                   +checkbox({ isChecked: true })
-              .m-t-2
                 +label({ value: 'Шампунь', pos: 'right' })
                   +checkbox
 
@@ -301,7 +295,7 @@ block main
           +benefit({icon: 'location-city', title: 'Удобство', desc: 'Окно в каждой из спален'})
 
       .form-elements__col.form-elements__col-d2
-        .m-t-27
+        .m-t-26
           +testimonial({
             userName: 'Мурад Сарафанов', 
             userImg: '/assets/img/testimonial-user-1.png',
