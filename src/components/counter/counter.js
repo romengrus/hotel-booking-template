@@ -31,11 +31,13 @@ class Counter {
     this.handleButtonDecClick = this.handleButtonDecClick.bind(this);
     this.handleButtonIncClick = this.handleButtonIncClick.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleNotify = this.handleNotify.bind(this);
   }
 
   attachEventHandlers() {
     this.btnIncEl.addEventListener('click', this.handleButtonIncClick);
     this.btnDecEl.addEventListener('click', this.handleButtonDecClick);
+    this.el.addEventListener('counter:getValue', this.handleNotify);
     this.el.addEventListener('counter:reset', this.handleReset);
   }
 
@@ -108,6 +110,20 @@ class Counter {
         strValue: this.toString()
       }
     });
+    this.el.dispatchEvent(event);
+  }
+
+  handleNotify() {
+    const value = parseInt(this.value, 10);
+    const event = new CustomEvent('counter:notify', {
+      bubbles: true,
+      detail: {
+        id: this.id,
+        numValue: value,
+        strValue: this.toString()
+      }
+    });
+
     this.el.dispatchEvent(event);
   }
 

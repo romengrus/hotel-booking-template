@@ -15,6 +15,10 @@ $dc-body-bg: white !default;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     cursor: pointer;
+
+    input {
+      padding-right: 36px;
+    }
   }
 
   &__toggler {

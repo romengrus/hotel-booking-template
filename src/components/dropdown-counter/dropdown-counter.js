@@ -26,6 +26,9 @@ class DropdownCounter {
   init() {
     this.bindEventHandlers();
     this.attachEventHandlers();
+
+    // populate model from initial counter values
+    this.counterEls.forEach(c => c.dispatchEvent(new Event('counter:getValue')));
   }
 
   bindEventHandlers() {
@@ -43,6 +46,7 @@ class DropdownCounter {
   attachEventHandlers() {
     this.el.addEventListener('counter:increased', this.handleCounterUpdate);
     this.el.addEventListener('counter:decreased', this.handleCounterUpdate);
+    this.el.addEventListener('counter:notify', this.handleCounterUpdate);
     this.resetEl.addEventListener('click', this.handleResetClick);
     this.okEl.addEventListener('click', this.handleOkClick);
     this.inputAltEl.addEventListener('click', this.handleValueAltClick);
