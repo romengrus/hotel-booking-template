@@ -32,7 +32,8 @@ $button-text-color: $white;
   }
 
   &:hover,
-  &:active {
+  &:active,
+  &:visited {
     opacity: 0.5;
     color: $button-text-color;
     text-decoration: none;
@@ -66,7 +67,8 @@ $button-text-color: $white;
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    &:hover {
+    &:hover,
+    &:visited {
       color: $primary;
       opacity: 0.5;
     }
