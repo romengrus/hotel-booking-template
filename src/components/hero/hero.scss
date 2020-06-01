@@ -27,7 +27,7 @@ $hero-text-color: black !default;
   &__info {
     position: absolute;
     z-index: 30;
-    right: -7px;
+    right: 14px;
     bottom: -70px;
     max-width: 300px;
     min-height: 50px;
@@ -43,7 +43,9 @@ $hero-text-color: black !default;
   }
 
   &_is-big {
-    min-height: 830px;
-    padding: 70px 140px;
+    max-height: 830px;
+    min-height: 630px;
+    height: 80vw;
+    padding: 70px 0;
   }
 }

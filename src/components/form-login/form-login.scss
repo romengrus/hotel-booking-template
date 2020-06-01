@@ -8,10 +8,6 @@
   padding: 40px 30px 30px;
   background: $white;
 
-  @media (max-width: $break-sm) {
-    opacity: 0.85;
-  }
-
   &__email {
     margin-top: 21px;
   }
