@@ -3,7 +3,9 @@ $hero-text-color: black !default;
 .hero {
   display: flex;
   width: 100%;
-  min-height: 683px;
+  height: 50vw;
+  min-height: 560px;
+  max-height: 683px;
   padding: 40px 80px;
   background-position: center -70px;
   background-repeat: no-repeat;
@@ -18,7 +20,11 @@ $hero-text-color: black !default;
   }
 
   &__content {
+    display: flex;
+    justify-content: center;
     min-width: 320px;
+    width: 80vw;
+    padding: 0 $wrapper-padding;
   }
 
   &__info {

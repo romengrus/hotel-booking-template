@@ -11,5 +11,10 @@ body {
     display: flex;
     max-width: $content-max-width;
     margin: 0 auto;
+
+    @media (max-width: $break-md) {
+      padding-left: $wrapper-padding;
+      padding-right: $wrapper-padding;
+    }
   }
 }

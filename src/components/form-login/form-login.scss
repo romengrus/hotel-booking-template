@@ -1,10 +1,16 @@
 .form-login {
-  width: 380px;
+  max-width: 380px;
+  min-width: 280px;
+  width: 50vw;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   padding: 40px 30px 30px;
   background: $white;
+
+  @media (max-width: $break-sm) {
+    opacity: 0.85;
+  }
 
   &__email {
     margin-top: 21px;
@@ -25,8 +31,16 @@
     justify-content: space-between;
     font-size: 14px;
 
+    @media (max-width: $break-sm) {
+      flex-direction: column;
+    }
+
     .button {
       padding: 0 16px;
+
+      @media (max-width: $break-sm) {
+        margin-top: 10px;
+      }
     }
   }
 

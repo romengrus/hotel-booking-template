@@ -140,4 +140,35 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
       margin-left: 29px;
     }
   }
+
+  &_is-off-canvas {
+    .icon {
+      display: none;
+    }
+
+    #{$root}__link {
+      display: flex;
+      font-size: 16px;
+    }
+
+    #{$root}__submenu {
+      position: static;
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      box-shadow: none;
+      border-radius: 0;
+      padding-left: 7px;
+      padding-top: 7px;
+
+      #{$root}__item + #{$root}__item {
+        margin-top: 0;
+      }
+    }
+
+    #{$root}__item_has-submenu {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 }

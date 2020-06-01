@@ -8,7 +8,7 @@ mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''
   include /components/logo/logo.pug
   include /components/menu/menu.pug
   include /components/button/button.pug
-  include /components/hamburger/hamburger.pug
+  include /components/off-canvas-toggler/off-canvas-toggler.pug
 
   header.header(data-header)
     .header__wrapper
@@ -16,8 +16,6 @@ mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''
         +logo({type: 'with-text'})
 
       .header__menu(data-header-menu)
-        button.header__menu-close(data-header-menu-close) &times;
-
         if block
           block
         else 
@@ -66,4 +64,4 @@ mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''
             +button({type: 'link', size: 'small'})= lblRegister 
 
       .header__menu-toggler(data-header-menu-toggler)
-        +hamburger
+        +off-canvas-toggler({connectedWith: 'main-off-canvas-menu'})

@@ -8,7 +8,7 @@
 //--- }
 //- isVertical    boolean (false) - If true - menu items are positioned vertically
 //- level         number (0) - If greater then 0 - it is submenu
-//- theme         setOf ('wide') - theme to be applied 
+//- theme         setOf ('wide' | 'off-canvas') - theme to be applied 
 mixin menu({items = [], isVertical = false, level = 0, theme = []} = {})
   include /components/icon/icon.pug
 

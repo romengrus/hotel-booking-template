@@ -9,50 +9,59 @@ mixin footer
       if block
         block
       else
-        +footer-about({text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'})
-        +footer-menu({title: 'навигация'})
-          +menu({
-            isVertical: true,
-            items: [{
-                name: "О нас",
-              },
-              {
-                name: "Новости",
-              },
-              {
-                name: "Служба поддержки",
-              },
-              {
-                name: "Услуги",
-            }],
-          })
-        +footer-menu({title: 'о нас'})
-          +menu({
-            isVertical: true,
-            items: [{
-                name: "О сервисе",
-              },
-              {
-                name: "Наша команда",
-              },
-              {
-                name: "Вакансии",
-              },
-              {
-                name: "Инвесторы",
-            }],
-          })
-        +footer-menu({title: 'служба поддержки'})
-          +menu({
-            isVertical: true,
-            items: [{
-                name: "Соглашения",
-              },
-              {
-                name: "Сообщества",
-              },
-              {
-                name: "Связь с нами",
-            }],
-          })
-        +footer-subscription
+        .footer__item
+          +footer-about({text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'})
+
+        .footer__item
+          +footer-menu({title: 'навигация'})
+            +menu({
+              isVertical: true,
+              items: [{
+                  name: "О нас",
+                },
+                {
+                  name: "Новости",
+                },
+                {
+                  name: "Служба поддержки",
+                },
+                {
+                  name: "Услуги",
+              }],
+            })
+
+        .footer__item
+          +footer-menu({title: 'о нас'})
+            +menu({
+              isVertical: true,
+              items: [{
+                  name: "О сервисе",
+                },
+                {
+                  name: "Наша команда",
+                },
+                {
+                  name: "Вакансии",
+                },
+                {
+                  name: "Инвесторы",
+              }],
+            })
+
+        .footer__item
+          +footer-menu({title: 'служба поддержки'})
+            +menu({
+              isVertical: true,
+              items: [{
+                  name: "Соглашения",
+                },
+                {
+                  name: "Сообщества",
+                },
+                {
+                  name: "Связь с нами",
+              }],
+            })
+
+        .footer__item
+          +footer-subscription

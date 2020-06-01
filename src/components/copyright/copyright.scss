@@ -5,17 +5,27 @@
   min-height: 74px;
   font-size: 14px;
   border-top: 1px solid $dark-100;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding: 25px $wrapper-padding;
 
   &__wrapper {
     display: flex;
     max-width: $content-max-width;
     margin: 0 auto;
+
+    @media (max-width: $break-sm) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   &__icons {
     margin-top: -2px;
     margin-left: auto;
+
+    @media (max-width: $break-sm) {
+      margin-top: 20px;
+      margin-left: 0;
+    }
   }
 }

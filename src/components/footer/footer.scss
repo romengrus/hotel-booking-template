@@ -2,12 +2,60 @@
   max-width: $site-max-width;
   margin: 0 auto;
   background: $white;
-  padding: 100px 0 96px;
+  padding: 100px $wrapper-padding;
   border-top: 1px solid $dark-100;
+
+  @media (max-width: $break-md) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
 
   &__wrapper {
     display: flex;
     max-width: $content-max-width;
     margin: 0 auto;
+
+    @media (max-width: $break-md) {
+      flex-direction: column;
+      max-width: 600px;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    flex: 1 0 180px;
+
+    @media (max-width: $break-md) {
+      flex: 0;
+    }
+
+    &:first-child {
+      flex: 2 0 280px;
+
+      @media (max-width: $break-md) {
+        flex: 0;
+      }
+    }
+
+    &:last-child {
+      flex: 2 0 300px;
+      padding-right: 40px;
+
+      @media (max-width: $break-md) {
+        flex: 0;
+        padding-right: 0;
+      }
+    }
+
+    & + & {
+      margin-left: 20px;
+      padding-top: 6px;
+
+      @media (max-width: $break-md) {
+        margin-left: 0;
+        margin-top: 50px;
+        padding-top: 0;
+      }
+    }
   }
 }
