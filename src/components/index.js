@@ -10,8 +10,9 @@ export * from './rating/rating';
 export * from './panel/panel';
 export * from './dropdown-counter/dropdown-counter';
 export * from './doughnut/doughnut';
+export * from './off-canvas-toggler/off-canvas-toggler';
+export * from './off-canvas/off-canvas';
 
 // // compound components
 export * from './filter-price/filter-price';
 export * from './room-card/room-card';
-export * from './header/header';

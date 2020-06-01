@@ -1,0 +1,37 @@
+$off-canvas-width: 250px;
+$off-canvas-duration: 300ms;
+
+.off-canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -$off-canvas-width;
+  width: $off-canvas-width;
+  margin: 0;
+  padding: 20px 30px;
+  background-color: $white;
+
+  &__container {
+    transition: transform $off-canvas-duration ease;
+  }
+
+  &__profile-link {
+    display: block;
+    text-align: center;
+  }
+
+  &__auth {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 35px;
+
+    & > * + * {
+      margin-top: 20px;
+    }
+  }
+
+  &_is-opened {
+    transform: translateX(-$off-canvas-width);
+  }
+}
