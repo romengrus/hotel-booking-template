@@ -13,7 +13,5 @@ block append parts
   include /components/form-register/form-register.pug
 
 block main
-  .registration__hero
-    +hero({ bgImg: '/assets/img/hero4.jpg' })
-      .registration__register
-        +form-register
+  +hero({bgImg: '/assets/img/hero4.jpg'})
+    +form-register

@@ -3,11 +3,10 @@ $hero-text-color: black !default;
 .hero {
   display: flex;
   width: 100%;
-  height: 50vw;
   min-height: 560px;
-  max-height: 683px;
-  padding: 40px 80px;
-  background-position: center -70px;
+  padding: 30px;
+  background-size: cover;
+  background-position: center bottom;
   background-repeat: no-repeat;
   justify-content: center;
   align-items: stretch;
@@ -15,16 +14,14 @@ $hero-text-color: black !default;
   &__wrapper {
     display: flex;
     position: relative;
-    max-width: $content-max-width;
+    max-width: $content-max-width + $wrapper-padding * 2;
+    padding: 0 $wrapper-padding;
     flex: 1;
   }
 
   &__content {
     display: flex;
     justify-content: center;
-    min-width: 320px;
-    width: 80vw;
-    padding: 0 $wrapper-padding;
   }
 
   &__info {

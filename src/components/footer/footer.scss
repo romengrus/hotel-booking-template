@@ -1,8 +1,11 @@
 .footer {
+  display: flex;
+  align-items: center;
   max-width: $site-max-width;
+  min-height: 360px;
   margin: 0 auto;
   background: $white;
-  padding: 100px $wrapper-padding;
+  padding: $wrapper-padding;
   border-top: 1px solid $dark-100;
 
   @media (max-width: $break-md) {
