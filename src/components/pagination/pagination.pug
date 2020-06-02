@@ -95,3 +95,5 @@ mixin pagination({current = 1, perPage = 10, total = 0, delta = 2} = {})
         if (current < lastPage && lastPage > 2)
           a(href = dummyURL, class = arrowMods.concat('pagination__next'))
             +icon({ name: 'arrow-right-light' })
+
+    p.pagination__label 1 – 12 из 100+ вариантов аренды

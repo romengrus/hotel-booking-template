@@ -1,32 +1,38 @@
 .room-search {
-  .main {
-    padding-bottom: 59px;
+  &__wrapper {
+    padding-top: 28px;
+    padding-bottom: 57px;
   }
 
-  .sidebar {
-    flex: 0;
-    flex-basis: 266px;
-    margin-top: 29px;
+  &__sidebar {
+    min-width: 266px;
+    margin-right: 59px;
   }
 
-  .content {
-    flex: 1;
-    margin-top: 31px;
-    margin-left: 60px;
+  &__content {
+    padding-top: 3px;
+  }
 
-    &__header {
-      margin-bottom: 21px;
-    }
+  &__header {
+    margin-bottom: 21px;
   }
 
   &__pagination {
-    margin-top: 9px;
-    margin-left: -14px;
-    align-items: center;
-    text-align: center;
+    margin-top: 10px;
+    padding-right: 13px;
+  }
 
-    &-label {
-      font-size: 14px;
-    }
+  &__footer {
+    background: $white;
+    width: $site-max-width;
+    margin: 0 auto;
+    padding-top: 7px;
+  }
+
+  &__copyright {
+    background: $white;
+    width: $site-max-width;
+    margin: 0 auto;
+    padding-top: 7px;
   }
 }

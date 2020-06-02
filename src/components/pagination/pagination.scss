@@ -60,4 +60,9 @@ $pagination-arrow-bg: #eee !default;
     height: $pagination-item-height;
     color: $pagination-color;
   }
+
+  &__label {
+    text-align: center;
+    font-size: 14px;
+  }
 }

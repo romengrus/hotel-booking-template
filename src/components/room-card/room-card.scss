@@ -37,12 +37,12 @@
     &::before {
       content: '№';
       font-size: 14px;
-      margin-right: 6px;
+      margin-right: 3px;
     }
   }
 
   &__lux-indicator {
-    margin-left: 7px;
+    margin-left: 4px;
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
@@ -73,7 +73,7 @@
   &__currency {
     font-weight: bold;
     font-size: 14px;
-    margin-right: 5px;
+    margin-right: 3px;
   }
 
   &__rating {

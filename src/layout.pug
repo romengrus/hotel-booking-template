@@ -87,5 +87,7 @@ html
       block main
 
     block footer
-      +footer
-      +copyright
+      div(class = `${bodyClass}__footer`)
+        +footer
+      div(class = `${bodyClass}__copyright`)
+        +copyright
