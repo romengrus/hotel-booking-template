@@ -52,45 +52,8 @@ $primary-gradient: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%) !default;
 $secondary-gradient: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%) !default;
 
 // Typography
-// stylelint-disable value-keyword-case
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/assets/fonts/Montserrat-Regular/Montserrat-Regular.woff') format('woff'),
-    url('/assets/fonts/Montserrat-Regular/Montserrat-Regular.ttf') format('truetype'),
-    url('/assets/fonts/Montserrat-Regular/Montserrat-Regular.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/assets/fonts/Montserrat-Bold/Montserrat-Bold.woff') format('woff'),
-    url('/assets/fonts/Montserrat-Bold/Montserrat-Bold.ttf') format('truetype'),
-    url('/assets/fonts/Montserrat-Bold/Montserrat-Bold.svg') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: OpenSans;
-  src: url('/assets/fonts/OpenSans-Regular/OpenSans-Regular.woff') format('woff'),
-    url('/assets/fonts/OpenSans-Regular/OpenSans-Regular.ttf') format('truetype'),
-    url('/assets/fonts/OpenSans-Regular/OpenSans-Regular.svg#open_sansregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: OpenSans;
-  src: url('/assets/fonts/OpenSans-Bold/OpenSans-Bold.woff') format('woff'),
-    url('/assets/fonts/OpenSans-Bold/OpenSans-Bold.ttf') format('truetype'),
-    url('/assets/fonts/OpenSans-Bold/OpenSans-Bold.svg#open_sansbold') format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
-
 $font-family-main: Montserrat, Arial, sans-serif !default;
-$font-family-accent: OpenSans, Arial, sans-serif !default;
+$font-family-accent: Quicksand, OpenSans, Arial, sans-serif !default;
 $font-family-monospace: Consolas, 'Courier New', monospace !default;
 
 // Components

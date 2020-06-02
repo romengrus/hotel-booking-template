@@ -1,0 +1,55 @@
+@font-face {
+  font-family: Montserrat;
+  src: url('/assets/fonts/Montserrat/regular/Montserrat-Regular.woff') format('woff'),
+    url('/assets/fonts/Montserrat/regular/Montserrat-Regular.ttf') format('truetype'),
+    url('/assets/fonts/Montserrat/regular/Montserrat-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('/assets/fonts/Montserrat/bold/Montserrat-Bold.woff') format('woff'),
+    url('/assets/fonts/Montserrat/bold/Montserrat-Bold.ttf') format('truetype'),
+    url('/assets/fonts/Montserrat/bold/Montserrat-Bold.svg') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url('/assets/fonts/OpenSans/regular/OpenSans-Regular.woff') format('woff'),
+    url('/assets/fonts/OpenSans/regular/OpenSans-Regular.ttf') format('truetype'),
+    url('/assets/fonts/OpenSans/regular/OpenSans-Regular.svg#open_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url('/assets/fonts/OpenSans/bold/OpenSans-Bold.woff') format('woff'),
+    url('/assets/fonts/OpenSans/bold/OpenSans-Bold.ttf') format('truetype'),
+    url('/assets/fonts/OpenSans/bold/OpenSans-Bold.svg#open_sansbold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Quicksand;
+  src: url('/assets/fonts/Quicksand/regular/Quicksand-Regular.eot');
+  src: local('☺'), url('/assets/fonts/Quicksand/regular/Quicksand-Regular.woff') format('woff'),
+    url('/assets/fonts/Quicksand/regular/Quicksand-Regular.ttf') format('truetype'),
+    url('/assets/fonts/Quicksand/regular/Quicksand-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Quicksand;
+  src: url('/assets/fonts/Quicksand/bold/Quicksand-Bold.eot');
+  src: local('☺'), url('/assets/fonts/Quicksand/bold/Quicksand-Bold.woff') format('woff'),
+    url('/assets/fonts/Quicksand/bold/Quicksand-Bold.ttf') format('truetype'),
+    url('/assets/fonts/Quicksand/bold/Quicksand-Bold.svg') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
