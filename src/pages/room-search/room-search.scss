@@ -1,5 +1,6 @@
 .room-search {
   &__wrapper {
+    position: relative;
     padding-top: 28px;
     padding-bottom: 57px;
   }
@@ -7,6 +8,16 @@
   &__sidebar {
     min-width: 266px;
     margin-right: 59px;
+
+    &_for-mobile {
+      display: none;
+      margin-right: 0;
+      margin-left: 59px;
+
+      @media (max-width: $break-md) {
+        display: block;
+      }
+    }
   }
 
   &__content {
@@ -14,7 +25,32 @@
   }
 
   &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 21px;
+
+    @media (max-width: $break-sm) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__filter-toggler {
+    display: none;
+
+    @media (max-width: $break-md) {
+      display: inline-block;
+    }
+
+    @media (max-width: $break-sm) {
+      margin-top: 20px;
+    }
+  }
+
+  &__filter-apply {
+    margin-top: 20px;
   }
 
   &__pagination {
@@ -24,14 +60,14 @@
 
   &__footer {
     background: $white;
-    width: $site-max-width;
+    max-width: $site-max-width;
     margin: 0 auto;
     padding-top: 7px;
   }
 
   &__copyright {
     background: $white;
-    width: $site-max-width;
+    max-width: $site-max-width;
     margin: 0 auto;
     padding-top: 7px;
   }

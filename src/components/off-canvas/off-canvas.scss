@@ -1,4 +1,4 @@
-$off-canvas-width: 250px;
+$off-canvas-width: 300px;
 $off-canvas-duration: 300ms;
 
 .off-canvas {
@@ -10,29 +10,25 @@ $off-canvas-duration: 300ms;
   margin: 0;
   padding: 20px 30px;
   background-color: $white;
-  border-left: 1px solid $gray-400;
+  z-index: -1;
 
   &__container {
     transition: transform $off-canvas-duration ease;
   }
 
-  &__profile-link {
-    display: block;
-    text-align: center;
+  &__parent {
+    transform: translateX(-$off-canvas-width);
   }
 
-  &__auth {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 35px;
-
-    & > * + * {
-      margin-top: 20px;
-    }
+  &__close {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: right;
   }
 
   &_is-opened {
-    transform: translateX(-$off-canvas-width);
+    z-index: 1;
   }
 }

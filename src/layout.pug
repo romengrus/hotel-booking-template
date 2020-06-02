@@ -9,6 +9,7 @@ block parts
   include /components/footer/footer.pug
   include /components/copyright/copyright.pug
   include /components/off-canvas/off-canvas.pug
+  include /components/hamburger/hamburger.pug
   include /components/menu/menu.pug
 
 html
@@ -41,7 +42,7 @@ html
     div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg
 
-    +off-canvas({id: 'main-off-canvas-menu'})
+    +off-canvas({id: 'main-off-canvas-menu', showClose: true})
       +menu({
         isVertical: true,
         theme: 'off-canvas',

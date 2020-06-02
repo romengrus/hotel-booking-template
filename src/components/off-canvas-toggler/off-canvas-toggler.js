@@ -1,9 +1,9 @@
+import { debounce } from '../../scripts/utils';
+
 class OffCanvasToggler {
   constructor(el) {
-    const id = OffCanvasToggler.getID();
     this.el = el;
     this.connectedWithEl = document.getElementById(el.dataset.connectedWith);
-    this.inputEl = el.querySelector(`[data-${id}-input]`);
     this.init();
   }
 
@@ -17,15 +17,17 @@ class OffCanvasToggler {
   }
 
   bindEventHandlers() {
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = debounce(this.handleClick.bind(this), 10);
   }
 
   attachEventHandlers() {
-    this.inputEl.addEventListener('click', this.handleClick);
+    this.el.addEventListener('click', this.handleClick);
   }
 
   handleClick() {
-    this.connectedWithEl.dispatchEvent(new Event('off-canvas:toggle'));
+    if (this.connectedWithEl) {
+      this.connectedWithEl.dispatchEvent(new Event('off-canvas:toggle'));
+    }
   }
 }
 

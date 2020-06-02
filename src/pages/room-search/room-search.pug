@@ -10,6 +10,8 @@ block variables
 
 block append parts
   include /components/label/label.pug
+  include /components/off-canvas-toggler/off-canvas-toggler.pug
+  include /components/off-canvas/off-canvas.pug
   include /components/form/form.pug
   include /components/datepicker/datepicker.pug
   include /components/counter/counter.pug
@@ -29,9 +31,18 @@ block main
 
     article.content.room-search__content
       h2.room-search__header Номера, которые мы для вас подобрали
-
+        span.room-search__filter-toggler
+          +off-canvas-toggler({connectedWith: 'room-filter-off-canvas'})
+            +button({isOutlined: true}) Изменить параметры поиска
+      
       .room-search__cards
         +room-cards
 
       .room-search__pagination
         +pagination({total: 170, perPage: 12, current: 1})
+
+    +off-canvas({id: 'room-filter-off-canvas'})
+      +form-room-filter
+      .room-search__filter-apply
+        +off-canvas-toggler({connectedWith: 'room-filter-off-canvas'})
+          +button({isExpanded: true}) Найти подходящие

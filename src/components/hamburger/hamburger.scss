@@ -1,0 +1,72 @@
+$hamburger-width: 40px;
+$hamburger-height: 40px;
+$hamburger-transition-duration: 300ms;
+
+.hamburger {
+  $root: &;
+
+  display: inline-block;
+  background-color: $white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba($dark-500, 0.2);
+  transition: transform $hamburger-transition-duration ease;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: $hamburger-width;
+    height: $hamburger-height;
+    margin: 0;
+  }
+
+  &__bar {
+    display: block;
+    width: $hamburger-width / 2;
+    height: 2px;
+    background-color: $dark-1000;
+    float: left;
+    transform-origin: center center;
+    transition: transform $hamburger-transition-duration ease;
+
+    &:nth-of-type(1) {
+      transform: translateY(-5px);
+    }
+
+    &:nth-of-type(3) {
+      transform: translateY(5px);
+    }
+  }
+
+  &__input:checked ~ &__label {
+    transform: rotate(360deg);
+    transition: transform $hamburger-transition-duration ease;
+
+    #{$root}__bar {
+      transition: transform $hamburger-transition-duration ease;
+
+      &:nth-of-type(1) {
+        transform: translateY(1px) rotate(45deg);
+      }
+
+      &:nth-of-type(2) {
+        display: none;
+      }
+
+      &:nth-of-type(3) {
+        transform: translateY(-1px) rotate(-45deg);
+      }
+    }
+  }
+}

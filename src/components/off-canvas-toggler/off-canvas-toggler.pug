@@ -2,16 +2,10 @@
 //-
 //- connectedWith   string ('') - id of the off-canvas component this toggler is connected with
 mixin off-canvas-toggler({connectedWith = ''} = {})
-  -
-    const id = createRandomId('off-canvas');
+  include /components/hamburger/hamburger.pug
 
   .off-canvas-toggler(data-off-canvas-toggler, data-connected-with = connectedWith)
-    input.off-canvas-toggler__input(
-      type = "checkbox", 
-      id = id,
-      data-off-canvas-toggler-input
-    )
-    label.off-canvas-toggler__label(for = id)
-      span
-      span
-      span
+    if (block)
+      block
+    else
+      +hamburger

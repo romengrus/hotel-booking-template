@@ -1,0 +1,12 @@
+//- Hamburger menu
+//-
+mixin hamburger
+  -
+    const id = createRandomId('hamburger');
+
+  .hamburger(data-hamburger)
+    input.hamburger__input(type = 'checkbox', id = id)
+    label.hamburger__label(for = id)
+      span.hamburger__bar
+      span.hamburger__bar
+      span.hamburger__bar

@@ -2,6 +2,12 @@ body {
   background: $dark-050;
 }
 
+.sidebar {
+  @media (max-width: $break-md) {
+    display: none;
+  }
+}
+
 .main {
   max-width: $site-max-width;
   margin: 0 auto;

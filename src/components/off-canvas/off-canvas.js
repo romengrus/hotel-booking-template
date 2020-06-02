@@ -1,7 +1,7 @@
 class OffCanvas {
   constructor(el) {
     this.el = el;
-    this.mainContainer = document.body;
+    this.mainContainer = el.parentElement;
     this.init();
   }
 
@@ -25,7 +25,8 @@ class OffCanvas {
   }
 
   handleToggle() {
-    this.mainContainer.classList.toggle('off-canvas_is-opened');
+    this.mainContainer.classList.toggle('off-canvas__parent');
+    this.el.classList.toggle('off-canvas_is-opened');
   }
 }
 

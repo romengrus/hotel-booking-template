@@ -1,15 +1,14 @@
 //- Off canvas 
 //-
 //- id          string ('') - id for reference
-mixin off-canvas({id='', isLoggedIn} = {})
-  include /components/button/button.pug
+//- showClose   boolean (false) - if true close button will be shown
+mixin off-canvas({id='', showClose} = {})
+  include /components/off-canvas-toggler/off-canvas-toggler.pug
 
   .off-canvas(id = id, data-off-canvas)
-    if block
+    if (showClose)
+      .off-canvas__close
+        +off-canvas-toggler({connectedWith: id})
+          span &times;
+    if (block)
       block
-    if (isLoggedIn)
-      a.off-canvas__profile-link(href = dummyURL) Cosmin Negoita
-    else 
-      .off-canvas__auth
-        +button({type: 'link', size: 'small', isOutlined: true}) войти
-        +button({type: 'link', size: 'small'}) зарегистрироваться
