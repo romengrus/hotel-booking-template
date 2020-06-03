@@ -2,14 +2,14 @@ $hero-text-color: black !default;
 
 .hero {
   display: flex;
+  align-items: stretch;
+  justify-content: center;
   width: 100%;
   min-height: 700px;
   padding: 28px;
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
-  justify-content: center;
-  align-items: stretch;
 
   @media (max-width: $break-sm) {
     min-height: 560px;
@@ -17,10 +17,10 @@ $hero-text-color: black !default;
 
   &__wrapper {
     display: flex;
+    flex: 1;
     position: relative;
     max-width: $content-max-width + $wrapper-padding * 2;
     padding: 0 $wrapper-padding;
-    flex: 1;
   }
 
   &__content {

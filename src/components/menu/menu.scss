@@ -152,8 +152,8 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
     }
 
     #{$root}__submenu {
-      position: static;
       display: block;
+      position: static;
       visibility: visible;
       opacity: 1;
       box-shadow: none;

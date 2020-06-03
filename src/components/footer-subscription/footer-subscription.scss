@@ -1,4 +1,8 @@
 .footer-subscription {
+
+  @media (max-width: $break-md) {
+    flex: 1;
+  }
   &__title {
     margin-bottom: 18px;
     font-size: 11px;
@@ -11,9 +15,5 @@
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 24px;
-  }
-
-  @media (max-width: $break-md) {
-    flex: 1;
   }
 }

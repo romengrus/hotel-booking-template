@@ -23,10 +23,10 @@
   &__showcase {
     display: flex;
     flex: 1;
+    align-items: stretch;
     max-width: 1440px;
     min-height: 485px;
     margin: 0 auto;
-    align-items: stretch;
   }
 
   &__info {
@@ -85,16 +85,14 @@
     }
   }
 
-  &__content {
-    flex: 1;
-  }
-
   &__sidebar {
     flex: 0;
     flex-basis: 380px;
   }
 
   &__content {
+    flex: 1;
+
     @media (max-width: $break-md) {
       max-width: 800px;
     }

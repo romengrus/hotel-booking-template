@@ -1,10 +1,4 @@
 .footer-menu {
-  &__title {
-    margin-bottom: 20px;
-    font-size: 11px;
-    font-family: $font-family-main;
-    text-transform: uppercase;
-  }
 
   @media (max-width: $break-md) {
     text-align: center;
@@ -12,5 +6,11 @@
     .menu.menu_is-vertical {
       align-items: center;
     }
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-size: 11px;
+    font-family: $font-family-main;
+    text-transform: uppercase;
   }
 }

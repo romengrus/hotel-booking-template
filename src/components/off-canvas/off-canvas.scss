@@ -3,14 +3,14 @@ $off-canvas-duration: 300ms;
 
 .off-canvas {
   position: fixed;
+  z-index: -1;
   top: 0;
-  bottom: 0;
   right: -$off-canvas-width;
+  bottom: 0;
   width: $off-canvas-width;
   margin: 0;
   padding: 20px 30px;
   background-color: $white;
-  z-index: -1;
 
   &__container {
     transition: transform $off-canvas-duration ease;

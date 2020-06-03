@@ -1,11 +1,11 @@
 .copyright {
   max-width: $site-max-width;
-  margin: 0 auto;
-  background: $white;
   min-height: 74px;
+  margin: 0 auto;
+  padding: 25px $wrapper-padding;
+  background: $white;
   font-size: 14px;
   border-top: 1px solid $dark-100;
-  padding: 25px $wrapper-padding;
 
   &__wrapper {
     display: flex;

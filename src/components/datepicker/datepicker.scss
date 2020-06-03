@@ -53,6 +53,15 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
     justify-content: space-between;
   }
 
+  &__reset {
+    padding-left: 0;
+  }
+
+  &__ok {
+    padding-right: 0;
+    color: $primary;
+  }
+
   &__reset,
   &__ok {
     background: none;
@@ -68,15 +77,6 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
       color: $datepicker-weekday-color;
       opacity: 1;
     }
-  }
-
-  &__reset {
-    padding-left: 0;
-  }
-
-  &__ok {
-    padding-right: 0;
-    color: $primary;
   }
 
   &_is-opened {

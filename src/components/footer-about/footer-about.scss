@@ -4,13 +4,13 @@
   letter-spacing: 1.4px;
   word-spacing: -0.5px;
 
-  &__text {
-    margin-top: 18px;
-  }
-
   @media (max-width: $break-md) {
     flex: 0;
     margin: 0;
     text-align: center;
+  }
+
+  &__text {
+    margin-top: 18px;
   }
 }

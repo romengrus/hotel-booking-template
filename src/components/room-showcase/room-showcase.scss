@@ -9,8 +9,8 @@
 
   &__thumbs {
     display: flex;
-    flex-direction: column;
     flex-basis: 459px;
+    flex-direction: column;
 
     @media (max-width: 980px) {
       display: none;
