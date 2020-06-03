@@ -8,6 +8,10 @@
   padding: 40px 30px 30px 30px;
   background: $white;
 
+  @media (max-width: $break-sm) {
+    opacity: 0.85;
+  }
+
   &__title {
     word-spacing: 2px;
     letter-spacing: 1px;
