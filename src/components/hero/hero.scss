@@ -3,13 +3,17 @@ $hero-text-color: black !default;
 .hero {
   display: flex;
   width: 100%;
-  min-height: 560px;
-  padding: 30px 30px 25px;
+  min-height: 683px;
+  padding: 28px;
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   justify-content: center;
   align-items: stretch;
+
+  @media (max-width: $break-sm) {
+    min-height: 560px;
+  }
 
   &__wrapper {
     display: flex;
@@ -43,7 +47,11 @@ $hero-text-color: black !default;
   }
 
   &_is-big {
-    min-height: 630px;
+    min-height: 830px;
     padding: 70px 0;
+
+    @media (max-width: $break-sm) {
+      min-height: 600px;
+    }
   }
 }
