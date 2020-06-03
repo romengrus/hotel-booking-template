@@ -1,1 +1,0 @@
-{"version":3,"sources":["uikit/cards/cards.scss"],"names":[],"mappings":"AACE,6BACE,mBAAA,CACA,uBAGF,mBACE,mBAEA,qBACE","file":"cards.a2e1118b.css","sourceRoot":"../src","sourcesContent":[".uikit__cards {\n  main.container {\n    margin-top: 42px;\n    padding-left: 139px;\n  }\n\n  .col {\n    max-width: 380px;\n\n    & > * {\n      margin-bottom: 40px;\n    }\n  }\n}\n"]}

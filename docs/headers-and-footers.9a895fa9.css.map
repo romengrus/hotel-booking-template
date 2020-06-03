@@ -1,1 +1,0 @@
-{"version":3,"sources":["uikit/headers-and-footers/headers-and-footers.scss"],"names":[],"mappings":"AACE,iCACE","file":"headers-and-footers.9a895fa9.css","sourceRoot":"../src","sourcesContent":[".uikit__headers-and-footers {\n  .col {\n    background-color: #fff;\n  }\n}\n"]}
