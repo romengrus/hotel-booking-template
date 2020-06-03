@@ -15,11 +15,11 @@ mixin filter-choices({type = 'multiple', choices = [], theme = []} = {})
   include /components/radio/radio.pug
 
   - 
-    let classList = ['filter-choices']
-    const themeList = [].concat(theme).map(t => `filter-choices_is-${t}`)
-    classList = classList.concat(themeList)
+    let classList = ['filter-choices'];
+    const themeList = [].concat(theme).map(t => `filter-choices_is-${t}`);
+    classList = classList.concat(themeList);
 
-    const choiceMixin = type === 'multiple' ? 'checkbox' : 'radio'
+    const choiceMixin = type === 'multiple' ? 'checkbox' : 'radio';
 
     const labelTheme = theme.includes('rich') ? 'bold' : '';
 

@@ -13,13 +13,13 @@ mixin button({type='button', href=dummyURL, size='', icon='', isRounded=true, is
   include /components/icon/icon.pug
 
   -
-    const classList = ['button']
-    if (size) classList.push(`button_is-${size}`)
-    if (isRounded)  classList.push('button_is-rounded')
-    if (isOutlined) classList.push('button_is-outlined')
-    if (isDisabled) classList.push('button_is-disabled')
-    if (isExpanded) classList.push('button_is-expanded')
-    if (isTextOnly) classList.push('button_is-text-only')
+    const classList = ['button'];
+    if (size) classList.push(`button_is-${size}`);
+    if (isRounded)  classList.push('button_is-rounded');
+    if (isOutlined) classList.push('button_is-outlined');
+    if (isDisabled) classList.push('button_is-disabled');
+    if (isExpanded) classList.push('button_is-expanded');
+    if (isTextOnly) classList.push('button_is-text-only');
 
   if (type === 'button')
     button(class = classList, disabled = isDisabled, data-button)&attributes(attributes)

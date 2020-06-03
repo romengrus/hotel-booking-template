@@ -21,8 +21,8 @@ mixin form-room-reservation({room = '', isLux = false, price = 0} = {})
       lux: 'люкс',
     };
 
-    const classList = ['form-room-reservation']
-    if (isLux) classList.push('form-room-reservation_is-lux')
+    const classList = ['form-room-reservation'];
+    if (isLux) classList.push('form-room-reservation_is-lux');
 
   div(class = classList, data-room-reservation)
     +form

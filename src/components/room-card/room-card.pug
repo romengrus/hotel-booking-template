@@ -10,8 +10,8 @@ mixin room-card({room = '', price = '', currency = '₽', rating = 5, numReviews
   include /components/rating/rating.pug
 
   -
-    const classList = ['room-card']
-    if (isLux) classList.push('room-card_is-lux')
+    const classList = ['room-card'];
+    if (isLux) classList.push('room-card_is-lux');
 
   div(class = classList, data-room-card)
     if (block)

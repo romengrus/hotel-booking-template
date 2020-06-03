@@ -8,7 +8,7 @@ mixin like({value=0, hasVoted=false, iLike='hart-active', iDislike='hart'} = {})
   include /components/icon/icon.pug
 
   -
-    const icon = hasVoted ? iLike : iDislike
+    const icon = hasVoted ? iLike : iDislike;
   
   .like(
     data-like,

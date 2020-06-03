@@ -49,16 +49,16 @@ mixin pagination({current = 1, perPage = 10, total = 0, delta = 2} = {})
   include /components/icon/icon.pug
 
   -
-    const lastPage = Math.ceil(total / perPage)
-    const idxFrom = 1
-    const idxTo = 12
-    const arrowMods = ['pagination__arrow']
-    const pageMods = ['pagination__page']
+    const lastPage = Math.ceil(total / perPage);
+    const idxFrom = 1;
+    const idxTo = 12;
+    const arrowMods = ['pagination__arrow'];
+    const pageMods = ['pagination__page'];
 
     function approximately(n, to = 10) {
-      const x = Math.floor(n / to) * to
-      if (x < n) return `${x}+`
-      return `${x}`   
+      const x = Math.floor(n / to) * to;
+      if (x < n) return `${x}+`;
+      return `${x}`;
     }
 
     function inScope(page, current, delta) {

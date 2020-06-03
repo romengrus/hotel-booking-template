@@ -6,7 +6,7 @@ mixin icon({name = 'hart', size = ''} = {})
   -
     const classList = ['icon'];
 
-    if (size) classList.push(`icon_is-${size}`)
+    if (size) classList.push(`icon_is-${size}`);
 
   svg(class = classList, data-icon)
     use(href= `#${name}`, data-icon-img)&attributes(attributes)

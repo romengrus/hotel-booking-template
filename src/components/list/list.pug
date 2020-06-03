@@ -4,13 +4,13 @@
 //- isOrdered   boolean (false) - If true - shows "ol". If false - shows "ul".
 mixin list({items = [], isOrdered} = {})
   -
-    const classList = ['list']
-    const tag = isOrdered ? 'ol' : 'ul'
+    const classList = ['list'];
+    const tag = isOrdered ? 'ol' : 'ul';
 
     if (isOrdered) {
-      classList.push('list_is-ordered')
+      classList.push('list_is-ordered');
     } else  {
-      classList.push('list_is-unordered')
+      classList.push('list_is-unordered');
     }
 
   #{tag}(class = classList, data-list)

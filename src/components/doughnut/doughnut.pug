@@ -11,17 +11,17 @@
 //- https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72
 mixin doughnut({data = []} = {})
   -
-    var gap = 0.5
-    var circumference = 100
-    var radius = circumference / (2 * 3.14159265358)
-    var cx = 18
-    var cy = 18
-    var strokeWidth = 1
-    var firstSegmentOffset = 25
-    var total = data.map(v => v.value).reduce((a, b) => a + b, 0)
+    var gap = 0.5;
+    var circumference = 100;
+    var radius = circumference / (2 * 3.14159265358);
+    var cx = 18;
+    var cy = 18;
+    var strokeWidth = 1;
+    var firstSegmentOffset = 25;
+    var total = data.map(v => v.value).reduce((a, b) => a + b, 0);
 
-    var chartStyle = ''
-    chartStyle += `--doughnut-stroke-width: ${strokeWidth};`
+    var chartStyle = '';
+    chartStyle += `--doughnut-stroke-width: ${strokeWidth};`;
 
   figure.doughnut(data-doughnut, data-chart-data = data)
     .doughnut__display(style = chartStyle)
