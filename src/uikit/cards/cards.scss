@@ -1,5 +1,6 @@
 .cards {
   &__row {
+    display: flex;
     margin-top: 42px;
     margin-left: 140px;
   }
@@ -10,10 +11,10 @@
   }
 
   &__col-2 {
-    margin-left: 36px;
+    margin-left: 40px;
   }
 
   &__col-3 {
-    margin-left: 36px;
+    margin-left: 40px;
   }
 }

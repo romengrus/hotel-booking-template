@@ -26,6 +26,7 @@
 
 .form-elements {
   &__row {
+    display: flex;
     padding-left: 141px;
   }
 
@@ -55,12 +56,12 @@
   }
 
   &__col-a2 {
-    margin-left: 122px;
+    margin-left: 126px;
     width: 300px;
   }
 
   &__col-a3 {
-    margin-left: 88px;
+    margin-left: 93px;
     width: 319px;
   }
 
@@ -69,12 +70,12 @@
   }
 
   &__col-b2 {
-    margin-left: 177px;
+    margin-left: 181px;
     width: 320px;
   }
 
   &__col-b3 {
-    margin-left: 68px;
+    margin-left: 72px;
     width: 320px;
   }
 
@@ -84,11 +85,11 @@
 
   &__col-c2 {
     width: 280px;
-    margin-left: 162px;
+    margin-left: 166px;
   }
 
   &__col-c3 {
-    margin-left: 108px;
+    margin-left: 113px;
     width: 260px;
   }
 
@@ -98,7 +99,7 @@
 
   &__col-d2 {
     width: 713px;
-    margin-left: 163px;
+    margin-left: 167px;
   }
 
   &__expandable-list {
