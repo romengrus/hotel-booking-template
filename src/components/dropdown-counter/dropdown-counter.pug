@@ -24,12 +24,12 @@ mixin dropdown-counter({resultType='total', plurals=[], icon='semi-arrow-down', 
     data-result-type = resultType, 
     data-plurals = plurals)
 
-    input(data-dropdown-counter-value, hidden = true)
+    input(type = 'text', data-dropdown-counter-value, hidden = true)
     .dropdown-counter__alt-wrapper
       input.dropdown-counter__alt(
+        type = 'text',
         data-dropdown-counter-alt, 
-        readonly = true
-      )&attributes(attributes)
+        readonly = true)&attributes(attributes)
       .dropdown-counter__toggler(data-dropdown-counter-toggler)
         +icon({ name: 'semi-arrow-up', size: 'small' })
     .dropdown-counter__content
