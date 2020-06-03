@@ -6,6 +6,15 @@
   justify-content: center;
   margin: 0;
 
+  @media (max-width: $break-sm) {
+    justify-content: center;
+  }
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__display {
     width: 128px;
     height: 128px;

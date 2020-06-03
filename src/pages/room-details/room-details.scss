@@ -1,8 +1,23 @@
 .room-details {
   &__wrapper {
     display: flex;
+    flex: 1;
     padding-top: 71px;
     padding-bottom: 56px;
+
+    @media (max-width: $break-md) {
+      flex-direction: column;
+      align-items: center;
+
+      & > * + * {
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: $break-sm) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
   }
 
   &__showcase {
@@ -16,18 +31,54 @@
 
   &__info {
     display: flex;
+
+    @media (max-width: $break-sm) {
+      flex-direction: column;
+    }
   }
 
   &__benefits {
-    flex-basis: 280px;
-    margin-right: 76px;
+    margin-right: 30px;
+    flex: 0 1 326px;
+
+    @media (max-width: $break-sm) {
+      flex: 1;
+    }
+
+    @media (max-width: $break-sm) {
+      margin-right: 0;
+      flex: 0;
+    }
+
+    &-listing {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-left: -5px;
+      margin-right: -5px;
+    }
   }
 
-  &__benefit + &__benefit {
-    margin-top: 12px;
+  &__benefit {
+    flex: 1;
+    flex-basis: 250px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    & + & {
+      margin-top: 12px;
+
+      @media (max-width: $break-sm) {
+        margin-top: 0;
+      }
+    }
   }
 
   &__stats {
+    @media (max-width: $break-sm) {
+      margin-top: 30px;
+    }
+
     &-title {
       margin-bottom: 19px;
       padding-left: 6px;
@@ -43,9 +94,23 @@
     flex-basis: 380px;
   }
 
+  &__content {
+    @media (max-width: $break-md) {
+      max-width: 800px;
+    }
+  }
+
   &__testimonials {
     margin-top: 17px;
     padding-right: 70px;
+
+    @media (max-width: $break-md) {
+      padding-right: 0;
+    }
+
+    @media (max-width: $break-sm) {
+      margin-top: 40px;
+    }
 
     .testimonial {
       margin-top: 26px;
@@ -57,6 +122,10 @@
       font-weight: normal;
       float: right;
       color: $dark-500;
+
+      @media (max-width: $break-sm) {
+        display: none;
+      }
     }
   }
 
@@ -64,6 +133,10 @@
     display: flex;
     margin-top: 34px;
     padding-left: 20px;
+
+    @media (max-width: $break-sm) {
+      flex-direction: column;
+    }
 
     &-behavior {
       min-width: 240px;
@@ -77,6 +150,16 @@
     &-cancel {
       margin-left: 102px;
       padding-right: 80px;
+
+      @media (max-width: $break-md) {
+        margin-left: 30px;
+        padding-right: 0;
+      }
+
+      @media (max-width: $break-sm) {
+        margin-left: 0;
+        margin-top: 20px;
+      }
     }
 
     &-desc {
@@ -84,5 +167,19 @@
       font-size: 14px;
       line-height: 23px;
     }
+  }
+
+  &__footer {
+    background: $white;
+    max-width: $site-max-width;
+    margin: 0 auto;
+    padding-top: 7px;
+  }
+
+  &__copyright {
+    background: $white;
+    max-width: $site-max-width;
+    margin: 0 auto;
+    padding-top: 6px;
   }
 }

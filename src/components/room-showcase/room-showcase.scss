@@ -11,6 +11,10 @@
     display: flex;
     flex-direction: column;
     flex-basis: 459px;
+
+    @media (max-width: 980px) {
+      display: none;
+    }
   }
 
   &__thumb {
