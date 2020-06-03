@@ -1,7 +1,6 @@
 {
   "name": "hotel-booking",
-  "version": "1.0.0",
-  "description": "FSD lvl2 Hotel Booking ",
+  "private": true,
   "scripts": {
     "cleanDist": "rimraf dist/*",
     "cleanDocs": "rimraf docs/*",
@@ -18,8 +17,6 @@
     "lint:pug": "pug-lint src/components",
     "lint": "npm run lint:style && npm run lint:js && npm run lint:pug"
   },
-  "author": "Roman Korenev",
-  "license": "ISC",
   "dependencies": {
     "flatpickr": "^4.6.3",
     "hyperform": "^0.10.2",
