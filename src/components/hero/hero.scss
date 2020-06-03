@@ -4,6 +4,8 @@ $hero-text-color: black !default;
   display: flex;
   width: 100%;
   min-height: 560px;
+  max-height: 683px;
+  height: 100vw;
   padding: 30px;
   background-size: cover;
   background-position: center bottom;
@@ -45,7 +47,6 @@ $hero-text-color: black !default;
   &_is-big {
     max-height: 830px;
     min-height: 630px;
-    height: 80vw;
     padding: 70px 0;
   }
 }

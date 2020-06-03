@@ -1,0 +1,15 @@
+.login {
+  &__footer {
+    background: $white;
+    max-width: $site-max-width;
+    margin: 0 auto;
+    padding-top: 7px;
+  }
+
+  &__copyright {
+    background: $white;
+    max-width: $site-max-width;
+    margin: 0 auto;
+    padding-top: 7px;
+  }
+}
