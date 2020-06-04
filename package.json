@@ -1,5 +1,5 @@
 {
-  "name": "hotel-booking",
+  "name": "hotel-booking-template",
   "private": true,
   "scripts": {
     "cleanDist": "rimraf dist/*",
