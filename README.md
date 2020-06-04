@@ -14,7 +14,7 @@ Main purpose of this project is to learn the basics of:
 1. clone this repository
 
 ```bash
-  git clone git@github.com:romengrus/hotel-booking-template.git --depth=1
+  git clone https://github.com/romengrus/hotel-booking-template.git
 ```
 
 2. install dependencies
