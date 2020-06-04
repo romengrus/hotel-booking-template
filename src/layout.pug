@@ -35,9 +35,6 @@ html
       block styles
         link(rel="stylesheet", href="/styles/app.scss")
 
-      block scripts
-        script(src="/scripts/app.js", defer)
-
   body(class= bodyClass)
     div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg
@@ -92,3 +89,6 @@ html
         +footer
       div(class = `${bodyClass}__copyright`)
         +copyright
+    
+    block scripts
+      script(src="/scripts/app.js")
