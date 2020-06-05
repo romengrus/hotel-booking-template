@@ -23,14 +23,18 @@ mixin menu({items = [], isVertical = false, level = 0, theme = []} = {})
     if (isVertical) classList.push('menu_is-vertical');
     if (themes)     classList.push(themes.map(t => `menu_is-${t}`));
   
-  ul(class = classList, data-menu = level === 0 ? true : false)
+  ul(
+    class = classList, 
+    data-menu = level === 0 ? true : false,
+    data-menu-submenu = level === 0 ? false : true
+  )
     each item in items
       - const itemClassList = ['menu__item'];
       - const linkClassList = ['menu__link'];
       - if (hasSubmenu(item)) itemClassList.push('menu__item_has-submenu');
       - if (item.isActive) linkClassList.push('menu__link_is-active');
 
-      li(class = itemClassList)
+      li(class = itemClassList, data-menu-item)
         a(class = linkClassList, href = dummyURL)= item.name
         if (hasSubmenu(item))
           +icon({name: 'semi-arrow-down'})

@@ -37,10 +37,14 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
       margin-right: 7px;
     }
 
-    &:hover > #{$root}__submenu {
-      display: block;
+    &_is-active > #{$root}__submenu {
       visibility: visible;
       opacity: 1;
+    }
+
+    &_is-fading > #{$root}__submenu {
+      visibility: visible;
+      opacity: 0;
     }
   }
 
@@ -67,7 +71,7 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
   }
 
   &__submenu {
-    display: none;
+    display: block;
     position: absolute;
     z-index: 100;
     top: 100%;
@@ -80,12 +84,7 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     white-space: nowrap;
-
-    &:hover {
-      display: block;
-      visibility: visible;
-      opacity: 1;
-    }
+    transition: opacity 350ms ease;
 
     & > #{$root}__item {
       padding: 5px 13px;
