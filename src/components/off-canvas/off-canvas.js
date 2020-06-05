@@ -1,3 +1,5 @@
+import { factory } from '../../scripts/factory';
+
 class OffCanvas {
   constructor(el) {
     this.el = el;
@@ -29,5 +31,7 @@ class OffCanvas {
     this.el.classList.toggle('off-canvas_is-opened');
   }
 }
+
+factory(OffCanvas);
 
 export { OffCanvas };

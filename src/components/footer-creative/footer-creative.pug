@@ -1,10 +1,11 @@
 mixin footer-creative({text = ''} = {})
+  include /components/logo/logo.pug
   include /components/social-icons/social-icons.pug
 
   footer.footer-creative(data-footer-creative)
     .footer-creative__wrapper
       .footer-creative__logo
-        include /assets/img/logo.svg
+        +logo
       .footer-creative__text= text 
       .footer-creative__social
         +social-icons

@@ -2,9 +2,22 @@ extends /uikit/layout.pug
 
 block variables
   - var pageTitle = 'Toxin UIKit | Cards'
-  - var bodyClass = 'uikit__cards'
+  - var bodyClass = 'cards'
 
-  include /components/index.pug
+block append parts
+  include /components/form-room-search/form-room-search.pug
+  include /components/form-room-reservation/form-room-reservation.pug
+  include /components/form-register/form-register.pug
+  include /components/form-login/form-login.pug
+  include /components/datepicker/datepicker.pug
+  include /components/room-card/room-card.pug
+  include /components/slider/slider.pug
+
+block append styles
+  link(rel='stylesheet', href='./cards.scss')
+
+block append scripts
+  script(src='./cards.js')
 
 block main
   header.container.uikit__header

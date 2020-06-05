@@ -1,4 +1,5 @@
 import { debounce } from '../../scripts/utils';
+import { factory } from '../../scripts/factory';
 
 class OffCanvasToggler {
   constructor(el) {
@@ -30,5 +31,7 @@ class OffCanvasToggler {
     }
   }
 }
+
+factory(OffCanvasToggler);
 
 export { OffCanvasToggler };

@@ -1,15 +1,6 @@
-import * as components from '../components';
-
-function factory(Component) {
-  const id = Component.getID();
-  const qs = `[data-${id}]`;
-  const elements = document.querySelectorAll(qs);
-  return [...elements].map(el => new Component(el));
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  Object.values({ ...components }).map(component => {
-    if (typeof component.getID !== 'function') return null;
-    return factory(component);
-  });
-});
+import '../components/form/form';
+import '../components/datepicker/datepicker';
+import '../components/dropdown-counter/dropdown-counter';
+import '../components/counter/counter';
+import '../components/off-canvas/off-canvas';
+import '../components/off-canvas-toggler/off-canvas-toggler';

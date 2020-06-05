@@ -1,6 +1,7 @@
 import { Russian } from 'flatpickr/dist/l10n/ru';
 import flatpickr from 'flatpickr';
 import RangePlugin from 'flatpickr/dist/plugins/rangePlugin';
+import { factory } from '../../scripts/factory';
 
 const monthNumberToName = n =>
   [
@@ -112,5 +113,7 @@ class Datepicker {
     }
   }
 }
+
+factory(Datepicker);
 
 export { Datepicker };

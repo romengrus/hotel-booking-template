@@ -1,3 +1,12 @@
+@import '/components/button/button.scss';
+@import '/components/label/label.scss';
+@import '/components/icon/icon.scss';
+@import '/components/form/form.scss';
+@import '/components/field/field.scss';
+@import '/components/radio/radio.scss';
+@import '/components/datepicker/datepicker.scss';
+@import '/components/switcher/switcher.scss';
+
 .form-register {
   width: 50vw;
   min-width: 280px;

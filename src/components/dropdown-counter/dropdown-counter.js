@@ -1,4 +1,5 @@
 import { pluralize, not } from '../../scripts/utils';
+import { factory } from '../../scripts/factory';
 
 class DropdownCounter {
   constructor(el) {
@@ -137,5 +138,7 @@ class DropdownCounter {
     this.hideCounters();
   }
 }
+
+factory(DropdownCounter);
 
 export { DropdownCounter };

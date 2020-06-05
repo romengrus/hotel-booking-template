@@ -1,3 +1,5 @@
+import { factory } from '../../scripts/factory';
+
 class Doughnut {
   constructor(el) {
     const id = Doughnut.getID();
@@ -51,5 +53,7 @@ class Doughnut {
     this.headerEl.textContent = numVotes;
   }
 }
+
+factory(Doughnut);
 
 export { Doughnut };

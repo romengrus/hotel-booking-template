@@ -1,3 +1,10 @@
+@import '/components/form/form.scss';
+@import '/components/label/label.scss';
+@import '/components/datepicker/datepicker.scss';
+@import '/components/dropdown-counter/dropdown-counter.scss';
+@import '/components/counter/counter.scss';
+@import '/components/button/button.scss';
+
 .form-room-search {
   max-width: 380px;
   border: 1px solid rgba(0, 0, 0, 0.12);

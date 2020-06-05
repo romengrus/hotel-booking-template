@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import { factory } from '../../scripts/factory';
 
 class Slider {
   constructor(el) {
@@ -19,5 +20,7 @@ class Slider {
     this.slider = new Swiper(sliderContainer, params);
   }
 }
+
+factory(Slider);
 
 export { Slider };

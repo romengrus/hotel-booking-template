@@ -1,3 +1,11 @@
+@import '/components/form/form.scss';
+@import '/components/label/label.scss';
+@import '/components/datepicker/datepicker.scss';
+@import '/components/dropdown-counter/dropdown-counter.scss';
+@import '/components/counter/counter.scss';
+@import '/components/button/button.scss';
+@import '/components/fees/fees.scss';
+
 $room-reservation-primary-color: gray !default;
 $room-reservation-accent-color: coral !default;
 $room-reservation-text-color: black !default;

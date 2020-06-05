@@ -1,4 +1,4 @@
-extends /layout.pug
+extends /pages/layout.pug
 
 block append meta
   meta(name= "keywords", content= "toxin-hotel, registration")
@@ -11,6 +11,9 @@ block variables
 block append parts
   include /components/hero/hero.pug
   include /components/form-register/form-register.pug
+
+block append styles
+  link(rel="stylesheet", href="./registration.scss")
 
 block main
   +hero({bgImg: '/assets/img/hero4.jpg'})

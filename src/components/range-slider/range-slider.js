@@ -1,5 +1,6 @@
 import NUIRangeSlider from 'nouislider';
 import wNumb from 'wnumb';
+import { factory } from '../../scripts/factory';
 
 class RangeSlider {
   constructor(el) {
@@ -55,5 +56,7 @@ class RangeSlider {
     this.el.dispatchEvent(new CustomEvent('range-slider-update', { detail: this.slider.get() }));
   }
 }
+
+factory(RangeSlider);
 
 export { RangeSlider };

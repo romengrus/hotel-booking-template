@@ -1,3 +1,10 @@
+@import '/components/room-showcase/room-showcase.scss';
+@import '/components/doughnut/doughnut.scss';
+@import '/components/list/list.scss';
+@import '/components/form-room-reservation/form-room-reservation.scss';
+@import '/components/benefit/benefit.scss';
+@import '/components/testimonial/testimonial.scss';
+
 .room-details {
   &__wrapper {
     display: flex;

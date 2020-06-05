@@ -1,3 +1,5 @@
+import { factory } from '../../scripts/factory';
+
 class Panel {
   constructor(el) {
     const id = Panel.getID();
@@ -32,5 +34,7 @@ class Panel {
     this.el.classList.toggle('panel_is-collapsed');
   }
 }
+
+factory(Panel);
 
 export { Panel };

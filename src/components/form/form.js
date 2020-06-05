@@ -1,4 +1,5 @@
 import hyperform from 'hyperform';
+import { factory } from '../../scripts/factory';
 
 const formValidationI18n = {
   ru: {
@@ -68,5 +69,7 @@ class Form {
     hyperform.setLanguage(this.lang);
   }
 }
+
+factory(Form);
 
 export { Form };

@@ -4,7 +4,18 @@ block variables
   - var pageTitle = 'Toxin UIKit | Headers & Footers'
   - var bodyClass = 'uikit__headers-and-footers'
 
-  include /components/index.pug
+block append parts
+  include /components/header/header.pug
+  include /components/menu/menu.pug
+  include /components/footer/footer.pug
+  include /components/footer-creative/footer-creative.pug
+  include /components/footer-about/footer-about.pug
+  include /components/footer-menu/footer-menu.pug
+  include /components/footer-subscription/footer-subscription.pug
+  include /components/copyright/copyright.pug
+
+block append styles
+  link(rel='stylesheet', href='./headers-and-footers.scss')
 
 block main
   header.container.uikit__header

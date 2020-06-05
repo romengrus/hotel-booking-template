@@ -1,3 +1,17 @@
+@import '/components/label/label.scss';
+@import '/components/off-canvas/off-canvas.scss';
+@import '/components/form/form.scss';
+@import '/components/datepicker/datepicker.scss';
+@import '/components/counter/counter.scss';
+@import '/components/dropdown-counter/dropdown-counter.scss';
+@import '/components/range-slider/range-slider.scss';
+@import '/components/checkbox/checkbox.scss';
+@import '/components/panel/panel.scss';
+@import '/components/pagination/pagination.scss';
+@import '/components/room-card/room-card.scss';
+@import '/components/room-cards/room-cards.scss';
+@import '/components/form-room-filter/form-room-filter.scss';
+
 .room-search {
   &__wrapper {
     position: relative;

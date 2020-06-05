@@ -1,4 +1,5 @@
 import { pluralize } from '../../scripts/utils';
+import { factory } from '../../scripts/factory';
 
 class Counter {
   constructor(el) {
@@ -134,5 +135,7 @@ class Counter {
     this.btnIncEl.removeAttribute('disabled');
   }
 }
+
+factory(Counter);
 
 export { Counter };

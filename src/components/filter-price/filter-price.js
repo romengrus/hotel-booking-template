@@ -1,3 +1,5 @@
+import { factory } from '../../scripts/factory';
+
 class FilterPrice {
   constructor(el) {
     const id = FilterPrice.getID();
@@ -28,5 +30,7 @@ class FilterPrice {
     this.resultEl.textContent = [].concat(newPrice).join(' - ');
   }
 }
+
+factory(FilterPrice);
 
 export { FilterPrice };

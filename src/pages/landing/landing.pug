@@ -1,4 +1,4 @@
-extends /layout.pug
+extends /pages/layout.pug
 
 block append meta
   meta(name= "keywords", content= "toxin-hotel, landing")
@@ -11,6 +11,9 @@ block variables
 block append parts
   include /components/hero/hero.pug
   include /components/form-room-search/form-room-search.pug
+
+block append styles
+  link(rel='stylesheet', href='./landing.scss')
 
 block main
   +hero({

@@ -3,6 +3,8 @@
 //- title   string ('Диапазон цены')
 //- desc    string ('')
 mixin filter-price({title = 'Диапазон цены', desc = ''} = {})
+  include /components/label/label.pug
+  
   .filter-price(data-filter-price)
     .filter-price__header
       .filter-price__label

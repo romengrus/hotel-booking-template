@@ -1,3 +1,5 @@
+import { factory } from '../../scripts/factory';
+
 class Rating {
   constructor(el) {
     const id = Rating.getID();
@@ -112,5 +114,7 @@ class Rating {
     this.el.dispatchEvent(event);
   }
 }
+
+factory(Rating);
 
 export { Rating };

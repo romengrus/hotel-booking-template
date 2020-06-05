@@ -1,4 +1,4 @@
-extends /layout.pug
+extends /pages/layout.pug
 
 block append meta
   meta(name= "keywords", content= "toxin-hotel, details")
@@ -15,6 +15,12 @@ block append parts
   include /components/form-room-reservation/form-room-reservation.pug
   include /components/benefit/benefit.pug
   include /components/testimonial/testimonial.pug
+
+block append styles
+  link(rel='stylesheet', href='./room-details.scss')
+
+block append scripts
+  script(src='./room-details.js')
 
 block main
   .room-details__showcase

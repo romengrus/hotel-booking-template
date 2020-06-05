@@ -1,3 +1,5 @@
+import { factory } from '../../scripts/factory';
+
 class RoomCard {
   constructor(el) {
     this.el = el;
@@ -25,5 +27,7 @@ class RoomCard {
       .join('');
   }
 }
+
+factory(RoomCard);
 
 export { RoomCard };

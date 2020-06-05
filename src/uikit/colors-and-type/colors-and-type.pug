@@ -4,8 +4,7 @@ block variables
   - var pageTitle = 'Toxin UIKit | Colors & Type'
   - var bodyClass = 'uikit__colors-and-type'
 
-  include /components/logo/logo.pug
-
+block append parts
   mixin color-block(title, hex, alpha)
     .color-block
       div(class= "color-block__showcase", style= `background-color: ${hexToRGBA(hex, alpha)};`)
@@ -17,6 +16,9 @@ block variables
     .typography-block
       span(class= `typography-block__label typography-block__label-${tag.toLowerCase()}`)= tag
       span(class= `typography-block__showcase typography-block__showcase-${tag.toLowerCase()}`)= text
+
+block append styles
+  link(rel='stylesheet', href='./colors-and-type.scss')
 
 block main
   header.container.uikit__header

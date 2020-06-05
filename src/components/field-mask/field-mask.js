@@ -1,4 +1,5 @@
 import IMask from 'imask';
+import { factory } from '../../scripts/factory';
 
 class FieldMask {
   constructor(el) {
@@ -27,5 +28,7 @@ class FieldMask {
     });
   }
 }
+
+factory(FieldMask);
 
 export { FieldMask };

@@ -1,3 +1,23 @@
+@import '/components/label/label.scss';
+@import '/components/button/button.scss';
+@import '/components/field/field.scss';
+@import '/components/dropdown-counter/dropdown-counter.scss';
+@import '/components/counter/counter.scss';
+@import '/components/datepicker/datepicker.scss';
+@import '/components/subscription/subscription.scss';
+@import '/components/checkbox/checkbox.scss';
+@import '/components/radio/radio.scss';
+@import '/components/switcher/switcher.scss';
+@import '/components/like/like.scss';
+@import '/components/list/list.scss';
+@import '/components/benefit/benefit.scss';
+@import '/components/panel/panel.scss';
+@import '/components/rating/rating.scss';
+@import '/components/testimonial/testimonial.scss';
+@import '/components/filter-price/filter-price.scss';
+@import '/components/range-slider/range-slider.scss';
+@import '/components/pagination/pagination.scss';
+
 .form-element {
   $root: &;
   $max-space: 100;

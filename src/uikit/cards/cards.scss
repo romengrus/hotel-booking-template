@@ -1,3 +1,11 @@
+@import '/components/form-room-search/form-room-search.scss';
+@import '/components/form-room-reservation/form-room-reservation.scss';
+@import '/components/form-register/form-register.scss';
+@import '/components/form-login/form-login.scss';
+@import '/components/datepicker/datepicker.scss';
+@import '/components/room-card/room-card.scss';
+@import '/components/slider/slider.scss';
+
 .cards {
   &__row {
     display: flex;

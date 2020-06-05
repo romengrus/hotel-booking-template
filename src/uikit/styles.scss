@@ -1,11 +1,6 @@
-@import '../styles/variables';
-@import '../styles/reboot';
-@import '../components';
-@import './colors-and-type/colors-and-type.scss';
-@import './cards/cards.scss';
-@import './form-elements/form-elements.scss';
-@import './headers-and-footers/headers-and-footers.scss';
+@import '/styles/app.scss';
 
+//=== BASE STYLES
 body {
   background-color: $white;
 }

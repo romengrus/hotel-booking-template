@@ -1,5 +1,7 @@
 mixin footer-about({text = ''} = {})
+  include /components/logo/logo.pug
+
   .footer__item.footer-about(data-footer-about)
     .footer-about__logo
-      include /assets/img/logo.svg
+      +logo
     .footer-about__text= text 

@@ -1,4 +1,4 @@
-extends /layout.pug
+extends /pages/layout.pug
 
 block append meta
   meta(name= "keywords", content= "toxin-hotel, search")
@@ -23,6 +23,12 @@ block append parts
   include /components/room-card/room-card.pug
   include /components/room-cards/room-cards.pug
   include /components/form-room-filter/form-room-filter.pug
+
+block append styles
+  link(rel='stylesheet', href='./room-search.scss')
+
+block append scripts
+  script(src='./room-search.js')
 
 block main
   .main__wrapper.room-search__wrapper

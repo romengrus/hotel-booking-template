@@ -1,4 +1,5 @@
 import { inc, dec, not, toBool } from '../../scripts/utils';
+import { factory } from '../../scripts/factory';
 
 class Like {
   constructor(el) {
@@ -55,5 +56,7 @@ class Like {
     this.el.dispatchEvent(event);
   }
 }
+
+factory(Like);
 
 export { Like };

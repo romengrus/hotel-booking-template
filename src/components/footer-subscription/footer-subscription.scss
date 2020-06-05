@@ -1,5 +1,6 @@
-.footer-subscription {
+@import '/components/subscription/subscription.scss';
 
+.footer-subscription {
   @media (max-width: $break-md) {
     flex: 1;
   }
