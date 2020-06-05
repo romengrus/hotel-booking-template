@@ -1,14 +1,9 @@
 //- Off canvas 
 //-
-//- id          string ('') - id for reference
-//- showClose   boolean (false) - if true close button will be shown
-mixin off-canvas({id='', showClose} = {})
+//- id    string ('') - id for reference
+mixin off-canvas({id=''} = {})
   include /components/off-canvas-toggler/off-canvas-toggler.pug
 
   .off-canvas(id = id, data-off-canvas)
-    if (showClose)
-      .off-canvas__close
-        +off-canvas-toggler({connectedWith: id})
-          span &times;
     if (block)
       block

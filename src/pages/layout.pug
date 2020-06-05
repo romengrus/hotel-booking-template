@@ -31,13 +31,12 @@ html
     div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg
 
-    +off-canvas({id: 'main-off-canvas-menu', showClose: true})
+    +off-canvas({id: 'main-off-canvas-menu'})
       +menu({
         isVertical: true,
         theme: 'off-canvas',
         items: [{
           name: "о нас",
-          isActive: true
         },
         {
           name: "услуги",
