@@ -31,55 +31,56 @@ html
     div(style={visibility: 'hidden', position: 'absolute', 'z-index': -1})
       include /assets/sprites/icons-sprite.svg
 
-    +off-canvas({id: 'main-off-canvas-menu'})
-      +menu({
-        isVertical: true,
-        theme: 'off-canvas',
-        items: [{
-          name: "о нас",
-        },
-        {
-          name: "услуги",
-          submenu: [{
-              name: "апартаменты",
-            }, {
-              name: "spa",
-            },
-            {
-              name: "конференц залы",
+    .wrapper
+      +off-canvas({id: 'main-off-canvas-menu'})
+        +menu({
+          isVertical: true,
+          theme: 'off-canvas',
+          items: [{
+            name: "о нас",
+          },
+          {
+            name: "услуги",
+            submenu: [{
+                name: "апартаменты",
+              }, {
+                name: "spa",
+              },
+              {
+                name: "конференц залы",
+            }]
+          },
+          {
+            name: "вакансии",
+          },
+          {
+            name: "новости",
+          },
+          {
+            name: "соглашения",
+            submenu: [{
+                name: "соглашение 1",
+              },
+              {
+                name: "соглашение 2",
+              },
+              {
+                name: "соглашение 3",
+            }] 
           }]
-        },
-        {
-          name: "вакансии",
-        },
-        {
-          name: "новости",
-        },
-        {
-          name: "соглашения",
-          submenu: [{
-              name: "соглашение 1",
-            },
-            {
-              name: "соглашение 2",
-            },
-            {
-              name: "соглашение 3",
-          }] 
-        }]
-      })
-    
-    block header
-      +header({lblLogin: 'войти', lblRegister: 'зарегистрироваться'})
+        })
+      
+      block header
+        +header({lblLogin: 'войти', lblRegister: 'зарегистрироваться'})
 
-    main.main
-      block main
+      main.main
+        block main
 
-    block footer
-      div(class = `${bodyClass}__footer`)
-        +footer
-      div(class = `${bodyClass}__copyright`)
-        +copyright
+      block footer
+        div(class = `${bodyClass}__footer`)
+          +footer
+        div(class = `${bodyClass}__copyright`)
+          +copyright
   
   block scripts
     script(src="/scripts/app.js")

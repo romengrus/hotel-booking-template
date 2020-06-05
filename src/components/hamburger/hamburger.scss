@@ -29,6 +29,7 @@ $hamburger-transition-duration: 300ms;
     width: $hamburger-width;
     height: $hamburger-height;
     margin: 0;
+    cursor: pointer;
   }
 
   &__bar {
