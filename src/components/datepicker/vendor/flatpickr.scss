@@ -84,7 +84,7 @@
 .flatpickr-calendar:before,
 .flatpickr-calendar:after {
   content: '';
-  display: block;
+  display: none;
   position: absolute;
   left: 22px;
   width: 0;
