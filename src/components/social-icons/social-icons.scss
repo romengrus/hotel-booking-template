@@ -3,11 +3,18 @@
 .social-icons {
   display: flex;
 
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1px;
+  }
+
   &__link:hover {
     text-decoration: none;
   }
 
   &__link + &__link {
-    margin-left: 22px;
+    margin-left: 20px;
   }
 }
