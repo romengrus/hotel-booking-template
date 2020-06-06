@@ -5,8 +5,8 @@
 //- plurals       array ([]) - Plural forms of 'total' for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
 //- icon          string ('semi-arrow-down') - Icon name for toggler (in header)
 //- isCollapsed   boolean (true) - If true - will render collapsed, false - expanded.
-//- showActions   boolean (false)
-mixin dropdown-counter({resultType='total', plurals=[], icon='semi-arrow-down', isCollapsed=true, showActions} = {})
+//- showActions   boolean (true)
+mixin dropdown-counter({resultType='total', plurals=[], icon='semi-arrow-down', isCollapsed=true, showActions=true} = {})
   include /components/icon/icon.pug
   include /components/field/field.pug
   include /components/counter/counter.pug
