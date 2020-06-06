@@ -1,0 +1,31 @@
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+
+  &__profile-link {
+    color: $dark-500;
+    font-size: 14px;
+
+    &:hover {
+      color: $dark-750;
+      text-decoration: none;
+    }
+  }
+
+  &_is-logged-in {
+    padding-left: 30px;
+    border-left: 1px solid $dark-100;
+  }
+
+  &_theme-vertical {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 30px;
+
+    & > * + * {
+      margin-top: 15px;
+    }
+  }
+}

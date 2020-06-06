@@ -1,0 +1,23 @@
+//- Authentication block
+//-
+//- userName      string ('') - User name to show in auth block
+//- lblLogin      string ('') - login button text
+//- lblRegister   string ('') - register button text
+//- isLoggedIn    boolean (false) - is user logged in?
+//- theme         setOf ('vertical') 
+mixin auth({userName='', lblLogin='', lblRegister='', isLoggedIn, theme=[]} = {})
+  include /components/button/button.pug
+
+  -
+    let classList = ['auth'];
+    const themes = [].concat(theme).map(t => `auth_theme-${t}`);
+    
+    classList.push(`auth_is-logged-${isLoggedIn ? 'in' : 'out'}`);
+    classList = classList.concat(themes);
+
+  div(class=classList)
+    if (isLoggedIn)
+      a.auth__profile-link(href=dummyURL)= userName
+    else 
+      +button({type: 'link', size: 'small', isOutlined: true})= lblLogin
+      +button({type: 'link', size: 'small'})= lblRegister 

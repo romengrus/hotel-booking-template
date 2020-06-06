@@ -9,6 +9,7 @@ block parts
   include /components/off-canvas/off-canvas.pug
   include /components/off-canvas-toggler/off-canvas-toggler.pug
   include /components/header/header.pug
+  include /components/auth/auth.pug
   include /components/menu/menu.pug
   include /components/footer/footer.pug
   include /components/copyright/copyright.pug
@@ -69,9 +70,17 @@ html
             }] 
           }]
         })
+
+        +auth({
+          userName: 'Cosmin Negoita',
+          lblLogin: 'войти',
+          lblRegister: 'зарегистрироваться',
+          isLoggedIn: false,
+          theme: 'vertical'
+        })
       
       block header
-        +header({lblLogin: 'войти', lblRegister: 'зарегистрироваться'})
+        +header()
 
       main.main
         block main

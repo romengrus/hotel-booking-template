@@ -1,66 +1,71 @@
 //- Main header
 //-
-//- isLoggedIn    boolean (false) - If user is logged in
-//- userName      string ('Cosmin Negoita') - User name to show in auth block
-//- lblLogin      string ('') - login button text
-//- lblRegister   string ('') - register button text
-mixin header({isLoggedIn = false, userName = '', lblLogin = '', lblRegister = ''} = {})
+//- menu    object ({}) - menu component props
+//- auth    object ({}) - auth components props
+-
+  const defaultMenu = {
+    items: [{
+      name: "о нас",
+    },
+    {
+      name: "услуги",
+      submenu: [{
+          name: "апартаменты",
+        }, {
+          name: "spa",
+        },
+        {
+          name: "конференц залы",
+      }]
+    },
+    {
+      name: "вакансии",
+    },
+    {
+      name: "новости",
+    },
+    {
+      name: "соглашения",
+      submenu: [{
+          name: "соглашение 1",
+        },
+        {
+          name: "соглашение 2",
+        },
+        {
+          name: "соглашение 3",
+        }] 
+      }]
+  };
+
+  const defaultAuth = {
+    userName: 'Cosmin Negoita',
+    lblLogin: 'войти',
+    lblRegister: 'зарегистрироваться',
+    isLoggedIn: false
+  };
+
+mixin header({menu={}, auth={}} = {})
   include /components/logo/logo.pug
   include /components/menu/menu.pug
-  include /components/button/button.pug
+  include /components/auth/auth.pug
   include /components/off-canvas-toggler/off-canvas-toggler.pug
+
+  -
+    menu = Object.assign(defaultMenu, menu);
+    auth = Object.assign(defaultAuth, auth);
 
   header.header(data-header)
     .header__wrapper
       .header__logo
         +logo({type: 'with-text'})
 
-      .header__menu(data-header-menu)
-        if block
-          block
-        else 
-          +menu({
-            items: [{
-              name: "о нас",
-            },
-            {
-              name: "услуги",
-              submenu: [{
-                  name: "апартаменты",
-                }, {
-                  name: "spa",
-                },
-                {
-                  name: "конференц залы",
-              }]
-            },
-            {
-              name: "вакансии",
-            },
-            {
-              name: "новости",
-            },
-            {
-              name: "соглашения",
-              submenu: [{
-                  name: "соглашение 1",
-                },
-                {
-                  name: "соглашение 2",
-                },
-                {
-                  name: "соглашение 3",
-                }] 
-             }]
-          })
+      .header__content
+        .header__menu(data-header-menu)
+          +menu(menu)
 
-        if (isLoggedIn)
-          .header__auth.header__auth_is-logged-in
-            a.header__profile-link(href = dummyURL)= userName
-        else 
-          .header__auth
-            +button({type: 'link', size: 'small', isOutlined: true})= lblLogin
-            +button({type: 'link', size: 'small'})= lblRegister 
+        .header__auth
+          +auth(auth)
 
       .header__menu-toggler(data-header-menu-toggler)
         +off-canvas-toggler({connectedWith: 'main-off-canvas-menu'})

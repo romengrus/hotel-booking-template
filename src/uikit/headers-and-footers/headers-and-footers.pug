@@ -22,8 +22,12 @@ block main
     +logo
 
   .m-t-42
-    +header({ isLoggedIn: false, lblLogin: 'Login', lblRegister: 'Register' })
-      +menu({
+    +header({ 
+      auth: {
+        lblLogin: 'Login', 
+        lblRegister: 'Register' 
+      },
+      menu: {
         theme: 'wide', 
         items: [{
           name: "Home",
@@ -53,11 +57,15 @@ block main
         {
           name: "Documentation",
         }]
-      })
+      }
+    })
 
   .m-t-40
-    +header({ isLoggedIn: true, userName: 'Cosmin Negoita' })
-      +menu({
+    +header({ 
+      auth: {
+        isLoggedIn: true, 
+      },
+      menu: {
         theme: 'wide', 
         items: [{
           name: "Home",
@@ -88,7 +96,8 @@ block main
         {
           name: "Documentation",
         }]
-      })
+      }
+    })
 
   .m-t-47
     +footer
