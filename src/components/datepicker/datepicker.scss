@@ -29,9 +29,8 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
   &__toggler {
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
     right: 15px;
-    transform: translateY(-50%) rotate(0.5turn);
-    transition: transform 300ms ease-out;
   }
 
   &__prev,
@@ -79,12 +78,6 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
     &:hover {
       color: $datepicker-weekday-color;
       opacity: 1;
-    }
-  }
-
-  &_is-opened {
-    #{$root}__toggler {
-      transform: translateY(-50%) rotate(0);
     }
   }
 }

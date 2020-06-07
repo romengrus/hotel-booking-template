@@ -1,10 +1,9 @@
-@import '/components/field/field.scss';
-
 $range-slider-color: black !default;
 $range-slider-border: 1px solid #d3d3d3 !default;
-$range-slider-connect-bg: #3fb8af !default;
-$range-slider-handle-bg: #eee !default;
+$range-slider-connect-bg: $secondary-gradient;
+$range-slider-handle-bg: $secondary-gradient;
 
+@import '/components/field/field.scss';
 @import './vendor/range-slider';
 
 .form-field-range-slider {

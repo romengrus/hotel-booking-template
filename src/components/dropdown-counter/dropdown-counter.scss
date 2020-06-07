@@ -4,8 +4,8 @@
 
 $dc-border: 1px solid #ccc !default;
 $dc-border-radius: 4px !default;
-$dc-btn-reset-color: #000 !default;
-$dc-btn-ok-color: #000 !default;
+$dc-btn-reset-color: $dark-500;
+$dc-btn-ok-color: $primary;
 $dc-body-bg: white !default;
 
 .dropdown-counter {
@@ -49,10 +49,9 @@ $dc-body-bg: white !default;
 
   &__toggler {
     position: absolute;
-    top: 50%;
+    top: 45%;
     right: 15px;
     transform: translateY(-50%);
-    transition: transform 300ms ease-out;
   }
 
   &__content {
@@ -127,10 +126,6 @@ $dc-body-bg: white !default;
       z-index: -1;
       visibility: hidden;
       opacity: 0;
-    }
-
-    #{$root}__toggler {
-      transform: translateY(-50%) rotate(0.5turn);
     }
   }
 

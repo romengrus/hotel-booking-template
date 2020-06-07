@@ -32,6 +32,10 @@ $pagination-arrow-bg: #eee !default;
     }
   }
 
+  &__next {
+    background: $secondary-gradient;
+  }
+
   &__page {
     display: inline-flex;
     align-items: center;
@@ -47,6 +51,7 @@ $pagination-arrow-bg: #eee !default;
       color: $pagination-current-page-color;
       background: linear-gradient(180deg, #bc9cff, #8ba4f9);
       border-radius: 50%;
+      font-weight: bold;
 
       &:visited {
         color: $pagination-current-page-color;

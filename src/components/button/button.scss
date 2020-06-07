@@ -3,10 +3,10 @@
 $button-small-height: 34px;
 $button-height: 44px;
 $button-big-height: 54px;
-$button-padding: 0 20px;
+$button-padding: 0 21px 0 18px;
 $button-border-width: 2px;
 $button-border-radius: 22px;
-$button-font-size: 12px;
+$button-font-size: 11px;
 $button-text-color: $white;
 
 .button {
@@ -27,6 +27,8 @@ $button-text-color: $white;
   font-size: $button-font-size;
   font-weight: bold;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  word-spacing: 0.5px;
   cursor: pointer;
 
   &:focus {

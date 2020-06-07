@@ -108,18 +108,18 @@ block main
 
         .m-t-38
           +form-element('radio buttons')
-            .df.p-r-63.m-t-14
+            .df.p-r-63.m-t-15
               +label({ value: 'Мужчина' })
                 +radio({ name: 'gender', isChecked: true })
               +label({ value: 'Женщина' })
                 +radio({ name: 'gender' })
 
-        .m-t-33
+        .m-t-32
           +form-element('toggle')
             .m-t-13
               +label({ value: 'Получать спецпредложения', pos: 'right'})
                 +switcher({ isOn: true })
-            .m-t-6
+            .m-t-7
               +label({ value: 'Получать спецпредложения', pos: 'right'})
                 +switcher
 
@@ -139,7 +139,7 @@ block main
                 +rating({ value: 5 })
 
       .form-elements__col.form-elements__col-a3
-        .p-r-53
+        .p-r-54
           +filter-price({title: 'range slider'})
             +range-slider({
               params: {
@@ -158,17 +158,17 @@ block main
           +form-element('buttons')
             .df.m-t-14
               +button click me
-              .m-l-18
+              .m-l-20
                 +button({isDisabled: true}) click me
             .df.m-t-30
               +button({isOutlined: true}) click me
-              .m-l-20
+              .m-l-21
                 +button({isOutlined: true, isDisabled: true}) click me
-            .df.m-t-18
+            .df.m-t-17
               +button({isTextOnly: true}) click me
               .m-l-21
                 +button({isTextOnly: true, isDisabled: true}) click me
-            .m-t-14
+            .m-t-15
               +button({icon: 'arrow-right-light', isRounded: true, isExpanded: true}) Перейти к оплате
 
         .m-t-39
@@ -195,7 +195,8 @@ block main
           +form-element('dropdown', 'expanded')
             +dropdown-counter({ 
               resultType: 'concat', 
-              isCollapsed: false 
+              isCollapsed: false,
+              showActions: false,
             })(placeholder = 'Выберите нужное количество ...')
               +label({value: 'спальни', pos: 'left', theme: ['bold', 'upper', 'centered']})
                 +counter({plurals: ['спальня', 'спальни', 'спален'], value: 2})
