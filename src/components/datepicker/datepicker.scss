@@ -1,6 +1,3 @@
-@import '/components/icon/icon.scss';
-@import '/components/field/field.scss';
-
 $datepicker-width: 320px;
 $datepicker-icon-color: #393939 !default;
 $datepicker-weekday-color: rgba(0, 0, 0, 0.54) !default;
@@ -11,9 +8,11 @@ $datepicker-day-today-bg: none !default;
 $datepicker-day-today-border: 1px solid #959ea9 !default;
 $datepicker-day-active-bg: #e6e6e6 !default;
 $datepicker-day-active-color: #393939 !default;
-$datepicker-range-bg: #e6e6e6 !default;
-$datepicker-range-other-month-bg: #e6e6e6 !default;
+$datepicker-range-bg: $primary-gradient;
+$datepicker-range-other-month-bg: $primary-gradient;
 
+@import '/components/icon/icon.scss';
+@import '/components/field/field.scss';
 @import './vendor/flatpickr';
 
 .datepicker {
@@ -39,6 +38,11 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
     border: none;
     outline: none;
     fill: $datepicker-icon-color;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__prev {
@@ -57,6 +61,7 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
 
   &__reset {
     padding-left: 0;
+    color: $dark-500;
   }
 
   &__ok {
@@ -72,7 +77,6 @@ $datepicker-range-other-month-bg: #e6e6e6 !default;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
-    color: $datepicker-day-color;
     cursor: pointer;
 
     &:hover {

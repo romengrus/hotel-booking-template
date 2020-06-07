@@ -587,6 +587,7 @@ span.flatpickr-weekday {
 .flatpickr-day.endRange.startRange {
   position: relative;
   border-radius: 50%;
+  background: $datepicker-range-bg;
   &::after {
     content: '';
     position: absolute;
@@ -596,6 +597,7 @@ span.flatpickr-weekday {
     width: $datepicker-day-width / 2;
     height: $datepicker-day-height;
     background: $datepicker-range-bg;
+    opacity: 0.25;
   }
 }
 .flatpickr-day.selected.endRange,
@@ -603,7 +605,7 @@ span.flatpickr-weekday {
 .flatpickr-day.endRange.endRange {
   position: relative;
   border-radius: 50%;
-
+  background: $datepicker-range-bg;
   &::before {
     content: '';
     position: absolute;
@@ -613,6 +615,7 @@ span.flatpickr-weekday {
     width: $datepicker-day-width / 2;
     height: $datepicker-day-height;
     background: $datepicker-range-bg;
+    opacity: 0.25;
   }
 }
 .flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n + 1)),
@@ -631,7 +634,8 @@ span.flatpickr-weekday {
   -webkit-box-shadow: none;
   box-shadow: none;
   background: $datepicker-range-bg;
-  color: $dark-500;
+  color: $dark-1000;
+  opacity: 0.25;
 }
 .flatpickr-day.disabled,
 .flatpickr-day.disabled:hover,

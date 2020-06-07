@@ -1,7 +1,7 @@
 .label {
   $root: &;
 
-  display: inline-flex;
+  display: flex;
   min-height: 27px;
   margin-bottom: 0;
   user-select: none;

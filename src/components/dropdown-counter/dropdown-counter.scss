@@ -2,7 +2,7 @@
 @import '/components/field/field.scss';
 @import '/components/counter/counter.scss';
 
-$dc-border: 1px solid #ccc !default;
+$dc-border: 1px solid $dark-250;
 $dc-border-radius: 4px !default;
 $dc-btn-reset-color: $dark-500;
 $dc-btn-ok-color: $primary;
@@ -49,7 +49,7 @@ $dc-body-bg: white !default;
 
   &__toggler {
     position: absolute;
-    top: 45%;
+    top: 50%;
     right: 15px;
     transform: translateY(-50%);
   }
@@ -59,7 +59,7 @@ $dc-body-bg: white !default;
     z-index: 100;
     width: 100%;
     border: $dc-border;
-    padding: 4px 5px 6px 14px;
+    padding: 4px 5px 6px 15px;
     transition: all 0.3s ease-in-out 0s;
     visibility: visible;
     opacity: 1;

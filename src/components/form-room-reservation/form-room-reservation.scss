@@ -1,4 +1,3 @@
-@import '/components/form/form.scss';
 @import '/components/label/label.scss';
 @import '/components/datepicker/datepicker.scss';
 @import '/components/dropdown-counter/dropdown-counter.scss';
@@ -6,19 +5,13 @@
 @import '/components/button/button.scss';
 @import '/components/fees/fees.scss';
 
-$room-reservation-primary-color: gray !default;
-$room-reservation-accent-color: coral !default;
-$room-reservation-text-color: black !default;
-$room-reservation-title-color: black !default;
-$room-reservation-underline: 1px dotted gray;
-
 .form-room-reservation {
   max-width: 380px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   padding: 38px 29px 30px 30px;
-  color: $room-reservation-text-color;
+  color: $dark-750;
   background: $white;
 
   &__row {
@@ -32,14 +25,14 @@ $room-reservation-underline: 1px dotted gray;
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-    color: $room-reservation-title-color;
+    color: $dark-1000;
   }
 
   &__dates {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 16px;
+    margin-top: 17px;
   }
 
   &__arrival {
@@ -68,18 +61,18 @@ $room-reservation-underline: 1px dotted gray;
   &__room-number {
     font-size: 22px;
     margin-left: 6px;
-    color: $room-reservation-title-color;
+    color: $dark-1000;
   }
 
   &__lux-indicator {
     font-size: 15px;
     font-weight: bold;
     margin-left: 4px;
-    color: $room-reservation-primary-color;
+    color: $primary;
   }
 
   &__price-details {
-    color: $room-reservation-accent-color;
+    color: $dark-500;
     font-size: 12px;
     margin-top: 7px;
     margin-right: -1px;
@@ -111,7 +104,7 @@ $room-reservation-underline: 1px dotted gray;
     justify-content: space-between;
     font-size: 19px;
     font-weight: bold;
-    color: $room-reservation-title-color;
+    color: $dark-1000;
     margin-top: 24px;
 
     &-underline {
@@ -120,7 +113,7 @@ $room-reservation-underline: 1px dotted gray;
       position: relative;
       top: -8px;
       margin: 0 5px;
-      border-bottom: $room-reservation-underline;
+      border-bottom: 1px dotted $dark-250;
     }
   }
 }

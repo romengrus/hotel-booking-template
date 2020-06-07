@@ -6,11 +6,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 13px;
+  margin-top: 14px;
   font-size: 14px;
 
   &__title {
-    flex: 1 1 60%;
+    flex: 1 1 59%;
     line-height: 18px;
   }
 
@@ -31,7 +31,7 @@
 
 .fees {
   &__result {
-    margin-top: 29px;
+    margin-top: 27px;
     display: flex;
     font-family: $font-family-accent;
   }
@@ -52,5 +52,6 @@
   &__total {
     font-weight: bold;
     font-size: 18px;
+    letter-spacing: 0.57px;
   }
 }

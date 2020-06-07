@@ -1,7 +1,6 @@
 @import '/components/button/button.scss';
 @import '/components/label/label.scss';
 @import '/components/icon/icon.scss';
-@import '/components/form/form.scss';
 @import '/components/field/field.scss';
 @import '/components/radio/radio.scss';
 @import '/components/datepicker/datepicker.scss';
@@ -36,7 +35,7 @@
 
   &__gender {
     display: flex;
-    margin-top: 12px;
+    margin-top: 10px;
 
     & > * {
       flex: 0;
@@ -48,11 +47,11 @@
   }
 
   &__birthday {
-    margin-top: 14px;
+    margin-top: 16px;
   }
 
   &__credentials {
-    margin-top: 18px;
+    margin-top: 20px;
   }
 
   &__newsletter {
@@ -71,7 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 29px;
     font-size: 14px;
     padding-left: 1px;
 
