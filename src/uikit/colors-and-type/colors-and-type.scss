@@ -24,20 +24,23 @@
   }
 
   &__meta {
-    margin-left: 42px;
+    margin-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    line-height: 30px;
   }
 
   &__title {
     font-weight: bold;
     font-size: 18px;
-    word-spacing: 3px;
+    word-spacing: -2px;
+    letter-spacing: 1px;
   }
 
   &__value {
     font-size: 18px;
+    letter-spacing: 0.5px;
   }
 }
 
@@ -82,10 +85,11 @@
   }
 
   &__showcase-h2 {
-    font-size: 17px;
+    font-size: 19px;
+    font-family: $font-family-accent;
     font-weight: bold;
     line-height: 24px;
-    word-spacing: 1px;
+    width: 285px;
   }
 
   &__label-h3 {
