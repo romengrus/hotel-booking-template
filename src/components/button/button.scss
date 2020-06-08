@@ -3,7 +3,7 @@
 $button-small-height: 34px;
 $button-height: 44px;
 $button-big-height: 54px;
-$button-padding: 0 21px 0 18px;
+$button-padding: 0 21px;
 $button-border-width: 2px;
 $button-border-radius: 22px;
 $button-font-size: 11px;
@@ -65,7 +65,7 @@ $button-text-color: $white;
 
   &_is-outlined {
     border: $button-border-width solid transparent;
-    padding: 0 17px;
+    padding: 0 18px;
     color: $primary;
     background-image: linear-gradient($button-text-color, $button-text-color), $primary-gradient;
     background-origin: border-box;

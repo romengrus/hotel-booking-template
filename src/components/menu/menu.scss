@@ -23,13 +23,13 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
     &_has-submenu {
       position: relative;
       position: relative;
-      margin-right: 16px;
+      margin-right: 26px;
 
       &::after {
         content: url(/assets/icons/semi-arrow-down.svg);
         position: absolute;
         top: 50%;
-        right: -16px;
+        right: -19px;
         transform: translateY(-50%);
       }
     }
