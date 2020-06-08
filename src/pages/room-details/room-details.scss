@@ -1,6 +1,7 @@
 @import '/components/room-showcase/room-showcase.scss';
 @import '/components/doughnut/doughnut.scss';
 @import '/components/list/list.scss';
+@import '/components/like/like.scss';
 @import '/components/form-room-reservation/form-room-reservation.scss';
 @import '/components/benefit/benefit.scss';
 @import '/components/testimonial/testimonial.scss';
@@ -186,6 +187,6 @@
     background: $white;
     max-width: $site-max-width;
     margin: 0 auto;
-    padding-top: 6px;
+    padding-top: 4px;
   }
 }
