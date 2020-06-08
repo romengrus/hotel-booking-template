@@ -37,5 +37,4 @@ mixin menu({items = [], isVertical = false, level = 0, theme = []} = {})
       li(class = itemClassList, data-menu-item)
         a(class = linkClassList, href = dummyURL)= item.name
         if (hasSubmenu(item))
-          +icon({name: 'semi-arrow-down'})
           +menu({items: item.submenu, isVertical, level: level + 1})

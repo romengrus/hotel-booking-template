@@ -4,17 +4,20 @@
   @media (max-width: $break-md) {
     flex: 1;
   }
+
   &__title {
     margin-bottom: 18px;
     font-size: 11px;
     font-weight: bold;
     font-family: $font-family-main;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   &__text {
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 24px;
+    letter-spacing: -0.2px;
   }
 }

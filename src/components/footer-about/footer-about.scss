@@ -1,9 +1,4 @@
 .footer-about {
-  font-size: 12px;
-  line-height: 24px;
-  letter-spacing: 1.4px;
-  word-spacing: -0.5px;
-
   @media (max-width: $break-md) {
     flex: 0;
     margin: 0;
@@ -12,5 +7,10 @@
 
   &__text {
     margin-top: 18px;
+    padding-right: 20px;
+    font-size: 13px;
+    letter-spacing: 0.45px;
+    word-spacing: -0.5px;
+    line-height: 24px;
   }
 }

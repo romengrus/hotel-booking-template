@@ -1,8 +1,6 @@
 @import '/components/icon/icon.scss';
 
 $menu-font-size: 14px !default;
-$menu-horizontal-spacing: 20px !default;
-$menu-vertical-spacing: 14px !default;
 $menu-link-color: rgba(31, 32, 65, 0.75) !default;
 $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
 
@@ -24,10 +22,20 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
 
     &_has-submenu {
       position: relative;
+      position: relative;
+      margin-right: 16px;
+
+      &::after {
+        content: url(/assets/icons/semi-arrow-down.svg);
+        position: absolute;
+        top: 50%;
+        right: -16px;
+        transform: translateY(-50%);
+      }
     }
 
     & + & {
-      margin-left: $menu-horizontal-spacing;
+      margin-left: 20px;
     }
 
     & > .icon {
@@ -121,24 +129,17 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
 
     #{$root}__item + #{$root}__item {
       margin-left: 0;
-      margin-top: $menu-vertical-spacing;
+      margin-top: 17px;
     }
   }
 
   &_is-wide {
-    padding: 0 10px;
-
-    #{$root}__item_has-submenu {
-      margin-right: -16px;
-    }
-
-    #{$root}__item > .icon {
-      margin-right: 10px;
-      margin-left: 4px;
-    }
-
     #{$root}__item + #{$root}__item {
-      margin-left: 29px;
+      margin-left: 28px;
+    }
+
+    #{$root}__submenu #{$root}__item + #{$root}__item {
+      margin-left: 0;
     }
   }
 

@@ -3,5 +3,5 @@ mixin footer-about({text = ''} = {})
 
   .footer__item.footer-about(data-footer-about)
     .footer-about__logo
-      +logo
+      +logo({type: 'with-text'})
     .footer-about__text= text 

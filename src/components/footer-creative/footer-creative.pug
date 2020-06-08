@@ -5,7 +5,7 @@ mixin footer-creative({text = ''} = {})
   footer.footer-creative(data-footer-creative)
     .footer-creative__wrapper
       .footer-creative__logo
-        +logo
+        +logo({type: 'with-text'})
       .footer-creative__text= text 
       .footer-creative__social
         +social-icons
