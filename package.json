@@ -10,10 +10,8 @@
     "build": "npm run cleanDist && parcel build src/index.pug",
     "start": "parcel src/index.pug",
     "docs": "npm run cleanDocs && parcel build src/index.pug --out-dir docs --public-url /hotel-booking-template",
-    "lint:style": "stylelint 'src/**/*.scss'",
-    "lint:style-fix": "stylelint 'src/**/*.scss' --fix",
-    "lint:js": "eslint src/",
-    "lint:js-fix": "eslint --fix src/",
+    "lint:style": "stylelint 'src/**/*.scss' --fix",
+    "lint:js": "eslint --fix src/",
     "lint:pug": "pug-lint src/components",
     "lint": "npm run lint:style && npm run lint:js && npm run lint:pug"
   },

@@ -9,9 +9,15 @@ Main purpose of this project is to learn the basics of:
 - component based design
 - parcel advanced configuration
 
-# Installation
+## Installation
 
 1. clone this repository
+
+```bash
+  git clone https://github.com/romengrus/hotel-booking-template.git
+```
+
+or
 
 ```bash
   git clone https://github.com/romengrus/hotel-booking-template.git
@@ -23,19 +29,31 @@ Main purpose of this project is to learn the basics of:
   npm install
 ```
 
-3. start parcel
+3. start dev server
 
 ```bash
   npm run start
 ```
 
-4. open `localhost:1234` in browser
+4. open [localhost:1234](http://localhost:1234) in browser
 
-# Demo
+## Check code style
+
+```bash
+  npm run lint
+```
+
+## Build for production
+
+```bash
+  npm run build
+```
+
+## Demo
 
 [https://romengrus.github.io/hotel-booking-template/](https://romengrus.github.io/hotel-booking-template/)
 
-# Project Structure
+## Project Structure
 
 ```
 dist/           # Generated code
