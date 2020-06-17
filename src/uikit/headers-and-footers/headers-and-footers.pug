@@ -25,7 +25,43 @@ block main
     +logo
 
   .m-t-32
-    +header
+    +header({
+      menu: {
+        items: [{
+          name: "о нас",
+          isActive: true,
+        },
+        {
+          name: "услуги",
+          submenu: [{
+              name: "апартаменты",
+            }, {
+              name: "spa",
+            },
+            {
+              name: "конференц залы",
+          }]
+        },
+        {
+          name: "вакансии",
+        },
+        {
+          name: "новости",
+        },
+        {
+          name: "соглашения",
+          submenu: [{
+              name: "соглашение 1",
+            },
+            {
+              name: "соглашение 2",
+            },
+            {
+              name: "соглашение 3",
+            }] 
+          }]
+      }
+    })
 
   .m-t-40
     +header({ 
