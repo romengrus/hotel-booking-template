@@ -86,10 +86,8 @@ html
         block main
 
       block footer
-        div(class = `${bodyClass}__footer`)
-          +footer
-        div(class = `${bodyClass}__copyright`)
-          +copyright
+        +footer
+        +copyright
   
   block scripts
     script(src="/scripts/app.js")
