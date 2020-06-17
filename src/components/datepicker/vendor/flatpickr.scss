@@ -508,6 +508,10 @@ span.flatpickr-weekday {
   color: $datepicker-day-active-color;
   border: none;
 }
+.flatpickr-day.prevMonthDay.endRange.selected.inRange,
+.flatpickr-day.nextMonthDay.endRange.selected.inRange {
+  opacity: 1;
+}
 .flatpickr-day.today.inRange {
   position: relative;
   background: $datepicker-day-today-bg;
@@ -546,9 +550,8 @@ span.flatpickr-weekday {
 }
 .flatpickr-day.today {
   border: none;
-  background: $datepicker-day-today-bg;
-  border: $datepicker-day-today-border;
-  color: $datepicker-day-active-color;
+  background: $secondary-gradient;
+  color: $white;
   font-weight: bold;
 }
 .flatpickr-day.today:hover,
