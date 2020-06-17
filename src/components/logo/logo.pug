@@ -2,7 +2,7 @@
 //-
 //- type    oneOf ('simple' | 'with-text') 
 mixin logo({type = 'simple'} = {})
-  a(href = dummyURL, data-logo)
+  a(href = '/', data-logo)
     if (type === 'simple')
       img(src='/assets/icons/png/logo.png', alt='logo', width=48, height=48)
     else
