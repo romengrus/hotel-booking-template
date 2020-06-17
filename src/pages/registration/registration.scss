@@ -1,18 +1,2 @@
 @import '/components/hero/hero.scss';
 @import '/components/form-register/form-register.scss';
-
-.registration {
-  &__footer {
-    background: $white;
-    max-width: $site-max-width;
-    margin: 0 auto;
-    padding-top: 7px;
-  }
-
-  &__copyright {
-    background: $white;
-    max-width: $site-max-width;
-    margin: 0 auto;
-    padding-top: 4px;
-  }
-}
