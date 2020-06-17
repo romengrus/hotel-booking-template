@@ -9,11 +9,11 @@ mixin filter-guests
         resultType: 'total', 
         plurals: ['гость', 'гостя', 'гостей'] 
       })(placeholder= 'Сколько гостей')
-        +label({value: 'взрослые'})
+        +label({value: 'взрослые', pos: 'left'})
           +counter({plurals: ['взрослый', 'взрослых', 'взрослых'], value: 2})
 
-        +label({value: 'дети'})
+        +label({value: 'дети', pos: 'left'})
           +counter({plurals: ['ребенок', 'детей', 'детей'], value: 0})
 
-        +label({value: 'младенцы'})
+        +label({value: 'младенцы', pos: 'left'})
           +counter({plurals: ['младенец', 'младенца', 'младенцев'], value: 1})

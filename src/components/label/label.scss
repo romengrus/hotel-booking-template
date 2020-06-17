@@ -33,6 +33,7 @@
 
   &_pos-left {
     flex-direction: row-reverse;
+    align-items: center;
 
     & > #{$root}__text {
       margin-right: auto;

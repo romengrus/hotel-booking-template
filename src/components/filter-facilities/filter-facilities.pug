@@ -2,11 +2,11 @@ mixin filter-facilities
   .filter-facilities
     +label({value: 'Удобства номера', pos: 'top', theme: ['bold', 'upper']}) 
       +dropdown-counter({resultType: 'concat'})(placeholder = 'Выберите нужное количество ...')
-        +label({value: 'спальни'})
+        +label({value: 'спальни', pos: 'left'})
           +counter({plurals: ['спальня', 'спальни', 'спален'], value: 2})
         
-        +label({value: 'кровати'})
+        +label({value: 'кровати', pos: 'left'})
           +counter({plurals: ['кровать', 'кровати', 'кроватей'], value: 2})
             
-        +label({value: 'ванные комнаты'})
+        +label({value: 'ванные комнаты', pos: 'left'})
           +counter({plurals: ['ванная комната', 'ванные комнаты', 'ванных комнат']})
