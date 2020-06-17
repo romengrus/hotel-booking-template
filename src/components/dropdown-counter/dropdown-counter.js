@@ -125,7 +125,8 @@ class DropdownCounter {
     }
   }
 
-  handleResetClick() {
+  handleResetClick(e) {
+    e.preventDefault();
     this.model = new Map();
 
     // reset counters
@@ -134,7 +135,8 @@ class DropdownCounter {
     this.updateDOM();
   }
 
-  handleOkClick() {
+  handleOkClick(e) {
+    e.preventDefault();
     this.hideCounters();
   }
 }
