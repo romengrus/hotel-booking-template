@@ -1,4 +1,4 @@
-import { inc, dec, not, toBool } from '../../scripts/utils';
+import { inc, dec, not } from '../../scripts/utils';
 import { factory } from '../../scripts/factory';
 
 class Like {
@@ -8,7 +8,7 @@ class Like {
     this.displayEl = el.querySelector(`[data-${id}-display]`);
     this.iconEl = el.querySelector(`[data-${id}-icon]`);
     this.value = parseInt(el.dataset.value, 10);
-    this.hasVoted = toBool(el.dataset.hasVoted);
+    this.hasVoted = 'hasVoted' in el.dataset;
     this.iLike = el.dataset.iLike;
     this.iDislike = el.dataset.iDislike;
     this.init();
