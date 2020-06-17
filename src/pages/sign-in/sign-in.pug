@@ -15,6 +15,9 @@ block append parts
 block append styles
   link(rel="stylesheet", href="./sign-in.scss")
 
+block append scripts
+  script(src="./sign-in.js")
+
 block main
   +hero({bgImg: '/assets/img/hero4.jpg'})
     +form-login
