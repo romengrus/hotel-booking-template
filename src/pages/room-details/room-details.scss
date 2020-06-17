@@ -174,19 +174,4 @@
       line-height: 23px;
     }
   }
-
-  &__footer {
-    background: $white;
-    max-width: $site-max-width;
-    margin: 0 auto;
-    padding-top: 7px;
-    border-top: 1px solid $dark-250;
-  }
-
-  &__copyright {
-    background: $white;
-    max-width: $site-max-width;
-    margin: 0 auto;
-    padding-top: 4px;
-  }
 }
