@@ -5,13 +5,17 @@
     display: flex;
   }
 
+  &__label {
+    margin-top: -4px;
+  }
+
   &__result {
     margin-left: auto;
     font-size: 12px;
   }
 
   &__range {
-    margin-top: 12px;
+    margin-top: 16px;
   }
 
   &__desc {
