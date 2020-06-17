@@ -1,16 +1,16 @@
 @import '/components/social-icons/social-icons.scss';
 
 .footer-creative {
-  background: $white;
-  padding: 100px 0 110px;
-  border-top: 1px solid $dark-100;
-
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: $content-max-width;
+    justify-content: center;
+    max-width: 770px;
+    min-height: 367px;
     margin: 0 auto;
+    padding: 30px;
+    background: $white;
   }
 
   &__logo {
@@ -19,14 +19,14 @@
 
   &__text {
     max-width: 550px;
-    margin-top: 18px;
+    margin-top: 17px;
     text-align: center;
     font-size: 14px;
     line-height: 24px;
   }
 
   &__social {
-    margin-top: 27px;
+    margin-top: 20px;
     text-align: center;
   }
 }

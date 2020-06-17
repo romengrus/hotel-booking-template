@@ -21,143 +21,21 @@ block main
   header.container.uikit__header
     +logo
 
-  .m-t-42
-    +header({ 
-      auth: {
-        lblLogin: 'Login', 
-        lblRegister: 'Register' 
-      },
-      menu: {
-        theme: 'wide', 
-        items: [{
-          name: "Home",
-          isActive: true
-        },
-        {
-          name: "About Us",
-        },
-        {
-          name: "Services",
-          submenu: [{
-              name: "Apartments",
-            },
-            {
-              name: "SPA",
-            },
-            {
-              name: "Conference room",
-          }]
-        },
-        {
-          name: "Careers",
-        },
-        {
-          name: "News",
-        },
-        {
-          name: "Documentation",
-        }]
-      }
-    })
+  .m-t-32
+    +header
 
   .m-t-40
     +header({ 
       auth: {
         isLoggedIn: true, 
-      },
-      menu: {
-        theme: 'wide', 
-        items: [{
-          name: "Home",
-          isActive: true
-        },
-        {
-          name: "About Us",
-        },
-        {
-          name: "Services",
-          submenu: [{
-              name: "Apartments",
-            },
-            {
-              name: "SPA",
-            },
-            {
-              name: "Conference room",
-            }
-          ]
-        },
-        {
-          name: "Careers",
-        },
-        {
-          name: "News",
-        },
-        {
-          name: "Documentation",
-        }]
       }
     })
 
-  .m-t-47
+  .m-t-40
     +footer
-      +footer-about({
-        text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'
-      })
-      +footer-menu({title: 'Navigation'})
-        +menu({
-          isVertical: true,
-          items: [{
-              name: "About Us",
-            },
-            {
-              name: "News",
-            },
-            {
-              name: "Support",
-            },
-            {
-              name: "Products",
-          }],
-        })
-      +footer-menu({title: 'About us'})
-        +menu({
-          isVertical: true,
-          items: [{
-              name: "Who we are",
-            },
-            {
-              name: "Our team",
-            },
-            {
-              name: "Careers",
-            },
-            {
-              name: "Investors",
-          }],
-        })
-      +footer-menu({title: 'Support'})
-        +menu({
-          isVertical: true,
-          items: [{
-              name: "Documentation",
-            },
-            {
-              name: "Community",
-            },
-            {
-              name: "Get in Touch",
-          }],
-        })
-      +footer-subscription({
-        title: 'Subscribe to our newsletter', 
-        text: 'Receive our latest news and promotions in your inbox!'
-      })
-
-  .m-t-5
-    +copyright({text: 'Copyright © 2018 Toxin UI Kit. All rights reserved.'})
+    +copyright
 
   .m-t-36
     +footer-creative({
-      text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.'
+      text: 'Copyright © 2018 Toxin отель. Все права зачищены.'
     })
