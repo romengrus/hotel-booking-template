@@ -171,6 +171,10 @@ $menu-link-hover-color: rgba(31, 32, 65, 0.75) !default;
     #{$root}__item_has-submenu {
       flex-direction: column;
       align-items: flex-start;
+
+      &::after {
+        display: none;
+      }
     }
   }
 }
