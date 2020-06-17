@@ -15,7 +15,7 @@
   &__wrapper {
     position: relative;
     padding-top: 28px;
-    padding-bottom: 57px;
+    padding-bottom: 59px;
   }
 
   &__sidebar {
@@ -69,20 +69,5 @@
   &__pagination {
     margin-top: 10px;
     padding-right: 13px;
-  }
-
-  &__footer {
-    background: $white;
-    max-width: $site-max-width;
-    margin: 0 auto;
-    padding-top: 7px;
-    border-top: 1px solid $dark-250;
-  }
-
-  &__copyright {
-    background: $white;
-    max-width: $site-max-width;
-    margin: 0 auto;
-    padding-top: 5px;
   }
 }
