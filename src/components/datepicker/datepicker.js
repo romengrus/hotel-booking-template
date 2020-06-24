@@ -106,6 +106,7 @@ class Datepicker {
     // handle action buttons click event
     reset.addEventListener('click', datepicker.clear);
     ok.addEventListener('click', datepicker.close);
+    this.togglerEl.addEventListener('click', datepicker.toggle);
 
     // move actions panel inside datepicker container
     if (mode !== 'single') {
