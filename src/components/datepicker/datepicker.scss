@@ -23,6 +23,11 @@ $datepicker-range-other-month-bg: $primary-gradient;
 
   &__input input {
     padding-right: 40px !important;
+
+    &:hover,
+    &:focus {
+      border: $field-border;
+    }
   }
 
   &__toggler {
