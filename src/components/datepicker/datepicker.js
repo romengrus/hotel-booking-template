@@ -52,7 +52,7 @@ class Datepicker {
     altInput.value = value.toLocaleLowerCase().replace(/\u2013|\u2014/g, '-');
   }
 
-  createConfig() {
+  createConfig(resetEl) {
     const next = this.el.querySelector(`[data-${this.id}-next]`);
     const prev = this.el.querySelector(`[data-${this.id}-prev]`);
     const dates = JSON.parse(this.el.dataset.dates) || [];
@@ -76,7 +76,10 @@ class Datepicker {
         (selectedDates, dateStr, instance) => this.formatValue(instance)
       ],
       onMonthChange: (selectedDates, dateStr, instance) => this.setCurrentMonthView(instance),
-      onChange: (selectedDates, dateStr, instance) => this.formatValue(instance)
+      onChange: [
+        (selectedDates, dateStr, instance) => this.formatValue(instance),
+        () => resetEl.classList.add('datepicker__reset_is-visible')
+      ]
     };
 
     if (connectedWith) {
@@ -96,7 +99,7 @@ class Datepicker {
     const reset = actions.querySelector(`[data-${this.id}-reset]`);
     const ok = actions.querySelector(`[data-${this.id}-ok]`);
     const { mode } = this.el.dataset;
-    const config = this.createConfig();
+    const config = this.createConfig(reset);
 
     const datepicker = flatpickr(this.inputEl, config);
 
@@ -104,7 +107,10 @@ class Datepicker {
     datepicker.$buttonOk = ok;
 
     // handle action buttons click event
-    reset.addEventListener('click', datepicker.clear);
+    reset.addEventListener('click', () => {
+      datepicker.clear();
+      reset.classList.remove('datepicker__reset_is-visible');
+    });
     ok.addEventListener('click', datepicker.close);
     this.togglerEl.addEventListener('click', datepicker.toggle);
 
