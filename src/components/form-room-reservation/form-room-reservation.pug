@@ -62,7 +62,7 @@ mixin form-room-reservation({room = '', isLux = false, price = 0} = {})
               +counter({plurals: ['ребенок', 'детей', 'детей'], value: 1})
 
             +label({value: 'младенцы', pos: 'left', theme: ['bold', 'upper']})
-              +counter({plurals: ['младенец', 'младенца', 'младенцев']})
+              +counter({plurals: ['младенец', 'младенца', 'младенцев'], isSpecial: true})
 
       .form-room-reservation__fees
         +fees({

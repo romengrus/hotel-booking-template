@@ -59,13 +59,25 @@ class DropdownCounter {
     // sum of counters numValues
     const total = Array.from(this.model, ([, v]) => v.numValue).reduce((a, b) => a + b, 0);
 
+    // get special counters
+    const special = Array.from(this.model, ([, v]) => ({ ...v }))
+      .filter(v => v.isSpecial && v.numValue > 0)
+      .map(v => v.strValue)
+      .join(', ');
+
     // set value for hidden input
     this.inputEl.value = JSON.stringify([...this.model]);
 
     // set value for visible input
     if (this.resultType === 'total') {
       if (this.plurals.length === 3) {
-        this.inputAltEl.value = total === 0 ? '' : `${total} ${pluralize(total, this.plurals)}`;
+        let newValue = total === 0 ? '' : `${total} ${pluralize(total, this.plurals)}`;
+
+        if (special) {
+          newValue += `, ${special}`;
+        }
+
+        this.inputAltEl.value = newValue;
       } else {
         this.inputAltEl.value = total;
       }
@@ -85,8 +97,8 @@ class DropdownCounter {
     }
   }
 
-  updateModel({ id, numValue, strValue }) {
-    this.model.set(id, { numValue, strValue });
+  updateModel({ id, numValue, strValue, isSpecial }) {
+    this.model.set(id, { numValue, strValue, isSpecial });
     this.updateDOM();
   }
 

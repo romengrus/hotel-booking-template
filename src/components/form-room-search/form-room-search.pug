@@ -34,7 +34,7 @@ mixin form-room-search
       .form-room-search__guests
         +label({ value: labels.guests, pos: 'top', theme: ['bold', 'upper'] })
           +dropdown-counter({ 
-            resultType: 'concat', 
+            resultType: 'total', 
             plurals: ['гость', 'гостя', 'гостей'] 
           })(placeholder = 'Сколько гостей')
             +label({ value: 'взрослые', theme: 'bold', pos: 'left' })
@@ -44,7 +44,7 @@ mixin form-room-search
               +counter({ plurals: ['ребенок', 'детей', 'детей'] })
 
             +label({ value: 'младенцы', theme: 'bold', pos: 'left' })
-              +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+              +counter({ plurals: ['младенец', 'младенца', 'младенцев'], isSpecial: true })
 
       .form-room-search__submit
         +button({icon: 'arrow-right-light', isExpanded: true})= labels.submit

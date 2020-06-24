@@ -5,8 +5,9 @@
 //- min         number (0) - minimum possible value
 //- max         number (10) - maximum possible value
 //- step        number (1) - step value
+//- isSpecial   boolean (false) - true - if this item should be treated specially
 //- plurals     array ([]) - plural forms of label for [1, 2, 0] items (f.ex. ['спальни', 'спальня', 'спален'])
-mixin counter({id = createRandomId(), value = 0, min = 0, max = 10, step = 1, plurals = []} = {})
+mixin counter({id = createRandomId(), value = 0, min = 0, max = 10, step = 1, plurals = [], isSpecial} = {})
   include /components/button/button.pug
   include /components/field/field.pug
 
@@ -22,6 +23,7 @@ mixin counter({id = createRandomId(), value = 0, min = 0, max = 10, step = 1, pl
     data-step = step,
     data-min = min,
     data-max = max,
+    data-is-special = isSpecial,
     data-plurals = plurals)
     input.counter__input(
       hidden = true, 

@@ -11,6 +11,7 @@ class Counter {
     this.btnDecEl = el.querySelector(`[data-${id}-dec]`);
     this.value = this.inputEl.value || 0;
     this.label = el.dataset.label || '';
+    this.isSpecial = 'isSpecial' in el.dataset;
     this.plurals = JSON.parse(el.dataset.plurals) || [];
     this.step = el.dataset.step || 1;
     this.min = el.dataset.min || 0;
@@ -76,7 +77,8 @@ class Counter {
       detail: {
         id: this.id,
         numValue: newValue,
-        strValue: this.toString()
+        strValue: this.toString(),
+        isSpecial: this.isSpecial
       }
     });
     this.el.dispatchEvent(event);
@@ -108,7 +110,8 @@ class Counter {
       detail: {
         id: this.id,
         numValue: newValue,
-        strValue: this.toString()
+        strValue: this.toString(),
+        isSpecial: this.isSpecial
       }
     });
     this.el.dispatchEvent(event);
@@ -121,7 +124,8 @@ class Counter {
       detail: {
         id: this.id,
         numValue: value,
-        strValue: this.toString()
+        strValue: this.toString(),
+        isSpecial: this.isSpecial
       }
     });
 

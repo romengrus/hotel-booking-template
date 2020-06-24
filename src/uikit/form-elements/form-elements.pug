@@ -68,7 +68,7 @@ block main
                 +counter({ plurals: ['ребенок', 'детей', 'детей'] })
 
               +label({ value: 'младенцы', pos: 'left', theme: ['bold', 'upper'] })
-                +counter({ plurals: ['младенец', 'младенца', 'младенцев'] })
+                +counter({ plurals: ['младенец', 'младенца', 'младенцев'], isSpecial: true })
 
         .m-t-21
           +form-element('masked text field', 'default')
@@ -222,7 +222,7 @@ block main
               +counter({plurals: ['ребенок', 'детей', 'детей']})
 
             +label({value: 'младенцы', pos: 'left', theme: ['bold', 'upper', 'centered']})
-              +counter({plurals: ['младенец', 'младенца', 'младенцев']})
+              +counter({plurals: ['младенец', 'младенца', 'младенцев'], isSpecial: true})
 
       .form-elements__col.form-elements__col-b3
         +form-element('dropdown')
@@ -239,7 +239,7 @@ block main
               +counter({plurals: ['ребенок', 'детей', 'детей'], value: 1})
 
             +label({value: 'младенцы', pos: 'left', theme: ['bold', 'upper', 'centered']})
-              +counter({plurals: ['младенец', 'младенца', 'младенцев']})
+              +counter({plurals: ['младенец', 'младенца', 'младенцев'], isSpecial: true})
 
     .form-elements__row.form-elements__row-c
       .form-elements__col.form-elements__col-c1
