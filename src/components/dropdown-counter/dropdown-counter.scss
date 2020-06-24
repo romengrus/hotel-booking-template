@@ -100,7 +100,7 @@ $dc-body-bg: white !default;
     visibility: hidden;
     height: auto;
     padding: 0;
-    color: $dc-btn-reset-color;
+    color: $dark-500;
     font-weight: bold;
 
     &_is-visible {
@@ -111,9 +111,13 @@ $dc-body-bg: white !default;
   &__ok {
     height: auto;
     padding: 0;
-    color: $dc-btn-ok-color;
+    color: $primary;
     font-weight: bold;
     margin-left: auto;
+
+    &:hover {
+      color: $dark-500;
+    }
   }
 
   &_is-collapsed {
