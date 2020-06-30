@@ -11,6 +11,7 @@
 //- connectedWith string ('') - id of other datepicker to create airbnb style range input
 //- isRequired    boolean (false) - If true - field will be validated as required
 //- isInline      boolean (false) - If true - will display datepicker inline
+//- allowPast     boolean (true) - If true - will allow to select dates in past
 mixin datepicker(props = {})
   include /components/icon/icon.pug
   include /components/field/field.pug
@@ -24,6 +25,7 @@ mixin datepicker(props = {})
       isRequired = false, 
       isOpened = false, 
       isInline = false, 
+      allowPast = false
     } = props;
 
     const classList = ['datepicker'];
@@ -36,7 +38,8 @@ mixin datepicker(props = {})
       data-format = format,
       data-connected-with = connectedWith,
       data-mode = mode, 
-      data-is-inline = isInline)
+      data-is-inline = isInline,
+      data-allow-past = allowPast)
 
     .datepicker__input
       +field(required = isRequired,

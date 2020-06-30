@@ -1,4 +1,5 @@
 .flatpickr-calendar {
+  margin-top: 5px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: none;
@@ -508,6 +509,8 @@ span.flatpickr-weekday {
   color: $datepicker-day-active-color;
   border: none;
 }
+.flatpickr-day.prevMonthDay.startRange.selected.inRange,
+.flatpickr-day.nextMonthDay.startRange.selected.inRange,
 .flatpickr-day.prevMonthDay.endRange.selected.inRange,
 .flatpickr-day.nextMonthDay.endRange.selected.inRange {
   opacity: 1;

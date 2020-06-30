@@ -58,6 +58,7 @@ class Datepicker {
     const dates = JSON.parse(this.el.dataset.dates) || [];
     const { mode, format, connectedWith } = this.el.dataset;
     const isInline = 'isInline' in this.el.dataset;
+    const allowPast = 'allowPast' in this.el.dataset;
 
     const config = {
       locale: Russian,
@@ -69,6 +70,7 @@ class Datepicker {
       inline: isInline,
       nextArrow: next ? next.outerHTML : '>',
       prevArrow: prev ? prev.outerHTML : '<',
+      minDate: allowPast ? null : new Date(),
       onOpen: () => this.el.classList.add('datepicker_is-opened'),
       onClose: () => this.el.classList.remove('datepicker_is-opened'),
       onReady: [
