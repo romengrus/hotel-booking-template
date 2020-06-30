@@ -24,6 +24,7 @@ mixin form-room-search
           +label({ value: labels.arrival, pos: 'top', theme: ['bold', 'upper'] })
             +datepicker({
               mode: 'range',
+              dates: ['19.08.2019', '23.08.2019'], 
               connectedWith: '#room-search-departure'
             })
 
@@ -38,10 +39,10 @@ mixin form-room-search
             plurals: ['гость', 'гостя', 'гостей'] 
           })(placeholder = 'Сколько гостей')
             +label({ value: 'взрослые', theme: 'bold', pos: 'left' })
-              +counter({ plurals: ['взрослый', 'взрослых', 'взрослых'] })
+              +counter({ value: 2, plurals: ['взрослый', 'взрослых', 'взрослых'] })
             
             +label({ value: 'дети', theme: 'bold', pos: 'left' })
-              +counter({ plurals: ['ребенок', 'детей', 'детей'] })
+              +counter({ value: 1, plurals: ['ребенок', 'детей', 'детей'] })
 
             +label({ value: 'младенцы', theme: 'bold', pos: 'left' })
               +counter({ plurals: ['младенец', 'младенца', 'младенцев'], isSpecial: true })
