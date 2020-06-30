@@ -1,5 +1,3 @@
-$hero-text-color: black !default;
-
 .hero {
   display: flex;
   align-items: stretch;
@@ -32,10 +30,10 @@ $hero-text-color: black !default;
     position: absolute;
     z-index: 30;
     right: 14px;
-    bottom: -70px;
+    bottom: -69px;
     max-width: 300px;
     min-height: 50px;
-    color: $hero-text-color;
+    color: $dark-750;
     font-size: 14px;
     line-height: 1.7;
     text-align: right;
