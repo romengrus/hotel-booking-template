@@ -1,6 +1,8 @@
 @import '/components/social-icons/social-icons.scss';
 
 .footer-creative {
+  color: $dark-750;
+
   &__wrapper {
     display: flex;
     flex-direction: column;
