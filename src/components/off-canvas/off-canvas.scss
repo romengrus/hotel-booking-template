@@ -1,4 +1,5 @@
 $off-canvas-width: 300px;
+$off-canvas-small-width: 240px;
 $off-canvas-duration: 300ms;
 
 .off-canvas {
@@ -12,12 +13,25 @@ $off-canvas-duration: 300ms;
   padding: 20px 30px;
   background-color: $white;
 
+  @media (max-width: $break-sm) {
+    right: -$off-canvas-small-width;
+    width: $off-canvas-small-width;
+  }
+
   &__container {
     transition: transform $off-canvas-duration ease;
   }
 
   &__parent {
     transform: translateX(-$off-canvas-width);
+
+    @media (max-width: $break-sm) {
+      transform: translateX(-$off-canvas-small-width);
+    }
+
+    @media (min-width: $break-md) {
+      transform: translateX(0);
+    }
   }
 
   &__close {

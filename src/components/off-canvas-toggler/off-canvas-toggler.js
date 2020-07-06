@@ -22,7 +22,7 @@ class OffCanvasToggler {
   }
 
   attachEventHandlers() {
-    this.el.addEventListener('click', this.handleClick);
+    this.el.addEventListener('click', this.handleClick, true);
   }
 
   handleClick() {
