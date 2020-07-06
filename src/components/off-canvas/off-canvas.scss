@@ -18,6 +18,10 @@ $off-canvas-duration: 300ms;
     width: $off-canvas-small-width;
   }
 
+  @media (min-width: $break-md) {
+    display: none;
+  }
+
   &__container {
     transition: transform $off-canvas-duration ease;
   }
