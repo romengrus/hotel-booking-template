@@ -6,6 +6,6 @@ mixin social-icons({icons = ['twitter', 'facebook', 'instagram']} = {})
 
   .social-icons(data-social-icons)
     each icon in icons
-      a.social-icons__link(href = dummyURL)
+      a.social-icons__link(href = dummyURL, target="_blank")
         +icon({name: icon, size: 'big'})
   
