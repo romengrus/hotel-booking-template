@@ -19,19 +19,14 @@ class Like {
   }
 
   init() {
-    this.bindEventHandlers();
     this.attachEventHandlers();
-  }
-
-  bindEventHandlers() {
-    this.handleClick = this.handleClick.bind(this);
   }
 
   attachEventHandlers() {
     this.el.addEventListener('click', this.handleClick);
   }
 
-  handleClick() {
+  handleClick = () => {
     this.value = this.hasVoted ? dec(this.value) : inc(this.value);
     this.hasVoted = not(this.hasVoted);
 
@@ -45,7 +40,7 @@ class Like {
     }
 
     this.dispatchVotedEvent();
-  }
+  };
 
   dispatchVotedEvent() {
     const event = new CustomEvent('like:voted', {

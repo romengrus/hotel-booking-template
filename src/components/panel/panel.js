@@ -16,12 +16,7 @@ class Panel {
   }
 
   init() {
-    this.bindEventHandlers();
     this.attachEventHandlers();
-  }
-
-  bindEventHandlers() {
-    this.handleHeaderClick = this.handleHeaderClick.bind(this);
   }
 
   attachEventHandlers() {
@@ -30,9 +25,9 @@ class Panel {
     }
   }
 
-  handleHeaderClick() {
+  handleHeaderClick = () => {
     this.el.classList.toggle('panel_is-collapsed');
-  }
+  };
 }
 
 factory(Panel);

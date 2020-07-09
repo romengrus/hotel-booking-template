@@ -25,15 +25,7 @@ class Counter {
   }
 
   init() {
-    this.bindEventHandlers();
     this.attachEventHandlers();
-  }
-
-  bindEventHandlers() {
-    this.handleButtonDecClick = this.handleButtonDecClick.bind(this);
-    this.handleButtonIncClick = this.handleButtonIncClick.bind(this);
-    this.handleReset = this.handleReset.bind(this);
-    this.handleNotify = this.handleNotify.bind(this);
   }
 
   attachEventHandlers() {
@@ -51,7 +43,7 @@ class Counter {
     return `${this.value} ${this.label}`;
   }
 
-  handleButtonIncClick(e) {
+  handleButtonIncClick = e => {
     e.preventDefault();
 
     if (this.btnIncEl.disabled) return;
@@ -82,9 +74,9 @@ class Counter {
       }
     });
     this.el.dispatchEvent(event);
-  }
+  };
 
-  handleButtonDecClick(e) {
+  handleButtonDecClick = e => {
     e.preventDefault();
 
     if (this.btnDecEl.disabled) return;
@@ -115,9 +107,9 @@ class Counter {
       }
     });
     this.el.dispatchEvent(event);
-  }
+  };
 
-  handleNotify() {
+  handleNotify = () => {
     const value = parseInt(this.value, 10);
     const event = new CustomEvent('counter:notify', {
       bubbles: true,
@@ -130,14 +122,14 @@ class Counter {
     });
 
     this.el.dispatchEvent(event);
-  }
+  };
 
-  handleReset() {
+  handleReset = () => {
     this.value = this.min;
     this.displayEl.textContent = this.min;
     this.btnDecEl.setAttribute('disabled', true);
     this.btnIncEl.removeAttribute('disabled');
-  }
+  };
 }
 
 factory(Counter);

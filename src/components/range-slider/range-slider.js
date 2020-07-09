@@ -19,13 +19,7 @@ class RangeSlider {
 
   init() {
     this.createSlider();
-
-    this.bindEventHandlers();
     this.attachEventHandlers();
-  }
-
-  bindEventHandlers() {
-    this.handleSliderUpdate = this.handleSliderUpdate.bind(this);
   }
 
   attachEventHandlers() {
@@ -51,10 +45,10 @@ class RangeSlider {
    * @param {array} positions Left offset of the handles
    */
   // eslint-disable-next-line no-unused-vars
-  handleSliderUpdate(values, handle, unencoded, tap, positions) {
+  handleSliderUpdate = (values, handle, unencoded, tap, positions) => {
     this.inputEl.value = JSON.stringify(this.slider.get());
     this.el.dispatchEvent(new CustomEvent('range-slider-update', { detail: this.slider.get() }));
-  }
+  };
 }
 
 factory(RangeSlider);

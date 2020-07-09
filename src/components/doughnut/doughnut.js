@@ -17,13 +17,7 @@ class Doughnut {
   }
 
   init() {
-    this.bindEventHandlers();
     this.attachEventHandlers();
-  }
-
-  bindEventHandlers() {
-    this.handleLabelHover = this.handleLabelHover.bind(this);
-    this.handleLabelBlur = this.handleLabelBlur.bind(this);
   }
 
   attachEventHandlers() {
@@ -33,13 +27,13 @@ class Doughnut {
     });
   }
 
-  handleLabelBlur() {
+  handleLabelBlur = () => {
     this.segmentEls.forEach(segment => segment.classList.remove('doughnut__segment_active'));
     this.labelEls.forEach(label => label.classList.remove('doughnut__label_active'));
     this.headerEl.textContent = this.total;
-  }
+  };
 
-  handleLabelHover(e) {
+  handleLabelHover = e => {
     const currentLabel = e.target;
     const { segmentIndex } = currentLabel.dataset;
     const numVotes = this.chartData[segmentIndex].value;
@@ -51,7 +45,7 @@ class Doughnut {
     activeSegment.classList.add('doughnut__segment_active');
     currentLabel.classList.add('doughnut__label_active');
     this.headerEl.textContent = numVotes;
-  }
+  };
 }
 
 factory(Doughnut);

@@ -14,21 +14,16 @@ class FilterPrice {
   }
 
   init() {
-    this.bindEventListeners();
     this.attachEventListeners();
-  }
-
-  bindEventListeners() {
-    this.handleSliderUpdate = this.handleSliderUpdate.bind(this);
   }
 
   attachEventListeners() {
     this.sliderEl.addEventListener('range-slider-update', e => this.handleSliderUpdate(e.detail));
   }
 
-  handleSliderUpdate(newPrice) {
+  handleSliderUpdate = newPrice => {
     this.resultEl.textContent = [].concat(newPrice).join(' - ');
-  }
+  };
 }
 
 factory(FilterPrice);

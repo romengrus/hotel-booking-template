@@ -18,15 +18,8 @@ class Rating {
   }
 
   init() {
-    this.bindEventHandlers();
     this.attachEventHandlers();
     this.updateDOM(this.value);
-  }
-
-  bindEventHandlers() {
-    this.onMouseMove = this.onMouseMove.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
-    this.onClick = this.onClick.bind(this);
   }
 
   attachEventHandlers() {
@@ -90,19 +83,19 @@ class Rating {
     return this.roundToNearestHalf((x / width) * numIcons);
   }
 
-  onMouseMove(e) {
+  onMouseMove = e => {
     this.updateDOM(this.valueFromMousePos(e.clientX));
-  }
+  };
 
-  onMouseLeave() {
+  onMouseLeave = () => {
     this.updateDOM(this.value);
-  }
+  };
 
-  onClick(e) {
+  onClick = e => {
     this.value = this.valueFromMousePos(e.clientX);
     this.updateDOM(this.value);
     this.dispatchVotedEvent();
-  }
+  };
 
   dispatchVotedEvent() {
     const event = new CustomEvent('rating:voted', {

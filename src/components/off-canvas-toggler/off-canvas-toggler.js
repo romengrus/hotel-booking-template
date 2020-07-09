@@ -13,23 +13,20 @@ class OffCanvasToggler {
   }
 
   init() {
-    this.bindEventHandlers();
     this.attachEventHandlers();
   }
 
-  bindEventHandlers() {
-    this.handleClick = debounce(this.handleClick.bind(this), 10);
-  }
-
   attachEventHandlers() {
-    this.el.addEventListener('click', this.handleClick, true);
+    this.el.addEventListener('click', this.handleClick);
   }
 
-  handleClick() {
+  // debounce is used because child elements can trigger click event
+  // (f.ex input inside label)
+  handleClick = debounce(() => {
     if (this.connectedWithEl) {
       this.connectedWithEl.dispatchEvent(new Event('off-canvas:toggle'));
     }
-  }
+  }, 10);
 }
 
 factory(OffCanvasToggler);

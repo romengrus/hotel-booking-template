@@ -14,13 +14,7 @@ class Menu {
   }
 
   init() {
-    this.bindEventListeners();
     this.attachEventHandlers();
-  }
-
-  bindEventListeners() {
-    this.showSubmenu = this.showSubmenu.bind(this);
-    this.hideSubmenu = this.hideSubmenu.bind(this);
   }
 
   attachEventHandlers() {
@@ -32,7 +26,7 @@ class Menu {
     });
   }
 
-  showSubmenu(e) {
+  showSubmenu = e => {
     const currentItem = e.currentTarget;
     const hasSubmenu = !!currentItem.querySelector([`[data-${this.id}-submenu]`]);
 
@@ -45,9 +39,9 @@ class Menu {
 
     // toggle the state of current sub menu
     currentItem.classList.add('menu__item_is-active');
-  }
+  };
 
-  hideSubmenu(e) {
+  hideSubmenu = e => {
     const currentItem = e.currentTarget;
 
     // toggle the state of current sub menu
@@ -58,7 +52,7 @@ class Menu {
       currentItem.classList.remove('menu__item_is-active');
       currentItem.classList.remove('menu__item_is-fading');
     }, 350);
-  }
+  };
 }
 
 factory(Menu);

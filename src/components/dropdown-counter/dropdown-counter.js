@@ -25,23 +25,10 @@ class DropdownCounter {
   }
 
   init() {
-    this.bindEventHandlers();
     this.attachEventHandlers();
 
     // populate model from initial counter values
     this.counterEls.forEach(c => c.dispatchEvent(new Event('counter:getValue')));
-  }
-
-  bindEventHandlers() {
-    this.updateModel = this.updateModel.bind(this);
-    this.handleValueAltClick = this.handleValueAltClick.bind(this);
-    this.handleFocusOut = this.handleFocusOut.bind(this);
-    this.handleCounterUpdate = this.handleCounterUpdate.bind(this);
-    this.handleResetClick = this.handleResetClick.bind(this);
-    this.handleOkClick = this.handleOkClick.bind(this);
-    this.toggleCounters = this.toggleCounters.bind(this);
-    this.showCounters = this.showCounters.bind(this);
-    this.hideCounters = this.hideCounters.bind(this);
   }
 
   attachEventHandlers() {
@@ -97,47 +84,47 @@ class DropdownCounter {
     }
   }
 
-  updateModel({ id, numValue, strValue, isSpecial }) {
+  updateModel = ({ id, numValue, strValue, isSpecial }) => {
     this.model.set(id, { numValue, strValue, isSpecial });
     this.updateDOM();
-  }
+  };
 
   showActionsPanel() {
     this.el.classList.add('dropdown-counter_visible-actions');
   }
 
-  showCounters() {
+  showCounters = () => {
     this.el.classList.remove('dropdown-counter_is-collapsed');
-  }
+  };
 
-  hideCounters() {
+  hideCounters = () => {
     this.el.classList.add('dropdown-counter_is-collapsed');
-  }
+  };
 
-  toggleCounters() {
+  toggleCounters = () => {
     this.el.classList.toggle('dropdown-counter_is-collapsed');
-  }
+  };
 
-  handleValueAltClick() {
+  handleValueAltClick = () => {
     this.toggleCounters();
-  }
+  };
 
-  handleFocusOut(e) {
+  handleFocusOut = e => {
     const isInside = this.el.contains(e.relatedTarget);
     if (not(isInside)) {
       this.hideCounters();
     }
-  }
+  };
 
-  handleCounterUpdate(e) {
+  handleCounterUpdate = e => {
     this.updateModel(e.detail);
 
     if (this.showActions) {
       this.showActionsPanel();
     }
-  }
+  };
 
-  handleResetClick(e) {
+  handleResetClick = e => {
     e.preventDefault();
     this.model = new Map();
 
@@ -145,12 +132,12 @@ class DropdownCounter {
     this.counterEls.forEach(c => c.dispatchEvent(new Event('counter:reset')));
 
     this.updateDOM();
-  }
+  };
 
-  handleOkClick(e) {
+  handleOkClick = e => {
     e.preventDefault();
     this.hideCounters();
-  }
+  };
 }
 
 factory(DropdownCounter);
